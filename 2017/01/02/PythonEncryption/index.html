@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>PythonEncryption | A dumping ground for information</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="Implementing Encryption using PythonRecently I was having a little trouble implementing encryption due to chunk size, and then getting proper padding so I figured I would share a simplified example us">
+<meta property="og:type" content="article">
+<meta property="og:title" content="PythonEncryption">
+<meta property="og:url" content="http://AnthonyLaiuppa.github.io/2017/01/02/PythonEncryption/index.html">
+<meta property="og:site_name" content="A dumping ground for information">
+<meta property="og:description" content="Implementing Encryption using PythonRecently I was having a little trouble implementing encryption due to chunk size, and then getting proper padding so I figured I would share a simplified example us">
+<meta property="og:image" content="http://AnthonyLaiuppa.github.io/2017/01/02/PythonEncryption/cat.png">
+<meta property="og:image" content="http://AnthonyLaiuppa.github.io/2017/01/02/PythonEncryption/encodedcat.png">
+<meta property="og:updated_time" content="2017-01-04T05:59:21.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="PythonEncryption">
+<meta name="twitter:description" content="Implementing Encryption using PythonRecently I was having a little trouble implementing encryption due to chunk size, and then getting proper padding so I figured I would share a simplified example us">
+<meta name="twitter:image" content="http://AnthonyLaiuppa.github.io/2017/01/02/PythonEncryption/cat.png">
+  
+    <link rel="alternate" href="/atom.xml" title="A dumping ground for information" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  <link rel="stylesheet" href="/css/style.css">
+  
+
+</head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">A dumping ground for information</a>
+      </h1>
+      
+        <h2 id="subtitle-wrap">
+          <a href="/" id="subtitle">What I have to put a subtitle too?</a>
+        </h2>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+          <a class="main-nav-link" href="/About">About</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" results="0" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://AnthonyLaiuppa.github.io"></form>
+      </div>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main"><article id="post-PythonEncryption" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2017/01/02/PythonEncryption/" class="article-date">
+  <time datetime="2017-01-03T03:56:46.000Z" itemprop="datePublished">2017-01-02</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/infosec/">infosec</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      PythonEncryption
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h3 id="Implementing-Encryption-using-Python"><a href="#Implementing-Encryption-using-Python" class="headerlink" title="Implementing Encryption using Python"></a>Implementing Encryption using Python</h3><p>Recently I was having a little trouble implementing encryption due to chunk size, and then getting proper padding so I figured I would share a simplified example using Python. Bonus steganography included because why not? </p>
+<hr>
+<a id="more"></a>
+<h3 id="Explanation-and-Definitions"><a href="#Explanation-and-Definitions" class="headerlink" title="Explanation and Definitions"></a>Explanation and Definitions</h3><p><code>Encryption: The process of encoding a message so that it can be read only by the sender and the intended recipient. Encryption systems often use two keys, a public key, available to anyone, and a private key that allows only the recipient to decode the message.</code></p>
+<p>In this example we will be using Public Key cryptography based off a generate 2048 bit RSA key, that is then wrapped in a PKCS1_OAEP cipher that is hashed with SHA-2, specifically SHA-256. Simply put RSA isnt considered entirely secure and neither is SHA1, so we are wrapping our RSA in PKCS1_OAEP and modifying the hash that PKCS1_OAEP will be using from SHA-1 to SHA-2 standards. Additionally I couldve taken things a step further and encrypted our key with DES using a passphrase however for demonstrative purposes the way we have things now shall suffice. Since I only have a limited understanding of cryptography Ill be the first to say my implementation may not be perfect or the strongest out there but for basic purposes it should get the job done. I had immense difficulty finding resources or sample code on encrypting large strings using RSA + PKCS1_OAEP + SHA256 from PyCrypto so it felt good to finally get something working. </p>
+<ul><br><li>Steganography - the practice of concealing messages or information within other nonsecret text or data.</li><br><li>RSA- “is the most widespread and used public key algorithm. Its security is based on the difficulty of factoring large integers. The algorithm has withstood attacks for 30 years, and it is therefore considered reasonably secure for new designs.” Source by dlitz.net, PyCrypto documentation</li><br><li>PKCS1_OAEP - Public Key Cryoptography Standard 1 - Optional Asymmetric Encryption Padding</li><br><li>SHA - Secure Hash Algorithm. A cryptographic hash function that is a mathmatical operation ran on digital data.</li><br></ul>
+
+<hr>
+<h3 id="Requirements"><a href="#Requirements" class="headerlink" title="Requirements"></a>Requirements</h3><p>In order to get our program running we will first need the help of two libraries. The two libraries that I had to install using pip were Stepic and Pycrypto. Stepic is what we will use for our steganography, and pycrypto will handle our encryption implementation</p>
+<hr>
+<h3 id="Generating-our-Keys"><a href="#Generating-our-Keys" class="headerlink" title="Generating our Keys"></a>Generating our Keys</h3><p>We are going to go ahead and generate our public and private RSA keys to be used for this project. Note its probably not best practice to dump them into a txt file lest someone happen upon them but for learning purposes it should be fine.<br><br></p>
+<p>2048 is considered secure by the documentation, and PEM will be our output format for readability purposes. This simple script dumps the keys into seperate text files so we can call them later on. Really it should be fairly self explanatory.</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line"><span class="comment">#!/usr/bin/env python </span></div><div class="line"><span class="keyword">from</span> Crypto.PublicKey <span class="keyword">import</span> RSA</div><div class="line">  </div><div class="line">key = RSA.generate(<span class="number">2048</span>, e=<span class="number">65537</span>)</div><div class="line">pub = key.publickey().exportKey(<span class="string">"PEM"</span>)</div><div class="line">priv = key.exportKey(<span class="string">"PEM"</span>)</div><div class="line">  </div><div class="line">target = open(<span class="string">"pubkey.txt"</span>, <span class="string">"w"</span>)</div><div class="line">target.write(pub)</div><div class="line">target.close()</div><div class="line">target = open(<span class="string">"privkey.txt"</span>, <span class="string">"w"</span>)</div><div class="line">target.write(priv)</div><div class="line">target.close()</div></pre></td></tr></table></figure>
+<hr>
+<h3 id="Encrypting-our-data"><a href="#Encrypting-our-data" class="headerlink" title="Encrypting our data"></a>Encrypting our data</h3><p>Heres where we really get to the important part, trying to implement some encryption. Now lets explain how we are going to do this.<br><br>First we create a new SHA256 hash; then we read in our pubkey.txt as key, next we import the public key using the RSA library, finally we wrap the RSA with the cipher PKCS1_OAEP and the SHA256 hash. The reason we do all this is because RSA by itself is not considered secure so we want to use PKCS1_OAEP to apply a cipher and pad it. The purpose of the SHA256 hash is that by default the pycrypto implementation of PKCS1_OAEP uses SHA1 as its hash, which is also considered insecure. Also note we could use our private key but lets not since we wont be sharing that one. Simply put, not only do we want encryption but we also want padding and a strong hash. Keep in mind, we can of course always implement strong encryption using bigger keys or a salted hash.<br><br>Then to create a dummy string I have declared a large block of As, Bs, Cs, and Ds and concatenated them together for a total length of 3000. Now if we were using just RSA we would be encrypting at a chunk size of 256 as thats our RSA modulus of 2048, however since we are using PKCS1_OAEP as our wrapper our chunk size is different. The documentation lays it out pretty simple, <code>Chunk Size = (RSA modulus - 2) -(2 * (hash digest size))</code>. A quick check for the hash digest size of SHA256 in the documentation yields 32 and in the end our chunk size will be 190. So we use our splitter function to break the string into chunks of size 190, then we encrypt those chunks.<br><br>Following this to reduce length and also obscure the underlying encryption we use the zlib library and base64 libraries to apply compression and encoding. So zlib.compress to compress our string and base64.b64encode to encode it. We dont need to do this but if youre going about this for your own use you may find it useful in making it a bit harder to discern how you went about implementing your encryption. Fantastic so at this point were ready to take our string and send it to whomever has the private key, but why stop there.<br><br>During all my research I saw a multitude of articles also discussing steganography, the act of hiding information in plain sight. So as an added bonus lets take our encryption a step further and throw it into a cat picture. Specifically this cat picture, I used a PNG as it is a lossless format and will retain our information. Stepic makes shoving our information trivial and you can find the annotated lines towards the end of the code.<br><br>Now that we have got a basic understanding of what we are implementing and why, heres the code.<br></p>
+
+<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div><div class="line">63</div><div class="line">64</div><div class="line">65</div><div class="line">66</div></pre></td><td class="code"><pre><div class="line"><span class="comment">#!/usr/bin/python</span></div><div class="line"></div><div class="line"><span class="keyword">from</span> Crypto.PublicKey <span class="keyword">import</span> RSA</div><div class="line"><span class="keyword">from</span> Crypto.Cipher <span class="keyword">import</span> PKCS1_OAEP</div><div class="line"><span class="keyword">from</span> Crypto.Hash <span class="keyword">import</span> SHA256</div><div class="line"><span class="keyword">import</span> base64</div><div class="line"><span class="keyword">import</span> zlib</div><div class="line"><span class="keyword">import</span> Image</div><div class="line"><span class="keyword">import</span> stepic</div><div class="line"></div><div class="line"></div><div class="line"><span class="comment">#Function to split key into chunks </span></div><div class="line"><span class="function"><span class="keyword">def</span> <span class="title">splitter</span><span class="params">(string, chunksize)</span>:</span></div><div class="line">   <span class="keyword">return</span> [string[i:i+chunksize] <span class="keyword">for</span> i <span class="keyword">in</span> range(<span class="number">0</span>, len(string), chunksize)]</div><div class="line"></div><div class="line"><span class="function"><span class="keyword">def</span> <span class="title">encrypter</span><span class="params">()</span>:</span></div><div class="line"></div><div class="line">   target = open(<span class="string">'pubkey.txt'</span>, <span class="string">'r'</span>)</div><div class="line">   key = target.read() <span class="comment">#read in PEM formatted key from file </span></div><div class="line">   target.close()</div><div class="line"></div><div class="line">   <span class="comment">#Create new SHA256 hash</span></div><div class="line">   h = SHA256.new()  </div><div class="line">   <span class="comment">#RSA 2048 bit wrapped with PKCS1 as recommended by documentation</span></div><div class="line">   <span class="comment"># Default SHA1 Hash is weak, replacing with SHA2 hash</span></div><div class="line">   rsakey = RSA.importKey(key)</div><div class="line">   rsakey = PKCS1_OAEP.new(rsakey, h)</div><div class="line">   </div><div class="line">   <span class="comment">#Construct a large string to practice encrypting</span></div><div class="line">   As = <span class="string">'A'</span> * <span class="number">750</span></div><div class="line">   Bs = <span class="string">'B'</span> * <span class="number">750</span></div><div class="line">   Cs = <span class="string">'C'</span> * <span class="number">750</span></div><div class="line">   Ds = <span class="string">'D'</span> * <span class="number">750</span></div><div class="line">   string = As + Bs + Cs + Ds </div><div class="line">   </div><div class="line">   <span class="comment">#Chunk size = (RSA modulus -2) -( 2 * (hash digest size))</span></div><div class="line">   <span class="comment">#In this case (256 -2 ) -( 2 * (32) )= 190</span></div><div class="line">   chunks = splitter(string, <span class="number">190</span>)</div><div class="line">   </div><div class="line">   encrypted = <span class="string">''</span> </div><div class="line"></div><div class="line">   <span class="keyword">for</span> chunk <span class="keyword">in</span> chunks:</div><div class="line">      encrypted += rsakey.encrypt(chunk)</div><div class="line"></div><div class="line">   <span class="comment">#Lets try compressing the encrypted string a little</span></div><div class="line">   encrypted = zlib.compress(encrypted)</div><div class="line"></div><div class="line">   <span class="comment">#Add some b64 encoding to sort of obfuscate our encryption</span></div><div class="line">   encrypted = base64.b64encode(encrypted)</div><div class="line">   target = open(<span class="string">'testrun.txt'</span>, <span class="string">'w'</span>)</div><div class="line">   output = target.write(encrypted)</div><div class="line">   target.close()</div><div class="line">   </div><div class="line">   <span class="keyword">print</span> <span class="string">'Encrypted String is of size:'</span> + str(len(encrypted)) + <span class="string">'\n'</span>  </div><div class="line"></div><div class="line">   <span class="comment">#Steganography, Hiding the encrypted text in plain sight using least significant bit</span></div><div class="line">   <span class="comment">#Image has to be png as it is lossless format. </span></div><div class="line">   im = Image.open(<span class="string">"cat.png"</span>)</div><div class="line">   im2 = stepic.encode(im, encrypted)</div><div class="line">   im2.save(<span class="string">'encodedcat.png'</span>)      </div><div class="line">   </div><div class="line"><span class="function"><span class="keyword">def</span> <span class="title">main</span><span class="params">()</span>:</span></div><div class="line">   encrypter()</div><div class="line"></div><div class="line"><span class="keyword">if</span> __name__ == <span class="string">'__main__'</span>:</div><div class="line">   main()</div></pre></td></tr></table></figure>
+<p>This is before we add our encryption, its a large 20.5mb picture so its a bit unwieldy for most regular uses. Sorry if the massive cat picture makes your browser lag a bit.</p>
+<img src="/2017/01/02/PythonEncryption/cat.png" alt="Cat picture before encryption" title="Cat picture before encryption">
+<p>Heres our final product. As our encryption came out at about 5747, the cat picture is now of size 21.1mb. This is achieved with a hardly noticable difference in our picture.<br><img src="/2017/01/02/PythonEncryption/encodedcat.png" alt="Cat picture after encryption" title="Cat picture after encryption"></p>
+<hr>
+<h3 id="Decrypting-our-payload"><a href="#Decrypting-our-payload" class="headerlink" title="Decrypting our payload"></a>Decrypting our payload</h3><p>Since weve laid out all of our groundwork for generating keys and encrypting, we ought to be able to fly through decrypting. Were going to open the picture using the stepic library again and decode it. Then we undo our base64 encoding and zlib compression. After that we split our string into chunks of 256, its not 190 I know but thats what the documentation says the PKCS1_OAEP.decrypt function takes for size and it works. After that we print our decrypted text and the length of it to verify we got everything back. I will drop the annotated code and output below.</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div></pre></td><td class="code"><pre><div class="line"><span class="comment">#!/usr/bin/python</span></div><div class="line"></div><div class="line"><span class="keyword">from</span> Crypto.PublicKey <span class="keyword">import</span> RSA</div><div class="line"><span class="keyword">from</span> Crypto.Cipher <span class="keyword">import</span> PKCS1_OAEP</div><div class="line"><span class="keyword">from</span> Crypto.Hash <span class="keyword">import</span> SHA256</div><div class="line"><span class="keyword">import</span> base64</div><div class="line"><span class="keyword">import</span> zlib</div><div class="line"><span class="keyword">import</span> Image</div><div class="line"><span class="keyword">import</span> stepic</div><div class="line"></div><div class="line"><span class="comment">#Split string into chunks </span></div><div class="line"><span class="function"><span class="keyword">def</span> <span class="title">splitter</span><span class="params">(string, chunksize)</span>:</span></div><div class="line">   <span class="keyword">return</span> [string[i:i+chunksize] <span class="keyword">for</span> i <span class="keyword">in</span> range(<span class="number">0</span>, len(string), chunksize)]</div><div class="line">   </div><div class="line"><span class="function"><span class="keyword">def</span> <span class="title">decryptor</span><span class="params">()</span>:</span></div><div class="line">   </div><div class="line">   target = open(<span class="string">'privkey.txt'</span>, <span class="string">'r'</span>)</div><div class="line">   key = target.read()</div><div class="line">   target.close()</div><div class="line">   </div><div class="line">   <span class="comment">#Create new SHA256 Hash</span></div><div class="line">   h = SHA256.new()</div><div class="line">   </div><div class="line">   <span class="comment">#RSA 2048 wrapped with PKCS1 as recommended by documentation </span></div><div class="line">   rsakey = RSA.importKey(key)</div><div class="line">   rsakey = PKCS1_OAEP.new(rsakey , h)</div><div class="line"></div><div class="line">   <span class="comment"># target = open('testrun.txt' , 'rb') - For reading encrypted string from file</span></div><div class="line">  </div><div class="line">   <span class="comment">#Open and decode Image to extract encrypted String </span></div><div class="line">   im = Image.open(<span class="string">'encodedcat.png'</span>)</div><div class="line">   encoded = stepic.decode(im)</div><div class="line">   encoded = encoded.decode()</div><div class="line">   <span class="comment"># encoded = target.read()</span></div><div class="line">   <span class="comment"># target.close()</span></div><div class="line">   </div><div class="line">   <span class="comment">#Undo B64 encoding on top of string</span></div><div class="line">   encrypted = base64.b64decode(encoded)</div><div class="line">   </div><div class="line">   <span class="comment">#Decompress string</span></div><div class="line">   encrypted = zlib.decompress(encrypted)</div><div class="line">   decrypted = <span class="string">''</span></div><div class="line">   <span class="comment">#Chunks must be RSA modulus size</span></div><div class="line">   chunks = splitter(encrypted, <span class="number">256</span>)   </div><div class="line">   </div><div class="line">   <span class="keyword">for</span> chunk <span class="keyword">in</span> chunks: </div><div class="line">      decrypted += rsakey.decrypt(chunk)   </div><div class="line">   </div><div class="line">   <span class="keyword">print</span> decrypted</div><div class="line">   <span class="keyword">print</span> len(decrypted)</div><div class="line"></div><div class="line"><span class="function"><span class="keyword">def</span> <span class="title">main</span><span class="params">()</span>:</span></div><div class="line">   decryptor()</div><div class="line">   </div><div class="line"><span class="keyword">if</span> __name__ == <span class="string">'__main__'</span>:</div><div class="line">   main()</div></pre></td></tr></table></figure>
+<p>If we run this program on our cat picture our final output comes out as: </p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div></pre></td><td class="code"><pre><div class="line">AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA</div><div class="line">AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA</div><div class="line">AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA</div><div class="line">AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA</div><div class="line">AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA</div><div class="line">AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA</div><div class="line">AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA</div><div class="line">AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA</div><div class="line">AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABBBBBB</div><div class="line">BBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBB</div><div class="line">BBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBB</div><div class="line">BBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBB</div><div class="line">BBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBB</div><div class="line">BBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBB</div><div class="line">BBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBB</div><div class="line">BBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBB</div><div class="line">BBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBB</div><div class="line">BBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBCCCCCCCCCCCC</div><div class="line">CCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCC</div><div class="line">CCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCC</div><div class="line">CCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCC</div><div class="line">CCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCC</div><div class="line">CCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCC</div><div class="line">CCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCC</div><div class="line">CCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCC</div><div class="line">CCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCC</div><div class="line">CCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCDDDDDDDDDDDDDDDDDD</div><div class="line">DDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDD</div><div class="line">DDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDD</div><div class="line">DDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDD</div><div class="line">DDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDD</div><div class="line">DDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDD</div><div class="line">DDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDD</div><div class="line">DDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDD</div><div class="line">DDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDD</div><div class="line">DDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDD</div><div class="line"></div><div class="line">3000</div></pre></td></tr></table></figure>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://AnthonyLaiuppa.github.io/2017/01/02/PythonEncryption/" data-id="cixik5ejv000rp3jx2n5ovbos" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/encryption/">encryption</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/infosec/">infosec</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/python/">python</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/steganography/">steganography</a></li></ul>
+
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2017/01/02/ObfuscatingPython/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          ObfuscatingPython
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2017/01/02/BinaryFun/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">BinaryFun</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/01/">January 2017</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2017/01/03/SANSHHC/">SANSHHC</a>
+          </li>
+        
+          <li>
+            <a href="/2017/01/02/ObfuscatingPython/">ObfuscatingPython</a>
+          </li>
+        
+          <li>
+            <a href="/2017/01/02/PythonEncryption/">PythonEncryption</a>
+          </li>
+        
+          <li>
+            <a href="/2017/01/02/BinaryFun/">BinaryFun</a>
+          </li>
+        
+          <li>
+            <a href="/2017/01/01/ProjectEuler/">ProjectEuler</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Categories</h3>
+    <div class="widget">
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/infosec/">infosec</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/programming/">programming</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/writeups/">writeups</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tags</h3>
+    <div class="widget">
+      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/android/">android</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/ctf/">ctf</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/encryption/">encryption</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/infosec/">infosec</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/kali/">kali</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/linux/">linux</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/obfuscation/">obfuscation</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/programming/">programming</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/projecteuler/">projecteuler</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/python/">python</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/re/">re</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/sans/">sans</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/steganography/">steganography</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tag Cloud</h3>
+    <div class="widget tagcloud">
+      <a href="/tags/android/" style="font-size: 10px;">android</a> <a href="/tags/ctf/" style="font-size: 10px;">ctf</a> <a href="/tags/encryption/" style="font-size: 15px;">encryption</a> <a href="/tags/infosec/" style="font-size: 20px;">infosec</a> <a href="/tags/kali/" style="font-size: 10px;">kali</a> <a href="/tags/linux/" style="font-size: 10px;">linux</a> <a href="/tags/obfuscation/" style="font-size: 10px;">obfuscation</a> <a href="/tags/programming/" style="font-size: 10px;">programming</a> <a href="/tags/projecteuler/" style="font-size: 10px;">projecteuler</a> <a href="/tags/python/" style="font-size: 20px;">python</a> <a href="/tags/re/" style="font-size: 15px;">re</a> <a href="/tags/sans/" style="font-size: 10px;">sans</a> <a href="/tags/steganography/" style="font-size: 10px;">steganography</a>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2017 Anthony Laiuppa<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+    <a href="/About" class="mobile-nav-link">About</a>
+  
+</nav>
+    
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  <script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="/js/script.js"></script>
+
+  </div>
+</body>
+</html>

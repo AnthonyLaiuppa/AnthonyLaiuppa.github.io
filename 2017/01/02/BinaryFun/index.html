@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>BinaryFun | A dumping ground for information</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="Binary Fun: With basic binary file analysis
+A little bit ago I decided CTFs looked like alot of fun and that I want to get involved. At least for me it was a little daunting picking where to start. S">
+<meta property="og:type" content="article">
+<meta property="og:title" content="BinaryFun">
+<meta property="og:url" content="http://AnthonyLaiuppa.github.io/2017/01/02/BinaryFun/index.html">
+<meta property="og:site_name" content="A dumping ground for information">
+<meta property="og:description" content="Binary Fun: With basic binary file analysis
+A little bit ago I decided CTFs looked like alot of fun and that I want to get involved. At least for me it was a little daunting picking where to start. S">
+<meta property="og:updated_time" content="2017-01-03T07:04:21.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="BinaryFun">
+<meta name="twitter:description" content="Binary Fun: With basic binary file analysis
+A little bit ago I decided CTFs looked like alot of fun and that I want to get involved. At least for me it was a little daunting picking where to start. S">
+  
+    <link rel="alternate" href="/atom.xml" title="A dumping ground for information" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  <link rel="stylesheet" href="/css/style.css">
+  
+
+</head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">A dumping ground for information</a>
+      </h1>
+      
+        <h2 id="subtitle-wrap">
+          <a href="/" id="subtitle">What I have to put a subtitle too?</a>
+        </h2>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+          <a class="main-nav-link" href="/About">About</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" results="0" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://AnthonyLaiuppa.github.io"></form>
+      </div>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main"><article id="post-BinaryFun" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2017/01/02/BinaryFun/" class="article-date">
+  <time datetime="2017-01-03T02:55:29.000Z" itemprop="datePublished">2017-01-02</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/infosec/">infosec</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      BinaryFun
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <blockquote>
+<h1 id="Binary-Fun-With-basic-binary-file-analysis"><a href="#Binary-Fun-With-basic-binary-file-analysis" class="headerlink" title="Binary Fun: With basic binary file analysis"></a>Binary Fun: With basic binary file analysis</h1><blockquote>
+<p>A little bit ago I decided CTFs looked like alot of fun and that I want to get involved. At least for me it was a little daunting picking where to start. Some people would start with things they are familiar with but I thought Reverse Engineering sounded cool so I went with that. I got a small binary made by a friend, intended to be similar to a basic reversing challenge, to start with. </p>
+</blockquote>
+</blockquote>
+<a id="more"></a> 
+<h2 id="First-steps"><a href="#First-steps" class="headerlink" title="First steps"></a>First steps</h2><p>The file is titled pwd2 and we can run a couple of quick bash commands to see if we can find any useful information. I went ahead and spun up a fresh Ubuntu VM for obvious reasons. Of course lets run it first and see what it wants. </p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">user@ubuntu:~$./pwd2</div><div class="line">Please supply 3 digit passcode</div><div class="line">222</div><div class="line">Nope</div></pre></td></tr></table></figure>
+<p>The next thing to do would be to run the file command and see if we can grab any other basic information. </p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">user@ubuntu:~$file pwd2</div><div class="line">ELF 64-bit LSB  executable, x86-64, version 1 (SYSV), dynamically linked (uses shared libs), for GNU/Linux 2.6.24, BuildID&lt;br /&gt;</div><div class="line">[sha1]=82ef1e7313ec65f084871b449de99df70ba27282, stripped</div></pre></td></tr></table></figure>
+<p>Alright so it is pretty apparent what it wants. At the time I first received this I didnt know about String Format vulns otherwise I wouldve tried seeing if I couldve gained the password value that way. Additionally I didnt think to try integer underflow or overflow, but I did try a simple buffer overflow and can say that did not work. </p>
+<p>At least now Ive got some more ideas of things to look for. The one useful thing I did get from that file command was that debug symbols are stripped.</p>
+<p>Despite seeing that the binary is stripped, I am still going to try gdb on it. Ive used it before with varying degrees of success and still want to become better with it. </p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">user@ubuntu:~$ gdb ./pwd2</div><div class="line">(gdb) r</div><div class="line">Starting program: /home/user/ex1/pwd2 </div><div class="line">denied.</div><div class="line"></div><div class="line">[Inferior 1 (process 7311) exited with code 01]</div><div class="line">(gdb)</div></pre></td></tr></table></figure>
+<p>Having seemingly hit a wall here, I put a good bit of googling to work. Most on obfuscation of C binaries and things that would try to prevent debuggers. Fortunately I found an article on Securing iOS apps that mentioned a bit about how one may prevent a debugger using dlsym. Dlsym would be dynamically opening a library and calling some sort of function to prevent our debugger. Ubuntu has a nifty tool called ltrace, or library trace, that will call the program and run it until exit. All the while recording all of the dynamic library calls. </p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">user@ubuntu:~$ ltrace ./pwd2</div><div class="line">__libc_start_main(0x4007ed, 1, 0x7fff898547b8, 0x400850 &lt;unfinished ...&gt;</div><div class="line">dlopen(nil, 258)                                                                                         = 0x7f32fd4971c8</div><div class="line">dlsym(0x7f32fd4971c8, &quot;ptrace&quot;)                                                                          = 0x7f32fcd9c4f0</div><div class="line">puts(&quot;denied.\n&quot;denied.</div></pre></td></tr></table></figure>
+<p>So there we have it, ptrace is preventing our debugger. Which is neat new knowledge but Im going to exhaust all other low hanging fruit before I begin to look into what more I can do with that. </p>
+<p>Lets run strings, because sometimes, it really does work. </p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div></pre></td><td class="code"><pre><div class="line">user@ubuntu:~$ strings ./pwd2</div><div class="line">/lib64/ld-linux-x86-64.so.2</div><div class="line">libdl.so.2</div><div class="line">_ITM_deregisterTMCloneTable</div><div class="line">__gmon_start__</div><div class="line">_Jv_RegisterClasses</div><div class="line">_ITM_registerTMCloneTable</div><div class="line">dlclose</div><div class="line">dlsym</div><div class="line">dlopen</div><div class="line">libc.so.6</div><div class="line">exit</div><div class="line">__isoc99_scanf</div><div class="line">puts</div><div class="line">__libc_start_main</div><div class="line">GLIBC_2.2.5</div><div class="line">GLIBC_2.7</div><div class="line">UH-h</div><div class="line">UH-h</div><div class="line">=1	 </div><div class="line">[]A\A]A^A_</div><div class="line">ptrace</div><div class="line">denied.</div><div class="line">Please supply 3 digit passcode</div><div class="line">Nope</div><div class="line">Win.</div><div class="line">;*3$</div></pre></td></tr></table></figure>
+<p>It was unlikely that an int would be stored as a string but it only takes quick moment to verify. </p>
+<p>A big part of learning reverse engineering has been attemping to become comfortable with assembly. I did have to learn and even write some in college so I have a slight heading on where to start. I figure we can objdump the binary to a file and grep through the assembly looking for a cmp instruction.<br>Looking at the cmp instruction and the surrodning instructions could give away the spot where the conditional is checking for the passcode. Of course since the binary is stripped, it is going to be quite the ridiculous garbled output. </p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div></pre></td><td class="code"><pre><div class="line">520   4007ed:   55                      push   %rbp</div><div class="line">521   4007ee:   48 89 e5                mov    %rsp,%rbp</div><div class="line">522   4007f1:   48 83 ec 20             sub    $0x20,%rsp</div><div class="line">523   4007f5:   89 7d ec                mov    %edi,-0x14(%rbp)</div><div class="line">524   4007f8:   b8 00 00 00 00          mov    $0x0,%eax</div><div class="line">525   4007fd:   e8 7b ff ff ff          callq  40077d &lt;dlsym@plt+0xfd&gt;</div><div class="line">526   400802:   bf e8 08 40 00          mov    $0x4008e8,%edi</div><div class="line">527   400807:   e8 04 fe ff ff          callq  400610 &lt;puts@plt&gt;</div><div class="line">528   40080c:   48 8d 45 fc             lea    -0x4(%rbp),%rax</div><div class="line">529   400810:   48 89 c6                mov    %rax,%rsi</div><div class="line">530   400813:   bf 07 09 40 00          mov    $0x400907,%edi</div><div class="line">531   400818:   b8 00 00 00 00          mov    $0x0,%eax</div><div class="line">532   40081d:   e8 3e fe ff ff          callq  400660 &lt;__isoc99_scanf@plt&gt;</div><div class="line">533   400822:   8b 45 fc                mov    -0x4(%rbp),%eax</div><div class="line">534   400825:   3d 8f 01 00 00          cmp    $0x18f,%eax</div><div class="line">535   40082a:   74 11                   je     40083d &lt;dlsym@plt+0x1bd&gt;</div><div class="line">536   40082c:   bf 0a 09 40 00          mov    $0x40090a,%edi</div><div class="line">537   400831:   e8 da fd ff ff          callq  400610 &lt;puts@plt&gt;</div><div class="line">538   400836:   b8 00 00 00 00          mov    $0x0,%eax</div><div class="line">539   40083b:   eb 0f                   jmp    40084c &lt;dlsym@plt+0x1cc&gt;</div><div class="line">540   40083d:   bf 0f 09 40 00          mov    $0x40090f,%edi</div><div class="line">541   400842:   e8 c9 fd ff ff          callq  400610 &lt;puts@plt&gt;</div><div class="line">542   400847:   b8 00 00 00 00          mov    $0x0,%eax&lt;/</div></pre></td></tr></table></figure>
+<p>The assembly code was quite massive with over 1033 lines but I managed to ferret out the above block as one warranting closer examination. Simply because puts and scanf caught my eye. Looking two below the scanf(532) we have cmp at 534. The first value 0x18f is compared against whatever is at %eax. 533 is a mov that takes our value and pushes it to %eax so we can conclude our value at %eax is compared against 0x18f. A quick hex to base 10 conversion reveals 0x18f to be 399. Lets give it a try.</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">user@ubuntu:~$ ./pwd2</div><div class="line">Please supply 3 digit passcode</div><div class="line">399</div><div class="line">Win.</div></pre></td></tr></table></figure>
+<p>It worked but Im quite fortunate in the fact that puts and scanf werent also put under dlsym as that wouldve made it a good bit harder to identify. Additionally Im fortunate in that the passcode was stored simply and not obfuscated any further. It was a fun challenge and Im looking forward to doing more of these</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://AnthonyLaiuppa.github.io/2017/01/02/BinaryFun/" data-id="cixik5ejd0001p3jxc7ezaefq" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/encryption/">encryption</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/infosec/">infosec</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/python/">python</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/re/">re</a></li></ul>
+
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2017/01/02/PythonEncryption/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          PythonEncryption
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2017/01/01/ProjectEuler/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">ProjectEuler</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/01/">January 2017</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2017/01/03/SANSHHC/">SANSHHC</a>
+          </li>
+        
+          <li>
+            <a href="/2017/01/02/ObfuscatingPython/">ObfuscatingPython</a>
+          </li>
+        
+          <li>
+            <a href="/2017/01/02/PythonEncryption/">PythonEncryption</a>
+          </li>
+        
+          <li>
+            <a href="/2017/01/02/BinaryFun/">BinaryFun</a>
+          </li>
+        
+          <li>
+            <a href="/2017/01/01/ProjectEuler/">ProjectEuler</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Categories</h3>
+    <div class="widget">
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/infosec/">infosec</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/programming/">programming</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/writeups/">writeups</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tags</h3>
+    <div class="widget">
+      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/android/">android</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/ctf/">ctf</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/encryption/">encryption</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/infosec/">infosec</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/kali/">kali</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/linux/">linux</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/obfuscation/">obfuscation</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/programming/">programming</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/projecteuler/">projecteuler</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/python/">python</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/re/">re</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/sans/">sans</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/steganography/">steganography</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tag Cloud</h3>
+    <div class="widget tagcloud">
+      <a href="/tags/android/" style="font-size: 10px;">android</a> <a href="/tags/ctf/" style="font-size: 10px;">ctf</a> <a href="/tags/encryption/" style="font-size: 15px;">encryption</a> <a href="/tags/infosec/" style="font-size: 20px;">infosec</a> <a href="/tags/kali/" style="font-size: 10px;">kali</a> <a href="/tags/linux/" style="font-size: 10px;">linux</a> <a href="/tags/obfuscation/" style="font-size: 10px;">obfuscation</a> <a href="/tags/programming/" style="font-size: 10px;">programming</a> <a href="/tags/projecteuler/" style="font-size: 10px;">projecteuler</a> <a href="/tags/python/" style="font-size: 20px;">python</a> <a href="/tags/re/" style="font-size: 15px;">re</a> <a href="/tags/sans/" style="font-size: 10px;">sans</a> <a href="/tags/steganography/" style="font-size: 10px;">steganography</a>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2017 Anthony Laiuppa<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+    <a href="/About" class="mobile-nav-link">About</a>
+  
+</nav>
+    
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  <script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="/js/script.js"></script>
+
+  </div>
+</body>
+</html>

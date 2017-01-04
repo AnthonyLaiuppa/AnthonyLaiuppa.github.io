@@ -1,0 +1,317 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>SANSHHC | A dumping ground for information</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="Continuing with my efforts of becoming better at CTFs I decided to participate in the SANS Holiday Hack Challenge. It is a pretty awesome challenge with a lovely pixelated game accompanying the task">
+<meta property="og:type" content="article">
+<meta property="og:title" content="SANSHHC">
+<meta property="og:url" content="http://AnthonyLaiuppa.github.io/2017/01/03/SANSHHC/index.html">
+<meta property="og:site_name" content="A dumping ground for information">
+<meta property="og:description" content="Continuing with my efforts of becoming better at CTFs I decided to participate in the SANS Holiday Hack Challenge. It is a pretty awesome challenge with a lovely pixelated game accompanying the task">
+<meta property="og:image" content="http://AnthonyLaiuppa.github.io/2017/01/03/SANSHHC/businesscard.png">
+<meta property="og:image" content="http://AnthonyLaiuppa.github.io/2017/01/03/SANSHHC/santatweets.png">
+<meta property="og:image" content="http://AnthonyLaiuppa.github.io/2017/01/03/SANSHHC/results.png">
+<meta property="og:image" content="http://AnthonyLaiuppa.github.io/2017/01/03/SANSHHC/santasdesk.jpg">
+<meta property="og:image" content="http://AnthonyLaiuppa.github.io/2017/01/03/SANSHHC/passwordtoapk.png">
+<meta property="og:image" content="http://AnthonyLaiuppa.github.io/2017/01/03/SANSHHC/tools.png">
+<meta property="og:image" content="http://AnthonyLaiuppa.github.io/2017/01/03/SANSHHC/apktool.png">
+<meta property="og:image" content="http://AnthonyLaiuppa.github.io/2017/01/03/SANSHHC/dex2jar.png">
+<meta property="og:image" content="http://AnthonyLaiuppa.github.io/2017/01/03/SANSHHC/foundcreds.png">
+<meta property="og:image" content="http://AnthonyLaiuppa.github.io/2017/01/03/SANSHHC/audio.png">
+<meta property="og:image" content="http://AnthonyLaiuppa.github.io/2017/01/03/SANSHHC/offset.png">
+<meta property="og:image" content="http://AnthonyLaiuppa.github.io/2017/01/03/SANSHHC/filesystem.png">
+<meta property="og:image" content="http://AnthonyLaiuppa.github.io/2017/01/03/SANSHHC/shadow.png">
+<meta property="og:image" content="http://AnthonyLaiuppa.github.io/2017/01/03/SANSHHC/johncrackedpwd.png">
+<meta property="og:updated_time" content="2017-01-03T22:53:36.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="SANSHHC">
+<meta name="twitter:description" content="Continuing with my efforts of becoming better at CTFs I decided to participate in the SANS Holiday Hack Challenge. It is a pretty awesome challenge with a lovely pixelated game accompanying the task">
+<meta name="twitter:image" content="http://AnthonyLaiuppa.github.io/2017/01/03/SANSHHC/businesscard.png">
+  
+    <link rel="alternate" href="/atom.xml" title="A dumping ground for information" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  <link rel="stylesheet" href="/css/style.css">
+  
+
+</head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">A dumping ground for information</a>
+      </h1>
+      
+        <h2 id="subtitle-wrap">
+          <a href="/" id="subtitle">What I have to put a subtitle too?</a>
+        </h2>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+          <a class="main-nav-link" href="/About">About</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" results="0" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://AnthonyLaiuppa.github.io"></form>
+      </div>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main"><article id="post-SANSHHC" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2017/01/03/SANSHHC/" class="article-date">
+  <time datetime="2017-01-03T12:56:45.000Z" itemprop="datePublished">2017-01-03</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/writeups/">writeups</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      SANSHHC
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <blockquote>
+<blockquote>
+<p>Continuing with my efforts of becoming better at CTFs I decided to participate in the SANS Holiday Hack Challenge. It is a pretty awesome challenge with a lovely pixelated game accompanying the tasks. It takes place in the North Pole and the gist of it is Santa is missing. The elfs were all kinds of helpful providing articles related to some of the tasks. I learned alot about some neat topics that I had little experience with, such a Android application Reverse Engineering and Password Cracking. </p>
+</blockquote>
+</blockquote>
+<hr>
+<a id="more"></a> 
+<p>I wasnt really sure how to go about doing this writeup since there is alot of information, so I just took alot of screenshots. Really alot of the first few tasks were a breeze thanks to the writeups on SANS website that the elfs were so kind as to direct me to. </p>
+<h3 id="Task-1"><a href="#Task-1" class="headerlink" title="Task 1"></a>Task 1</h3><p>Lets take a look at task one. </p>
+<p>1) What is the secret message in Santas tweets?<br>2) What is inside the ZIP file distributed by Santas team?</p>
+<p>Well to start with lets spin up the game and hop in. We are greeted with a scene involving 2 NPCs that explain Santa is missing, as well as his business card. </p>
+<img src="/2017/01/03/SANSHHC/businesscard.png" alt="Santas Business Card" title="Santas Business Card">
+<p>Pretty easy to see what we need to do. Lets start with Twitter first. This task was actually a bit of a pain because I do not have a Twitter or IG so viewing the content required making them. </p>
+<img src="/2017/01/03/SANSHHC/santatweets.png" alt="Santas Tweets" title="Santas Tweets">
+<p>We can see Santas tweets look a little cryptic, and after scrolling through them a pattern seems apparent. From here I thought web scraping would be something fun to try, so I cobbled together a script to append all of Santas tweets together. I know the code could look better but I only needed this to work once so I didnt put alot of effort into it. The Tweepy library really came in handy here to access Twitters API. </p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">import</span> tweepy</div><div class="line"></div><div class="line">cons_token = <span class="string">''</span></div><div class="line">cons_secret = <span class="string">''</span></div><div class="line">callback_url = <span class="string">'http://twitter.com'</span></div><div class="line">access_token = <span class="string">''</span></div><div class="line">access_secret = <span class="string">''</span></div><div class="line">screen_name = <span class="string">'santawclaus'</span></div><div class="line"></div><div class="line"><span class="comment">#self explanatory auth</span></div><div class="line">auth = tweepy.OAuthHandler(cons_token, cons_secret)</div><div class="line">auth.set_access_token(access_token, access_secret)</div><div class="line">api = tweepy.API(auth)</div><div class="line"></div><div class="line">target = open(<span class="string">"output.txt"</span>, <span class="string">'w'</span>)</div><div class="line"><span class="comment"># initialize a list to hold all the tweepy Tweets</span></div><div class="line">alltweets = []</div><div class="line"><span class="comment"># make initial request for most recent tweets(200 is the maximum allowed count)</span></div><div class="line">new_tweets = api.user_timeline(screen_name=screen_name, count=<span class="number">200</span>)</div><div class="line"></div><div class="line"><span class="comment"># save most recent tweets</span></div><div class="line">alltweets.extend(new_tweets)</div><div class="line"></div><div class="line"><span class="comment"># save the id of the oldest tweet less one</span></div><div class="line">oldest = alltweets[<span class="number">-1</span>].id - <span class="number">1</span></div><div class="line"></div><div class="line"><span class="comment"># keep grabbing tweets until there are no tweets left to grab</span></div><div class="line"><span class="keyword">while</span> len(new_tweets) &gt; <span class="number">0</span>:</div><div class="line">    <span class="keyword">print</span> <span class="string">"getting tweets before %s"</span> % (oldest)</div><div class="line"></div><div class="line">    <span class="comment"># this line prevents duplicates using the ID</span></div><div class="line">    new_tweets = api.user_timeline(screen_name=screen_name, count=<span class="number">200</span>, max_id=oldest)</div><div class="line">    <span class="comment"># save most recent tweets</span></div><div class="line">    alltweets.extend(new_tweets)</div><div class="line"></div><div class="line">    <span class="comment"># update the id of the oldest tweet less one</span></div><div class="line">    oldest = alltweets[<span class="number">-1</span>].id - <span class="number">1</span></div><div class="line"></div><div class="line">    <span class="keyword">print</span> <span class="string">"...%s tweets downloaded so far"</span> % (len(alltweets))</div><div class="line"></div><div class="line"></div><div class="line"><span class="comment"># for tweet in alltweets:</span></div><div class="line"><span class="comment">#   target.write('\n'.join(str(tweet)))</span></div><div class="line"></div><div class="line">target.write(<span class="string">'\n'</span>.join([tweet.text.replace(<span class="string">'\n'</span>, <span class="string">' '</span>) <span class="keyword">for</span> tweet <span class="keyword">in</span> alltweets]))</div><div class="line"><span class="comment"># target.write('\n'.join([str(tweet.__dict__) for tweet in alltweets]))</span></div><div class="line"></div><div class="line">target.close()</div><div class="line"></div><div class="line"><span class="keyword">print</span> <span class="string">' task complete \n'</span></div></pre></td></tr></table></figure>
+<p>Its quick, dirty, and gets the job done. So lets look at the results and see what we get. </p>
+<img src="/2017/01/03/SANSHHC/results.png" alt="Results" title="Results">
+<p>Alright so we got the answer ‘Bug Bounty’ from the tweets, but what do we do with that? Well there was a second part to task 1, the zip. I think if we move on to the IG account we can figure out where to go.</p>
+<p>A quick look at the IG and we quickly find the topic of interest. A picture of Santas desk. This especially I found great because it hammers home a great point about opsec, never post pictures of your work desk or environment to social media. </p>
+<img src="/2017/01/03/SANSHHC/santasdesk.jpg" alt="Santas Desk" title="Santas Desk">
+<p>Look at the picture we can easily spot a filename in the web browser, and a url off to the right near an nmap reference. If we tack these two tidbits together and drop <code>www.northpolewonderland.com/SantaGram_v4.2.zip</code> into the browser we are rewarded with a zip file.</p>
+<img src="/2017/01/03/SANSHHC/passwordtoapk.png" alt="Password guarded Zip" title="Password guarded Zip"> 
+<p>I wonder what the password could be…. maybe… bug bounty? Dropping that in rewards us with the second answer to task 1. SantaGram_v4.2.apk. </p>
+<p>1) What is the secret message in Santas tweets? - Bug Bounty<br>2) What is in the zip file being distributed by Santas team? - SantaGram_v4.2.apk </p>
+<hr>
+<h3 id="Task-2"><a href="#Task-2" class="headerlink" title="Task 2"></a>Task 2</h3><p>Having cleared the hurdles of task 1, lets get started on task 2. </p>
+<p>3) What username and password are embedded in the apk file?<br>4) What is the name of the audio component (audio file) in the Santagram APK file?</p>
+<p>Alright so this one was definitely a journey for me because when you say ‘Reverse Engineering Android Applications’ it sounds kind of daunting. But thankfully my good pals youtube and google have my back. With about 30 minutes of googling and videos, as well as the article from the elf at the Northpole, I was able to get the application reversed. Heres how I went about it. </p>
+<p>1) The elf said an apk is just a zip file, so we rename it .zip and look at the contents. We see a binary manifest. Lets see if we can take care of that. </p>
+<p>I used Kali Linux for this part just because it came with many of the recommended tools. </p>
+<img src="/2017/01/03/SANSHHC/tools.png" alt="Kali Tools" title="Kali Tools">
+<p>So here we see apktool and dex2jar. Apktool is going to reverse that manifest and give us some smali files, and dex2jar is going to take the dex files and give us the class files so we can view them as if there were almost the original java code. </p>
+<img src="/2017/01/03/SANSHHC/apktool.png" alt="XML Manifest after APKTOOL" title="XML Manifest after APKTOOL">
+<p>Alright so we got the manifest reversed which gives some useful information from an oversight, but there is no sign of any embedded credentials. Lets look at what dex2jar gives us next. </p>
+<img src="/2017/01/03/SANSHHC/dex2jar.png" alt="Dex2Jar usage" title="Dex2Jar usage">
+<p>So here we can see dex2jar making our dex files readable. The elf at the Northpole suggested Jad-X but I went with JD-Gui. It took me a relatively short time to pull the git repo and launch the gui. With JD-Gui I was able to look at the class files that dex2jar converted. Thanks to a search bar at the top of the window I was able to just search for username and there we had our answer. </p>
+<img src="/2017/01/03/SANSHHC/foundcreds.png" alt="Found credentials" title="Found credentials"> 
+<p>And there we have it, the credentials we wanted. </p>
+<p>Additioanlly, I could have showed the exact commandline usage and syntax that I used on aptktool or dex2jar, but frankly its really easy to just do -help and figure it out. </p>
+<p>Alright so the last part of task 2 is the audio file. I figured the name would be stored somewhere in the apk but I didnt have a good approach to finding it. So I just ran strings on the file and grepped for things ending in .mp3. Fortunately it paid off. </p>
+<img src="/2017/01/03/SANSHHC/audio.png" alt="The resulting audio file" title="The resulting audio file">
+<p>In summary: </p>
+<p>3) What username and password are embedded in the APK file? <em> guest, busyreindeer78 </em><br>4) What is the name of the audible component (audio file) in the SantaGram APK file? <em>discombobulatedaudio1.mp3</em></p>
+<hr>
+<h3 id="Task-3"><a href="#Task-3" class="headerlink" title="Task 3"></a>Task 3</h3><p>I realize this writeup is getting a little long, fortunately as far as keeping it short goes, this is where I am about out of time. </p>
+<p>Part of the game has you searching the NorthPole for the five pieces to a <em> cranberry pi </em> </p>
+<p>Upon completing this search we are rewarded with a cranpi.img file. Which brings us to this next part. </p>
+<p>5) What is the password for the “cranpi” account on the Cranberry Pi system? </p>
+<p>Well fortunately one of the elfs provided a lovely article on mounting the .img file by determining the number of bytes to get to the start of the Linux file system. </p>
+<img src="/2017/01/03/SANSHHC/offset.png" alt="Determing our offset" title="Determing our offset">
+<p>Looks like were in without issue. </p>
+<img src="/2017/01/03/SANSHHC/filesystem.png" alt="File system mounted" title="File system mounted"> 
+<p>And of course we can verify this by cat /etc/shadow and making sure the cranpi account is there. </p>
+<img src="/2017/01/03/SANSHHC/shadow.png" alt="/etc/shadow" title="/etc/shadow"> 
+<p>So if youre unfamiliar with what we are looking at, it is the password hash of the cranpi account. Because storing passwords in plaintext is bad, I really shouldnt have to explain that. </p>
+<p>Knowing what to do next is simple because the elfs were helpful in pointing it out, but Im going to supply a brief summation. </p>
+<p>A hash is an algorithm that produces a unique value of the input passed through. It has many uses from verifying file integrity to storing passwords. Well by using this algorithm, our program John the Ripper, will enumerate through a list of passwords, hash them, and see if any hashes match the one we have. Since all hashs are meant to be unique, a match would mean we have the password. </p>
+<p>The elfs told us to use the rockyou.txt wordlist with john, so lets do just that. </p>
+<img src="/2017/01/03/SANSHHC/johncrackedpwd.png" alt="John the ripper at it again" title="John the ripper at it again"> 
+<p>Worth mentioning is that since I had both the shadow and passwd file I went ahead and ran unshadow on them. Unshadow combines the two files so John can use them. </p>
+<p>John made short work of that, only taking about ten minutes and that gives us the answer to our question. </p>
+<p>5) What is the password for the “cranpi” account on the Cranberry Pi system? <em> yummycookies</em> </p>
+<hr>
+<h3 id="Summary"><a href="#Summary" class="headerlink" title="Summary"></a>Summary</h3><p>As a result of this challenge I got to explore some concepts I havent gotten into before, such as reversing the android app. Additionally it was great in providing guidance to help me implement all of this new information. </p>
+<p>I got the opportunity to</p>
+<p>1) Find a use for my knowledge of web scraping<br>2) See a great example of why you shouldnt take pictures of your desk, opsec!<br>3) reverse an android app and point out why you shouldnt embed creds<br>4) run strings and actually get a useful result, thanks grep<br>5) learn how to mount a linux file system from a .img, great for forensics<br>6) work with john the ripper, i hadnt done this before either </p>
+<p>I had alot of fun with this challenge and I look forward to more future CTFs.</p>
+<p>I hope you enjoyed reading this, thanks for taking the time! </p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://AnthonyLaiuppa.github.io/2017/01/03/SANSHHC/" data-id="cixik5ek3000yp3jx4tzpgzud" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/android/">android</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/ctf/">ctf</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/infosec/">infosec</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/kali/">kali</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/linux/">linux</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/sans/">sans</a></li></ul>
+
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+  
+    <a href="/2017/01/02/ObfuscatingPython/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">ObfuscatingPython</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/01/">January 2017</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2017/01/03/SANSHHC/">SANSHHC</a>
+          </li>
+        
+          <li>
+            <a href="/2017/01/02/ObfuscatingPython/">ObfuscatingPython</a>
+          </li>
+        
+          <li>
+            <a href="/2017/01/02/PythonEncryption/">PythonEncryption</a>
+          </li>
+        
+          <li>
+            <a href="/2017/01/02/BinaryFun/">BinaryFun</a>
+          </li>
+        
+          <li>
+            <a href="/2017/01/01/ProjectEuler/">ProjectEuler</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Categories</h3>
+    <div class="widget">
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/infosec/">infosec</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/programming/">programming</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/writeups/">writeups</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tags</h3>
+    <div class="widget">
+      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/android/">android</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/ctf/">ctf</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/encryption/">encryption</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/infosec/">infosec</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/kali/">kali</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/linux/">linux</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/obfuscation/">obfuscation</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/programming/">programming</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/projecteuler/">projecteuler</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/python/">python</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/re/">re</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/sans/">sans</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/steganography/">steganography</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tag Cloud</h3>
+    <div class="widget tagcloud">
+      <a href="/tags/android/" style="font-size: 10px;">android</a> <a href="/tags/ctf/" style="font-size: 10px;">ctf</a> <a href="/tags/encryption/" style="font-size: 15px;">encryption</a> <a href="/tags/infosec/" style="font-size: 20px;">infosec</a> <a href="/tags/kali/" style="font-size: 10px;">kali</a> <a href="/tags/linux/" style="font-size: 10px;">linux</a> <a href="/tags/obfuscation/" style="font-size: 10px;">obfuscation</a> <a href="/tags/programming/" style="font-size: 10px;">programming</a> <a href="/tags/projecteuler/" style="font-size: 10px;">projecteuler</a> <a href="/tags/python/" style="font-size: 20px;">python</a> <a href="/tags/re/" style="font-size: 15px;">re</a> <a href="/tags/sans/" style="font-size: 10px;">sans</a> <a href="/tags/steganography/" style="font-size: 10px;">steganography</a>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2017 Anthony Laiuppa<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+    <a href="/About" class="mobile-nav-link">About</a>
+  
+</nav>
+    
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  <script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="/js/script.js"></script>
+
+  </div>
+</body>
+</html>
