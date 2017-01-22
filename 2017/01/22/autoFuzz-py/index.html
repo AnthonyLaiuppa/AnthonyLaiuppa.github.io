@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>autoFuzz.py | AnthonyLaiuppa.com</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="Ive been having alot of fun with URLs and strings with web apps lately, so I made a tool to play with URLs in search of potentially interesting findings. I figured I could pull a proxy up and let my t">
+<meta property="og:type" content="article">
+<meta property="og:title" content="autoFuzz.py">
+<meta property="og:url" content="http://anthonylaiuppa.com/2017/01/22/autoFuzz-py/index.html">
+<meta property="og:site_name" content="AnthonyLaiuppa.com">
+<meta property="og:description" content="Ive been having alot of fun with URLs and strings with web apps lately, so I made a tool to play with URLs in search of potentially interesting findings. I figured I could pull a proxy up and let my t">
+<meta property="og:image" content="http://anthonylaiuppa.com/2017/01/22/autoFuzz-py/autofuzzexample.png">
+<meta property="og:image" content="http://anthonylaiuppa.com/2017/01/22/autoFuzz-py/findingsexample.png">
+<meta property="og:updated_time" content="2017-01-22T21:58:31.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="autoFuzz.py">
+<meta name="twitter:description" content="Ive been having alot of fun with URLs and strings with web apps lately, so I made a tool to play with URLs in search of potentially interesting findings. I figured I could pull a proxy up and let my t">
+<meta name="twitter:image" content="http://anthonylaiuppa.com/2017/01/22/autoFuzz-py/autofuzzexample.png">
+  
+    <link rel="alternate" href="/atom.xml" title="AnthonyLaiuppa.com" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  <link rel="stylesheet" href="/css/style.css">
+  
+
+</head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">AnthonyLaiuppa.com</a>
+      </h1>
+      
+        <h2 id="subtitle-wrap">
+          <a href="/" id="subtitle">A repository of potentially interesting information</a>
+        </h2>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+          <a class="main-nav-link" href="/About">About</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" results="0" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://anthonylaiuppa.com"></form>
+      </div>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main"><article id="post-autoFuzz-py" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2017/01/22/autoFuzz-py/" class="article-date">
+  <time datetime="2017-01-22T18:30:03.000Z" itemprop="datePublished">2017-01-22</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/infosec/">infosec</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      autoFuzz.py
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>Ive been having alot of fun with URLs and strings with web apps lately, so I made a tool to play with URLs in search of potentially interesting findings. I figured I could pull a proxy up and let my tool run all sorts of weird strings by the web app and see how it responds. Hopefully we can find some sort of neat error. </p>
+<hr>
+<a id="more"></a> 
+<h3 id="Requirements"><a href="#Requirements" class="headerlink" title="Requirements"></a>Requirements</h3><p>I definitely couldnt do this without some help with the heavy lifting.<br>In order to run this you would need:</p>
+<ul>
+<li>BeautifulSoup</li>
+<li>requests</li>
+<li>selenium</li>
+</ul>
+<p>Which can all be easily gotten from pip. </p>
+<p>You will also need the ‘Big List of Naughty Strings’ which you can get directly from their github. </p>
+<p><em>GeckoDriver</em> : Youll need to download the geckodriver for selenium and move it to <code>/usr/bin/local/</code> in order to get the browser driver to work with selenium. </p>
+<hr>
+<h3 id="The-tool-at-a-glance"><a href="#The-tool-at-a-glance" class="headerlink" title="The tool at a glance"></a>The tool at a glance</h3><p>I havent had much time to use this extensively, I just finished getting it to a point where I felt comfortable pushing it to my git. However from what little use I have put it to, it was more than happy to furnish some mild results. </p>
+<img src="/2017/01/22/autoFuzz-py/autofuzzexample.png" alt="The tool at a glance" title="The tool at a glance"> 
+<p>Pretty simple, we can pass it command line arguments since just running all functionality will take a while. Also worth nothing is that as it runs the fuzzing of the URL, it will display the page to you so you can see if any error is spit out. In the future we will work on being able to pass lists of URLs and piping our output without the need for a browser displaying it.</p>
+<p>In the picture above we have ran the Bad 404 function, looking to see if we can inject text into a websites 404. </p>
+<p>Example usage : <code>python autoFuzz.py -bnf -u &quot;http://exampleusageurl.com/&quot;</code></p>
+<p>If you want to look at the code, I will be including it at the end of this. </p>
+<hr>
+<h3 id="Results-so-far"><a href="#Results-so-far" class="headerlink" title="Results so far"></a>Results so far</h3><p>So far I have only done limited testing on local instances since its not a wise idea to just throw weird strings at peoples web applications. </p>
+<img src="/2017/01/22/autoFuzz-py/findingsexample.png" alt="Results so far" title="Results so far">
+<p>So thanks to the kindness of a friend letting me run this against his site, this is what I was able to find with the tool. This is what a Bad 404 page will look like if found. </p>
+<p>I look forward to putting this to use and hopefully improving the code, as well as providing a better writeup with more findings. </p>
+<hr>
+<h3 id="The-code"><a href="#The-code" class="headerlink" title="The code"></a>The code</h3><p><em>Disclaimer</em> Do not run this on web applications that are not your own. </p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div><div class="line">63</div><div class="line">64</div><div class="line">65</div><div class="line">66</div><div class="line">67</div><div class="line">68</div><div class="line">69</div><div class="line">70</div><div class="line">71</div><div class="line">72</div><div class="line">73</div><div class="line">74</div><div class="line">75</div><div class="line">76</div><div class="line">77</div><div class="line">78</div><div class="line">79</div><div class="line">80</div><div class="line">81</div><div class="line">82</div><div class="line">83</div><div class="line">84</div><div class="line">85</div><div class="line">86</div><div class="line">87</div><div class="line">88</div><div class="line">89</div><div class="line">90</div><div class="line">91</div><div class="line">92</div><div class="line">93</div><div class="line">94</div><div class="line">95</div><div class="line">96</div><div class="line">97</div><div class="line">98</div><div class="line">99</div><div class="line">100</div><div class="line">101</div><div class="line">102</div><div class="line">103</div><div class="line">104</div><div class="line">105</div><div class="line">106</div><div class="line">107</div><div class="line">108</div><div class="line">109</div><div class="line">110</div><div class="line">111</div><div class="line">112</div><div class="line">113</div><div class="line">114</div><div class="line">115</div><div class="line">116</div><div class="line">117</div><div class="line">118</div><div class="line">119</div><div class="line">120</div><div class="line">121</div><div class="line">122</div><div class="line">123</div><div class="line">124</div><div class="line">125</div><div class="line">126</div><div class="line">127</div><div class="line">128</div><div class="line">129</div><div class="line">130</div></pre></td><td class="code"><pre><div class="line"><span class="comment">#!/bin/python</span></div><div class="line"><span class="keyword">import</span> re</div><div class="line"><span class="keyword">import</span> sys </div><div class="line"><span class="keyword">import</span> json</div><div class="line"><span class="keyword">import</span> time</div><div class="line"><span class="keyword">import</span> signal</div><div class="line"><span class="keyword">import</span> requests</div><div class="line"><span class="keyword">import</span> argparse</div><div class="line"><span class="keyword">from</span> pprint <span class="keyword">import</span> pprint</div><div class="line"><span class="keyword">from</span> bs4 <span class="keyword">import</span> BeautifulSoup</div><div class="line"><span class="keyword">from</span> selenium <span class="keyword">import</span> webdriver</div><div class="line"></div><div class="line"><span class="comment">#Terminal colors</span></div><div class="line">W = <span class="string">'\033[37m'</span>  <span class="comment"># gray</span></div><div class="line">R = <span class="string">'\033[31m'</span>  <span class="comment"># red</span></div><div class="line">G = <span class="string">'\033[32m'</span>  <span class="comment"># green</span></div><div class="line">B = <span class="string">'\033[34m'</span>  <span class="comment"># blue</span></div><div class="line">P = <span class="string">'\033[35m'</span>  <span class="comment"># purple</span></div><div class="line">C = <span class="string">'\033[36m'</span>  <span class="comment"># cyan</span></div><div class="line">T = <span class="string">'\033[93m'</span>  <span class="comment"># tan</span></div><div class="line"></div><div class="line"><span class="comment">#Set soup for parsing HTML response</span></div><div class="line"><span class="function"><span class="keyword">def</span> <span class="title">set_soup</span><span class="params">(html)</span>:</span></div><div class="line">	<span class="keyword">return</span> BeautifulSoup(html,<span class="string">"html.parser"</span> )</div><div class="line"></div><div class="line"><span class="comment">#Load Json</span></div><div class="line"><span class="function"><span class="keyword">def</span> <span class="title">get_blns</span><span class="params">()</span>:</span></div><div class="line">        <span class="keyword">with</span> open(<span class="string">'blns.json'</span>) <span class="keyword">as</span> data_file:</div><div class="line">                data = json.load(data_file)</div><div class="line">	<span class="keyword">return</span> data</div><div class="line"></div><div class="line"><span class="comment">#Load json</span></div><div class="line"><span class="function"><span class="keyword">def</span> <span class="title">get_b64blns</span><span class="params">()</span>:</span></div><div class="line">        <span class="keyword">with</span> open(<span class="string">'blns.base64.json'</span>) <span class="keyword">as</span> b64_file:</div><div class="line">                b64 = json.load(b64_file)</div><div class="line">	<span class="keyword">return</span> b64</div><div class="line"></div><div class="line"><span class="comment">#Parse out those args because running this all at once may not be desired</span></div><div class="line"><span class="function"><span class="keyword">def</span> <span class="title">parse_args</span><span class="params">()</span>:</span></div><div class="line">	parser = argparse.ArgumentParser()</div><div class="line">	parser.add_argument(<span class="string">"-b"</span>, <span class="string">"--blns"</span>, help=<span class="string">"Check URLS against the BLNS\n"</span>, action=<span class="string">"store_true"</span>)</div><div class="line">	parser.add_argument(<span class="string">"-c"</span>, <span class="string">"--check"</span>, help=<span class="string">"Check URLS against the Base64 BLNS\n"</span>, action=<span class="string">"store_true"</span>)</div><div class="line">	parser.add_argument(<span class="string">"-bf"</span>, <span class="string">"--badfof"</span>, help=<span class="string">"Check URLs for 404 Text Injection\n"</span>, action = <span class="string">"store_true"</span>)</div><div class="line">	parser.add_argument(<span class="string">"-u"</span>, <span class="string">"--url"</span>, type=str, help=<span class="string">"URL we want to fuzz\n"</span>)</div><div class="line">	<span class="keyword">return</span> parser.parse_args()</div><div class="line"></div><div class="line"><span class="comment">#Run various naughty strings against the URL and look for anomalous behavior</span></div><div class="line"><span class="function"><span class="keyword">def</span> <span class="title">blns</span><span class="params">(driver, og_url, data)</span>:</span></div><div class="line">	<span class="keyword">print</span> W + <span class="string">'[-]'</span> + B + <span class="string">'Checking BLNS against URL, this can take a while\n'</span></div><div class="line">	<span class="keyword">for</span> i <span class="keyword">in</span> range(<span class="number">0</span>, len(data)):</div><div class="line">		new_url = og_url + data[i]</div><div class="line">		<span class="keyword">print</span> W + <span class="string">'[*]'</span> + P + <span class="string">'Checking :'</span> + new_url</div><div class="line">		driver.get(new_url)</div><div class="line">		time.sleep(<span class="number">3</span>)</div><div class="line"></div><div class="line"><span class="comment">#Run various B64 strings against the URL and look for anomalous behavior</span></div><div class="line"><span class="function"><span class="keyword">def</span> <span class="title">b64_blns</span><span class="params">(driver, og_url, b64)</span>:</span></div><div class="line">	<span class="keyword">print</span> W + <span class="string">'[-]'</span> + B + <span class="string">'Checking BLNS B64 against URL, this can take a while\n'</span></div><div class="line">	<span class="keyword">for</span> i <span class="keyword">in</span> range(<span class="number">0</span>, len(b64)):</div><div class="line">		new_url = og_url + b64[i]</div><div class="line">		<span class="keyword">print</span> W + <span class="string">'[*]'</span> + B + <span class="string">'Checking :'</span> + new_url</div><div class="line">		driver.get(new_url)</div><div class="line">		time.sleep(<span class="number">3</span>)</div><div class="line"></div><div class="line"><span class="comment">#Checks if the 404 page is vulnerable to text injection</span></div><div class="line"><span class="function"><span class="keyword">def</span> <span class="title">check_bnf</span><span class="params">(driver, og_url)</span>:</span></div><div class="line">	<span class="keyword">print</span> W + <span class="string">'[-]'</span> + B + <span class="string">'Checking for 404 page vulnerable to text injection \n'</span></div><div class="line">	bnf = <span class="string">'/test/%2f../It%20has%20been%20changed%20by%20a%20new%20one%20https://www.Attacker.com%20so%20go%20to%20the%20new%20one%20since%20this%20one'</span></div><div class="line">	new_url = og_url + bnf</div><div class="line">	<span class="keyword">print</span> W + <span class="string">'[*]'</span> + T + <span class="string">'Checking :'</span> + new_url</div><div class="line">	</div><div class="line">	</div><div class="line">	response = requests.get(new_url)</div><div class="line">	html = str(response.text)</div><div class="line">	soup = set_soup(html)</div><div class="line">	</div><div class="line">	<span class="keyword">if</span> soup(text=re.compile(<span class="string">'Attacker.com'</span>)):</div><div class="line">		<span class="keyword">print</span> W + <span class="string">'[*]'</span> + R + <span class="string">'Positive result, displaying vulnerable page \n'</span></div><div class="line">		time.sleep(<span class="number">3</span>)</div><div class="line">		driver.get(new_url)</div><div class="line">		time.sleep(<span class="number">10</span>)</div><div class="line">	<span class="keyword">else</span>:</div><div class="line">		<span class="keyword">print</span> W + <span class="string">'[*]'</span> + C + <span class="string">'Not vulnerable \n'</span></div><div class="line">		time.sleep(<span class="number">10</span>)</div><div class="line">	</div><div class="line">	<span class="keyword">return</span> driver</div><div class="line"></div><div class="line"><span class="function"><span class="keyword">def</span> <span class="title">signal_handler</span><span class="params">(signal, frame )</span>:</span></div><div class="line">	<span class="keyword">print</span> W + <span class="string">'[-]'</span> + B + <span class="string">'Stopping webdriver \n'</span></div><div class="line">	driver.close()</div><div class="line">	exit(<span class="number">0</span>)</div><div class="line"></div><div class="line">signal.signal(signal.SIGINT, signal_handler)</div><div class="line"></div><div class="line"><span class="function"><span class="keyword">def</span> <span class="title">main</span><span class="params">(args)</span>:</span></div><div class="line">			</div><div class="line">	<span class="keyword">if</span> len(sys.argv) &lt;  <span class="number">2</span>:</div><div class="line">		<span class="keyword">print</span> W + <span class="string">'[-]'</span> + R + <span class="string">'Please provide args. -h for help. \n'</span></div><div class="line">		exit(<span class="number">0</span>)</div><div class="line"></div><div class="line">	og_url = args.url</div><div class="line"></div><div class="line">	<span class="keyword">print</span> og_url</div><div class="line">	driver = webdriver.Firefox()</div><div class="line"></div><div class="line">	<span class="comment">#Prevents malformed URL error in selenium</span></div><div class="line">	<span class="keyword">if</span> og_url[:<span class="number">4</span>] != <span class="string">'http'</span>:</div><div class="line">		og_url = <span class="string">'http://'</span>+ og_url</div><div class="line"></div><div class="line">	<span class="function"><span class="keyword">def</span> <span class="title">signal_handler</span><span class="params">(signal, frame)</span>:</span></div><div class="line">		<span class="keyword">print</span> W + <span class="string">'[-]'</span> + B + <span class="string">'Stopping webdriver\n'</span></div><div class="line">		driver.close()</div><div class="line">		exit(<span class="number">0</span>)</div><div class="line">        signal.signal(signal.SIGINT, signal_handler)</div><div class="line">	</div><div class="line">	data = get_blns()</div><div class="line">	b64 = get_b64blns()</div><div class="line">	</div><div class="line">	<span class="keyword">if</span> args.badfof:</div><div class="line">		check_bnf(driver, og_url)</div><div class="line">	<span class="keyword">if</span> args.blns:</div><div class="line">		blns(driver, og_url, data)</div><div class="line">	<span class="keyword">if</span> args.check:</div><div class="line">		b64_blns(driver, og_url, b64)</div><div class="line">	</div><div class="line">	driver.quit()</div><div class="line">	</div><div class="line"><span class="keyword">if</span> __name__ == <span class="string">'__main__'</span>:</div><div class="line">	args = parse_args()</div><div class="line">	main(args)</div></pre></td></tr></table></figure>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://anthonylaiuppa.com/2017/01/22/autoFuzz-py/" data-id="ciy9777gb001010jx18a84agr" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/beautifulsoup/">beautifulsoup</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/infosec/">infosec</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/python/">python</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/requests/">requests</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/selenium/">selenium</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/strings/">strings</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/webdev/">webdev</a></li></ul>
+
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+  
+    <a href="/2017/01/11/URLenumeration/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">URLenumeration</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/01/">January 2017</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2017/01/22/autoFuzz-py/">autoFuzz.py</a>
+          </li>
+        
+          <li>
+            <a href="/2017/01/11/URLenumeration/">URLenumeration</a>
+          </li>
+        
+          <li>
+            <a href="/2017/01/08/Migrating-to-Hexo/">Migrating to Hexo</a>
+          </li>
+        
+          <li>
+            <a href="/2017/01/03/SANSHHC/">SANSHHC</a>
+          </li>
+        
+          <li>
+            <a href="/2017/01/02/ObfuscatingPython/">ObfuscatingPython</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Categories</h3>
+    <div class="widget">
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/infosec/">infosec</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/programming/">programming</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/webdev/">webdev</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/writeups/">writeups</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tags</h3>
+    <div class="widget">
+      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/android/">android</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/beautifulsoup/">beautifulsoup</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/ctf/">ctf</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/encryption/">encryption</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/git/">git</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/hexo/">hexo</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/infosec/">infosec</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/kali/">kali</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/linux/">linux</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/obfuscation/">obfuscation</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/programming/">programming</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/projecteuler/">projecteuler</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/python/">python</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/re/">re</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/requests/">requests</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/sans/">sans</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/selenium/">selenium</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/steganography/">steganography</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/strings/">strings</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/ubuntu/">ubuntu</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/url-shortener/">url-shortener</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/webdev/">webdev</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tag Cloud</h3>
+    <div class="widget tagcloud">
+      <a href="/tags/android/" style="font-size: 10px;">android</a> <a href="/tags/beautifulsoup/" style="font-size: 10px;">beautifulsoup</a> <a href="/tags/ctf/" style="font-size: 10px;">ctf</a> <a href="/tags/encryption/" style="font-size: 15px;">encryption</a> <a href="/tags/git/" style="font-size: 10px;">git</a> <a href="/tags/hexo/" style="font-size: 10px;">hexo</a> <a href="/tags/infosec/" style="font-size: 20px;">infosec</a> <a href="/tags/kali/" style="font-size: 10px;">kali</a> <a href="/tags/linux/" style="font-size: 10px;">linux</a> <a href="/tags/obfuscation/" style="font-size: 10px;">obfuscation</a> <a href="/tags/programming/" style="font-size: 10px;">programming</a> <a href="/tags/projecteuler/" style="font-size: 10px;">projecteuler</a> <a href="/tags/python/" style="font-size: 20px;">python</a> <a href="/tags/re/" style="font-size: 15px;">re</a> <a href="/tags/requests/" style="font-size: 15px;">requests</a> <a href="/tags/sans/" style="font-size: 10px;">sans</a> <a href="/tags/selenium/" style="font-size: 10px;">selenium</a> <a href="/tags/steganography/" style="font-size: 10px;">steganography</a> <a href="/tags/strings/" style="font-size: 10px;">strings</a> <a href="/tags/ubuntu/" style="font-size: 10px;">ubuntu</a> <a href="/tags/url-shortener/" style="font-size: 10px;">url-shortener</a> <a href="/tags/webdev/" style="font-size: 10px;">webdev</a>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2017 Anthony Laiuppa<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+    <a href="/About" class="mobile-nav-link">About</a>
+  
+</nav>
+    
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  <script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="/js/script.js"></script>
+
+  </div>
+</body>
+</html>
