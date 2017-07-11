@@ -13,7 +13,7 @@
 <meta property="og:description" content="Slack is an effective group communication tool that Ive found myself using quite a bit recently. It simplifies communication greatly eliminating the need for multiple apps. With Slack Im able to inter">
 <meta property="og:image" content="http://anthonylaiuppa.com/2017/07/10/packtbot/soup.PNG">
 <meta property="og:image" content="http://anthonylaiuppa.com/2017/07/10/packtbot/packtbot.PNG">
-<meta property="og:updated_time" content="2017-07-11T04:57:31.000Z">
+<meta property="og:updated_time" content="2017-07-11T05:01:29.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="packtbot">
 <meta name="twitter:description" content="Slack is an effective group communication tool that Ive found myself using quite a bit recently. It simplifies communication greatly eliminating the need for multiple apps. With Slack Im able to inter">
@@ -106,7 +106,7 @@
 <p>This is a recipe that has been done over plenty of times, requests to grab the page, and then BeautifulSoup to parse our what information we want. </p>
 <p>So I threw open a python shell and just pulled the pages HTML and used BeautifulSoup to prettyprint(prettify) it, that way I could form an idea of where to go with this. </p>
 <img src="/2017/07/10/packtbot/soup.PNG" alt="First Snag" title="First Snag">
-<h4 id="403-Forbidden"><a href="#403-Forbidden" class="headerlink" title="403 - Forbidden"></a>403 - Forbidden</h4><p>Its common for sites to deploy some mechanisms to deter people from scraping their pages. Which is entirely fair since making alot of requests programmatically could potentially bog a site down. But in our case we only want 1 request every 24 hours. Selenium has always been my go to when scraping or test websites, especially if Im doing a more complicated process and want to see visually what is happening. In this case though since we are pulling just one page, so going headless is much more preferred. With the magic of PhantomJS and selenium we can emulate a browser, so on the site side they see the request as coming from a ‘browser’ and dont give us the 403. </p>
+<h4 id="403-Forbidden"><a href="#403-Forbidden" class="headerlink" title="403 - Forbidden"></a>403 - Forbidden</h4><p>Its common for sites to deploy some mechanisms to deter people from scraping their pages. Which is entirely fair since making alot of requests programmatically could potentially bog a site down. But in our case we only want 1 request every 24 hours. Selenium has always been my go to when scraping or testing websites, especially if Im doing a more complicated process and want to see visually what is happening. In this case though since we are pulling just one page, so going headless is much more preferred. With the magic of PhantomJS and selenium we can emulate a browser, so on the site side they see the request as coming from a ‘browser’ and dont give us the 403. </p>
 <p>Now I simply swapped out the Requests library for BS4 and reran the script. This time around it worked great! So now that we’re pulling clean HTML, its time to get to parsing. </p>
 <p>A little right click and inspect on the packt deal of the day page, revealed the title to be right here</p>
 <p><code>&lt;div class=&quot;dotd-title&quot;&gt;&lt;h2&gt;Our Title</code> </p>
