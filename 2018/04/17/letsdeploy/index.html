@@ -12,7 +12,7 @@
 <meta property="og:site_name" content="AnthonyLaiuppa.com">
 <meta property="og:description" content="About a month ago I got tired of browsing buying and selling subreddits for rare items, so I decided to automate it. It only took about 30 minutes to whip up a quick and clean Python script to monitor">
 <meta property="og:image" content="http://anthonylaiuppa.com/2018/04/17/letsdeploy/vars.png">
-<meta property="og:updated_time" content="2018-04-18T06:08:46.000Z">
+<meta property="og:updated_time" content="2018-04-18T06:11:54.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Lets Deploy, Getting started with docker container automation">
 <meta name="twitter:description" content="About a month ago I got tired of browsing buying and selling subreddits for rare items, so I decided to automate it. It only took about 30 minutes to whip up a quick and clean Python script to monitor">
@@ -119,39 +119,41 @@
 <p>1) Define the variables for the config.json by putting it in a vars file</p>
    <img src="/2018/04/17/letsdeploy/vars.png" alt="In a production environment we would use a ansible-vault and ecrypt these. %}
 <p>2) Define the template for config.json so it receives the variables it needs to run the code.</p>
-<p>   This is really just following Jinja2 Documentation on templating for JSON, nothing unusual. </p>
-   {% asset_img template.png Jinja2 is awesome if you arent already familiar with it you should check it out. %}
+<p>This is really just following Jinja2 Documentation on templating for JSON, nothing unusual. </p>
+{% asset_img template.png Jinja2 is awesome if you arent already familiar with it you should check it out. %}
 <p>3) Fill out our <code>tasks/main.yml</code> so Ansible can do everything we need to prepare the Container. </p>
-<p>   The two main pieces that ansible-container needs to run are our <code>tasks/main.yml</code> and our <code>container.yml</code><br>   The tasks dictate what is going in the container and how, and the <code>container.yml</code> lays down the base rules and what should be done with it. </p>
-<p>   Lets take a look at our folder structure and then well look at the tasks we want to run. </p>
-<p>   We can see where all the relevant files sit after ansible-init as well as what weve added in the way of groupvars/, our template/ and our cloned source code of the app we want to deploy.</p>
-   {% asset_img tree.png Most of all of those main.ymls are defaults from ansible-container init. %}
-<p>   To start what we seek to do is create a user on the system to run the code under. In production, ideally with least permission. </p>
-<p>   Copy our source over, install dependencies, remove the blank config from the repo clone, and then drop in our templated one. </p>
-<p>   From there our container.yml file tells docker that when it runs, it will to execute our run.py which in turns runs the flow describe earlier.</p>
-   {% asset_img tasks.png One also needs to configure container.yml but ours is still fairly similar to the documentation so its left out. %}
+<p>The two main pieces that ansible-container needs to run are our <code>tasks/main.yml</code> and our <code>container.yml</code></p>
+<p>The tasks dictate what is going in the container and how, and the <code>container.yml</code> lays down the base rules and what should be done with it. </p>
+<p>Lets take a look at our folder structure and then well look at the tasks we want to run. </p>
+<p>We can see where all the relevant files sit after ansible-init as well as what weve added in the way of groupvars/, our template/ and our cloned source code of the app we want to deploy.</p>
+{% asset_img tree.png Most of all of those main.ymls are defaults from ansible-container init. %}
+<p>To start what we seek to do is create a user on the system to run the code under. In production, ideally with least permission. </p>
+<p>Copy our source over, install dependencies, remove the blank config from the repo clone, and then drop in our templated one. </p>
+<p>From there our container.yml file tells docker that when it runs, it will to execute our run.py which in turns runs the flow describe earlier.</p>
+{% asset_img tasks.png One also needs to configure container.yml but ours is still fairly similar to the documentation so its left out. %}
 <p>4) Build and run our container</p>
-<p>   Pieces are in place, lets build it <code>ansible-container --vars-file group_vars/harbormaster.yml build --no-cache</code></p>
-   {% asset_img build.png %}
-<p>   As we can see our tasks executed cleanly, and our image is ready for use. Lets run it. <code>ansible-container run</code></p>
-   {% asset_img run.png Docker PS lets us see our image is actually running" "="" title="In a production environment we would use a ansible-vault and ecrypt these. %}
+<p>Pieces are in place, lets build it <code>ansible-container --vars-file group_vars/harbormaster.yml build --no-cache</code></p>
+{% asset_img build.png %}
+<p>As we can see our tasks executed cleanly, and our image is ready for use. Lets run it. <code>ansible-container run</code></p>
+{% asset_img run.png Docker PS lets us see our image is actually running" "="" title="In a production environment we would use a ansible-vault and ecrypt these. %}
 <p>2) Define the template for config.json so it receives the variables it needs to run the code.</p>
-<p>   This is really just following Jinja2 Documentation on templating for JSON, nothing unusual. </p>
-   {% asset_img template.png Jinja2 is awesome if you arent already familiar with it you should check it out. %}
+<p>This is really just following Jinja2 Documentation on templating for JSON, nothing unusual. </p>
+{% asset_img template.png Jinja2 is awesome if you arent already familiar with it you should check it out. %}
 <p>3) Fill out our <code>tasks/main.yml</code> so Ansible can do everything we need to prepare the Container. </p>
-<p>   The two main pieces that ansible-container needs to run are our <code>tasks/main.yml</code> and our <code>container.yml</code><br>   The tasks dictate what is going in the container and how, and the <code>container.yml</code> lays down the base rules and what should be done with it. </p>
-<p>   Lets take a look at our folder structure and then well look at the tasks we want to run. </p>
-<p>   We can see where all the relevant files sit after ansible-init as well as what weve added in the way of groupvars/, our template/ and our cloned source code of the app we want to deploy.</p>
-   {% asset_img tree.png Most of all of those main.ymls are defaults from ansible-container init. %}
-<p>   To start what we seek to do is create a user on the system to run the code under. In production, ideally with least permission. </p>
-<p>   Copy our source over, install dependencies, remove the blank config from the repo clone, and then drop in our templated one. </p>
-<p>   From there our container.yml file tells docker that when it runs, it will to execute our run.py which in turns runs the flow describe earlier.</p>
-   {% asset_img tasks.png One also needs to configure container.yml but ours is still fairly similar to the documentation so its left out. %}
+<p>The two main pieces that ansible-container needs to run are our <code>tasks/main.yml</code> and our <code>container.yml</code></p>
+<p>The tasks dictate what is going in the container and how, and the <code>container.yml</code> lays down the base rules and what should be done with it. </p>
+<p>Lets take a look at our folder structure and then well look at the tasks we want to run. </p>
+<p>We can see where all the relevant files sit after ansible-init as well as what weve added in the way of groupvars/, our template/ and our cloned source code of the app we want to deploy.</p>
+{% asset_img tree.png Most of all of those main.ymls are defaults from ansible-container init. %}
+<p>To start what we seek to do is create a user on the system to run the code under. In production, ideally with least permission. </p>
+<p>Copy our source over, install dependencies, remove the blank config from the repo clone, and then drop in our templated one. </p>
+<p>From there our container.yml file tells docker that when it runs, it will to execute our run.py which in turns runs the flow describe earlier.</p>
+{% asset_img tasks.png One also needs to configure container.yml but ours is still fairly similar to the documentation so its left out. %}
 <p>4) Build and run our container</p>
-<p>   Pieces are in place, lets build it <code>ansible-container --vars-file group_vars/harbormaster.yml build --no-cache</code></p>
-   {% asset_img build.png %}
-<p>   As we can see our tasks executed cleanly, and our image is ready for use. Lets run it. <code>ansible-container run</code></p>
-   {% asset_img run.png Docker PS lets us see our image is actually running">
+<p>Pieces are in place, lets build it <code>ansible-container --vars-file group_vars/harbormaster.yml build --no-cache</code></p>
+{% asset_img build.png %}
+<p>As we can see our tasks executed cleanly, and our image is ready for use. Lets run it. <code>ansible-container run</code></p>
+{% asset_img run.png Docker PS lets us see our image is actually running">
 <hr>
 <h3 id="Summary"><a href="#Summary" class="headerlink" title="Summary"></a>Summary</h3><p>So what we achieved here was an incredibly concise overview of how we got our code running in a docker container in an automated and manageable way.</p>
 <p>If we were deploying to a production environment we would tighten up some settings for security and user Kubernetes. </p>
