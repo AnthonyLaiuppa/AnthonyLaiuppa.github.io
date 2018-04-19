@@ -21,7 +21,7 @@ A m">
 <meta property="og:image" content="http://anthonylaiuppa.com/2018/04/17/letsdeploy/run.png">
 <meta property="og:image" content="http://anthonylaiuppa.com/2018/04/17/letsdeploy/results.png">
 <meta property="og:image" content="http://anthonylaiuppa.com/2018/04/17/letsdeploy/key.jpg">
-<meta property="og:updated_time" content="2018-04-19T01:38:33.000Z">
+<meta property="og:updated_time" content="2018-04-19T01:53:49.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Lets Deploy, Getting started with docker container automation">
 <meta name="twitter:description" content="Writing code is fun, but what do you do when you get it working? Cron it on your computer and leave it on? You probably want to deploy it. Traditionally to a server, or maybe even a raspberry pi. 
@@ -127,13 +127,10 @@ A m">
 <p>A container is essentially a stripped down virtual environment sitting ontop of the host kernel, we need to prepare it a little.</p>
 <p>Pull the harbormaster repo, and then pull the r_scrape repo (reddit_scrape, couldve named it better)</p>
 <p>Lets break down what we need to get this container ready to run the code. </p>
-<p>1) Define the variables for the config.json by putting it in a vars file</p>
-   <img src="/2018/04/17/letsdeploy/vars.png" alt="In a production environment we would use a ansible-vault and ecrypt these." title="In a production environment we would use a ansible-vault and ecrypt these.">
-<p>2) Define the template for config.json so it receives the variables it needs to run the code.</p>
-<p>This is really just following Jinja2 Documentation on templating for JSON, nothing unusual. </p>
+<h6 id="1-Define-the-variables-for-the-config-json-by-putting-it-in-a-vars-file"><a href="#1-Define-the-variables-for-the-config-json-by-putting-it-in-a-vars-file" class="headerlink" title="1) Define the variables for the config.json by putting it in a vars file"></a>1) Define the variables for the config.json by putting it in a vars file</h6>   <img src="/2018/04/17/letsdeploy/vars.png" alt="In a production environment we would use a ansible-vault and ecrypt these." title="In a production environment we would use a ansible-vault and ecrypt these.">
+<h6 id="2-Define-the-template-for-config-json-so-it-receives-the-variables-it-needs-to-run-the-code"><a href="#2-Define-the-template-for-config-json-so-it-receives-the-variables-it-needs-to-run-the-code" class="headerlink" title="2) Define the template for config.json so it receives the variables it needs to run the code."></a>2) Define the template for config.json so it receives the variables it needs to run the code.</h6><p>This is really just following Jinja2 Documentation on templating for JSON, nothing unusual. </p>
 <img src="/2018/04/17/letsdeploy/template.png" alt="Jinja2 is awesome if you arent already familiar with it you should check it out." title="Jinja2 is awesome if you arent already familiar with it you should check it out.">
-<p>3) Fill out our <code>tasks/main.yml</code> so Ansible can do everything we need to prepare the Container. </p>
-<p>The two main pieces that ansible-container needs to run are our <code>tasks/main.yml</code> and our <code>container.yml</code></p>
+<h6 id="3-Fill-out-our-tasks-main-yml-so-Ansible-can-do-everything-we-need-to-prepare-the-Container"><a href="#3-Fill-out-our-tasks-main-yml-so-Ansible-can-do-everything-we-need-to-prepare-the-Container" class="headerlink" title="3) Fill out our tasks/main.yml so Ansible can do everything we need to prepare the Container."></a>3) Fill out our <code>tasks/main.yml</code> so Ansible can do everything we need to prepare the Container.</h6><p>The two main pieces that ansible-container needs to run are our <code>tasks/main.yml</code> and our <code>container.yml</code></p>
 <p>The tasks dictate what is going in the container and how, and the <code>container.yml</code> lays down the base rules and what should be done with it. </p>
 <p>Lets take a look at our folder structure and then well look at the tasks we want to run. </p>
 <p>We can see where all the relevant files sit after ansible-init as well as what weve added in the way of groupvars/, our template/ and our cloned source code of the app we want to deploy.</p>
@@ -142,8 +139,7 @@ A m">
 <p>Copy our source over, install dependencies, remove the blank config from the repo clone, and then drop in our templated one. </p>
 <p>From there our container.yml file tells docker that when it runs, it will to execute our run.py which in turns runs the flow describe earlier.</p>
 <img src="/2018/04/17/letsdeploy/tasks.png" alt="One also needs to configure container.yml but ours is still fairly similar to the documentation so its left out." title="One also needs to configure container.yml but ours is still fairly similar to the documentation so its left out.">
-<p>4) Build and run our container</p>
-<p>Pieces are in place, lets build it <code>ansible-container --vars-file group_vars/harbormaster.yml build --no-cache</code></p>
+<h6 id="4-Build-and-run-our-container"><a href="#4-Build-and-run-our-container" class="headerlink" title="4) Build and run our container"></a>4) Build and run our container</h6><p>Pieces are in place, lets build it <code>ansible-container --vars-file group_vars/harbormaster.yml build --no-cache</code></p>
 <img src="/2018/04/17/letsdeploy/build.png" alt="build.png" title="">
 <p>As we can see our tasks executed cleanly, and our image is ready for use. Lets run it. <code>ansible-container run</code></p>
 <img src="/2018/04/17/letsdeploy/run.png" alt="Docker PS lets us see our image is actually running" title="Docker PS lets us see our image is actually running">
