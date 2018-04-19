@@ -21,7 +21,7 @@ A m">
 <meta property="og:image" content="http://anthonylaiuppa.com/2018/04/17/letsdeploy/run.png">
 <meta property="og:image" content="http://anthonylaiuppa.com/2018/04/17/letsdeploy/results.png">
 <meta property="og:image" content="http://anthonylaiuppa.com/2018/04/17/letsdeploy/key.jpg">
-<meta property="og:updated_time" content="2018-04-19T00:01:07.000Z">
+<meta property="og:updated_time" content="2018-04-19T00:36:29.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Lets Deploy, Getting started with docker container automation">
 <meta name="twitter:description" content="Writing code is fun, but what do you do when you get it working? Cron it on your computer and leave it on? You probably want to deploy it. Traditionally to a server, or maybe even a raspberry pi. 
@@ -110,8 +110,7 @@ A m">
         <p>Writing code is fun, but what do you do when you get it working? Cron it on your computer and leave it on? You probably want to deploy it. Traditionally to a server, or maybe even a raspberry pi. </p>
 <p>A month ago I wrote a program to automate some buying and trading so I didnt have to spend time on reddit. When I finished it, I saw it as a great opportunity to learn about containers. So here is a brief overview on how I used Ansible to deploy my code to Docker containers in an automated manner. </p>
 <p>This makes a great entrance into container orchestration for the future when we want to deploy more complex applications with many pieces.</p>
-<a id="more"></a> 
-<p>The basics of Docker and Ansible are easy to learn so I wont take the time to go over it here. If youre unfamiliar with either I would recommend heading on over to their relevant sites and reading over the posted Documentation. </p>
+<h2 id=""><a href="#" class="headerlink" title=" "></a><a id="more"></a> </h2><p>The basics of Docker and Ansible are easy to learn so I wont take the time to go over it here. If youre unfamiliar with either I would recommend heading on over to their relevant sites and reading over the posted Documentation. </p>
 <p>Well get started by going briefly over the python code we want to deploy, and then the steps we take to deploy it using Ansible-Container.</p>
 <h3 id="The-code"><a href="#The-code" class="headerlink" title="The code"></a>The code</h3><p>Lets take a look at our code. The repo has three main parts.<br>All of which can be found on my github <a href="https://github.com/AnthonyLaiuppa/r_scrape" target="_blank" rel="external">https://github.com/AnthonyLaiuppa/r_scrape</a></p>
 <p>1) r_scrape.py - the Class doing all the heavy lifting for us<br>2) config.json - the configuration file with all the creds/variables we need to pass to r_scrape to make it work<br>3) run.py      - the file that we actually execute to make the code go do the thing</p>
