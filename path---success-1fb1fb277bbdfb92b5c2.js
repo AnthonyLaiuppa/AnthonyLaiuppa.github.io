@@ -1,0 +1,2 @@
+webpackJsonp([0x9b544cfa2a85],{815:function(t,e){t.exports={data:{page:{id:"/home/fisctf/blog/content/pages/success/index.md absPath of file >>> MarkdownRemark",html:"<p>Thank you. I will answer to the message as soon as possible.</p>",frontmatter:{title:"Success"}},footnote:{id:"/home/fisctf/blog/content/parts/footnote.md absPath of file >>> MarkdownRemark",html:"<!--* built by [greg lobinski](https://www.greglobinski.com) -->"},site:{siteMetadata:{facebook:{appId:""}}}},pathContext:{slug:"/success/"}}}});
+//# sourceMappingURL=path---success-1fb1fb277bbdfb92b5c2.js.map
