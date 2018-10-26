@@ -1,4 +1,230 @@
-<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[Laiuppa Blog]]></title><description><![CDATA[A repository of potentially interesting information.]]></description><link>https://anthonylaiuppa.com</link><generator>RSS for Node</generator><lastBuildDate>Fri, 26 Oct 2018 16:40:35 GMT</lastBuildDate><item><title><![CDATA[Mapping Website Attack Surfaces]]></title><link>https://anthonylaiuppa.com/mapping-website-attack-surface/</link><guid isPermaLink="false">https://anthonylaiuppa.com/mapping-website-attack-surface/</guid><content:encoded></content:encoded></item><item><title><![CDATA[Six years of saved links]]></title><description><![CDATA[Intro Over six years of studying, and working in technology Ive acquired over 600+ links. Losing these links to me would feel like the…]]></description><link>https://anthonylaiuppa.com/six-years-of-links/</link><guid isPermaLink="false">https://anthonylaiuppa.com/six-years-of-links/</guid><content:encoded>&lt;h3&gt;Intro&lt;/h3&gt;
+<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[Laiuppa Blog]]></title><description><![CDATA[A repository of potentially interesting information.]]></description><link>https://anthonylaiuppa.com</link><generator>RSS for Node</generator><lastBuildDate>Fri, 26 Oct 2018 21:48:46 GMT</lastBuildDate><item><title><![CDATA[Mapping Website Attack Surfaces]]></title><description><![CDATA[Intro Trying bug bounties can be fun, you might even walk off like a prospector with gold. Of course similar to sifting through river water…]]></description><link>https://anthonylaiuppa.com/mapping-website-attack-surface/</link><guid isPermaLink="false">https://anthonylaiuppa.com/mapping-website-attack-surface/</guid><content:encoded>&lt;h3&gt;Intro&lt;/h3&gt;
+&lt;p&gt;Trying bug bounties can be fun, you might even walk off like a prospector with gold. Of course similar to sifting through river water looking for gold, youve got sifting through websites looking for things that catch your eye. It can be pretty repetitive, so lets get some practice in by making a tool of our own to help make this attack surface for us.&lt;/p&gt;
+&lt;hr&gt;
+&lt;p&gt;First off, what is an attack surface? &lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;The attack surface of a software environment is the sum of the different points (the “attack vectors”) where an unauthorized user (the “attacker”) can try to enter data to or extract data from an environment. &lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;In this case our attack surface is the sum of all points comprising the companies web infratructure. There will be plenty we dont hit whether its due to not being discovered or out of scope. &lt;/p&gt;
+&lt;p&gt;For example could have a top level domain of example.com and then subdomains of its subservices:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;jenkins.example.com&lt;/li&gt;
+&lt;li&gt;api.example.com&lt;/li&gt;
+&lt;li&gt;status.example.com&lt;/li&gt;
+&lt;li&gt;offerings.example.com&lt;/li&gt;
+&lt;li&gt;sales.example.com&lt;/li&gt;
+&lt;li&gt;vpn.example.com&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Additionally we want to find URLs with parameters we can tinker with &lt;code class=&quot;language-text&quot;&gt;example.com/ProductID?=product_1&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;When hunting bugs or pentesting, we would definitely want to keep an eye out for such names.
+Attacking an organizations jenkins instance would be a valuable target since code and secrets could be stored there inadvertantly. &lt;/p&gt;
+&lt;hr&gt;
+&lt;h3&gt;MapSnatch.py &amp;#x26;&amp;#x26; map.py&lt;/h3&gt;
+&lt;p&gt;To help us with these tasks we have &lt;em&gt;MapSnatch.py&lt;/em&gt; and &lt;em&gt;map.py&lt;/em&gt;&lt;/p&gt;
+&lt;p&gt;MapSnatch is our logic that will do the following:&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;Spider all links off domain.com&lt;/li&gt;
+&lt;li&gt;Find all subdomains of domain.com&lt;/li&gt;
+&lt;li&gt;Assess the status of all subdomains (Whats the use if we cant reach it?)&lt;/li&gt;
+&lt;li&gt;Spider all the links of subdomain.com (Pending implementation)&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;map is our entry point into the program, so as such you can see we wrap it in click so it functions as a command line tool, from there we can pass our params into the logic class to handle the rest of the operations.&lt;/p&gt;
+&lt;p&gt;Its pretty cool, after installing it with pip we can call it just like a cli tool.&lt;/p&gt;
+&lt;p&gt;
+  &lt;a
+    class=&quot;gatsby-resp-image-link&quot;
+    href=&quot;/static/map_help-575365a2f1f5a3a43092cda8683f0096-7119c.png&quot;
+    style=&quot;display: block&quot;
+    target=&quot;_blank&quot;
+    rel=&quot;noopener&quot;
+  &gt;
+  
+  &lt;span
+    class=&quot;gatsby-resp-image-wrapper&quot;
+    style=&quot;position: relative; display: block; ; max-width: 700px; margin-left: auto; margin-right: auto;&quot;
+  &gt;
+    &lt;span
+      class=&quot;gatsby-resp-image-background-image&quot;
+      style=&quot;padding-bottom: 26.857142857142858%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAFCAIAAADKYVtkAAAACXBIWXMAAAsSAAALEgHS3X78AAABD0lEQVQY00VOaW+CUBB8qdr0AgVBW1NpayNqW7B4AO9x87hBjQftB5P+/5/R7acms5vMZHZmkXI4Pyc7Kd5J0eaRVszaa83xlWZzOLxdeTdLl1m5SNbQdPmPyeIPb2sEw+j+kG6laPvgFV07EZ2052QcpqKd8jiG3Xezey/nrZgn0cAvB0HZc9LrhYNan4TVA47Qthmyut82QtYIO5jyhHathMcUqGAlbZNyOAIdPKINetRQTdT38nFxgkjgrTm5nBMoYQ2Ii3gSM3og2IlgxfDO3dpvKEZTxRcfBjjRu46aiqkezrOqnlZfs813xwy1+meU7YGOi+NrfpTLelrWk7Ie0s1LuocmuTw9xTs4/gVT9TkbChTY0wAAAABJRU5ErkJggg==&apos;); background-size: cover; display: block;&quot;
+    &gt;
+      &lt;img
+        class=&quot;gatsby-resp-image-image&quot;
+        style=&quot;width: 100%; height: 100%; margin: 0; vertical-align: middle; position: absolute; top: 0; left: 0; box-shadow: inset 0px 0px 0px 400px transparent;&quot;
+        alt=&quot;map&quot;
+        title=&quot;&quot;
+        src=&quot;/static/map_help-575365a2f1f5a3a43092cda8683f0096-7119c.png&quot;
+        srcset=&quot;/static/map_help-575365a2f1f5a3a43092cda8683f0096-155a8.png 200w,
+/static/map_help-575365a2f1f5a3a43092cda8683f0096-38447.png 400w,
+/static/map_help-575365a2f1f5a3a43092cda8683f0096-7119c.png 700w&quot;
+        sizes=&quot;(max-width: 700px) 100vw, 700px&quot;
+      /&gt;
+    &lt;/span&gt;
+  &lt;/span&gt;
+  
+  &lt;/a&gt;
+    &lt;/p&gt;
+&lt;p&gt;The code that makes it all happen is pretty simple, its all in our click wrappers and &lt;code class=&quot;language-text&quot;&gt;setup.py&lt;/code&gt;&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;python&quot;&gt;
+      &lt;pre class=&quot;language-python&quot;&gt;&lt;code class=&quot;language-python&quot;&gt;&lt;span class=&quot;token keyword&quot;&gt;from&lt;/span&gt; __future__ &lt;span class=&quot;token keyword&quot;&gt;import&lt;/span&gt; absolute_import&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; unicode_literals
+&lt;span class=&quot;token keyword&quot;&gt;from&lt;/span&gt; MapSnatch &lt;span class=&quot;token keyword&quot;&gt;import&lt;/span&gt; MapSnatchLogic
+&lt;span class=&quot;token keyword&quot;&gt;import&lt;/span&gt; click
+
+@click&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;command&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;
+@click&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;option&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token string&quot;&gt;&apos;--domain&apos;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; default&lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;token boolean&quot;&gt;None&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;token builtin&quot;&gt;help&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;token string&quot;&gt;&apos;Domain to perform reconaissance on.&apos;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;
+@click&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;option&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token string&quot;&gt;&apos;--substatus&apos;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; default&lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;token boolean&quot;&gt;False&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;token builtin&quot;&gt;help&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;token string&quot;&gt;&apos;Enable to pull all status codes of sub domain pages.&apos;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;token builtin&quot;&gt;type&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;token builtin&quot;&gt;bool&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;
+@click&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;option&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token string&quot;&gt;&apos;--mapsubs&apos;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; default&lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;token boolean&quot;&gt;False&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;token builtin&quot;&gt;help&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;token string&quot;&gt;&apos;Enable to pull all URLs found on sub domain pages.&apos;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;token builtin&quot;&gt;type&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;token builtin&quot;&gt;bool&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;
+&lt;span class=&quot;token keyword&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;token function&quot;&gt;start_mapping&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;domain&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; mapsubs&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; substatus&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt;
+	&lt;span class=&quot;token triple-quoted-string string&quot;&gt;&quot;&quot;&quot;
+		Lightweight recon program. Used to assess status of a (sub)domain and map all URLs.
+	    This will help identify targets and points of interest.
+	&quot;&quot;&quot;&lt;/span&gt;
+	&lt;span class=&quot;token keyword&quot;&gt;print&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token string&quot;&gt;&apos;[*] Starting with domain - {0}&apos;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token builtin&quot;&gt;format&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;domain&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;
+	msl &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; MapSnatchLogic&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;domain&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;
+
+	&lt;span class=&quot;token keyword&quot;&gt;if&lt;/span&gt; substatus&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt;
+		msl&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;get_subs&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;
+		msl&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;get_statuses&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;
+
+	msl&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;spider_links&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;
+      &lt;/div&gt;
+&lt;hr&gt;
+&lt;h3&gt;Installation&lt;/h3&gt;
+&lt;p&gt;Im not a fan of reinventing the wheel so map relies on another tool to do some of its dirty work.
+Sublist3r is a fantastic tool at pulling subdomains, and doing much more. &lt;/p&gt;
+&lt;p&gt;Its easy, first we pull our map repo, then &lt;code class=&quot;language-text&quot;&gt;cd&lt;/code&gt; into it and &lt;code class=&quot;language-text&quot;&gt;pip install -e .&lt;/code&gt; I recommend using a virtualenv.&lt;/p&gt;
+&lt;p&gt;While there, clone Sublist3r, install its &lt;em&gt;requirements.txt&lt;/em&gt; , and move the files to resemble this structure&lt;/p&gt;
+&lt;p&gt;
+  &lt;a
+    class=&quot;gatsby-resp-image-link&quot;
+    href=&quot;/static/map_tree-37407818ec2a2cf740a6c71e0df1ac2a-9ddd9.png&quot;
+    style=&quot;display: block&quot;
+    target=&quot;_blank&quot;
+    rel=&quot;noopener&quot;
+  &gt;
+  
+  &lt;span
+    class=&quot;gatsby-resp-image-wrapper&quot;
+    style=&quot;position: relative; display: block; ; max-width: 245px; margin-left: auto; margin-right: auto;&quot;
+  &gt;
+    &lt;span
+      class=&quot;gatsby-resp-image-background-image&quot;
+      style=&quot;padding-bottom: 78.36734693877551%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAQCAIAAACZeshMAAAACXBIWXMAAAsSAAALEgHS3X78AAACAUlEQVQoz41T227aQBQ0Ads1gRJfIUALUZUEe9d7s9d3Y2MMqqiqvlSq+lCp//8VXad9SgipNDrah52z58zMStImkLxI2iQdvLirbiyB6L8wiRuVZnYJ5zV8x4JpBUdBIG3irpFoermRxrYKSZZ77+7oTit/dXCnJRoG7DpkMg6HotEF8jiqFZLe1t764M5qeFv5ixpaBTIz7Gz9VetdwdfJw2Cr0uRju1m14O7gfTo93MTELPxlAy7R/sIuP2ssNzLxJnQKqKd4kmAr9wcofFswlRUDkloFdiru7LhZUKMIFnv69rNPau8Uur1Kvw+qX2rze5B8U8qf/eyHBNJObXGjMzL+d34G6Z7IKJ3vv+r5UaWFBOJRHFoF0TM0CpngaAETyik4PMMXIVFIPt+dhHIyTiYxEgs7pT/iVAiuJ9jMsV0iGfFz5Ecmk2zefBnxWu48g+vWE24bKbnmbNGAm4RIj0kPRD1wjqyQbCHIUS3jVE+RXSCnRFaJZhU0czTm7H1ERf6MFD8PnPRAZZzN6pMWVDJJjAytj+7q6AnP5jtgl/6YUyPDYosBfmFe30/7fjzm1TRrRyxxcn8pJm+AmRArR3YubCdieEXs/DLnetZqJGUU7EK3DCGlOKA4Z+gDCu4xKRnqX/gekiuG4ZrfQYZcgVx9qlcgGqPQREHv9ZD8AX9vi8alAjr4AAAAAElFTkSuQmCC&apos;); background-size: cover; display: block;&quot;
+    &gt;
+      &lt;img
+        class=&quot;gatsby-resp-image-image&quot;
+        style=&quot;width: 100%; height: 100%; margin: 0; vertical-align: middle; position: absolute; top: 0; left: 0; box-shadow: inset 0px 0px 0px 400px transparent;&quot;
+        alt=&quot;Dir structure&quot;
+        title=&quot;&quot;
+        src=&quot;/static/map_tree-37407818ec2a2cf740a6c71e0df1ac2a-9ddd9.png&quot;
+        srcset=&quot;/static/map_tree-37407818ec2a2cf740a6c71e0df1ac2a-2c799.png 200w,
+/static/map_tree-37407818ec2a2cf740a6c71e0df1ac2a-9ddd9.png 245w&quot;
+        sizes=&quot;(max-width: 245px) 100vw, 245px&quot;
+      /&gt;
+    &lt;/span&gt;
+  &lt;/span&gt;
+  
+  &lt;/a&gt;
+    &lt;/p&gt;
+&lt;p&gt;Theres no shortage of ways to package software, I just threw this together in a few hours while procrastinating on finishing a project. &lt;/p&gt;
+&lt;hr&gt;
+&lt;h3&gt;Logic &amp;#x26;&amp;#x26; Results&lt;/h3&gt;
+&lt;p&gt;If you were to look at our flows as these:&lt;/p&gt;
+&lt;p&gt;&lt;code class=&quot;language-text&quot;&gt;get domain.com -&amp;gt; harvest links -&amp;gt; map links&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;&lt;code class=&quot;language-text&quot;&gt;discover subdomain.com -&amp;gt; assess status -&amp;gt; harvest links -&amp;gt; map links&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;then you can probably guess alot of how we would go about this.&lt;/p&gt;
+&lt;p&gt;Both are mostly pretty easy,&lt;/p&gt;
+&lt;p&gt;&lt;em&gt;domain.com&lt;/em&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Use requests to get the content&lt;/li&gt;
+&lt;li&gt;Use beautiful soup to parse the content&lt;/li&gt;
+&lt;li&gt;Map results to a dict={domain_name: [‘list of links’]}&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;then for subdomains,&lt;/p&gt;
+&lt;p&gt;&lt;em&gt;subdomain.com&lt;/em&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Use sublist3r to discover&lt;/li&gt;
+&lt;li&gt;Requests to check for &lt;code class=&quot;language-text&quot;&gt;statuscode==200&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;Requests get content&lt;/li&gt;
+&lt;li&gt;Bs4 to parse content&lt;/li&gt;
+&lt;li&gt;Map results to a dict={subdomain_name: [‘list of links’]}&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;So if we were to give it a site such as &lt;em&gt;casper.com&lt;/em&gt; heres what it looks like when its building links and we can see some with paramters.&lt;/p&gt;
+&lt;p&gt;
+  &lt;a
+    class=&quot;gatsby-resp-image-link&quot;
+    href=&quot;/static/map_finds-745b36ee1aeeaffde2ead8301db19d37-6f479.png&quot;
+    style=&quot;display: block&quot;
+    target=&quot;_blank&quot;
+    rel=&quot;noopener&quot;
+  &gt;
+  
+  &lt;span
+    class=&quot;gatsby-resp-image-wrapper&quot;
+    style=&quot;position: relative; display: block; ; max-width: 800px; margin-left: auto; margin-right: auto;&quot;
+  &gt;
+    &lt;span
+      class=&quot;gatsby-resp-image-background-image&quot;
+      style=&quot;padding-bottom: 28.30558276199804%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAGCAIAAABM9SnKAAAACXBIWXMAAAsSAAALEgHS3X78AAABGklEQVQY002QW0+DQBCFafTBF2P7YkDbWtoSgXJRErE8NCDQsiCXBcqlxfr/f4YHTIzJ5GQ2mbPfmWFUepKSZhnkfJCLcb0OCzyN40XLOympFXqa79OZlzzts6mXPHx8zv105qfjrXulbhmVtmJcLQ4ZH1BMwywm9Uv5peXn57jaZC3Mj26Mgakb9+X1dWs6jPzGaHlPhnNJCilt1mEppa1RfetFJ6cN/KwdcnbEOhFrk/sd4ZwIemPsmI3JKBnINQ/ygaJZkfyXrA5k/CtEpUBK6CossB2iYcH/5HoBch+7+dsZZCluhLCcWB42nFj+3dZFjQe91q2RYsJ87g9GKJjICYI8xAZcHA6mlx30tbpAMYBEaDg7HCnvPwfPVqqCQRhpAAAAAElFTkSuQmCC&apos;); background-size: cover; display: block;&quot;
+    &gt;
+      &lt;img
+        class=&quot;gatsby-resp-image-image&quot;
+        style=&quot;width: 100%; height: 100%; margin: 0; vertical-align: middle; position: absolute; top: 0; left: 0; box-shadow: inset 0px 0px 0px 400px transparent;&quot;
+        alt=&quot;Links&quot;
+        title=&quot;&quot;
+        src=&quot;/static/map_finds-745b36ee1aeeaffde2ead8301db19d37-48538.png&quot;
+        srcset=&quot;/static/map_finds-745b36ee1aeeaffde2ead8301db19d37-bed0f.png 200w,
+/static/map_finds-745b36ee1aeeaffde2ead8301db19d37-5fd34.png 400w,
+/static/map_finds-745b36ee1aeeaffde2ead8301db19d37-48538.png 800w,
+/static/map_finds-745b36ee1aeeaffde2ead8301db19d37-6f479.png 1021w&quot;
+        sizes=&quot;(max-width: 800px) 100vw, 800px&quot;
+      /&gt;
+    &lt;/span&gt;
+  &lt;/span&gt;
+  
+  &lt;/a&gt;
+    &lt;/p&gt;
+&lt;p&gt;The awesome part is we didnt have to much to find those! Dont get me wrong, browsing around is half the fun.&lt;/p&gt;
+&lt;p&gt;There are plenty of better ways to visualize this, however the real goal is just give us subdomains and links to form our map of the attack surface. So for now well just leave the mapps alone. &lt;/p&gt;
+&lt;p&gt;
+  &lt;a
+    class=&quot;gatsby-resp-image-link&quot;
+    href=&quot;/static/mapped_links-7e27097d16e30707e6e548ebe6743197-21862.png&quot;
+    style=&quot;display: block&quot;
+    target=&quot;_blank&quot;
+    rel=&quot;noopener&quot;
+  &gt;
+  
+  &lt;span
+    class=&quot;gatsby-resp-image-wrapper&quot;
+    style=&quot;position: relative; display: block; ; max-width: 800px; margin-left: auto; margin-right: auto;&quot;
+  &gt;
+    &lt;span
+      class=&quot;gatsby-resp-image-background-image&quot;
+      style=&quot;padding-bottom: 20.87719298245614%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAECAIAAAABPYjBAAAACXBIWXMAAAsSAAALEgHS3X78AAAAwklEQVQI1xVOSQ6CMBTlDI5RGUscEuOCrTPQQkttaREHjN7/Gj52//03OjFvCG+2dZc0X1Ian9U+1YM983KFY3hgi1SGrHZzNc/k7Fp5mfKompw5KYwTlQb+WNxJaZESlTZpf0gJmdmo11LcY263+o2gqDA7+wmLPj3EbTonYPVGPeEPqIbZoxrcWj7QDLiqWgjATi8ChaNj4Wa3eSoxBAJnWbVYhVoAtzdYqPFZpJXP+gZMnZ4FPKDGJx7QvhmagOk/GG84eyNymkwAAAAASUVORK5CYII=&apos;); background-size: cover; display: block;&quot;
+    &gt;
+      &lt;img
+        class=&quot;gatsby-resp-image-image&quot;
+        style=&quot;width: 100%; height: 100%; margin: 0; vertical-align: middle; position: absolute; top: 0; left: 0; box-shadow: inset 0px 0px 0px 400px transparent;&quot;
+        alt=&quot;Mapping&quot;
+        title=&quot;&quot;
+        src=&quot;/static/mapped_links-7e27097d16e30707e6e548ebe6743197-48538.png&quot;
+        srcset=&quot;/static/mapped_links-7e27097d16e30707e6e548ebe6743197-bed0f.png 200w,
+/static/mapped_links-7e27097d16e30707e6e548ebe6743197-5fd34.png 400w,
+/static/mapped_links-7e27097d16e30707e6e548ebe6743197-48538.png 800w,
+/static/mapped_links-7e27097d16e30707e6e548ebe6743197-21862.png 1140w&quot;
+        sizes=&quot;(max-width: 800px) 100vw, 800px&quot;
+      /&gt;
+    &lt;/span&gt;
+  &lt;/span&gt;
+  
+  &lt;/a&gt;
+    &lt;/p&gt;
+&lt;hr&gt;
+&lt;h3&gt;Conclusion&lt;/h3&gt;
+&lt;p&gt;A little bit of coding and we’ve got enough information gathering automated to get an overview of a site before inspecting it at a deeper level. &lt;/p&gt;
+&lt;p&gt;This can help pick a place to start or identify something our eyes may glance over and miss. &lt;/p&gt;
+&lt;p&gt;Theres no shortage of improvements or optimizations that can be made to these sorts of things. I encourage you to try and throw some tools together yourself. Itll help foster an understand of what youre doing and different methods of achieving your goals.&lt;/p&gt;
+&lt;p&gt;Happy hacking. &lt;/p&gt;</content:encoded></item><item><title><![CDATA[Six years of saved links]]></title><description><![CDATA[Intro Over six years of studying, and working in technology Ive acquired over 600+ links. Losing these links to me would feel like the…]]></description><link>https://anthonylaiuppa.com/six-years-of-links/</link><guid isPermaLink="false">https://anthonylaiuppa.com/six-years-of-links/</guid><content:encoded>&lt;h3&gt;Intro&lt;/h3&gt;
 &lt;p&gt;Over six years of studying, and working in technology Ive acquired over 600+ links. Losing these links to me would feel like the burning down of the Library of Alexandria. I use alot of them as references for programming and information security based work. &lt;/p&gt;
 &lt;p&gt;While scraping all these links I saw the word beginner become less frequent as we got closer to the present day, so I even found a fun way to add a visualization to this post. &lt;/p&gt;
 &lt;hr&gt;
