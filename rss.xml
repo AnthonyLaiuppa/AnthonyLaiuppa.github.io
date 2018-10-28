@@ -1,23 +1,49 @@
-<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[Laiuppa Blog]]></title><description><![CDATA[A repository of potentially interesting information.]]></description><link>https://anthonylaiuppa.com</link><generator>RSS for Node</generator><lastBuildDate>Fri, 26 Oct 2018 21:48:46 GMT</lastBuildDate><item><title><![CDATA[Mapping Website Attack Surfaces]]></title><description><![CDATA[Intro Trying bug bounties can be fun, you might even walk off like a prospector with gold. Of course similar to sifting through river water…]]></description><link>https://anthonylaiuppa.com/mapping-website-attack-surface/</link><guid isPermaLink="false">https://anthonylaiuppa.com/mapping-website-attack-surface/</guid><content:encoded>&lt;h3&gt;Intro&lt;/h3&gt;
+<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[Laiuppa Blog]]></title><description><![CDATA[A repository of potentially interesting information.]]></description><link>https://anthonylaiuppa.com</link><generator>RSS for Node</generator><lastBuildDate>Sun, 28 Oct 2018 23:57:16 GMT</lastBuildDate><item><title><![CDATA[Mapping website attack surfaces]]></title><description><![CDATA[Intro Trying bug bounties can be fun, you might even walk off like a prospector with gold. Of course similar to sifting through river water…]]></description><link>https://anthonylaiuppa.com/mapping-website-attack-surface/</link><guid isPermaLink="false">https://anthonylaiuppa.com/mapping-website-attack-surface/</guid><content:encoded>&lt;h3&gt;Intro&lt;/h3&gt;
 &lt;p&gt;Trying bug bounties can be fun, you might even walk off like a prospector with gold. Of course similar to sifting through river water looking for gold, youve got sifting through websites looking for things that catch your eye. It can be pretty repetitive, so lets get some practice in by making a tool of our own to help make this attack surface for us.&lt;/p&gt;
 &lt;hr&gt;
 &lt;p&gt;First off, what is an attack surface? &lt;/p&gt;
 &lt;blockquote&gt;
 &lt;p&gt;The attack surface of a software environment is the sum of the different points (the “attack vectors”) where an unauthorized user (the “attacker”) can try to enter data to or extract data from an environment. &lt;/p&gt;
 &lt;/blockquote&gt;
-&lt;p&gt;In this case our attack surface is the sum of all points comprising the companies web infratructure. There will be plenty we dont hit whether its due to not being discovered or out of scope. &lt;/p&gt;
-&lt;p&gt;For example could have a top level domain of example.com and then subdomains of its subservices:&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;jenkins.example.com&lt;/li&gt;
-&lt;li&gt;api.example.com&lt;/li&gt;
-&lt;li&gt;status.example.com&lt;/li&gt;
-&lt;li&gt;offerings.example.com&lt;/li&gt;
-&lt;li&gt;sales.example.com&lt;/li&gt;
-&lt;li&gt;vpn.example.com&lt;/li&gt;
-&lt;/ul&gt;
-&lt;p&gt;Additionally we want to find URLs with parameters we can tinker with &lt;code class=&quot;language-text&quot;&gt;example.com/ProductID?=product_1&lt;/code&gt;&lt;/p&gt;
-&lt;p&gt;When hunting bugs or pentesting, we would definitely want to keep an eye out for such names.
-Attacking an organizations jenkins instance would be a valuable target since code and secrets could be stored there inadvertantly. &lt;/p&gt;
+&lt;p&gt;In this case our attack surface is the sum of all points comprising the companies web infratructure that we can reach. From there the surface widens to all methods and actions on the site that will allow us to interact with the back end. &lt;/p&gt;
+&lt;p&gt;Visualized a companies attack surface could look something like this, containing internet facing services alongside their internal network. Typically you wont ever see much of the latter except for in cases such as SSRF, the 10k Host Header bug bounty writeup comes to mind in particular. &lt;a href=&quot;https://sites.google.com/site/testsitehacking/10k-host-header&quot;&gt;10k Host Header&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;
+  &lt;a
+    class=&quot;gatsby-resp-image-link&quot;
+    href=&quot;/static/attack_surface-03a3b23c9ee74cadfac10ea64b251287-d058c.png&quot;
+    style=&quot;display: block&quot;
+    target=&quot;_blank&quot;
+    rel=&quot;noopener&quot;
+  &gt;
+  
+  &lt;span
+    class=&quot;gatsby-resp-image-wrapper&quot;
+    style=&quot;position: relative; display: block; ; max-width: 702px; margin-left: auto; margin-right: auto;&quot;
+  &gt;
+    &lt;span
+      class=&quot;gatsby-resp-image-background-image&quot;
+      style=&quot;padding-bottom: 72.93447293447294%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAPCAYAAADkmO9VAAAACXBIWXMAAAsSAAALEgHS3X78AAABzUlEQVQ4y32T2W7CQAxF+be+9mv6QX3re/sTvDQtRNCyih3EEgIJW8mCm2NppiGgWrKczHiu71x7SrPZTA6Hg3S7XWm1WrLZbGS/32vM+2QyUZ9OpzfO+nA4FLBK/HQ6HZnP57JerxV4tVpJ3tI0ld1up/v9fl9Go5F1/rfbreYRS+12W8rlsvR6Pa3mOI5+h2FoixyPR3UOVyoVqdVq6vV6XVzXVWYYNylRGWORikmSKMhgMNAIKEUpgDS+7ysTDhNNQcuQjaKhB07ycrlUNvfyiqaA5v6Xy0WiKJLz+Syn00kBTSPIMTdBT3KLfsOQq9IM3PM8ZQe42QuCwBYu2hWgYYhGOIeLBjB7xmCLFIvFwupnAalMQxgXukwsskAKA5ikF4njJFuLsxhZCa4YxnGsoAAy1CTQUZjwD4s8w3+vbDSkEocxRgZnZLgW4xSGgfS8H3kfhOr+PrJgdzWkGePxWL9h9NccX0fGz5r09DaTxxdfHp7n8up6mhundwAbjYY+PwCr1apqZrpr2JP3/f0lnx+OLDPW9ySgHwrIk+I1EJvNpgXMd5kXssgkME8Ufc3c4vSBHKshCSzkhTZXIbJPoxh60zAzajjsWP8FHq14ksnjM8EAAAAASUVORK5CYII=&apos;); background-size: cover; display: block;&quot;
+    &gt;
+      &lt;img
+        class=&quot;gatsby-resp-image-image&quot;
+        style=&quot;width: 100%; height: 100%; margin: 0; vertical-align: middle; position: absolute; top: 0; left: 0; box-shadow: inset 0px 0px 0px 400px transparent;&quot;
+        alt=&quot;Visualized surface&quot;
+        title=&quot;&quot;
+        src=&quot;/static/attack_surface-03a3b23c9ee74cadfac10ea64b251287-d058c.png&quot;
+        srcset=&quot;/static/attack_surface-03a3b23c9ee74cadfac10ea64b251287-3db89.png 200w,
+/static/attack_surface-03a3b23c9ee74cadfac10ea64b251287-b0a7e.png 400w,
+/static/attack_surface-03a3b23c9ee74cadfac10ea64b251287-d058c.png 702w&quot;
+        sizes=&quot;(max-width: 702px) 100vw, 702px&quot;
+      /&gt;
+    &lt;/span&gt;
+  &lt;/span&gt;
+  
+  &lt;/a&gt;
+    &lt;/p&gt;
+&lt;p&gt;There will be plenty we dont hit due to not being discovered or out of scope. When it comes to subdomains we of course want to find things to potentially exploit as side services may be neglected, or we want to look for things that dont belong such as a public facing build server.&lt;/p&gt;
+&lt;p&gt;Next once we have a site or service targeted, we can speed up some information gathering by spidering the site to harvest all of the URLs in hopes of finding ones with parameters to interact with. &lt;/p&gt;
+&lt;p&gt;&lt;code class=&quot;language-text&quot;&gt;example.com/ProductID?=product_1&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;Ideally by looking at URLs we can spot potential ways to interact with the backend in hopes of producing some sort of undefined behavior. Of course going over attack vectors is a whole in depth topic of its own so we’ll leave it at that.&lt;/p&gt;
 &lt;hr&gt;
 &lt;h3&gt;MapSnatch.py &amp;#x26;&amp;#x26; map.py&lt;/h3&gt;
 &lt;p&gt;To help us with these tasks we have &lt;em&gt;MapSnatch.py&lt;/em&gt; and &lt;em&gt;map.py&lt;/em&gt;&lt;/p&gt;
@@ -4331,7 +4357,7 @@ Please supply 3 digit passcode
 399
 Win.&lt;/code&gt;&lt;/pre&gt;
       &lt;/div&gt;
-&lt;p&gt;It worked but Im quite fortunate in the fact that puts and scanf werent also put under dlsym as that wouldve made it a good bit harder to identify. Additionally Im fortunate in that the passcode was stored simply and not obfuscated any further. It was a fun challenge and Im looking forward to doing more of these&lt;/p&gt;</content:encoded></item><item><title><![CDATA[Obfuscating Python]]></title><description><![CDATA[Intro I got to thinking, you can obfuscate js and vbs when serving up code to people, why not Python? Well to there is that whole whitespace…]]></description><link>https://anthonylaiuppa.com/obfuscating-python/</link><guid isPermaLink="false">https://anthonylaiuppa.com/obfuscating-python/</guid><content:encoded>&lt;h3&gt;Intro&lt;/h3&gt;
+&lt;p&gt;It worked but Im quite fortunate in the fact that puts and scanf werent also put under dlsym as that wouldve made it a good bit harder to identify. Additionally Im fortunate in that the passcode was stored simply and not obfuscated any further. It was a fun challenge and Im looking forward to doing more of these&lt;/p&gt;</content:encoded></item><item><title><![CDATA[Obfuscating python]]></title><description><![CDATA[Intro I got to thinking, you can obfuscate js and vbs when serving up code to people, why not Python? Well to there is that whole whitespace…]]></description><link>https://anthonylaiuppa.com/obfuscating-python/</link><guid isPermaLink="false">https://anthonylaiuppa.com/obfuscating-python/</guid><content:encoded>&lt;h3&gt;Intro&lt;/h3&gt;
 &lt;p&gt;I got to thinking, you can obfuscate js and vbs when serving up code to people, why not Python? Well to there is that whole whitespace thing and lack of semi-colons, but lets see what we can do. &lt;/p&gt;
 &lt;hr&gt;
 &lt;blockquote&gt;
@@ -4418,7 +4444,7 @@ ff:dd:78:ad:6d:23 - 192.168.1.4
   &lt;/span&gt;
   
   &lt;/a&gt;
-    &lt;/p&gt;</content:encoded></item><item><title><![CDATA[Project Eulers]]></title><description><![CDATA[Intro This article is where I will put up a few of my Project Eulers Solutions. They arent particularly special but I really enjoyed solving…]]></description><link>https://anthonylaiuppa.com/project-eulers/</link><guid isPermaLink="false">https://anthonylaiuppa.com/project-eulers/</guid><content:encoded>&lt;h3&gt;Intro&lt;/h3&gt;
+    &lt;/p&gt;</content:encoded></item><item><title><![CDATA[Project Euler]]></title><description><![CDATA[Intro This article is where I will put up a few of my Project Eulers Solutions. They arent particularly special but I really enjoyed solving…]]></description><link>https://anthonylaiuppa.com/project-eulers/</link><guid isPermaLink="false">https://anthonylaiuppa.com/project-eulers/</guid><content:encoded>&lt;h3&gt;Intro&lt;/h3&gt;
 &lt;p&gt;This article is where I will put up a few of my Project Eulers Solutions. They arent particularly special but I really enjoyed solving the problems so I thought Id share a few of the problems that I had fun with.&lt;/p&gt;
 &lt;hr&gt;
 &lt;h3&gt;36 - Double-Base Palindromes&lt;/h3&gt;
