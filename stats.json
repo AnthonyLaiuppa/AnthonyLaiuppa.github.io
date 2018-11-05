@@ -1,8 +1,8 @@
 {
   "assetsByChunkName": {
     "path---goku-distributed-computing": [
-      "path---goku-distributed-computing-d5a7df6ec10c45a35540.js",
-      "path---goku-distributed-computing-d5a7df6ec10c45a35540.js.map"
+      "path---goku-distributed-computing-596055c5ff743c2401aa.js",
+      "path---goku-distributed-computing-596055c5ff743c2401aa.js.map"
     ],
     "path---binary-fun": [
       "path---binary-fun-4cc1db600e9e98dd7c12.js",
@@ -99,9 +99,9 @@
       "path---starters-1b95dd69adec64a51a59.js.map"
     ],
     "app": [
-      "app-828ac9dd30bdd02ca7fd.js",
+      "app-af72bf221680eb6f181b.js",
       "build-js-styles.css",
-      "app-828ac9dd30bdd02ca7fd.js.map",
+      "app-af72bf221680eb6f181b.js.map",
       "build-js-styles.css.map"
     ],
     "component---src-templates-page-template-js": [
