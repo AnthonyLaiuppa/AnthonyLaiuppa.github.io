@@ -1,8 +1,12 @@
 {
   "assetsByChunkName": {
+    "path---goku-distributed-computing": [
+      "path---goku-distributed-computing-d5a7df6ec10c45a35540.js",
+      "path---goku-distributed-computing-d5a7df6ec10c45a35540.js.map"
+    ],
     "path---binary-fun": [
-      "path---binary-fun-2d7a7cb4188cbb2bea91.js",
-      "path---binary-fun-2d7a7cb4188cbb2bea91.js.map"
+      "path---binary-fun-4cc1db600e9e98dd7c12.js",
+      "path---binary-fun-4cc1db600e9e98dd7c12.js.map"
     ],
     "component---src-pages-index-js": [
       "component---src-pages-index-js-aa9570313651ef926b5a.js",
@@ -21,8 +25,8 @@
       "path---hiding-encrypted-blobs-a15b8f71994bac2f0b07.js.map"
     ],
     "path---": [
-      "path----d23a1a4f47dfdd9e5e5e.js",
-      "path----d23a1a4f47dfdd9e5e5e.js.map"
+      "path----7cb462b91d815abc8fec.js",
+      "path----7cb462b91d815abc8fec.js.map"
     ],
     "component---src-pages-contact-js": [
       "component---src-pages-contact-js-491e2fefb3b96f906e34.js",
@@ -37,8 +41,8 @@
       "component---node-modules-gatsby-plugin-offline-app-shell-js-5c4c5a0f7af9dc69d6d7.js.map"
     ],
     "component---src-layouts-index-js": [
-      "component---src-layouts-index-js-8ed7de10ab57704ca8a3.js",
-      "component---src-layouts-index-js-8ed7de10ab57704ca8a3.js.map"
+      "component---src-layouts-index-js-45b886c7580d10f25bdc.js",
+      "component---src-layouts-index-js-45b886c7580d10f25bdc.js.map"
     ],
     "path---sans-holiday-hacking-challenge": [
       "path---sans-holiday-hacking-challenge-886203b57152ae8acce9.js",
@@ -95,9 +99,9 @@
       "path---starters-1b95dd69adec64a51a59.js.map"
     ],
     "app": [
-      "app-9e3331b3ddc6fe97fe25.js",
+      "app-828ac9dd30bdd02ca7fd.js",
       "build-js-styles.css",
-      "app-9e3331b3ddc6fe97fe25.js.map",
+      "app-828ac9dd30bdd02ca7fd.js.map",
       "build-js-styles.css.map"
     ],
     "component---src-templates-page-template-js": [

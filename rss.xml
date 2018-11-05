@@ -1,4 +1,326 @@
-<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[Laiuppa Blog]]></title><description><![CDATA[A repository of potentially interesting information.]]></description><link>https://anthonylaiuppa.com</link><generator>RSS for Node</generator><lastBuildDate>Mon, 29 Oct 2018 00:14:57 GMT</lastBuildDate><item><title><![CDATA[Mapping website attack surfaces]]></title><description><![CDATA[Intro Trying bug bounties can be fun, you might even walk off like a prospector with gold. Of course similar to sifting through river water…]]></description><link>https://anthonylaiuppa.com/mapping-website-attack-surface/</link><guid isPermaLink="false">https://anthonylaiuppa.com/mapping-website-attack-surface/</guid><content:encoded>&lt;h3&gt;Intro&lt;/h3&gt;
+<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[Laiuppa Blog]]></title><description><![CDATA[A repository of potentially interesting information.]]></description><link>https://anthonylaiuppa.com</link><generator>RSS for Node</generator><lastBuildDate>Mon, 05 Nov 2018 03:59:59 GMT</lastBuildDate><item><title><![CDATA[GoKu distributed computing]]></title><description><![CDATA[Intro Recently I sat down to learn more about Go and Kubernetes, figured I would share some distributed comptuing fun had along the way…]]></description><link>https://anthonylaiuppa.com/goku-distributed-computing/</link><guid isPermaLink="false">https://anthonylaiuppa.com/goku-distributed-computing/</guid><content:encoded>&lt;h3&gt;Intro&lt;/h3&gt;
+&lt;p&gt;Recently I sat down to learn more about Go and Kubernetes, figured I would share some distributed comptuing fun had along the way. &lt;/p&gt;
+&lt;hr&gt;
+&lt;p&gt;Lets go over the core technologies at work here, starting with the most basic definition.&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;&lt;strong&gt;Container&lt;/strong&gt;:  a standard unit of software that packages up code and all its dependencies so the application runs quickly and reliably from one computing environment to another. &lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;ol&gt;
+&lt;li&gt;&lt;strong&gt;Go&lt;/strong&gt;: an open source programming language that makes it easy to build simple, reliable, and efficient software.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Docker&lt;/strong&gt; container image that is a lightweight, standalone, executable package of software that includes everything needed to run an application: code, runtime, system tools, system libraries and settings.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Kubernetes&lt;/strong&gt;: an open-source container-orchestration system for automating deployment, scaling and management of containerized applications.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Minikube&lt;/strong&gt;: a tool that makes it easy to run Kubernetes locally. Minikube runs a single-node Kubernetes cluster inside a VM on your laptop&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Pods&lt;/strong&gt;: Pods are the smallest deployable units of computing that can be created and managed in Kubernetes.&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;With everything laid out lets go over what we’re doing&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Virtualizing our own k8s Cluster&lt;/li&gt;
+&lt;li&gt;Compiling our own self sufficient Go program that retrieves data and inserts it into a db&lt;/li&gt;
+&lt;li&gt;Inserting that binary into a scratch Docker container and Testing/Running it&lt;/li&gt;
+&lt;li&gt;Building this image and pushing to Docker hub&lt;/li&gt;
+&lt;li&gt;Running multiple instances of the Docker image as Pods in our Kubernetes cluster&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;In essence everything will look roughly like this.&lt;/p&gt;
+&lt;p&gt;
+  &lt;a
+    class=&quot;gatsby-resp-image-link&quot;
+    href=&quot;/static/k8s-arch-b501c1e10355b0a7d76b227ab6781ff2-b75b8.png&quot;
+    style=&quot;display: block&quot;
+    target=&quot;_blank&quot;
+    rel=&quot;noopener&quot;
+  &gt;
+  
+  &lt;span
+    class=&quot;gatsby-resp-image-wrapper&quot;
+    style=&quot;position: relative; display: block; ; max-width: 600px; margin-left: auto; margin-right: auto;&quot;
+  &gt;
+    &lt;span
+      class=&quot;gatsby-resp-image-background-image&quot;
+      style=&quot;padding-bottom: 77.5%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAQCAIAAACZeshMAAAACXBIWXMAAA7DAAAOwwHHb6hkAAABhklEQVQoz43S524CQQwE4Hv/h0MgIdE7CQmhHb0cIR+7gAiCKPPDeL07nrGP5BTwfcXpGdQ/Ah7qyel/mEwmi8XiCXm73X4GjEajV+Rut5umaXTxi3w4HDTGXK1WDxxX+/1exJzP51mWHa5QT26P6N8PKe52u/F4rON6veZZvlwu5wGOnD4nR6j0er24qvcAalnA8Xg0SKK9kmZsSxxxxLikcrncbrcbjUa9XpczP51O6btttVoJmkOz2czn88PhMPbmCt87am8BTHo9GAwIauSoY+JnNpv1+30l4vhyvXSh49axVqu5UuTCAzTFs7Ks0+moIjuTEuWxi/h1By1iYnlnZe6LxaIMR3RhVO04tC3KRlgFmC4N4NSwHpxn1t54Fhi/kGuNRTqlUok+Oxrpu9lsrFO0EQIJw+481XtzhY7xU8X1FAqFarWay+VokBUt9Txz/EuQza7wzR0jmTh78c9rYXKCaOqXmV+BBVZxmDdapVJBwHfk96L8B9nyjBD3dEvAFln4AUnTibYH7d9GAAAAAElFTkSuQmCC&apos;); background-size: cover; display: block;&quot;
+    &gt;
+      &lt;img
+        class=&quot;gatsby-resp-image-image&quot;
+        style=&quot;width: 100%; height: 100%; margin: 0; vertical-align: middle; position: absolute; top: 0; left: 0; box-shadow: inset 0px 0px 0px 400px transparent;&quot;
+        alt=&quot;Visualized architecture&quot;
+        title=&quot;&quot;
+        src=&quot;/static/k8s-arch-b501c1e10355b0a7d76b227ab6781ff2-b75b8.png&quot;
+        srcset=&quot;/static/k8s-arch-b501c1e10355b0a7d76b227ab6781ff2-e10ab.png 200w,
+/static/k8s-arch-b501c1e10355b0a7d76b227ab6781ff2-f8041.png 400w,
+/static/k8s-arch-b501c1e10355b0a7d76b227ab6781ff2-b75b8.png 600w&quot;
+        sizes=&quot;(max-width: 600px) 100vw, 600px&quot;
+      /&gt;
+    &lt;/span&gt;
+  &lt;/span&gt;
+  
+  &lt;/a&gt;
+    &lt;/p&gt;
+&lt;p&gt;Dont worry if the visual seems overwhelming, we’ll break down simply whats going on. &lt;/p&gt;
+&lt;hr&gt;
+&lt;h3&gt;goku.go&lt;/h3&gt;
+&lt;p&gt;goku.go is an incredibly small Go program. All it does is make a HTTP Get request to a URL provided through an environmental variable, then write some of the data to a database. &lt;/p&gt;
+&lt;p&gt;&lt;a href=&quot;https://github.com/AnthonyLaiuppa/goku.git&quot;&gt;GoKu on Github&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt; We compile it statically with all of its dependencies included so it can be ran in a scratch Docker container, allowing us to get an incredibly small container size of &lt;code class=&quot;language-text&quot;&gt;6.3mb&lt;/code&gt;, which helps us have a much small container image than if we went with something Python based for example.&lt;/p&gt;
+&lt;p&gt;Having the URL provided by an environmental variable is what allows us to make this Go program run in a distributed manner. We can use the Python Script &lt;code class=&quot;language-text&quot;&gt;GenerateTargets.py&lt;/code&gt; to generate many different &lt;code class=&quot;language-text&quot;&gt;pod.yml&lt;/code&gt; templates with the variable set to whatever URL we want to get data from.&lt;/p&gt;
+&lt;p&gt;
+  &lt;a
+    class=&quot;gatsby-resp-image-link&quot;
+    href=&quot;/static/pod_yml_template-96426d0fec183fa5e2cb0e0d4e1d0cab-584ae.png&quot;
+    style=&quot;display: block&quot;
+    target=&quot;_blank&quot;
+    rel=&quot;noopener&quot;
+  &gt;
+  
+  &lt;span
+    class=&quot;gatsby-resp-image-wrapper&quot;
+    style=&quot;position: relative; display: block; ; max-width: 735px; margin-left: auto; margin-right: auto;&quot;
+  &gt;
+    &lt;span
+      class=&quot;gatsby-resp-image-background-image&quot;
+      style=&quot;padding-bottom: 55.51020408163265%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAALCAIAAADwazoUAAAACXBIWXMAAAsSAAALEgHS3X78AAABrElEQVQoz21S2XKjMBAU92WwU0l+IE/eGBsQoANxGQyOs/GWN37b//+QHeFjU1upmlIhNa3u6REKxPjIO33NjKiwEmHGhZ2U8I2W6YJ2z2KnhgQOrbiE1cEAcWVF0I/8hRZoxkeLDGrSalGprXL0KmuCszntHuujEtdGXKlreoEkGt7ILhus6uwXH7NY6Btuwk/ADCkoz1n/PP5xxdGMhDy81T9ll3ZGPtrsI4i5T7ceGJZ3U6lM2of6qJODn9VeWn9D9vlg5FB7M22tuJC0u22yfWo/NbzzSG/FkzjYBvLdts92alRa5Tmg41PRO7hy0krbMLSUyoti0PhpxvYAubiCAuiLcjHARsv3dvVp4daMuLbhV9t0C+IK7u3qbKcSglCU/2yjVa5I8d9GVAakUdcMXdMGcotCbomTkTR+3khHr0QNvyqHVMedkW5hvGY0tX3rec46FDUmltA04XsiEzkA8prp9N2hbw95620KBVK5pg3kXslGh/1csN7G9SxvvKy2E4GWl0fCei1pTHFy2dtcvMNIlMtILqMqDxr75fKDhDLoiELUqrxakv8Cs01lWL4BvkQAAAAASUVORK5CYII=&apos;); background-size: cover; display: block;&quot;
+    &gt;
+      &lt;img
+        class=&quot;gatsby-resp-image-image&quot;
+        style=&quot;width: 100%; height: 100%; margin: 0; vertical-align: middle; position: absolute; top: 0; left: 0; box-shadow: inset 0px 0px 0px 400px transparent;&quot;
+        alt=&quot;Pod Template&quot;
+        title=&quot;&quot;
+        src=&quot;/static/pod_yml_template-96426d0fec183fa5e2cb0e0d4e1d0cab-584ae.png&quot;
+        srcset=&quot;/static/pod_yml_template-96426d0fec183fa5e2cb0e0d4e1d0cab-408a5.png 200w,
+/static/pod_yml_template-96426d0fec183fa5e2cb0e0d4e1d0cab-66145.png 400w,
+/static/pod_yml_template-96426d0fec183fa5e2cb0e0d4e1d0cab-584ae.png 735w&quot;
+        sizes=&quot;(max-width: 735px) 100vw, 735px&quot;
+      /&gt;
+    &lt;/span&gt;
+  &lt;/span&gt;
+  
+  &lt;/a&gt;
+    &lt;/p&gt;
+&lt;p&gt;Heres what the sample output of goku.go looks like&lt;/p&gt;
+&lt;p&gt;
+  &lt;a
+    class=&quot;gatsby-resp-image-link&quot;
+    href=&quot;/static/gokulogs-1d55baa384b5f1f0c18f8ed85b9ffaab-4d3c2.png&quot;
+    style=&quot;display: block&quot;
+    target=&quot;_blank&quot;
+    rel=&quot;noopener&quot;
+  &gt;
+  
+  &lt;span
+    class=&quot;gatsby-resp-image-wrapper&quot;
+    style=&quot;position: relative; display: block; ; max-width: 800px; margin-left: auto; margin-right: auto;&quot;
+  &gt;
+    &lt;span
+      class=&quot;gatsby-resp-image-background-image&quot;
+      style=&quot;padding-bottom: 40.7040704070407%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAICAYAAAD5nd/tAAAACXBIWXMAAAsSAAALEgHS3X78AAABQUlEQVQoz5VQy27CMBD0R5DExEmc2I4DqP0WxOsA5f/vUCGO25lN03stjfYxsy+b9/stj8dDvp9Ptct7vV7yRO6/z9zvd7ler0L7dbupPR6Piv1+L5fLRf3z+aw+cTqd5HA4wM46xgR9Y62Vpmmlqkopqwp2hgXKsgBK8A1iK6uikHq9Bm+lgF8UK9U68HVdC3uZEILEmGTKWXIeJaWEOMo0ZfU3262M46iFwzBICAO4ST4+PtWO0KQ0ojbLbrcT45yTvu+F1tpKJzXwHSxz3J4+NWzYda1uTN0a23KrildCy5wh6SFutNjpdpzmvdcGbdsqv8SE+y1mLfkaMfkOMJzMAp6X0IwNve//Nso4K+Jb+n4+d2kcQtSTN+RRw8bMmfkMrw0oJmYyaCGH0e+QS/jLJc9tYgzSYsuo/xhli//+AWPrGZbaT9OTAAAAAElFTkSuQmCC&apos;); background-size: cover; display: block;&quot;
+    &gt;
+      &lt;img
+        class=&quot;gatsby-resp-image-image&quot;
+        style=&quot;width: 100%; height: 100%; margin: 0; vertical-align: middle; position: absolute; top: 0; left: 0; box-shadow: inset 0px 0px 0px 400px transparent;&quot;
+        alt=&quot;Output&quot;
+        title=&quot;&quot;
+        src=&quot;/static/gokulogs-1d55baa384b5f1f0c18f8ed85b9ffaab-48538.png&quot;
+        srcset=&quot;/static/gokulogs-1d55baa384b5f1f0c18f8ed85b9ffaab-bed0f.png 200w,
+/static/gokulogs-1d55baa384b5f1f0c18f8ed85b9ffaab-5fd34.png 400w,
+/static/gokulogs-1d55baa384b5f1f0c18f8ed85b9ffaab-48538.png 800w,
+/static/gokulogs-1d55baa384b5f1f0c18f8ed85b9ffaab-4d3c2.png 909w&quot;
+        sizes=&quot;(max-width: 800px) 100vw, 800px&quot;
+      /&gt;
+    &lt;/span&gt;
+  &lt;/span&gt;
+  
+  &lt;/a&gt;
+    &lt;/p&gt;
+&lt;hr&gt;
+&lt;h3&gt;Distributed Computing&lt;/h3&gt;
+&lt;p&gt;I wanted to pick a task with a little size to it but couldnt go too crazy since Im just virtualizing all of this on my desktop, as opposed to running on a cloud kubernetes service such as EKS or GKE. In the cloud we would have autoscale groups and more resources which would make this blazing fast, however as an individual my wallet doesnt like the sound of autoscale groups.&lt;/p&gt;
+&lt;p&gt;So what we’ll do is get the status of &lt;code class=&quot;language-text&quot;&gt;flickr.com&lt;/code&gt; and its give or take 110 subdomains. Virtualizing 111 containers sounds like alot but in the &lt;code class=&quot;language-text&quot;&gt;pod.yml&lt;/code&gt; we’re able to specify memory usage allowing us to work well within our means.&lt;/p&gt;
+&lt;p&gt;Lets kick off the bash script to create all of the pods in our cluster, and set it to —watch so we can monitor it&lt;/p&gt;
+&lt;p&gt;
+  &lt;a
+    class=&quot;gatsby-resp-image-link&quot;
+    href=&quot;/static/podscreation-c39b4a9d708587ea736ebb409c1fd19a-97252.png&quot;
+    style=&quot;display: block&quot;
+    target=&quot;_blank&quot;
+    rel=&quot;noopener&quot;
+  &gt;
+  
+  &lt;span
+    class=&quot;gatsby-resp-image-wrapper&quot;
+    style=&quot;position: relative; display: block; ; max-width: 800px; margin-left: auto; margin-right: auto;&quot;
+  &gt;
+    &lt;span
+      class=&quot;gatsby-resp-image-background-image&quot;
+      style=&quot;padding-bottom: 36.831275720164605%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAHCAYAAAAIy204AAAACXBIWXMAAAsSAAALEgHS3X78AAABV0lEQVQoz1WR6VLCQBCEo3gjqEC0oEDkRohEwn2FK+FOAM/3f5J2ZrdSwo+t3aR6v+3uUTTnG7nFDs+TNbLzLULtMZSiASX/DrUzQXy0xG1tgMe+jcR4hdhwgUh3irvmEMG6idNyQ+pfa3KVN19Iz1wCrpCcbsQFH4sIGG6NkF/uETXnuKdznIDZ+U4Ar6tdXOptnJTq/0DeK+4POdwTbC2AKcuRIgKGCMLuo+YMYXKboBTsMtgYIlAfwKc1jmG8M7Cw/EDKdgSQI17pHSg5XQAzVIPas6iKiXiMk8RMik0PnL+1cFFpHwM5Ml/iDtO2iyfqioWewxT9UykiAzNUTZJ0atdCgHo905qynkOXmvMpQBwlM9vigSBKoSqAERpQntxzHeyIoSUywIO7qfbgN3pSewjUt78oriWUXb5YGynMVsSUeSgM5A4jnan49ibtN/rCITv1oH+R4dhrHtDUUQAAAABJRU5ErkJggg==&apos;); background-size: cover; display: block;&quot;
+    &gt;
+      &lt;img
+        class=&quot;gatsby-resp-image-image&quot;
+        style=&quot;width: 100%; height: 100%; margin: 0; vertical-align: middle; position: absolute; top: 0; left: 0; box-shadow: inset 0px 0px 0px 400px transparent;&quot;
+        alt=&quot;Dir structure&quot;
+        title=&quot;&quot;
+        src=&quot;/static/podscreation-c39b4a9d708587ea736ebb409c1fd19a-48538.png&quot;
+        srcset=&quot;/static/podscreation-c39b4a9d708587ea736ebb409c1fd19a-bed0f.png 200w,
+/static/podscreation-c39b4a9d708587ea736ebb409c1fd19a-5fd34.png 400w,
+/static/podscreation-c39b4a9d708587ea736ebb409c1fd19a-48538.png 800w,
+/static/podscreation-c39b4a9d708587ea736ebb409c1fd19a-97252.png 972w&quot;
+        sizes=&quot;(max-width: 800px) 100vw, 800px&quot;
+      /&gt;
+    &lt;/span&gt;
+  &lt;/span&gt;
+  
+  &lt;/a&gt;
+    &lt;/p&gt;
+&lt;p&gt;Since we are using Minikube, we can pop open a new terminal and type&lt;/p&gt;
+&lt;p&gt; &lt;code class=&quot;language-text&quot;&gt;minikube dashboard&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;to see this all in a cool display&lt;/p&gt;
+&lt;p&gt;After a couple a minutes we already have results&lt;/p&gt;
+&lt;p&gt;
+  &lt;a
+    class=&quot;gatsby-resp-image-link&quot;
+    href=&quot;/static/results-29333f350f86457a75c3858fa8e2c620-85fa1.png&quot;
+    style=&quot;display: block&quot;
+    target=&quot;_blank&quot;
+    rel=&quot;noopener&quot;
+  &gt;
+  
+  &lt;span
+    class=&quot;gatsby-resp-image-wrapper&quot;
+    style=&quot;position: relative; display: block; ; max-width: 800px; margin-left: auto; margin-right: auto;&quot;
+  &gt;
+    &lt;span
+      class=&quot;gatsby-resp-image-background-image&quot;
+      style=&quot;padding-bottom: 35.21634615384615%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAHCAYAAAAIy204AAAACXBIWXMAAAsSAAALEgHS3X78AAAAvklEQVQoz41RSQ7DIAzk/4/srZVSFSnsW8BlHBGRtIdYsrCH8dgGYbSmFCOllG57zvmIY6+FA3POkViUpJQrwVprp7PWyuQZCyFwIe5g27YxZzQQn+VJ2tdeUJmEwnGCbIzhfAjovpFS6sSFkLWWvPdd8P0iG/bLq0MQxJHD0ACiV0FMjenFQz5vCe4TNs6llFRKOTgnQdlX9qkxeRYbb/hvQqw8sJ8Jw7pSiIU7Xh0/B9KM4Z1mDLG1jnGIfgEHFyTumq21LAAAAABJRU5ErkJggg==&apos;); background-size: cover; display: block;&quot;
+    &gt;
+      &lt;img
+        class=&quot;gatsby-resp-image-image&quot;
+        style=&quot;width: 100%; height: 100%; margin: 0; vertical-align: middle; position: absolute; top: 0; left: 0; box-shadow: inset 0px 0px 0px 400px transparent;&quot;
+        alt=&quot;Dir structure&quot;
+        title=&quot;&quot;
+        src=&quot;/static/results-29333f350f86457a75c3858fa8e2c620-48538.png&quot;
+        srcset=&quot;/static/results-29333f350f86457a75c3858fa8e2c620-bed0f.png 200w,
+/static/results-29333f350f86457a75c3858fa8e2c620-5fd34.png 400w,
+/static/results-29333f350f86457a75c3858fa8e2c620-48538.png 800w,
+/static/results-29333f350f86457a75c3858fa8e2c620-b70ec.png 1200w,
+/static/results-29333f350f86457a75c3858fa8e2c620-d134a.png 1600w,
+/static/results-29333f350f86457a75c3858fa8e2c620-85fa1.png 1664w&quot;
+        sizes=&quot;(max-width: 800px) 100vw, 800px&quot;
+      /&gt;
+    &lt;/span&gt;
+  &lt;/span&gt;
+  
+  &lt;/a&gt;
+    &lt;/p&gt;
+&lt;p&gt;Only a single node (my desktop) is being used here so it takes more time to create all the pods, on a cloud provider it would be much much faster.&lt;/p&gt;
+&lt;p&gt;We can also take a look at resource utilization as this is all being ran. This picture as taken at the peak.&lt;/p&gt;
+&lt;p&gt;
+  &lt;a
+    class=&quot;gatsby-resp-image-link&quot;
+    href=&quot;/static/resources-a42300644cd43b4e54a58b12dd9a2427-c2aaa.png&quot;
+    style=&quot;display: block&quot;
+    target=&quot;_blank&quot;
+    rel=&quot;noopener&quot;
+  &gt;
+  
+  &lt;span
+    class=&quot;gatsby-resp-image-wrapper&quot;
+    style=&quot;position: relative; display: block; ; max-width: 800px; margin-left: auto; margin-right: auto;&quot;
+  &gt;
+    &lt;span
+      class=&quot;gatsby-resp-image-background-image&quot;
+      style=&quot;padding-bottom: 31.639443436176652%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAGCAYAAADDl76dAAAACXBIWXMAAAsSAAALEgHS3X78AAABIUlEQVQY01WRz04CMRDGef+Lj2DiI3gw6tXEiBLgREDFeNBFFsJuu93t3+nntBUiTSaTmen8+nVmJKWEEAJGG7RWwXmHGAg+eLYAIoJ1FiooIEZ47xE4n4zYWtNBe8M9MfeMUiGdQSo8Vwvc1pMcIxbnnUe13eNiNsar2uQcMTiVg3Z4l9+4a2bwsXBGx9fqXc03gMV2DUPuBFx/tZivHK7nNS6XLydgUlqrQ46fxAof+qcAUyEd0baoNhV6VpoFxkI0xuJhesDVeIG3/qiQsn+US9zsJ7jfTeHon8LU2kgBpRQDzFFcGYXVnG+hhw7BubNxdLrHZ1PBeHtKZ4WBBy+6MvTwtwiimK/0vCzN5hg2DENRmOqs0liTKZEoLzD96hfoPc/BbAD2PAAAAABJRU5ErkJggg==&apos;); background-size: cover; display: block;&quot;
+    &gt;
+      &lt;img
+        class=&quot;gatsby-resp-image-image&quot;
+        style=&quot;width: 100%; height: 100%; margin: 0; vertical-align: middle; position: absolute; top: 0; left: 0; box-shadow: inset 0px 0px 0px 400px transparent;&quot;
+        alt=&quot;Resources&quot;
+        title=&quot;&quot;
+        src=&quot;/static/resources-a42300644cd43b4e54a58b12dd9a2427-48538.png&quot;
+        srcset=&quot;/static/resources-a42300644cd43b4e54a58b12dd9a2427-bed0f.png 200w,
+/static/resources-a42300644cd43b4e54a58b12dd9a2427-5fd34.png 400w,
+/static/resources-a42300644cd43b4e54a58b12dd9a2427-48538.png 800w,
+/static/resources-a42300644cd43b4e54a58b12dd9a2427-b70ec.png 1200w,
+/static/resources-a42300644cd43b4e54a58b12dd9a2427-d134a.png 1600w,
+/static/resources-a42300644cd43b4e54a58b12dd9a2427-c2aaa.png 1653w&quot;
+        sizes=&quot;(max-width: 800px) 100vw, 800px&quot;
+      /&gt;
+    &lt;/span&gt;
+  &lt;/span&gt;
+  
+  &lt;/a&gt;
+    &lt;/p&gt;
+&lt;p&gt;While pods are in various states the number will go up and down until all the work is complete. &lt;/p&gt;
+&lt;hr&gt;
+&lt;h3&gt;Results&lt;/h3&gt;
+&lt;p&gt;It took about 8 minutes to gather information from all 111 sites.&lt;/p&gt;
+&lt;p&gt;Querying the db shows that it received data from the pods.&lt;/p&gt;
+&lt;p&gt;
+  &lt;a
+    class=&quot;gatsby-resp-image-link&quot;
+    href=&quot;/static/gokudb_table-a836d0eee691fcd222a56cd06131a343-7bb18.png&quot;
+    style=&quot;display: block&quot;
+    target=&quot;_blank&quot;
+    rel=&quot;noopener&quot;
+  &gt;
+  
+  &lt;span
+    class=&quot;gatsby-resp-image-wrapper&quot;
+    style=&quot;position: relative; display: block; ; max-width: 295px; margin-left: auto; margin-right: auto;&quot;
+  &gt;
+    &lt;span
+      class=&quot;gatsby-resp-image-background-image&quot;
+      style=&quot;padding-bottom: 120.33898305084745%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAYCAYAAAD6S912AAAACXBIWXMAAAsSAAALEgHS3X78AAAEE0lEQVQ4y11ViZKqWhDz///qvqmaGcEVxRFRFkERFBdw3/oljc6tuladQracJJ1uasVuK+fzRS6Xs+y2WzkdT3K98vwi10t1fK/r9Sqn00mOh0O1jgc57EvJ0lTXFu/XwsCTxWIh+SqTOJpKWRR4eK9rj4d55EvH4x73dlJgle9VFlLsNuJ7E3FHQ4njWGqtVku4gsCXsTuWCKBBEIjvezgfyWQ8lmy5kslkouz4ez6fuvi73296b73e6Hmt0WgooALg5el0CtBIfGzAYxiGEuIaj5vNRna7HdgeFfx8PoP9XlzXlXmS6PWaYRjSbrfFcYZC8F6vh9XHf1MMw5Revy+maeh1G/95L80yyfOVrPJcsixVQo7jyHK1klqz2XhJDpQRH1gkC5nNYklhNF+K4xnOZ5CVq98HFOTxeMgd63I+SaDst3K73SjZVMAwDFQypc0AQE+TZK5ygyBUK5I5zkMUrtxXgPe7Avq+L0v4rICGUf+VbJqm9CGr0+lKi8xxvdvpSLvTFqNuiDMaSR/SCUo/87fkZlOGw5fkhmn+FoUsFotEpVNiAnkJzGbG5mD3vk4wSmQRGClWOYOvR2S4ZqIozZdkVksl4yU+RECVG/oSTCMJII22MK9kezqd5fm4q+Q1NmCQaka9DoZtGY0csbqWVmv4M5Sfnx8Z4Gh1OwD3EFwHfkYIdqHsGB92xhKSu3jPA2i+XlexoeTJZKxAnufpIhMy5gZkTRbMGgG5CFiWJUA38G+oSeD1GgvCVUlmsEOJZ4mE8DREpR238oeArO6/v+fzoRuzytoprBAByZC+TcEmQk8SIGanIJ8Tz38VZaqVJDOy4XGzWeM+50GqrGvfX19aFBcmE3gwsCET8ej3YMFA42ShO9yxq50ym82lRLtVld7Aw+xFyEPw4eH39/ffYEMyJwY9086BLx5Zw4bxhL662ikM/XZXqMQbRh2tWq3yv5LZw3xoiipS2hyxieIqcxGyGaMNyYwbsR2Z1TXY6XDAeON1eqjDof79JX/+/IfYjIQVt3qW9CxLZVjoijbYN7Ep/3c6LbFtWIDOcccTjU2WLvBsS23STuEkoWxKpjyyIps4jrTFeFyAFbuEFrBIabpQS4qi1OnOmGXZ8t3Lhnx+fqpP7Ir5C5CDIdCuidXXKIq1+qw8AX0/0KHKT4ePFFSA92o4ENBBJ9BL2+7rgOhBerPZ0kFB+d1uVxwMAMvqSpJm6h2rzOHQgQVsxd/hQEBK0IpGU2XEPLJIrCqHBpm+Z2aer3VO6nAAMK9Xw+FVlI+PDwViYaavce/hwzOfY9IsM/T1EDMy1ixyk2pORjoTH/imsFNSsNbhwGlDQGbMtge6G3uTgabZ3GAwGOgGtm2/vjtVLukhpzjv+3iPFvwPPrzZkXCjXoMAAAAASUVORK5CYII=&apos;); background-size: cover; display: block;&quot;
+    &gt;
+      &lt;img
+        class=&quot;gatsby-resp-image-image&quot;
+        style=&quot;width: 100%; height: 100%; margin: 0; vertical-align: middle; position: absolute; top: 0; left: 0; box-shadow: inset 0px 0px 0px 400px transparent;&quot;
+        alt=&quot;Links&quot;
+        title=&quot;&quot;
+        src=&quot;/static/gokudb_table-a836d0eee691fcd222a56cd06131a343-7bb18.png&quot;
+        srcset=&quot;/static/gokudb_table-a836d0eee691fcd222a56cd06131a343-67bf2.png 200w,
+/static/gokudb_table-a836d0eee691fcd222a56cd06131a343-7bb18.png 295w&quot;
+        sizes=&quot;(max-width: 295px) 100vw, 295px&quot;
+      /&gt;
+    &lt;/span&gt;
+  &lt;/span&gt;
+  
+  &lt;/a&gt;
+    &lt;/p&gt;
+&lt;p&gt;Now if we run the map tool from my previous post and have it get the statuses, it takes about 19 minutes.&lt;/p&gt;
+&lt;p&gt;
+  &lt;a
+    class=&quot;gatsby-resp-image-link&quot;
+    href=&quot;/static/flickrcomplete-7ca098fd2c09570b893d8190337940c4-92861.png&quot;
+    style=&quot;display: block&quot;
+    target=&quot;_blank&quot;
+    rel=&quot;noopener&quot;
+  &gt;
+  
+  &lt;span
+    class=&quot;gatsby-resp-image-wrapper&quot;
+    style=&quot;position: relative; display: block; ; max-width: 366px; margin-left: auto; margin-right: auto;&quot;
+  &gt;
+    &lt;span
+      class=&quot;gatsby-resp-image-background-image&quot;
+      style=&quot;padding-bottom: 43.98907103825137%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAJCAYAAAAywQxIAAAACXBIWXMAAAsTAAALEwEAmpwYAAABsUlEQVQoz4WSa0/iYBCFa2KMWTUK3mUREFsqglZcuSwqUCjQAr1w0XhJ/Or//wNnz7xk3ZWY+OFNp+28z5w5M9pWuYFj20Oi0Ue2F0LvR4hVWjjtBUjZAyydXSPnTRh70AwLS/lf0MwSNH7/8sQqTZjeGAZB1uQVOkHxWhs5N0TBf0S8auOkGyjgykUVu/XO98B0Z4Sb2Sus6Ak7dQf7vHTa9akyVEApuH59ixjj0uQFP6watNzVHLAIF2Ci4aIwmiLR8lAMHnFw18UZIfnRA3Z+t5XCn80+oXe0R2xYVPjfe6zcxB4VpdpD1WKi6eKIfhpsXeKMEyiP10p17N860PTLuaoPZaXPKgUogPxgQiWheh4TfsX2ZVCpjo+04yPT9gjscmghVi9rFOFggzbIoOatL3iYdUY4oqL8cKra1Hs+DLa9KVvAAjKU5UIF5+xCcj95+BcmsVzOUIFM1yTMcMdI0ksZStIeKk+z9NB0I5iDGQ7ve2qlTjpD6Mzdrtn/4HLi1Rb3L8DN9AXW+BkXBGSYnKaqJAdgRc8sEqHoP6j/ApFtKHMrGm/vqrCWsz6AfwDQKBylRA3f2QAAAABJRU5ErkJggg==&apos;); background-size: cover; display: block;&quot;
+    &gt;
+      &lt;img
+        class=&quot;gatsby-resp-image-image&quot;
+        style=&quot;width: 100%; height: 100%; margin: 0; vertical-align: middle; position: absolute; top: 0; left: 0; box-shadow: inset 0px 0px 0px 400px transparent;&quot;
+        alt=&quot;Mapping&quot;
+        title=&quot;&quot;
+        src=&quot;/static/flickrcomplete-7ca098fd2c09570b893d8190337940c4-92861.png&quot;
+        srcset=&quot;/static/flickrcomplete-7ca098fd2c09570b893d8190337940c4-f0762.png 200w,
+/static/flickrcomplete-7ca098fd2c09570b893d8190337940c4-92861.png 366w&quot;
+        sizes=&quot;(max-width: 366px) 100vw, 366px&quot;
+      /&gt;
+    &lt;/span&gt;
+  &lt;/span&gt;
+  
+  &lt;/a&gt;
+    &lt;/p&gt;
+&lt;hr&gt;
+&lt;h3&gt;Conclusion&lt;/h3&gt;
+&lt;p&gt;Surprisingly the minkube virtualized kubernetes cluster was able to perform more quickly at 8 minutes, than the map python tool from my previous post that came clocking in at 19 minutes.&lt;/p&gt;
+&lt;p&gt;Pretty interesting given we had to wait on the containers to be created. Although it helps that this approach is effectively asynchronous, compared to the python tool which is single threaded. &lt;/p&gt;
+&lt;p&gt;Overall getting some practice in with Go and Kubernetes was a great way of getting more familiar with both technologies. Dont be afraid to try and make something yourself, just remember to reference the documentation.&lt;/p&gt;</content:encoded></item><item><title><![CDATA[Mapping website attack surfaces]]></title><description><![CDATA[Intro Trying bug bounties can be fun, you might even walk off like a prospector with gold. Of course similar to sifting through river water…]]></description><link>https://anthonylaiuppa.com/mapping-website-attack-surface/</link><guid isPermaLink="false">https://anthonylaiuppa.com/mapping-website-attack-surface/</guid><content:encoded>&lt;h3&gt;Intro&lt;/h3&gt;
 &lt;p&gt;Trying bug bounties can be fun, you might even walk off like a prospector with gold. Of course similar to sifting through river water looking for gold, youve got sifting through websites looking for things that catch your eye. It can be pretty repetitive, so lets get some practice in by making a tool of our own to help make this attack surface for us.&lt;/p&gt;
 &lt;hr&gt;
 &lt;p&gt;First off, what is an attack surface? &lt;/p&gt;
