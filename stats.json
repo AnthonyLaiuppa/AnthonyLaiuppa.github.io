@@ -1,8 +1,8 @@
 {
   "assetsByChunkName": {
     "path---goku-distributed-computing": [
-      "path---goku-distributed-computing-67978b7de027e062becd.js",
-      "path---goku-distributed-computing-67978b7de027e062becd.js.map"
+      "path---goku-distributed-computing-0bbbb1fc22365ad7e449.js",
+      "path---goku-distributed-computing-0bbbb1fc22365ad7e449.js.map"
     ],
     "path---binary-fun": [
       "path---binary-fun-4cc1db600e9e98dd7c12.js",
@@ -25,8 +25,8 @@
       "path---hiding-encrypted-blobs-a15b8f71994bac2f0b07.js.map"
     ],
     "path---": [
-      "path----33cd581cd15060cd359f.js",
-      "path----33cd581cd15060cd359f.js.map"
+      "path----c0fffca8bd2c807bbb67.js",
+      "path----c0fffca8bd2c807bbb67.js.map"
     ],
     "component---src-pages-contact-js": [
       "component---src-pages-contact-js-491e2fefb3b96f906e34.js",
@@ -41,8 +41,8 @@
       "component---node-modules-gatsby-plugin-offline-app-shell-js-5c4c5a0f7af9dc69d6d7.js.map"
     ],
     "component---src-layouts-index-js": [
-      "component---src-layouts-index-js-5b2a2330dae181e74874.js",
-      "component---src-layouts-index-js-5b2a2330dae181e74874.js.map"
+      "component---src-layouts-index-js-eba05bd6d31f18773485.js",
+      "component---src-layouts-index-js-eba05bd6d31f18773485.js.map"
     ],
     "path---sans-holiday-hacking-challenge": [
       "path---sans-holiday-hacking-challenge-886203b57152ae8acce9.js",
