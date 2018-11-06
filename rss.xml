@@ -1,4 +1,235 @@
-<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[Laiuppa Blog]]></title><description><![CDATA[A repository of potentially interesting information.]]></description><link>https://anthonylaiuppa.com</link><generator>RSS for Node</generator><lastBuildDate>Mon, 05 Nov 2018 15:42:10 GMT</lastBuildDate><item><title><![CDATA[GoKu distributed computing]]></title><description><![CDATA[Intro Recently I sat down to learn more about Go and Kubernetes, and figured I would share some distributed computing fun had along the way…]]></description><link>https://anthonylaiuppa.com/goku-distributed-computing/</link><guid isPermaLink="false">https://anthonylaiuppa.com/goku-distributed-computing/</guid><content:encoded>&lt;h3&gt;Intro&lt;/h3&gt;
+<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[Laiuppa Blog]]></title><description><![CDATA[A repository of potentially interesting information.]]></description><link>https://anthonylaiuppa.com</link><generator>RSS for Node</generator><lastBuildDate>Tue, 06 Nov 2018 20:40:41 GMT</lastBuildDate><item><title><![CDATA[GoKu, will it scale?]]></title><description><![CDATA[Intro Previously we virtualized a Kubernetes cluster on our localhost, but that is just simulating the cloud. Why dont we take GoKu to the…]]></description><link>https://anthonylaiuppa.com/goku-will-it-scale/</link><guid isPermaLink="false">https://anthonylaiuppa.com/goku-will-it-scale/</guid><content:encoded>&lt;h3&gt;Intro&lt;/h3&gt;
+&lt;p&gt;Previously we virtualized a Kubernetes cluster on our localhost, but that is just simulating the cloud. Why dont we take GoKu to the actual cloud and see how it does? I actually tried to tie this in and scan the same 111 URLs from the last post, but it finished so fast I couldnt believe it. Lets bump things up a notch, what if we want to scan 5000+ sites?&lt;/p&gt;
+&lt;hr&gt;
+&lt;h3&gt;What is scaling?&lt;/h3&gt;
+&lt;p&gt;What is scalability?&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;Scalability is the capability of a system, network, or process to handle a growing amount of work, or its potential to be enlarged to accommodate that growth. &lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;We actually demonstrated some local scalability in the previous post, but were hindered by the fact that we were only using a single node since we were running Minikube. &lt;/p&gt;
+&lt;p&gt;With resource optimization and configurations we were able to run 87 pods in paralell, which is pretty good for a single workstation. But what if we had the power of the cloud?&lt;/p&gt;
+&lt;p&gt;
+  &lt;a
+    class=&quot;gatsby-resp-image-link&quot;
+    href=&quot;/static/gcp-icon-1548cb88200dbc04ca79a2447a0db447-b1362.png&quot;
+    style=&quot;display: block&quot;
+    target=&quot;_blank&quot;
+    rel=&quot;noopener&quot;
+  &gt;
+  
+  &lt;span
+    class=&quot;gatsby-resp-image-wrapper&quot;
+    style=&quot;position: relative; display: block; ; max-width: 192px; margin-left: auto; margin-right: auto;&quot;
+  &gt;
+    &lt;span
+      class=&quot;gatsby-resp-image-background-image&quot;
+      style=&quot;padding-bottom: 100%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAUCAYAAACNiR0NAAAACXBIWXMAAAsSAAALEgHS3X78AAAD1ElEQVQ4y52UX2xTVRzH7+29d6ghLIpEXvQBkJBM49hue4vyx957O8YT2UZHmYl/CIr6Qogv0xAxoYWVbYSFNOFRlpBWYYPqkIWuBV2GRtEn5MVETcDYzjDMbtnae2l/fs+5t2PAg8aTfPM75/Scz/3+zu+XCsKiMW34uby5CEmQb1pXhaKhCnzu7on8jM72VOGRsRjkrSXhX8bN8EZpfT/x+ZfRDwQ9XnoQuADWXRjmTxR1/1uInxUN/zU4+QkxA1f7Coa2gp0JxUpi4r1hfncByG3rqjf3+zxYO/RbeWuQSm0a3TEDXFZYowr2CkbgdnnTmj3s7EjPh+LwG4fvQ6fDLqxYdxZWe2bbAsQEV5W/AWIQplkA4bJib15L594epJf77n3M7rz20Q0fg+kxz2VB2+A6a29pLm4J1P7aFKTiRs25o2s0bao/Qgl88BCcTVhGC51+PUYb+qqOOUBkxGY7PHfuu78pkDA/3MgXhVeCY3Z3C83sXle+u7uJbkdfOPJwMcZ27u8AZH7L4Tky+2wKxUs3sBa5Q5ZyHVbqX7n+bvLpqn2xgZyvfVXnilRDvOlMyCfmTj61jJ1JDgwovBjx0p7w0RqDVUxEgCKuS0vmX7UvKWtx8U+a8pGTk20nq5CdVWrVnEL0g0L47bqTlZeys6xRth/8YwlgvxpH5kmPWTUAK5C+kAYuTNF3gFxSbJpkAIVqecCuQFMcPgzxd957fJJnhALk24eIuYPLKou3AG8UcFCnb/iliguTP8d8NaAvQdfg9lT9w+XsY+LKXreZQzHrGUCOGXhHxHLbIIe/C3dKL32rEEsPsFvz2YbH64BKVllqZZdwRzPjy8X6Ppwsnl81Ew6F+znwlAAHBxmQLnOXP7NDg+ebxdGxVQ38xqf7xAOjQanpUNlnxuZ8ofgses5ifad4wAyDuUArzVKOeu9k1wClnPC+8B9HKG5t8wrisJRRqE9YQRoBK/AC5ITq6Fdr6MVU5Ht/unNCTXXlW9OdeTUVyb+a+D2vx8p5OMwDkIMmGUhHPwLMKs1SbvIeuyFKVyU6c/F5akp12+rZCAVGI+Qf6SY/YmAkSvqxAhqZyDzqkJmoQveIAwHaepxY+xzgsL0jm3k7ZC8826OlO2ZaM7somNlJ2hdRT92kZXrIHJqhNvZWg54GXHkp9y78OVwfXw7YcxzanNqxIpDufKc11TWkpjuTSDnZymMkiZSTSDmJlJO4yHQC2g+t8tro/l8YobV+GX9SEv7nCLlVdxdquovLm4uQBMlcqS4ZDhEjMhzKcCjDoYzLdUmQ6EG5w38AmHB8MzbN3dQAAAAASUVORK5CYII=&apos;); background-size: cover; display: block;&quot;
+    &gt;
+      &lt;img
+        class=&quot;gatsby-resp-image-image&quot;
+        style=&quot;width: 100%; height: 100%; margin: 0; vertical-align: middle; position: absolute; top: 0; left: 0; box-shadow: inset 0px 0px 0px 400px transparent;&quot;
+        alt=&quot;GCP&quot;
+        title=&quot;&quot;
+        src=&quot;/static/gcp-icon-1548cb88200dbc04ca79a2447a0db447-b1362.png&quot;
+        srcset=&quot;/static/gcp-icon-1548cb88200dbc04ca79a2447a0db447-b1362.png 192w&quot;
+        sizes=&quot;(max-width: 192px) 100vw, 192px&quot;
+      /&gt;
+    &lt;/span&gt;
+  &lt;/span&gt;
+  
+  &lt;/a&gt;
+    &lt;/p&gt;
+&lt;p&gt;Here we will use &lt;code class=&quot;language-text&quot;&gt;Google Compute Platform&lt;/code&gt; and more specifically the &lt;code class=&quot;language-text&quot;&gt;Google Kubernetes Engine&lt;/code&gt; to handle our needs. I had considered the &lt;code class=&quot;language-text&quot;&gt;Amazon EKS solution&lt;/code&gt; since it would be trivial to Terraform, but it has limitations with its autoscale. AWS cant natively monitor its EKS workers memory utilization, and since memory is our main consideration here thats a big deal. Naturally GCP/GKE became the optimal choice, its Kubernetes functionality is well integrated and very easy to leverage its full potential.&lt;/p&gt;
+&lt;p&gt;When we ran this test on the single node desktop, memory became our bottle neck. As this is a distributed computing model we should easily be able to remedy this by running a cluster with more nodes. &lt;/p&gt;
+&lt;p&gt;I wasnt ready to be surprised by a large GCP bill caused by autoscaling, so we will roll with the free tier and scale up with 4 nodes of their high memory machines.&lt;/p&gt;
+&lt;hr&gt;
+&lt;h3&gt;Our Test&lt;/h3&gt;
+&lt;p&gt;We’ll use our GenerateTargets tool from the repo to make a directory full of &lt;code class=&quot;language-text&quot;&gt;pod.yml&lt;/code&gt; just like before, except this time we’ll pick a target with alot of subdomains.&lt;/p&gt;
+&lt;p&gt;Alibaba had over 6500, worth mentioning I removed a couple hundred email servers. The sheer number of email servers alone was in the thousands.&lt;/p&gt;
+&lt;p&gt;
+  &lt;a
+    class=&quot;gatsby-resp-image-link&quot;
+    href=&quot;/static/manifest-c88d8cbca963e57153d101b6cf6da4a8-30a17.png&quot;
+    style=&quot;display: block&quot;
+    target=&quot;_blank&quot;
+    rel=&quot;noopener&quot;
+  &gt;
+  
+  &lt;span
+    class=&quot;gatsby-resp-image-wrapper&quot;
+    style=&quot;position: relative; display: block; ; max-width: 800px; margin-left: auto; margin-right: auto;&quot;
+  &gt;
+    &lt;span
+      class=&quot;gatsby-resp-image-background-image&quot;
+      style=&quot;padding-bottom: 43.37431693989071%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAJCAYAAAAywQxIAAAACXBIWXMAAAsSAAALEgHS3X78AAABh0lEQVQoz2VS2VLCQBDcQniioAQUReQIIBDUB44gyh0gkAS5//9X2umtxMLyYWt2s53unp5Vie4It9YEyaCm+lNkBjNkhwvE21+IvfcRe7Nk9RG9rvI90uoi+moF95beK2O1w8NoBWV2oZodPI4dlJffeNkckJN9fuqiaPuoODuUF1sYcleS2vBOSIqB3GSN2nov64D74VI4/HNAskW8M9TkVWePhnvCk4ALtoeKiFLAWFHoqO+b3hmZT1sENxpLgbSchfAiDjwNjndGfwmnJPR/CemQVROKkfTA1g6JpcNEbwxVlQ1bjLR6UI22BlTkh7qAqF68ImTlj4zJFCPpwVzwDsztReOikq+qu0c8z1ydH9c1IfeFuafPumURZl40ELbMuExxS3yWsyCIK8IJicNwKHRCdYpxCGyTLhgNzyRIfcz0IJhrTQTvmCEvmRufQUionXDK4pCExYCQgwsrCdlyVgjrQshvN/J0FNk5DJKFz8bQmR21w3zoUFotLfx/hMSHuSZlKD8iJCOemAqW0wAAAABJRU5ErkJggg==&apos;); background-size: cover; display: block;&quot;
+    &gt;
+      &lt;img
+        class=&quot;gatsby-resp-image-image&quot;
+        style=&quot;width: 100%; height: 100%; margin: 0; vertical-align: middle; position: absolute; top: 0; left: 0; box-shadow: inset 0px 0px 0px 400px transparent;&quot;
+        alt=&quot;Alibaba&quot;
+        title=&quot;&quot;
+        src=&quot;/static/manifest-c88d8cbca963e57153d101b6cf6da4a8-48538.png&quot;
+        srcset=&quot;/static/manifest-c88d8cbca963e57153d101b6cf6da4a8-bed0f.png 200w,
+/static/manifest-c88d8cbca963e57153d101b6cf6da4a8-5fd34.png 400w,
+/static/manifest-c88d8cbca963e57153d101b6cf6da4a8-48538.png 800w,
+/static/manifest-c88d8cbca963e57153d101b6cf6da4a8-b70ec.png 1200w,
+/static/manifest-c88d8cbca963e57153d101b6cf6da4a8-30a17.png 1464w&quot;
+        sizes=&quot;(max-width: 800px) 100vw, 800px&quot;
+      /&gt;
+    &lt;/span&gt;
+  &lt;/span&gt;
+  
+  &lt;/a&gt;
+    &lt;/p&gt;
+&lt;p&gt;In our terminal lets move into the manifest directory with all the targets and throw it a &lt;code class=&quot;language-text&quot;&gt;kubectl apply -f .&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;
+  &lt;a
+    class=&quot;gatsby-resp-image-link&quot;
+    href=&quot;/static/creation-81d8078ac783888939e405ca19fa920f-d0ae1.png&quot;
+    style=&quot;display: block&quot;
+    target=&quot;_blank&quot;
+    rel=&quot;noopener&quot;
+  &gt;
+  
+  &lt;span
+    class=&quot;gatsby-resp-image-wrapper&quot;
+    style=&quot;position: relative; display: block; ; max-width: 668px; margin-left: auto; margin-right: auto;&quot;
+  &gt;
+    &lt;span
+      class=&quot;gatsby-resp-image-background-image&quot;
+      style=&quot;padding-bottom: 148.95209580838323%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAeCAYAAAAsEj5rAAAACXBIWXMAAAsTAAALEwEAmpwYAAAEnElEQVRIx12WaVsaWxCEiZrELW4Rr2tUUJFNUHHFBTdkERQVk5vc/P+f0am3hyHO/TDPjDOeOl3V1XWIFdtdK3V/21a9Y5u1J0tWH23v5ZfNn93ZwsW9fd45ttG9suXab7bz+N3mync2pr8Hswc2XDy1qcNLi23vWSy9H1zZ+pPAnm3t5sG2my8OPHt664CxraLFdc+2ur7R15NrB4mldi1evrURnkOgEHTztmmrty1buqzZynXT1m4f7B+BTB1V7NPOkY3snqryjiXu2vb1+MqGcof2IVOyz4UTmzi4iIJx375/9AoXRY+F8+dVr4bdv5QubFrAS5W6fdNmfPuYP3KwYV0Doo0kEcpoiD4rV3VLNV+dHuCzpzf2SYvH9s9t9/mn5VpvFucdAFo4tn9mM6oYWSIV7jy82M7TD0tJuzVRTz+8WkbXgqpBJ/QCvNj5aduNZ+l441IAwPsvpfNohalqy9ZFcbWn36qas6xq5xBd+lEJz+vSEJ2nDiv9DkN/dLfsmvZBkzcNrwx9AFu/a9ncWdUmJTj0oJzQO75BEe0AQGO0/PD/phRar6LZdcqAYh/u+ItnNJo4uLRFVYcvg8Yc+vthBz12WfqU07Wgy8lqW+L/smV1NKnOj4ouC+gu11Kl5j5kEbqN7Z15pYO5g6iGGRk79Bk6Acgdu4xLP7zGtXLd8G9MCXTxIxoOF0+iFeaaz94MLEElTAoVQC22WXC6+fZ313ZCvgQklszbjKr1DmOb99OSbXQs//jDKTMpqcaLOt5weiwYyBz4Rll5dVm0J7UBXcbU6MxzhDI+zLSCpiRkn5S8Vuz86+YmCKiIMSQ4vl013ELQpdtsiLX+NqQXDon7JwfEGglVOqmdoRcsKOt90zdwG0lDaOK/cTXG9fMZ7lW5flVTV9UYXYiONQCmKTRqIFvyjk4fXbmu8+f3wchp8XCvOYNcIfXNuwfvMnTorndbRme2w9FCK54BmlMScR+SF8OQoNP9acmrywXN6Vat48DcN2pBtdhlVNVRGd8IDqaKKaIyLqTBXn3rAFgkTdRFAhYNC2oKgHjvoyfOmQPlldjMMxp74mgzBmAIK4Uabkhwusy8LlzUnCrgUGXcwhHLaDzTshRgbmZ5dLyXlzz3fZgUILO8oXFblo7MLwE7oya4+PonPJmqBwMwrrDwWdZ7wCN0A8r48M3NjKkdWAYOjoBjLao4VXw4K2B0w9TIgHUipuaZxEZDvJZWYmNqzhQuoglape5//g16Xp0qoup+/Kfe+TCjtEn0ApY5ZgRJasSnmrimBdMzITPH10HlasJ078ACPDwWAnAl9oanTctjjJCIl288mQFZvKz7lNAYnyDNcnCc/vWeZ2Lk1JN2GNtjTBViYj/AtTtGLujMIW2wieefOs/k+NkS0g0p55Q2AG4KmEQhHPAcgCP+y6DiaQNVKoEe3qRa1/B9h4MK24GGagrH5ZzoMs/hJDAdGJ6GhPkXzHbgP6cdOVdEMa1F2GZFtIl6ANAS6swqlbIpAUJj0I/QoGIqj1hn9bLqniKW/IeRvBUmM8MPJZIknFn3IVXpPf/T17FX5R/3E5+u3S6rJwAAAABJRU5ErkJggg==&apos;); background-size: cover; display: block;&quot;
+    &gt;
+      &lt;img
+        class=&quot;gatsby-resp-image-image&quot;
+        style=&quot;width: 100%; height: 100%; margin: 0; vertical-align: middle; position: absolute; top: 0; left: 0; box-shadow: inset 0px 0px 0px 400px transparent;&quot;
+        alt=&quot;Creation&quot;
+        title=&quot;&quot;
+        src=&quot;/static/creation-81d8078ac783888939e405ca19fa920f-d0ae1.png&quot;
+        srcset=&quot;/static/creation-81d8078ac783888939e405ca19fa920f-bd850.png 200w,
+/static/creation-81d8078ac783888939e405ca19fa920f-55f58.png 400w,
+/static/creation-81d8078ac783888939e405ca19fa920f-d0ae1.png 668w&quot;
+        sizes=&quot;(max-width: 668px) 100vw, 668px&quot;
+      /&gt;
+    &lt;/span&gt;
+  &lt;/span&gt;
+  
+  &lt;/a&gt;
+    &lt;/p&gt;
+&lt;p&gt;The containers are created incredibly fast and shortly move to completed. We can view this as well in our Kubernetes Workload and see that we have over a thousand pods going. Huge improvement from the 87 pods one our one node in the previous post. &lt;/p&gt;
+&lt;p&gt;
+  &lt;a
+    class=&quot;gatsby-resp-image-link&quot;
+    href=&quot;/static/peak-77529e75c96526df322cc25ee40cd9cf-13374.png&quot;
+    style=&quot;display: block&quot;
+    target=&quot;_blank&quot;
+    rel=&quot;noopener&quot;
+  &gt;
+  
+  &lt;span
+    class=&quot;gatsby-resp-image-wrapper&quot;
+    style=&quot;position: relative; display: block; ; max-width: 800px; margin-left: auto; margin-right: auto;&quot;
+  &gt;
+    &lt;span
+      class=&quot;gatsby-resp-image-background-image&quot;
+      style=&quot;padding-bottom: 86.10846812559467%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAARCAYAAADdRIy+AAAACXBIWXMAAAsTAAALEwEAmpwYAAACKklEQVQ4y31U69KjIBTr+7/izs7+2K9aL4CKgAo2e4LFbftdmGHwEkLOSfTy6/cf1LcWddOhknUYLTplcK0buLBAjQsaE3DTAa2sPqxwXmZ4mn45plxftBlghhHz7AQcsG0bgvfQSmFZAu53YNoC9GzlXcJ935FSxJ7Sse5J9s55z13Al2vnUPVBlGwYXYT1B+B2u2GyFhx6s6h0gySHxRjloAXruuaVAohVSgv5jovSJquxdhbQsYGEigrX5SRsxl4II6KoIhmJuBJP7DiOhVDDGC2ENoMICFL6MEgrjJES77BRWjAPSPIuSakFx5XPiKWITDgIM8lKGQTytOv1moEQwi5O+Kvqh8KE8MAG6XEU0rqu0ff9Qeh9yKc8l8AGk4wADh9mcd+I8qNnLwrlAAo4FTrnTrJCyGdt22Ygx7zM6HUHLwcVwmcBVDeUHjrnPxGyBVVVnS5324SraXLJVHS4e7hMfNs00Fp/T0gg1TGXHDTFuElakz6bIvfTNOWqflRIUxgHDkWFksPIWKXXHBL/ksOvCL136LpOcrhmQiM5bCd1uvyeQ5Y7isofCH1Wx82lZGWHs4dHyf/dZl5Z1beE7MnHx8fpcreNX+Ywl3zmUD0IRU18y2E2hemXRnOE4IR8yF9QUfVuylxMsRJIlshZCMvPwfmDcFrkW1atBD6cB7/ERjLLsl8+Pdpems1rAmhKlDLHYGFFJa/3/PtKj99XyvdUTnL+vv4BPwonyozQoJYAAAAASUVORK5CYII=&apos;); background-size: cover; display: block;&quot;
+    &gt;
+      &lt;img
+        class=&quot;gatsby-resp-image-image&quot;
+        style=&quot;width: 100%; height: 100%; margin: 0; vertical-align: middle; position: absolute; top: 0; left: 0; box-shadow: inset 0px 0px 0px 400px transparent;&quot;
+        alt=&quot;Peak &quot;
+        title=&quot;&quot;
+        src=&quot;/static/peak-77529e75c96526df322cc25ee40cd9cf-48538.png&quot;
+        srcset=&quot;/static/peak-77529e75c96526df322cc25ee40cd9cf-bed0f.png 200w,
+/static/peak-77529e75c96526df322cc25ee40cd9cf-5fd34.png 400w,
+/static/peak-77529e75c96526df322cc25ee40cd9cf-48538.png 800w,
+/static/peak-77529e75c96526df322cc25ee40cd9cf-13374.png 1051w&quot;
+        sizes=&quot;(max-width: 800px) 100vw, 800px&quot;
+      /&gt;
+    &lt;/span&gt;
+  &lt;/span&gt;
+  
+  &lt;/a&gt;
+    &lt;/p&gt;
+&lt;p&gt;Just imagine, if thats four nodes distributing our workload, what if we had the wallet to turn autoscale on? Its likely it would scan all 5000+ in under 5 minutes.&lt;/p&gt;
+&lt;p&gt;Lets take a look at the database and see what all of this volume is doing to it.&lt;/p&gt;
+&lt;p&gt;
+  &lt;a
+    class=&quot;gatsby-resp-image-link&quot;
+    href=&quot;/static/db_resources-d464be56ff0dc3c509a1eaff4b1a38b3-1b67a.png&quot;
+    style=&quot;display: block&quot;
+    target=&quot;_blank&quot;
+    rel=&quot;noopener&quot;
+  &gt;
+  
+  &lt;span
+    class=&quot;gatsby-resp-image-wrapper&quot;
+    style=&quot;position: relative; display: block; ; max-width: 369px; margin-left: auto; margin-right: auto;&quot;
+  &gt;
+    &lt;span
+      class=&quot;gatsby-resp-image-background-image&quot;
+      style=&quot;padding-bottom: 67.47967479674797%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAANCAYAAACpUE5eAAAACXBIWXMAAAsSAAALEgHS3X78AAABhElEQVQ4y4VTa2+DMAzs//9l+7S1bJqqblKltkBIIB3vZ7jZaaEt0M1SiB2by50xq67r4DgO1pt37L6+4Ww2+PjcQqoQQirIMIQnAviBRKAiHD0fbduCre/7cQ3xih/GGLu4kPfuGvNlvHPN4A/xADLYEK/4wUVFUWBq/aR4yZ8xZKdpaggh7EHTdti6Gues4gpiZkbW7Pe9QVk3UHFxzV+YPwLWNXxf2ENxzrHeSxxUYmMrnxncMTmGCd72CoO6GSD3TillRXo6Q0EM5E9+7R2xMsyqRUs+A7tRijApEecXFTNApq21toenKEPdtLSnD/1SBMCsGMinSyVJTstmZPkAyE6SJCQ3s/1jpizZ06llKuPcynzZ+XildvCZph7vgxg6LeeATLshVglJaIltkWc4uD7COLOyzvQS5/iinHJC+CirCmlR06rmc9hPxkXrCJ7n2S86tTRNcDq543AvziEm88RfvSIGxvSzWWOgZ7mb5IWb8M9QL8U3hncsn/0Bf+Xu7Rdu+PmX4/fC8AAAAABJRU5ErkJggg==&apos;); background-size: cover; display: block;&quot;
+    &gt;
+      &lt;img
+        class=&quot;gatsby-resp-image-image&quot;
+        style=&quot;width: 100%; height: 100%; margin: 0; vertical-align: middle; position: absolute; top: 0; left: 0; box-shadow: inset 0px 0px 0px 400px transparent;&quot;
+        alt=&quot;Database &quot;
+        title=&quot;&quot;
+        src=&quot;/static/db_resources-d464be56ff0dc3c509a1eaff4b1a38b3-1b67a.png&quot;
+        srcset=&quot;/static/db_resources-d464be56ff0dc3c509a1eaff4b1a38b3-a758a.png 200w,
+/static/db_resources-d464be56ff0dc3c509a1eaff4b1a38b3-1b67a.png 369w&quot;
+        sizes=&quot;(max-width: 369px) 100vw, 369px&quot;
+      /&gt;
+    &lt;/span&gt;
+  &lt;/span&gt;
+  
+  &lt;/a&gt;
+    &lt;/p&gt;
+&lt;p&gt;We can see the initial peak as things get ramped up, the middle as it tries to scan hundreds of email servers it cant reach, and then a second peak as it once more gets to domains that are actually in use. &lt;/p&gt;
+&lt;p&gt;The DB instance is a t2.micro in &lt;code class=&quot;language-text&quot;&gt;AWS RDS&lt;/code&gt; running MySql, for something with micro in the name it is easily handling this traffic.&lt;/p&gt;
+&lt;hr&gt;
+&lt;h3&gt;Conclusion&lt;/h3&gt;
+&lt;p&gt;Here are the main findings:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;GoKu’s containerized build and Go binary made perfect for scaling&lt;/li&gt;
+&lt;li&gt;Our GKE Cluster was able to scan the 111 domains from the previous post in less than 2 minutes.&lt;/li&gt;
+&lt;li&gt;The GKE cluster made it through all 5565 websites in about 40 minutes. &lt;/li&gt;
+&lt;li&gt;Our database was filled with the status of over 1800 sites that were reachable&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;
+  &lt;a
+    class=&quot;gatsby-resp-image-link&quot;
+    href=&quot;/static/db_results-63ac994ef9ed38ce73187b9148fa269c-5b351.png&quot;
+    style=&quot;display: block&quot;
+    target=&quot;_blank&quot;
+    rel=&quot;noopener&quot;
+  &gt;
+  
+  &lt;span
+    class=&quot;gatsby-resp-image-wrapper&quot;
+    style=&quot;position: relative; display: block; ; max-width: 463px; margin-left: auto; margin-right: auto;&quot;
+  &gt;
+    &lt;span
+      class=&quot;gatsby-resp-image-background-image&quot;
+      style=&quot;padding-bottom: 179.91360691144706%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAkCAYAAACJ8xqgAAAACXBIWXMAAAsSAAALEgHS3X78AAAE0klEQVRIx5WWeXOqShDF/f5f6lXckpvcJUZFcAFFcEEFWdxiXvU7pwFLE3Or3h9dA+L0/Pp0T89UFvO5LBeBrJdTCQNHJosd3peyCpZiO1Pp9sby78dZjsejnE5HeX9/lzMsiWPx/Zk4jisz35TlzJK170gl3Gxkv9tJlsZwspA42UmSJJImscTbrcSYuN/vZIf/7LJMCBBFof7G/4VRhLm57dKtVFqvr9JqtcS2R2IYPXHsofQtS0ajkUwmY7EsU9/HYwfkC+n1DFlg3G4jXTCJseg2xjsNDpvNpjw8VMUyTUyaiOu6MhwOxfM8mc0XMnUnYvUHMpvNldL3fTmeTnI+n+Xj4+MyllZ5fHyUWr2uK3cNA5P70mm38d6TnmlBIxvPpphYcLVaSR/f15BpW8jx2eCwKdVqrQhrLFOQcXQggeM4oJwj/KFMp54Set5UDoejkt0zDblaq+VEMBJYcN7pdPSZMpBuOBxdCDdXhByvTQkbjQb+aOlkEpLOg1ae0jqq2yYM5Xg4gBSEx+ONhjeEjyCkhiboTGg2GAygnakLUDvbtqXb7V4I+X2zCUH3jYZPSEqpITVzQcASct2pOqNNp64sl4HWHgn3IGWB37NKDfo9VKtKaCDL1MgwQDSyNcPUk3Xqeb5ECJvfwzDSor5nlUajDg2bOlE1BAGzTHNBNkeWSV5mWQn3e2zD033COggvGsLpAEVN59RqhHAts6e1yWL3kSTuIG63bwnrdTis1S8aTrBTHDgi4WK5VAcjhM9MB0GghBlI82Zx+mKVBuiUECSks+GUNEwGi5i0VlH0Zfjct1mWwrIvpiGzsLUJIExHHQ60BrkAF7KLHcPCnUwmkqYZdsvhriHL1Utz6PdzhzbCtJHh/mCoJcTMLlA2pKIEcZzk7eyOqYb1ekMdsnjHIBjD6WVfa+n0tT4DNF0SJmmqmSYRx2vTkNWhZap2LB1uN4ZMu07WCknhQkmSfnF045CFTcJBoSFH9sUBtGRjIFWAbceyoAQMmQm4G7JmGWVDQlvLZaI6uXBC5w6I+Pt6vdYjgM7pjOGydD6bbj2GzGyyKeSZNbVUbNXSkbe3N3UeoaApC7Odpd+UDQmbaBB0MNJGMFXCsu5IpN36mvCvhY1eSDOL5srwSMFnUtE5nyfoPjwh+R5F2/xkBOVn0+ZQZlnbFyZSP5KwVHjCsXTokIRM1n7P9vVdc6jnDq8JmeWhZho9cZRrSm0D7G1tsGGozZSUXxpsTpg3B7vQcFxkVuuwWITNIYQjjmWDvXtI5TslP0Z50A+v2lfe/jvFUTBC+CTsF0dAfP8IaCIhPJvLQ4pU1ImkeZbHF0KeKSXh+fwNYRW7hNbptGFdLR0658iM8ljgyI69Xq9UT2p4OUY/EzKjvG54IJr5nt6qyjtLaXzn5SkMN9q1+R/9lsTFc/FOh7y2sYtQu3CzxsTk6k+3E1KM3CG3Tm6tEmFVXs822AkkYa1xEsf79rdv2HoMc8ZbAkOe+ZdrGm8JB/a8/2mVFBdNrrpeBYpMPXl3OR0P+ps2VGi11/aUYcz0eV8874r3cqxUO/+Ih47S7bzJwOpJu/VH/vx6EaPbFqPdkpcfj9J5e5Wfz0/yAvv981m/v/7+Jb9enmE/pIv/PTVxPzIN+Q+UyGGFo1IU3AAAAABJRU5ErkJggg==&apos;); background-size: cover; display: block;&quot;
+    &gt;
+      &lt;img
+        class=&quot;gatsby-resp-image-image&quot;
+        style=&quot;width: 100%; height: 100%; margin: 0; vertical-align: middle; position: absolute; top: 0; left: 0; box-shadow: inset 0px 0px 0px 400px transparent;&quot;
+        alt=&quot;db results&quot;
+        title=&quot;&quot;
+        src=&quot;/static/db_results-63ac994ef9ed38ce73187b9148fa269c-5b351.png&quot;
+        srcset=&quot;/static/db_results-63ac994ef9ed38ce73187b9148fa269c-a4321.png 200w,
+/static/db_results-63ac994ef9ed38ce73187b9148fa269c-f55f3.png 400w,
+/static/db_results-63ac994ef9ed38ce73187b9148fa269c-5b351.png 463w&quot;
+        sizes=&quot;(max-width: 463px) 100vw, 463px&quot;
+      /&gt;
+    &lt;/span&gt;
+  &lt;/span&gt;
+  
+  &lt;/a&gt;
+    &lt;/p&gt;
+&lt;p&gt;Forty minutes is insanely fast cosindering it took us 8 to scan 111 using my desktop minikube setup, of course with the power of Google Cloud Platform it should be no surprise we saw a massive increase in performance. &lt;/p&gt;
+&lt;p&gt;&lt;em&gt;If anyone wants to foot the autoscale bill, Id be willing to bet my setup can crunch 10000+ sites in less than 15 minutes, now thats scaling!&lt;/em&gt;&lt;/p&gt;</content:encoded></item><item><title><![CDATA[GoKu distributed computing]]></title><description><![CDATA[Intro Recently I sat down to learn more about Go and Kubernetes, and figured I would share some distributed computing fun had along the way…]]></description><link>https://anthonylaiuppa.com/goku-distributed-computing/</link><guid isPermaLink="false">https://anthonylaiuppa.com/goku-distributed-computing/</guid><content:encoded>&lt;h3&gt;Intro&lt;/h3&gt;
 &lt;p&gt;Recently I sat down to learn more about Go and Kubernetes, and figured I would share some distributed computing fun had along the way. Youll notice the map tool from the previous post can be slow when getting statuses, we’ll use that as a starting point and refine it.&lt;/p&gt;
 &lt;hr&gt;
 &lt;p&gt;Lets go over the core technologies at work here, starting with the most basic definition.&lt;/p&gt;

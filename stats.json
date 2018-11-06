@@ -16,6 +16,10 @@
       "path---obfuscating-python-8eeb5bcebdbdbfd53fae.js",
       "path---obfuscating-python-8eeb5bcebdbdbfd53fae.js.map"
     ],
+    "path---goku-will-it-scale": [
+      "path---goku-will-it-scale-7517344730daaa27c965.js",
+      "path---goku-will-it-scale-7517344730daaa27c965.js.map"
+    ],
     "path---project-eulers": [
       "path---project-eulers-5a033e7a7979c0db018a.js",
       "path---project-eulers-5a033e7a7979c0db018a.js.map"
@@ -25,8 +29,8 @@
       "path---hiding-encrypted-blobs-a15b8f71994bac2f0b07.js.map"
     ],
     "path---": [
-      "path----c0fffca8bd2c807bbb67.js",
-      "path----c0fffca8bd2c807bbb67.js.map"
+      "path----858ec1f5b1b2d293e582.js",
+      "path----858ec1f5b1b2d293e582.js.map"
     ],
     "component---src-pages-contact-js": [
       "component---src-pages-contact-js-491e2fefb3b96f906e34.js",
@@ -41,8 +45,8 @@
       "component---node-modules-gatsby-plugin-offline-app-shell-js-5c4c5a0f7af9dc69d6d7.js.map"
     ],
     "component---src-layouts-index-js": [
-      "component---src-layouts-index-js-eba05bd6d31f18773485.js",
-      "component---src-layouts-index-js-eba05bd6d31f18773485.js.map"
+      "component---src-layouts-index-js-e38c3c23d7a613764b11.js",
+      "component---src-layouts-index-js-e38c3c23d7a613764b11.js.map"
     ],
     "path---sans-holiday-hacking-challenge": [
       "path---sans-holiday-hacking-challenge-886203b57152ae8acce9.js",
@@ -99,9 +103,9 @@
       "path---starters-1b95dd69adec64a51a59.js.map"
     ],
     "app": [
-      "app-8f8d2657fc481f42a4ea.js",
+      "app-1678cb62aa001c49dc80.js",
       "build-js-styles.css",
-      "app-8f8d2657fc481f42a4ea.js.map",
+      "app-1678cb62aa001c49dc80.js.map",
       "build-js-styles.css.map"
     ],
     "component---src-templates-page-template-js": [
