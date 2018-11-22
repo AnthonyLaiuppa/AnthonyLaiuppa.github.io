@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[Laiuppa Blog]]></title><description><![CDATA[A repository of potentially interesting information.]]></description><link>https://anthonylaiuppa.com</link><generator>RSS for Node</generator><lastBuildDate>Tue, 06 Nov 2018 20:40:41 GMT</lastBuildDate><item><title><![CDATA[GoKu, will it scale?]]></title><description><![CDATA[Intro Previously we virtualized a Kubernetes cluster on our localhost, but that is just simulating the cloud. Why dont we take GoKu to the…]]></description><link>https://anthonylaiuppa.com/goku-will-it-scale/</link><guid isPermaLink="false">https://anthonylaiuppa.com/goku-will-it-scale/</guid><content:encoded>&lt;h3&gt;Intro&lt;/h3&gt;
+<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[Laiuppa Blog]]></title><description><![CDATA[A repository of potentially interesting information.]]></description><link>https://anthonylaiuppa.com</link><generator>RSS for Node</generator><lastBuildDate>Thu, 22 Nov 2018 00:56:09 GMT</lastBuildDate><item><title><![CDATA[GoKu, will it scale?]]></title><description><![CDATA[Intro Previously we virtualized a Kubernetes cluster on our localhost, but that is just simulating the cloud. Why dont we take GoKu to the…]]></description><link>https://anthonylaiuppa.com/goku-will-it-scale/</link><guid isPermaLink="false">https://anthonylaiuppa.com/goku-will-it-scale/</guid><content:encoded>&lt;h3&gt;Intro&lt;/h3&gt;
 &lt;p&gt;Previously we virtualized a Kubernetes cluster on our localhost, but that is just simulating the cloud. Why dont we take GoKu to the actual cloud and see how it does? I actually tried to tie this in and scan the same 111 URLs from the last post, but it finished so fast I couldnt believe it. Lets bump things up a notch, what if we want to scan 5000+ sites?&lt;/p&gt;
 &lt;hr&gt;
 &lt;h3&gt;What is scaling?&lt;/h3&gt;
@@ -551,7 +551,407 @@
 &lt;h3&gt;Conclusion&lt;/h3&gt;
 &lt;p&gt;Surprisingly the minkube virtualized kubernetes cluster was able to perform more quickly at 8 minutes, than the map python tool from my previous post that came clocking in at 19 minutes.&lt;/p&gt;
 &lt;p&gt;Pretty interesting given we had to wait on the containers to be created. Although it helps that this approach is effectively asynchronous, compared to the python tool which is single threaded. &lt;/p&gt;
-&lt;p&gt;Overall getting some practice in with Go and Kubernetes was a great way of getting more familiar with both technologies. Dont be afraid to try and make something yourself, just remember to reference the documentation.&lt;/p&gt;</content:encoded></item><item><title><![CDATA[Mapping website attack surfaces]]></title><description><![CDATA[Intro Trying bug bounties can be fun, you might even walk off like a prospector with gold. Of course similar to sifting through river water…]]></description><link>https://anthonylaiuppa.com/mapping-website-attack-surface/</link><guid isPermaLink="false">https://anthonylaiuppa.com/mapping-website-attack-surface/</guid><content:encoded>&lt;h3&gt;Intro&lt;/h3&gt;
+&lt;p&gt;Overall getting some practice in with Go and Kubernetes was a great way of getting more familiar with both technologies. Dont be afraid to try and make something yourself, just remember to reference the documentation.&lt;/p&gt;</content:encoded></item><item><title><![CDATA[EZCTF, a full stack webapp..]]></title><description><![CDATA[Intro Coming back from DEFCON I was beyond amped to write some code. It was about time to finally complete a full stack web project. Having…]]></description><link>https://anthonylaiuppa.com/ezctf-full-stack/</link><guid isPermaLink="false">https://anthonylaiuppa.com/ezctf-full-stack/</guid><content:encoded>&lt;h3&gt;Intro&lt;/h3&gt;
+&lt;p&gt;Coming back from DEFCON I was beyond amped to write some code. It was about time to finally complete a full stack web project. Having participated in the OPENCTF at DC26, I had a great idea. Why not make a little hacking game to play with some colleagues? So starting from scratch here we go…&lt;/p&gt;
+&lt;hr&gt;
+&lt;h3&gt;Pre-Reqs&lt;/h3&gt;
+&lt;p&gt;Reading these resources will help you understand the fundamentals needed to accomplish this project.&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;&lt;a href=&quot;https://www.tutorialspoint.com/sdlc/sdlc_overview.htm&quot;&gt;Theory         - Software Development Life Cycle&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;https://www.sqlalchemy.org/&quot;&gt;Database       - SQLAlchemy&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;https://pymysql.readthedocs.io/en/latest/&quot;&gt;Database       - PyMySql&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;http://flask.pocoo.org/docs/1.0/tutorial/&quot;&gt;Back End       - Flask Tutorial&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;https://getbootstrap.com/docs/4.1/getting-started/introduction/&quot;&gt;Front End      - Bootstrap4&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;http://jinja.pocoo.org/docs/2.10/&quot;&gt;Front End      - Jinja2/Flask&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;http://flask.pocoo.org/docs/1.0/tutorial/tests/&quot;&gt;Tests          - PyTests/Flask&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;https://selenium-python.readthedocs.io/&quot;&gt;Tests          - UnitTest/Selenium&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;https://docs.ansible.com/&quot;&gt;Automation     - Ansible&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;https://www.terraform.io/docs/index.html&quot;&gt;AWS Deployment - Terraform&lt;/a&gt;&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;Everything here came from simply reading the documentation and implementing the needed features. &lt;em&gt;The Flask tutorial covers most of whats going on beneath the hood, we’ll show some features we’ve added on top below..&lt;/em&gt;&lt;/p&gt;
+&lt;hr&gt;
+&lt;h3&gt;EZCTF&lt;/h3&gt;
+&lt;p&gt;&lt;strong&gt;The mission of this writeup:&lt;/strong&gt; by showing some different aspects of creating a webapp that isnt a standard example, I hope to illustrate different ways basic concepts come together to achieve more nuanced features. Getting started was never a problem, but we’ve all spent alot of time staring at the blinking cursor wondering what next.&lt;/p&gt;
+&lt;p&gt;So what is a CTF?&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;Capture the Flag (CTF) is a kind of computer security competition. CTF contests are usually designed to serve as an educational exercise to give participants experience in securing a machine, as well as conducting and reacting to the sort of attacks found in the real world.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;Having a clear cut goal from the beginning is key to building clean code. We want to set our scope and stick to it.&lt;/p&gt;
+&lt;p&gt;In our case, all we want is to make a web application that will receive flags and track a user’s score on the scoreboard.&lt;/p&gt;
+&lt;p&gt;For added robustness we will add some admin features and tools to make our lives easier. Without further ado, lets dive in.&lt;/p&gt;
+&lt;p&gt;&lt;a href=&quot;https://github.com/AnthonyLaiuppa/ezctf&quot;&gt;Incase you’d like to just read the code, here you go&lt;/a&gt;&lt;/p&gt;
+&lt;hr&gt;
+&lt;p&gt;&lt;strong&gt;Project Directory Structure&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;Theres obviously many more subdirectories, but for explanation we only need to concern ourselves with these four.&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;
+      &lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;ezctf
+├── ezctf-alpha
+├── ezctf-ansible
+├── ezctf-terraform
+├── linted_ctf
+39 directories, 71 files
+---&lt;/code&gt;&lt;/pre&gt;
+      &lt;/div&gt;
+&lt;ul&gt;
+&lt;li&gt;alpha     - The first version of the app where all functionality was prototyped&lt;/li&gt;
+&lt;li&gt;linted    - The cleaned up version of the app where all functionality is modular and code coverage is provided by Tests&lt;/li&gt;
+&lt;li&gt;Ansible   - The Configuration Management tools used to configure Vagrant and Linux to run our application&lt;/li&gt;
+&lt;li&gt;Terraform - Infrastructure As Code providing us with both infrastructure deployment and provisioning&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr&gt;
+&lt;h3&gt;Back End&lt;/h3&gt;
+&lt;p&gt;Due to the ease of use and speed of prototyping you can achieve, &lt;code class=&quot;language-text&quot;&gt;Python&lt;/code&gt; was the natural choice for the back end. Here we use &lt;code class=&quot;language-text&quot;&gt;Flask&lt;/code&gt; as it has minimal overhead allowing us to pick and choose our pieces. &lt;/p&gt;
+&lt;p&gt;This is an overly simplistic explanation of the back end, if you want to learn how &lt;code class=&quot;language-text&quot;&gt;Flask&lt;/code&gt; works read the linked above tut.&lt;/p&gt;
+&lt;p&gt;Originally in the alpha everything was in one &lt;code class=&quot;language-text&quot;&gt;app.py&lt;/code&gt; file, thats obviously not great, so we split it out. Using &lt;code class=&quot;language-text&quot;&gt;Blueprints&lt;/code&gt; from the &lt;code class=&quot;language-text&quot;&gt;Flask&lt;/code&gt; tutorial we wind up with 3 files running our app.&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;
+      &lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;app/
+├── auth.py
+├── cruds.py
+├── extensions.py
+├── __init__.py&lt;/code&gt;&lt;/pre&gt;
+      &lt;/div&gt;
+&lt;p&gt;The &lt;code class=&quot;language-text&quot;&gt;__init__.py&lt;/code&gt; provides an entry point for &lt;code class=&quot;language-text&quot;&gt;Gunicorn&lt;/code&gt;, which is what will handle the &lt;code class=&quot;language-text&quot;&gt;HTTP&lt;/code&gt; requests so that Flask doesnt have to, Gunicorn is typically what goes infront of Flask or Django in production environments.&lt;/p&gt;
+&lt;p&gt;&lt;code class=&quot;language-text&quot;&gt;auth.py&lt;/code&gt; is fairly self explanatory, it handles &lt;code class=&quot;language-text&quot;&gt;authentication&lt;/code&gt; for our users. &lt;/p&gt;
+&lt;p&gt;&lt;code class=&quot;language-text&quot;&gt;cruds.py&lt;/code&gt; is the bulk of our logic and the most important part here. When planning functionality of our app, &lt;code class=&quot;language-text&quot;&gt;CRUDS&lt;/code&gt; provides a great starting point. &lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Create&lt;/li&gt;
+&lt;li&gt;Read&lt;/li&gt;
+&lt;li&gt;Update&lt;/li&gt;
+&lt;li&gt;Delete&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;This helps us layout initial functionality for our app, from there we can begin to add CTF specific features — such as when &lt;code class=&quot;language-text&quot;&gt;Updating&lt;/code&gt; a &lt;code class=&quot;language-text&quot;&gt;Challenge&lt;/code&gt; to show add a completion, update the users score who solved it as well.&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;python&quot;&gt;
+      &lt;pre class=&quot;language-python&quot;&gt;&lt;code class=&quot;language-python&quot;&gt;&lt;span class=&quot;token keyword&quot;&gt;if&lt;/span&gt; request&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;method &lt;span class=&quot;token operator&quot;&gt;==&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&apos;POST&apos;&lt;/span&gt; &lt;span class=&quot;token operator&quot;&gt;and&lt;/span&gt; form&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;validate&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt;
+
+    submitted_flag &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; request&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;form&lt;span class=&quot;token punctuation&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;token string&quot;&gt;&apos;flag&apos;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;]&lt;/span&gt;
+
+    &lt;span class=&quot;token keyword&quot;&gt;if&lt;/span&gt; submitted_flag &lt;span class=&quot;token operator&quot;&gt;==&lt;/span&gt; flag &lt;span class=&quot;token operator&quot;&gt;and&lt;/span&gt; &lt;span class=&quot;token builtin&quot;&gt;int&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;solved&lt;span class=&quot;token punctuation&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;token number&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;]&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;token string&quot;&gt;&apos;f&apos;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;]&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token operator&quot;&gt;!=&lt;/span&gt; &lt;span class=&quot;token number&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt;
+
+        &lt;span class=&quot;token comment&quot;&gt;#Add the flag to the users so we can keep track of their challenges&lt;/span&gt;
+        update_flags &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; cur&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;execute&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token string&quot;&gt;&apos;UPDATE users set flags = JSON_SET(flags, %s, 1) WHERE username = %s&apos;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;cid&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;[&lt;/span&gt;session&lt;span class=&quot;token punctuation&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;token string&quot;&gt;&apos;username&apos;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;]&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;]&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;
+        mysql&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;connection&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;commit&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;
+
+        &lt;span class=&quot;token comment&quot;&gt;#Update the users score to show they solved the challenge&lt;/span&gt;
+        get_score &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; cur&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;execute&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token string&quot;&gt;&apos;SELECT score FROM users WHERE username = %s&apos;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;[&lt;/span&gt;session&lt;span class=&quot;token punctuation&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;token string&quot;&gt;&apos;username&apos;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;]&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;]&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;
+        user_score &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; cur&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;fetchone&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;
+        new_score &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token builtin&quot;&gt;int&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;user_score&lt;span class=&quot;token punctuation&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;token string&quot;&gt;&apos;score&apos;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;]&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token operator&quot;&gt;+&lt;/span&gt; &lt;span class=&quot;token builtin&quot;&gt;int&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;article&lt;span class=&quot;token punctuation&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;token string&quot;&gt;&apos;ch_score&apos;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;]&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;
+        updated_score &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; cur&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;execute&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token string&quot;&gt;&apos;UPDATE users set score = %s WHERE username = %s&apos;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;new_score&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;[&lt;/span&gt;session&lt;span class=&quot;token punctuation&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;token string&quot;&gt;&apos;username&apos;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;]&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;]&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;
+        mysql&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;connection&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;commit&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;
+
+        &lt;span class=&quot;token comment&quot;&gt;#Update the challenges number of solves&lt;/span&gt;
+        get_solves &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; cur&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;execute&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token string&quot;&gt;&apos;SELECT ch_solves from challenges WHERE ch_id = %s&apos;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;token builtin&quot;&gt;id&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;]&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;
+        solves &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt;  cur&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;fetchone&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;
+        update_solves &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token builtin&quot;&gt;int&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;solves&lt;span class=&quot;token punctuation&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;token string&quot;&gt;&apos;ch_solves&apos;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;]&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token operator&quot;&gt;+&lt;/span&gt; &lt;span class=&quot;token number&quot;&gt;1&lt;/span&gt; 
+        updated_solves &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; cur&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;execute&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token string&quot;&gt;&apos;UPDATE challenges set ch_solves = %s where ch_id =%s&apos;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;update_solves&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;token builtin&quot;&gt;id&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;]&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;
+        mysql&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;connection&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;commit&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;
+
+        flash&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token string&quot;&gt;&apos;Good job! Your score has been updated&apos;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;token string&quot;&gt;&apos;success&apos;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;
+        cur&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;close&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;
+        &lt;span class=&quot;token keyword&quot;&gt;return&lt;/span&gt; redirect&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;url_for&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token string&quot;&gt;&apos;cruds.dashboard&apos;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;
+
+    &lt;span class=&quot;token keyword&quot;&gt;else&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt;
+        cur&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;close&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;
+        flash&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token string&quot;&gt;&apos;Incorrect answer&apos;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&apos;danger&apos;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;
+      &lt;/div&gt;
+&lt;p&gt;So theres some of our backend functioanlity to handle scoring, we can elaborate more on the &lt;code class=&quot;language-text&quot;&gt;SQL&lt;/code&gt; in the database portion. When users solve the challenges all of this is put into the &lt;code class=&quot;language-text&quot;&gt;Scoreboard&lt;/code&gt; page, a fixture CTFs everywhere. &lt;/p&gt;
+&lt;p&gt;
+  &lt;a
+    class=&quot;gatsby-resp-image-link&quot;
+    href=&quot;/static/scoreboard-6103268aa3847673d52b2cf6b8d068be-87e3f.png&quot;
+    style=&quot;display: block&quot;
+    target=&quot;_blank&quot;
+    rel=&quot;noopener&quot;
+  &gt;
+  
+  &lt;span
+    class=&quot;gatsby-resp-image-wrapper&quot;
+    style=&quot;position: relative; display: block; ; max-width: 800px; margin-left: auto; margin-right: auto;&quot;
+  &gt;
+    &lt;span
+      class=&quot;gatsby-resp-image-background-image&quot;
+      style=&quot;padding-bottom: 98.23834196891193%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAUCAYAAACNiR0NAAAACXBIWXMAAAsSAAALEgHS3X78AAACJ0lEQVQ4y51U247TMBD1pywPSLzAIgHfuAghLYKvo7ulW5pLkzZXJ2mTNj7MmZAVoKSVsHQUZ67HM2Ob99+A2y8DXt87vBF8ENnLTw43dw4vPmISN3fAq8/AW/F79xXiN8DEeYNtYhFnNY490JwAe3SoO4fmCurWwRJiX7UDTByFCAMfvrfRry0LDMthes3Jh2W2UYyN52P1tMbi4RFplsGJT9+7STBc79ys3pRlic3GQ1XVOJ1OaJoG1lrYqpLv36hEtvE8ZJKU9mpHndpa1HXNgBZJkqLrOrQCfhl4CtTRfk5PmDwvEIThcwaymEatTNI0m7Wr6waGgcjwfD6jI4sL2cmQQcf9vzplWBQlPN+XuuRaP2afxqArimLWjnJluN/vVdC27VXQibWe0pGlyfJcAiZK93g8qsMllEKgORwmdQeRGx7BkzmM41hryaBzoANrOK3jt4VhM2jIGlHhZGiJuXVJpzflkuP/wERRhAe5cqvVE9brn3hcLrUE15jMMuTVi6R+bAwbtNvt9D7z+EPnOy3JWEPWih2txlrKnuV6nkMGICgYO0XD3W6P5fIHmJBzuk8ShOFWbTlm+pCkqe6/Lxaq1zkkC3aOTMYsbBTlDN73ve4pIzOW4s8GcoR4okIS08bw5QiCEH4Q6Ctif99LGm23ke7JguOVS0n0X9iwRExElvQb77dhNl47KlhLOg0sBmMyHE7QKiv9t8NzRbvxYSA7nu4X6B75NrX95qcAAAAASUVORK5CYII=&apos;); background-size: cover; display: block;&quot;
+    &gt;
+      &lt;img
+        class=&quot;gatsby-resp-image-image&quot;
+        style=&quot;width: 100%; height: 100%; margin: 0; vertical-align: middle; position: absolute; top: 0; left: 0; box-shadow: inset 0px 0px 0px 400px transparent;&quot;
+        alt=&quot;Scoreboard&quot;
+        title=&quot;&quot;
+        src=&quot;/static/scoreboard-6103268aa3847673d52b2cf6b8d068be-48538.png&quot;
+        srcset=&quot;/static/scoreboard-6103268aa3847673d52b2cf6b8d068be-bed0f.png 200w,
+/static/scoreboard-6103268aa3847673d52b2cf6b8d068be-5fd34.png 400w,
+/static/scoreboard-6103268aa3847673d52b2cf6b8d068be-48538.png 800w,
+/static/scoreboard-6103268aa3847673d52b2cf6b8d068be-87e3f.png 965w&quot;
+        sizes=&quot;(max-width: 800px) 100vw, 800px&quot;
+      /&gt;
+    &lt;/span&gt;
+  &lt;/span&gt;
+  
+  &lt;/a&gt;
+    &lt;/p&gt;
+&lt;hr&gt;
+&lt;h3&gt;Front End&lt;/h3&gt;
+&lt;p&gt;Front end design is not a favorite of mine, so we’ll let &lt;code class=&quot;language-text&quot;&gt;Bootstrap4&lt;/code&gt; and &lt;code class=&quot;language-text&quot;&gt;Jinja2&lt;/code&gt; do all the work for us.&lt;/p&gt;
+&lt;p&gt;The goal here isnt to teach you to make a front end or use Jinaj2 like a pro, its to hopefully give you something to draw upon when you’re trying to think of the code you need to put in your application. &lt;/p&gt;
+&lt;p&gt;In short &lt;code class=&quot;language-text&quot;&gt;Jinja2&lt;/code&gt; is a templating engine, so we can give it a placeholders and &lt;code class=&quot;language-text&quot;&gt;Flask&lt;/code&gt; will inject the content and render it as HTML on the front end. &lt;/p&gt;
+&lt;p&gt;Next up, we’ve got the &lt;code class=&quot;language-text&quot;&gt;Challenges&lt;/code&gt; page laid out in a jeopardy style. It was a mild pain at first to make the grid layout but a little help from the Modulus operator alongside the &lt;code class=&quot;language-text&quot;&gt;Jinja2&lt;/code&gt; docs and we’ve got the code to render it in our desired layout.&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;html&quot;&gt;
+      &lt;pre class=&quot;language-html&quot;&gt;&lt;code class=&quot;language-html&quot;&gt;{% for challenge in challenges %}
+
+  {% if (loop.index) % 3 == 1 %}
+    &lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token punctuation&quot;&gt;&amp;lt;&lt;/span&gt;div&lt;/span&gt; &lt;span class=&quot;token attr-name&quot;&gt;class&lt;/span&gt;&lt;span class=&quot;token attr-value&quot;&gt;&lt;span class=&quot;token punctuation&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;&quot;&lt;/span&gt;row&lt;span class=&quot;token punctuation&quot;&gt;&quot;&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;&gt;&lt;/span&gt;&lt;/span&gt;
+  {% endif %}  
+ 
+      &lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token punctuation&quot;&gt;&amp;lt;&lt;/span&gt;div&lt;/span&gt; &lt;span class=&quot;token attr-name&quot;&gt;class&lt;/span&gt;&lt;span class=&quot;token attr-value&quot;&gt;&lt;span class=&quot;token punctuation&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;&quot;&lt;/span&gt;col-sm&lt;span class=&quot;token punctuation&quot;&gt;&quot;&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;&gt;&lt;/span&gt;&lt;/span&gt;
+       &lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token punctuation&quot;&gt;&amp;lt;&lt;/span&gt;div&lt;/span&gt; &lt;span class=&quot;token attr-name&quot;&gt;class&lt;/span&gt;&lt;span class=&quot;token attr-value&quot;&gt;&lt;span class=&quot;token punctuation&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;&quot;&lt;/span&gt;card&lt;span class=&quot;token punctuation&quot;&gt;&quot;&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;&gt;&lt;/span&gt;&lt;/span&gt;
+
+          &lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token punctuation&quot;&gt;&amp;lt;&lt;/span&gt;div&lt;/span&gt; &lt;span class=&quot;token attr-name&quot;&gt;class&lt;/span&gt;&lt;span class=&quot;token attr-value&quot;&gt;&lt;span class=&quot;token punctuation&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;&quot;&lt;/span&gt;card-header&lt;span class=&quot;token punctuation&quot;&gt;&quot;&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token punctuation&quot;&gt;&amp;lt;/&lt;/span&gt;div&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;&gt;&lt;/span&gt;&lt;/span&gt;
+          
+          &lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token punctuation&quot;&gt;&amp;lt;&lt;/span&gt;div&lt;/span&gt; &lt;span class=&quot;token attr-name&quot;&gt;class&lt;/span&gt;&lt;span class=&quot;token attr-value&quot;&gt;&lt;span class=&quot;token punctuation&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;&quot;&lt;/span&gt;card-body&lt;span class=&quot;token punctuation&quot;&gt;&quot;&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token punctuation&quot;&gt;&amp;lt;/&lt;/span&gt;div&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;&gt;&lt;/span&gt;&lt;/span&gt;
+          
+
+       &lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token punctuation&quot;&gt;&amp;lt;/&lt;/span&gt;div&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;&gt;&lt;/span&gt;&lt;/span&gt;
+      &lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token punctuation&quot;&gt;&amp;lt;/&lt;/span&gt;div&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;&gt;&lt;/span&gt;&lt;/span&gt;
+
+  {% if loop.index % 3 == 0 or loop.last  %}
+
+    {% if loop.last and loop.index % 3 == 1 %}
+            &lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token punctuation&quot;&gt;&amp;lt;&lt;/span&gt;div&lt;/span&gt; &lt;span class=&quot;token attr-name&quot;&gt;class&lt;/span&gt;&lt;span class=&quot;token attr-value&quot;&gt;&lt;span class=&quot;token punctuation&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;&quot;&lt;/span&gt;col-sm&lt;span class=&quot;token punctuation&quot;&gt;&quot;&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token punctuation&quot;&gt;&amp;lt;/&lt;/span&gt;div&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;&gt;&lt;/span&gt;&lt;/span&gt;
+            &lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token punctuation&quot;&gt;&amp;lt;&lt;/span&gt;div&lt;/span&gt; &lt;span class=&quot;token attr-name&quot;&gt;class&lt;/span&gt;&lt;span class=&quot;token attr-value&quot;&gt;&lt;span class=&quot;token punctuation&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;&quot;&lt;/span&gt;col-sm&lt;span class=&quot;token punctuation&quot;&gt;&quot;&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token punctuation&quot;&gt;&amp;lt;/&lt;/span&gt;div&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;&gt;&lt;/span&gt;&lt;/span&gt;
+    {% endif %}
+
+    {% if loop.last and loop.index % 3 == 2 %}
+            &lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token punctuation&quot;&gt;&amp;lt;&lt;/span&gt;div&lt;/span&gt; &lt;span class=&quot;token attr-name&quot;&gt;class&lt;/span&gt;&lt;span class=&quot;token attr-value&quot;&gt;&lt;span class=&quot;token punctuation&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;&quot;&lt;/span&gt;col-sm&lt;span class=&quot;token punctuation&quot;&gt;&quot;&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token punctuation&quot;&gt;&amp;lt;/&lt;/span&gt;div&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;&gt;&lt;/span&gt;&lt;/span&gt;
+    {% endif %}
+
+   &lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token punctuation&quot;&gt;&amp;lt;/&lt;/span&gt;div&lt;/span&gt; &lt;span class=&quot;token attr-name&quot;&gt;id&lt;/span&gt;&lt;span class=&quot;token attr-value&quot;&gt;&lt;span class=&quot;token punctuation&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;&quot;&lt;/span&gt;row-close&lt;span class=&quot;token punctuation&quot;&gt;&quot;&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;token comment&quot;&gt;&amp;lt;!-- /row --&gt;&lt;/span&gt; 
+        
+  {% endif %} 
+{% endfor %}&lt;/code&gt;&lt;/pre&gt;
+      &lt;/div&gt;
+&lt;p&gt;Which turns out to look like this &lt;/p&gt;
+&lt;p&gt;
+  &lt;a
+    class=&quot;gatsby-resp-image-link&quot;
+    href=&quot;/static/challenges-7091a71b8a8e1c19a36aecfcd60d7761-fa216.png&quot;
+    style=&quot;display: block&quot;
+    target=&quot;_blank&quot;
+    rel=&quot;noopener&quot;
+  &gt;
+  
+  &lt;span
+    class=&quot;gatsby-resp-image-wrapper&quot;
+    style=&quot;position: relative; display: block; ; max-width: 800px; margin-left: auto; margin-right: auto;&quot;
+  &gt;
+    &lt;span
+      class=&quot;gatsby-resp-image-background-image&quot;
+      style=&quot;padding-bottom: 79.65056526207606%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAQCAYAAAAWGF8bAAAACXBIWXMAAAsSAAALEgHS3X78AAACXElEQVQ4y51TTW/TQBDd/wIXTkjlQ+IngjhAEeLKDThw4IKQQKilUlsiRIEUClXaOIlrO1/+9tpe7+5jdt20oRGoYqSnSWZ23s7MPrM7T4Cbj4Fbp1hbB24/0rh6D7hyV/8T1x9orD3UuLHe+mv3NVhvOEb3cICDYxcHRyOEWY1cAFxo5LVGVhuvUBC4jbcw8bQilApZZc6AzgAsjWaIAxfJdArPdVFXHK0prJpewkVTNs76YYln+zFebW/j248uhGhQcA7ZCLzrRXj+ZYqd3Q46nz6D8xKirhHlFZ7uTfH26wCbG5sYjFxbVwsB5swDvDzYwetfH9AfD6AahZqKlJTYcr7jzeEefC/AbDazcdk0NGaBF/tb6I76GFNuSrmiKCCphtVlBVmUZ12boqaR0FqDJyl4nNiCsizPhjOkPEyQxjHmYYggGCPPc5tjhtkPPHi+hzTLkKZEQiMbQkM0GA7h+4H1prAhMkGjHTsO1QVwT04wHNJjErElLIXCJJOomj8XbQh930e/34fn+RiORuQ9KNWuJKAmiiJHTg3F1GmaZjbHaiKaFyBCRQEJSTAJQ5jmBXhZ298Gi3gjFWaFRtlgpQnWSmBVIlorkAAwodU0qpXKgljS/4hrq9XFReo0x7xI4P0R0Nl30Ol8xK67h97csXfYg+qcaIFlPV7MsYTk/dNN4QYzWuwcUx4iqTLTIv5mJrXARWNZlsI57mEyGSOKIsRhTBpU5u6V2y8DZiTi0idnXipJEkTkF5o7H/HyxoTUNKJZ/OqLLftLExodBilJQCj7su1DqP8m/A2Qf8ASuxBmgQAAAABJRU5ErkJggg==&apos;); background-size: cover; display: block;&quot;
+    &gt;
+      &lt;img
+        class=&quot;gatsby-resp-image-image&quot;
+        style=&quot;width: 100%; height: 100%; margin: 0; vertical-align: middle; position: absolute; top: 0; left: 0; box-shadow: inset 0px 0px 0px 400px transparent;&quot;
+        alt=&quot;Challenge&quot;
+        title=&quot;&quot;
+        src=&quot;/static/challenges-7091a71b8a8e1c19a36aecfcd60d7761-48538.png&quot;
+        srcset=&quot;/static/challenges-7091a71b8a8e1c19a36aecfcd60d7761-bed0f.png 200w,
+/static/challenges-7091a71b8a8e1c19a36aecfcd60d7761-5fd34.png 400w,
+/static/challenges-7091a71b8a8e1c19a36aecfcd60d7761-48538.png 800w,
+/static/challenges-7091a71b8a8e1c19a36aecfcd60d7761-fa216.png 973w&quot;
+        sizes=&quot;(max-width: 800px) 100vw, 800px&quot;
+      /&gt;
+    &lt;/span&gt;
+  &lt;/span&gt;
+  
+  &lt;/a&gt;
+    &lt;/p&gt;
+&lt;p&gt;Hitting the floor of our front end the last thing to look at is &lt;code class=&quot;language-text&quot;&gt;the Challenges page&lt;/code&gt;. We use &lt;code class=&quot;language-text&quot;&gt;Jinaj2&lt;/code&gt; and &lt;code class=&quot;language-text&quot;&gt;Flask&lt;/code&gt; to render parts of page based on a users context such as; &lt;code class=&quot;language-text&quot;&gt;Is_Admin&lt;/code&gt; or &lt;code class=&quot;language-text&quot;&gt;Is_Logged_In&lt;/code&gt;.&lt;/p&gt;
+&lt;p&gt;Achieved easily by using some simple conditionals and passing the &lt;code class=&quot;language-text&quot;&gt;Session&lt;/code&gt; object into the template.&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;html&quot;&gt;
+      &lt;pre class=&quot;language-html&quot;&gt;&lt;code class=&quot;language-html&quot;&gt;{% if session.logged_in %}
+  &lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token punctuation&quot;&gt;&amp;lt;&lt;/span&gt;h2&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;&gt;&lt;/span&gt;&lt;/span&gt;Submit Flag&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token punctuation&quot;&gt;&amp;lt;/&lt;/span&gt;h2&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;&gt;&lt;/span&gt;&lt;/span&gt;
+    &lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token punctuation&quot;&gt;&amp;lt;&lt;/span&gt;div&lt;/span&gt; &lt;span class=&quot;token attr-name&quot;&gt;class&lt;/span&gt;&lt;span class=&quot;token attr-value&quot;&gt;&lt;span class=&quot;token punctuation&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;&quot;&lt;/span&gt;form-group&lt;span class=&quot;token punctuation&quot;&gt;&quot;&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;&gt;&lt;/span&gt;&lt;/span&gt;
+      {{ render_field(form.flag, class_=&quot;form-control&quot;) }}
+    &lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token punctuation&quot;&gt;&amp;lt;/&lt;/span&gt;div&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;&gt;&lt;/span&gt;&lt;/span&gt;
+    &lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token punctuation&quot;&gt;&amp;lt;&lt;/span&gt;p&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token punctuation&quot;&gt;&amp;lt;&lt;/span&gt;input&lt;/span&gt; &lt;span class=&quot;token attr-name&quot;&gt;class&lt;/span&gt;&lt;span class=&quot;token attr-value&quot;&gt;&lt;span class=&quot;token punctuation&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;&quot;&lt;/span&gt;btn btn-success&lt;span class=&quot;token punctuation&quot;&gt;&quot;&lt;/span&gt;&lt;/span&gt; &lt;span class=&quot;token attr-name&quot;&gt;type&lt;/span&gt;&lt;span class=&quot;token attr-value&quot;&gt;&lt;span class=&quot;token punctuation&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;&quot;&lt;/span&gt;submit&lt;span class=&quot;token punctuation&quot;&gt;&quot;&lt;/span&gt;&lt;/span&gt; &lt;span class=&quot;token attr-name&quot;&gt;value&lt;/span&gt;&lt;span class=&quot;token attr-value&quot;&gt;&lt;span class=&quot;token punctuation&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;&quot;&lt;/span&gt;Submit&lt;span class=&quot;token punctuation&quot;&gt;&quot;&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token punctuation&quot;&gt;&amp;lt;/&lt;/span&gt;p&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;&gt;&lt;/span&gt;&lt;/span&gt;
+  &lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token punctuation&quot;&gt;&amp;lt;/&lt;/span&gt;form&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;&gt;&lt;/span&gt;&lt;/span&gt;
+    {% if article.ch_id == 1 %}
+     &lt;span class=&quot;token comment&quot;&gt;&amp;lt;!-- Youre very close but Im a little more tricky than that. --&gt;&lt;/span&gt;
+    {% endif %}
+
+   {% if session.admin %}
+     &lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token punctuation&quot;&gt;&amp;lt;&lt;/span&gt;h2&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;&gt;&lt;/span&gt;&lt;/span&gt; Admin panel &lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token punctuation&quot;&gt;&amp;lt;/&lt;/span&gt;h2&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;&gt;&lt;/span&gt;&lt;/span&gt;
+   {% endif %}
+
+   {% else %}
+
+     &lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token punctuation&quot;&gt;&amp;lt;&lt;/span&gt;p&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;&gt;&lt;/span&gt;&lt;/span&gt; {{message}}&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token punctuation&quot;&gt;&amp;lt;/&lt;/span&gt;p&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;&gt;&lt;/span&gt;&lt;/span&gt;
+
+{% endif %}&lt;/code&gt;&lt;/pre&gt;
+      &lt;/div&gt;
+&lt;h4&gt;Logged out view&lt;/h4&gt;
+&lt;hr&gt;
+&lt;p&gt;
+  &lt;a
+    class=&quot;gatsby-resp-image-link&quot;
+    href=&quot;/static/chal_loggedout-884fd47b8743fd0ba557f46b204dd1e1-33242.png&quot;
+    style=&quot;display: block&quot;
+    target=&quot;_blank&quot;
+    rel=&quot;noopener&quot;
+  &gt;
+  
+  &lt;span
+    class=&quot;gatsby-resp-image-wrapper&quot;
+    style=&quot;position: relative; display: block; ; max-width: 800px; margin-left: auto; margin-right: auto;&quot;
+  &gt;
+    &lt;span
+      class=&quot;gatsby-resp-image-background-image&quot;
+      style=&quot;padding-bottom: 37.230769230769226%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAHCAYAAAAIy204AAAACXBIWXMAAAsSAAALEgHS3X78AAAA/klEQVQoz43Q20rDQBCA4byEIuKVvVBf0wNYpS/l4VK90KKktLHYRNgmaZLNqWl2f7eJSEFiHfhY9jDDzFrHAzgyeldweKnp9TUnA83eGeyeaoNOO8b+ucm/Nvl9OLgAy/Ulb84nIi5JK0hKiApt1lb8rd3zc74p3nhvBcLDGb1SZBJdV6jVku7QbAtLpDCLIVxE+OECMff5mLnILMPLBdPEa+SrsqmnlEbpbtazW3I3ypk4U8YTB9u2ubm9Z/zu8CSGPM6HPIgX4qVsezRJf7GqIiWLA8IgIJKF+a+29bquf024rVhTMM8LEpkaslmzvGwvWY+gqFVtqH8VW/sCd5UHQGBsGn8AAAAASUVORK5CYII=&apos;); background-size: cover; display: block;&quot;
+    &gt;
+      &lt;img
+        class=&quot;gatsby-resp-image-image&quot;
+        style=&quot;width: 100%; height: 100%; margin: 0; vertical-align: middle; position: absolute; top: 0; left: 0; box-shadow: inset 0px 0px 0px 400px transparent;&quot;
+        alt=&quot;chal_logedout.png&quot;
+        title=&quot;&quot;
+        src=&quot;/static/chal_loggedout-884fd47b8743fd0ba557f46b204dd1e1-48538.png&quot;
+        srcset=&quot;/static/chal_loggedout-884fd47b8743fd0ba557f46b204dd1e1-bed0f.png 200w,
+/static/chal_loggedout-884fd47b8743fd0ba557f46b204dd1e1-5fd34.png 400w,
+/static/chal_loggedout-884fd47b8743fd0ba557f46b204dd1e1-48538.png 800w,
+/static/chal_loggedout-884fd47b8743fd0ba557f46b204dd1e1-33242.png 975w&quot;
+        sizes=&quot;(max-width: 800px) 100vw, 800px&quot;
+      /&gt;
+    &lt;/span&gt;
+  &lt;/span&gt;
+  
+  &lt;/a&gt;
+    &lt;/p&gt;
+&lt;h3&gt;Logged in view&lt;/h3&gt;
+&lt;hr&gt;
+&lt;p&gt;
+  &lt;a
+    class=&quot;gatsby-resp-image-link&quot;
+    href=&quot;/static/challenge1-a6180c748447014b20ee874a8b1910c8-cd303.png&quot;
+    style=&quot;display: block&quot;
+    target=&quot;_blank&quot;
+    rel=&quot;noopener&quot;
+  &gt;
+  
+  &lt;span
+    class=&quot;gatsby-resp-image-wrapper&quot;
+    style=&quot;position: relative; display: block; ; max-width: 800px; margin-left: auto; margin-right: auto;&quot;
+  &gt;
+    &lt;span
+      class=&quot;gatsby-resp-image-background-image&quot;
+      style=&quot;padding-bottom: 60.10050251256281%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAMCAYAAABiDJ37AAAACXBIWXMAAAsSAAALEgHS3X78AAABL0lEQVQoz51STUvDQBTs//cveBI8eBX11qoIilpUEOnBtMlquon5aJLmq7vJ7ri7QlFISeyDOQR2Jm9m3igMIzxMn5CmGfS0bQshBKSUEFJsob+HzIhtKhRZjLquwTkHY2znYy3ah9E8kpgsAOJ6mNsOLMvC5dUNbJdgGr7ienlvkLHciIo+wWRdwqExqOfB8wPQYAVKfURxjKRIUTQVcl6iVbYHWW44Q12VyPM1ypqh4Dv9DrP8FQR4m83gkA8QQjRzMPk3DE9vKLmyIowGmqZRDcvenLqgeWZDO/vExL1DxWvzE30yQsp/4Y/grf+Mg5dDlV3xExXk4JvrLEU1AqaO2s8LuJQa20NvrrOUR7fB+fgd8dkFkqWn49xbzAiOVbEnpwSbo2OIaLXdbt/5BrlNqawtt24NAAAAAElFTkSuQmCC&apos;); background-size: cover; display: block;&quot;
+    &gt;
+      &lt;img
+        class=&quot;gatsby-resp-image-image&quot;
+        style=&quot;width: 100%; height: 100%; margin: 0; vertical-align: middle; position: absolute; top: 0; left: 0; box-shadow: inset 0px 0px 0px 400px transparent;&quot;
+        alt=&quot;challenge1.png&quot;
+        title=&quot;&quot;
+        src=&quot;/static/challenge1-a6180c748447014b20ee874a8b1910c8-48538.png&quot;
+        srcset=&quot;/static/challenge1-a6180c748447014b20ee874a8b1910c8-bed0f.png 200w,
+/static/challenge1-a6180c748447014b20ee874a8b1910c8-5fd34.png 400w,
+/static/challenge1-a6180c748447014b20ee874a8b1910c8-48538.png 800w,
+/static/challenge1-a6180c748447014b20ee874a8b1910c8-cd303.png 995w&quot;
+        sizes=&quot;(max-width: 800px) 100vw, 800px&quot;
+      /&gt;
+    &lt;/span&gt;
+  &lt;/span&gt;
+  
+  &lt;/a&gt;
+    &lt;/p&gt;
+&lt;hr&gt;
+&lt;h3&gt;Tests&lt;/h3&gt;
+&lt;blockquote&gt;
+&lt;p&gt;&lt;strong&gt;Test coverage&lt;/strong&gt; — a measure used to describe the degree to which the source code of a program is executed when a particular test suite runs.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;We have two kinds of test coverage at play here. &lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;PyTest            - Used before committing code, based off the example laid out in the &lt;code class=&quot;language-text&quot;&gt;Flask&lt;/code&gt; tutorial.&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;
+  &lt;a
+    class=&quot;gatsby-resp-image-link&quot;
+    href=&quot;/static/pytest-3412364dc9474bdf614a1be96ae6629b-11b75.png&quot;
+    style=&quot;display: block&quot;
+    target=&quot;_blank&quot;
+    rel=&quot;noopener&quot;
+  &gt;
+  
+  &lt;span
+    class=&quot;gatsby-resp-image-wrapper&quot;
+    style=&quot;position: relative; display: block; ; max-width: 800px; margin-left: auto; margin-right: auto;&quot;
+  &gt;
+    &lt;span
+      class=&quot;gatsby-resp-image-background-image&quot;
+      style=&quot;padding-bottom: 11.08910891089109%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAACCAIAAADXZGvcAAAACXBIWXMAAAsSAAALEgHS3X78AAAAT0lEQVQI12PQ9A1X9QqWdfaVsPeUdvQWt/OQdPAStXHjNLLlMbXnNrHnNLYFISNbKAMJMUg7eUs7+XAZ2zFomTBqmzFAkJYpAaRtxmRsAwAW9xNG0rikKQAAAABJRU5ErkJggg==&apos;); background-size: cover; display: block;&quot;
+    &gt;
+      &lt;img
+        class=&quot;gatsby-resp-image-image&quot;
+        style=&quot;width: 100%; height: 100%; margin: 0; vertical-align: middle; position: absolute; top: 0; left: 0; box-shadow: inset 0px 0px 0px 400px transparent;&quot;
+        alt=&quot;Pytest&quot;
+        title=&quot;&quot;
+        src=&quot;/static/pytest-3412364dc9474bdf614a1be96ae6629b-48538.png&quot;
+        srcset=&quot;/static/pytest-3412364dc9474bdf614a1be96ae6629b-bed0f.png 200w,
+/static/pytest-3412364dc9474bdf614a1be96ae6629b-5fd34.png 400w,
+/static/pytest-3412364dc9474bdf614a1be96ae6629b-48538.png 800w,
+/static/pytest-3412364dc9474bdf614a1be96ae6629b-b70ec.png 1200w,
+/static/pytest-3412364dc9474bdf614a1be96ae6629b-11b75.png 1515w&quot;
+        sizes=&quot;(max-width: 800px) 100vw, 800px&quot;
+      /&gt;
+    &lt;/span&gt;
+  &lt;/span&gt;
+  
+  &lt;/a&gt;
+    &lt;/p&gt;
+&lt;ol start=&quot;2&quot;&gt;
+&lt;li&gt;UnitTest/Selenium - Used post deployment to check renders and verify page content.&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;
+  &lt;a
+    class=&quot;gatsby-resp-image-link&quot;
+    href=&quot;/static/selenium-ac04564d5424c05a9026fd1b764c8dec-65f29.png&quot;
+    style=&quot;display: block&quot;
+    target=&quot;_blank&quot;
+    rel=&quot;noopener&quot;
+  &gt;
+  
+  &lt;span
+    class=&quot;gatsby-resp-image-wrapper&quot;
+    style=&quot;position: relative; display: block; ; max-width: 634px; margin-left: auto; margin-right: auto;&quot;
+  &gt;
+    &lt;span
+      class=&quot;gatsby-resp-image-background-image&quot;
+      style=&quot;padding-bottom: 53.94321766561514%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAALCAYAAAB/Ca1DAAAACXBIWXMAAAsSAAALEgHS3X78AAABxklEQVQoz4WSW1MaQRCF9ynRGDRGEHBR0LBkgIXZq3u/IETWMmqVlar8/19y7OmVEhNSefhqZmG655w+o91PFqiMHIVhojAFSimQjSbIex7WowzLyxCLi2tmdRXhdpjyb97RGG7jO9zD92jlIEChu1j2Y6yIhR4i63hclLQlrdFro4TJzhwEJybiU7mDObSk56AkNUXP5SZp1+KiQveQ00XluY+cvqPmDHFrTioE5P432AcGnM+jd9iElug2fvn3eJgt8exUeHYr/A5+8v52GONJ/sAj/bfok2W6sKIx3ImCm28aW1to8ZkFNceH6Q3WRsZqIzqsuD6eIO1YbF0pLdiJR5ansD4NueGfaN7JhAvVIbV6RwL+lzHjNJQNg1ENNmqUvToEsbXWe1IoETYpYd1H0rQRfZXIux4P2fwwwHzv6o2Pr9BeXbALbSVS3I0KrISPtfRR2T6ySxP+8ZQCsjk5FYgaQdIm+zSCqDX7t+VYt2hupO6cnkJ/jHggEOqCFaqU045dNyKyrsMvQO3VG+R0G1vUKVusoOwFSE/pcMvGzUXI6pQ9uU9K/lIz5Llunso2WtCewaYCp6GGT3M4qOEAdlj6Hy+jiETcVTCFcQAAAABJRU5ErkJggg==&apos;); background-size: cover; display: block;&quot;
+    &gt;
+      &lt;img
+        class=&quot;gatsby-resp-image-image&quot;
+        style=&quot;width: 100%; height: 100%; margin: 0; vertical-align: middle; position: absolute; top: 0; left: 0; box-shadow: inset 0px 0px 0px 400px transparent;&quot;
+        alt=&quot;Pytest&quot;
+        title=&quot;&quot;
+        src=&quot;/static/selenium-ac04564d5424c05a9026fd1b764c8dec-65f29.png&quot;
+        srcset=&quot;/static/selenium-ac04564d5424c05a9026fd1b764c8dec-9ddeb.png 200w,
+/static/selenium-ac04564d5424c05a9026fd1b764c8dec-73ce1.png 400w,
+/static/selenium-ac04564d5424c05a9026fd1b764c8dec-65f29.png 634w&quot;
+        sizes=&quot;(max-width: 634px) 100vw, 634px&quot;
+      /&gt;
+    &lt;/span&gt;
+  &lt;/span&gt;
+  
+  &lt;/a&gt;
+    &lt;/p&gt;
+&lt;p&gt;You can run Selenium headless, which works great if we want to shove it into a CI/CD pipeline in order to validate our deployments.&lt;/p&gt;
+&lt;p&gt;Otherwise running it with the Chrome Driver we can see the tests iterating over our application.&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;/chromdriver-e6b9f0facd4cbb33b14f82051357143a.gif&quot; alt=&quot;db results&quot;&gt;&lt;/p&gt;
+&lt;p&gt;Each suite has its own structure and fixtures you can use to simplify to your testing, just go with what fits your use caser best.. In general it can be difficult to wrap your head around unit tests but by working them into your code you will be able to prevent against &lt;code class=&quot;language-text&quot;&gt;Undefined&lt;/code&gt; behavior, which in alot of cases leads to security issues. My unit tests don’t hit 100% code coverage but in an ideal world that is what we would want to strive for. &lt;/p&gt;
+&lt;hr&gt;
+&lt;h3&gt;To be continued&lt;/h3&gt;
+&lt;p&gt;This post was dragging on quite a bit so check out part 2 for the remaining topics&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Databases&lt;/li&gt;
+&lt;li&gt;Ansible&lt;/li&gt;
+&lt;li&gt;Terraform&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Coming soon!&lt;/p&gt;</content:encoded></item><item><title><![CDATA[Mapping website attack surfaces]]></title><description><![CDATA[Intro Trying bug bounties can be fun, you might even walk off like a prospector with gold. Of course similar to sifting through river water…]]></description><link>https://anthonylaiuppa.com/mapping-website-attack-surface/</link><guid isPermaLink="false">https://anthonylaiuppa.com/mapping-website-attack-surface/</guid><content:encoded>&lt;h3&gt;Intro&lt;/h3&gt;
 &lt;p&gt;Trying bug bounties can be fun, you might even walk off like a prospector with gold. Of course similar to sifting through river water looking for gold, youve got sifting through websites looking for things that catch your eye. It can be pretty repetitive, so lets get some practice in by making a tool of our own to help make this attack surface for us.&lt;/p&gt;
 &lt;hr&gt;
 &lt;p&gt;First off, what is an attack surface? &lt;/p&gt;
