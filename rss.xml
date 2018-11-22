@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[Laiuppa Blog]]></title><description><![CDATA[A repository of potentially interesting information.]]></description><link>https://anthonylaiuppa.com</link><generator>RSS for Node</generator><lastBuildDate>Thu, 22 Nov 2018 00:56:09 GMT</lastBuildDate><item><title><![CDATA[GoKu, will it scale?]]></title><description><![CDATA[Intro Previously we virtualized a Kubernetes cluster on our localhost, but that is just simulating the cloud. Why dont we take GoKu to the…]]></description><link>https://anthonylaiuppa.com/goku-will-it-scale/</link><guid isPermaLink="false">https://anthonylaiuppa.com/goku-will-it-scale/</guid><content:encoded>&lt;h3&gt;Intro&lt;/h3&gt;
+<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[Laiuppa Blog]]></title><description><![CDATA[A repository of potentially interesting information.]]></description><link>https://anthonylaiuppa.com</link><generator>RSS for Node</generator><lastBuildDate>Thu, 22 Nov 2018 01:07:35 GMT</lastBuildDate><item><title><![CDATA[GoKu, will it scale?]]></title><description><![CDATA[Intro Previously we virtualized a Kubernetes cluster on our localhost, but that is just simulating the cloud. Why dont we take GoKu to the…]]></description><link>https://anthonylaiuppa.com/goku-will-it-scale/</link><guid isPermaLink="false">https://anthonylaiuppa.com/goku-will-it-scale/</guid><content:encoded>&lt;h3&gt;Intro&lt;/h3&gt;
 &lt;p&gt;Previously we virtualized a Kubernetes cluster on our localhost, but that is just simulating the cloud. Why dont we take GoKu to the actual cloud and see how it does? I actually tried to tie this in and scan the same 111 URLs from the last post, but it finished so fast I couldnt believe it. Lets bump things up a notch, what if we want to scan 5000+ sites?&lt;/p&gt;
 &lt;hr&gt;
 &lt;h3&gt;What is scaling?&lt;/h3&gt;
@@ -691,7 +691,7 @@
 &lt;hr&gt;
 &lt;h3&gt;Front End&lt;/h3&gt;
 &lt;p&gt;Front end design is not a favorite of mine, so we’ll let &lt;code class=&quot;language-text&quot;&gt;Bootstrap4&lt;/code&gt; and &lt;code class=&quot;language-text&quot;&gt;Jinja2&lt;/code&gt; do all the work for us.&lt;/p&gt;
-&lt;p&gt;The goal here isnt to teach you to make a front end or use Jinaj2 like a pro, its to hopefully give you something to draw upon when you’re trying to think of the code you need to put in your application. &lt;/p&gt;
+&lt;p&gt;The goal here isnt to teach you to make a front end or use &lt;code class=&quot;language-text&quot;&gt;Jinaj2&lt;/code&gt; like a pro, its to hopefully give you something to draw upon when you’re trying to think of the code you need to put in your application. &lt;/p&gt;
 &lt;p&gt;In short &lt;code class=&quot;language-text&quot;&gt;Jinja2&lt;/code&gt; is a templating engine, so we can give it a placeholders and &lt;code class=&quot;language-text&quot;&gt;Flask&lt;/code&gt; will inject the content and render it as HTML on the front end. &lt;/p&gt;
 &lt;p&gt;Next up, we’ve got the &lt;code class=&quot;language-text&quot;&gt;Challenges&lt;/code&gt; page laid out in a jeopardy style. It was a mild pain at first to make the grid layout but a little help from the Modulus operator alongside the &lt;code class=&quot;language-text&quot;&gt;Jinja2&lt;/code&gt; docs and we’ve got the code to render it in our desired layout.&lt;/p&gt;
 &lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;html&quot;&gt;
@@ -763,7 +763,7 @@
   
   &lt;/a&gt;
     &lt;/p&gt;
-&lt;p&gt;Hitting the floor of our front end the last thing to look at is &lt;code class=&quot;language-text&quot;&gt;the Challenges page&lt;/code&gt;. We use &lt;code class=&quot;language-text&quot;&gt;Jinaj2&lt;/code&gt; and &lt;code class=&quot;language-text&quot;&gt;Flask&lt;/code&gt; to render parts of page based on a users context such as; &lt;code class=&quot;language-text&quot;&gt;Is_Admin&lt;/code&gt; or &lt;code class=&quot;language-text&quot;&gt;Is_Logged_In&lt;/code&gt;.&lt;/p&gt;
+&lt;p&gt;Hitting the floor of our front end, the last thing to look at is the &lt;code class=&quot;language-text&quot;&gt;Challenges&lt;/code&gt; page. We use &lt;code class=&quot;language-text&quot;&gt;Jinaj2&lt;/code&gt; and &lt;code class=&quot;language-text&quot;&gt;Flask&lt;/code&gt; to render parts of page based on a users context such as; &lt;code class=&quot;language-text&quot;&gt;Is_Admin&lt;/code&gt; or &lt;code class=&quot;language-text&quot;&gt;Is_Logged_In&lt;/code&gt;.&lt;/p&gt;
 &lt;p&gt;Achieved easily by using some simple conditionals and passing the &lt;code class=&quot;language-text&quot;&gt;Session&lt;/code&gt; object into the template.&lt;/p&gt;
 &lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;html&quot;&gt;
       &lt;pre class=&quot;language-html&quot;&gt;&lt;code class=&quot;language-html&quot;&gt;{% if session.logged_in %}
@@ -939,10 +939,47 @@
   
   &lt;/a&gt;
     &lt;/p&gt;
+&lt;p&gt;Oh would you look at that, a failure. We changed the &lt;code class=&quot;language-text&quot;&gt;About&lt;/code&gt; page to be &lt;code class=&quot;language-text&quot;&gt;Rules&lt;/code&gt; so we need to change our tests to match, hence the second one succeeding. &lt;/p&gt;
+&lt;p&gt;
+  &lt;a
+    class=&quot;gatsby-resp-image-link&quot;
+    href=&quot;/static/drake_tests-12597075f944493f0bc7f35e136f337b-0975d.jpg&quot;
+    style=&quot;display: block&quot;
+    target=&quot;_blank&quot;
+    rel=&quot;noopener&quot;
+  &gt;
+  
+  &lt;span
+    class=&quot;gatsby-resp-image-wrapper&quot;
+    style=&quot;position: relative; display: block; ; max-width: 800px; margin-left: auto; margin-right: auto;&quot;
+  &gt;
+    &lt;span
+      class=&quot;gatsby-resp-image-background-image&quot;
+      style=&quot;padding-bottom: 89.74609375%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/jpeg;base64,/9j/2wBDABALDA4MChAODQ4SERATGCgaGBYWGDEjJR0oOjM9PDkzODdASFxOQERXRTc4UG1RV19iZ2hnPk1xeXBkeFxlZ2P/2wBDARESEhgVGC8aGi9jQjhCY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2P/wgARCAASABQDASIAAhEBAxEB/8QAGAABAQEBAQAAAAAAAAAAAAAAAAQFAgP/xAAUAQEAAAAAAAAAAAAAAAAAAAAE/9oADAMBAAIQAxAAAAHx2YbCItclnwdUKqwKL//EAB0QAAICAQUAAAAAAAAAAAAAAAEDAAISBBEhMjP/2gAIAQEAAQUCzxuo7rEYQAnlQl++k8Z//8QAFhEAAwAAAAAAAAAAAAAAAAAAAxAy/9oACAEDAQE/ASyjSv/EABgRAAIDAAAAAAAAAAAAAAAAAAMQAREh/9oACAECAQE/AQ7NoC//xAAZEAACAwEAAAAAAAAAAAAAAAAAARARMYH/2gAIAQEABj8CE1GWxUjBnY//xAAeEAACAgICAwAAAAAAAAAAAAABEQAhMVEQQXGhwf/aAAgBAQABPyFz6cbEok4lBZcoQ6VDYFZPUFiwnr/Jh8uP/9oADAMBAAIAAwAAABCcCHz/xAAaEQACAgMAAAAAAAAAAAAAAAABEBEhMYHB/9oACAEDAQE/ECkKhYddX//EABkRAAMAAwAAAAAAAAAAAAAAAAEQIRExgf/aAAgBAgEBPxAxFiLbi//EAB0QAQADAAIDAQAAAAAAAAAAAAEAESExURBBofD/2gAIAQEAAT8QV9KE0qYzRAHxMurm3JUmBlGHcqECEo1s9jr6qJ5XMR+B34//2Q==&apos;); background-size: cover; display: block;&quot;
+    &gt;
+      &lt;img
+        class=&quot;gatsby-resp-image-image&quot;
+        style=&quot;width: 100%; height: 100%; margin: 0; vertical-align: middle; position: absolute; top: 0; left: 0; box-shadow: inset 0px 0px 0px 400px transparent;&quot;
+        alt=&quot;Drake on unit tests&quot;
+        title=&quot;&quot;
+        src=&quot;/static/drake_tests-12597075f944493f0bc7f35e136f337b-78f2b.jpg&quot;
+        srcset=&quot;/static/drake_tests-12597075f944493f0bc7f35e136f337b-dce19.jpg 200w,
+/static/drake_tests-12597075f944493f0bc7f35e136f337b-c1413.jpg 400w,
+/static/drake_tests-12597075f944493f0bc7f35e136f337b-78f2b.jpg 800w,
+/static/drake_tests-12597075f944493f0bc7f35e136f337b-0975d.jpg 1024w&quot;
+        sizes=&quot;(max-width: 800px) 100vw, 800px&quot;
+      /&gt;
+    &lt;/span&gt;
+  &lt;/span&gt;
+  
+  &lt;/a&gt;
+    &lt;/p&gt;
+&lt;p&gt;For those familiar with test driven development — the above picture probably made you twitch a little, but after debugging failed tests you begin to understand how the creator mustve felt.&lt;/p&gt;
 &lt;p&gt;You can run Selenium headless, which works great if we want to shove it into a CI/CD pipeline in order to validate our deployments.&lt;/p&gt;
 &lt;p&gt;Otherwise running it with the Chrome Driver we can see the tests iterating over our application.&lt;/p&gt;
 &lt;p&gt;&lt;img src=&quot;/chromdriver-e6b9f0facd4cbb33b14f82051357143a.gif&quot; alt=&quot;db results&quot;&gt;&lt;/p&gt;
-&lt;p&gt;Each suite has its own structure and fixtures you can use to simplify to your testing, just go with what fits your use caser best.. In general it can be difficult to wrap your head around unit tests but by working them into your code you will be able to prevent against &lt;code class=&quot;language-text&quot;&gt;Undefined&lt;/code&gt; behavior, which in alot of cases leads to security issues. My unit tests don’t hit 100% code coverage but in an ideal world that is what we would want to strive for. &lt;/p&gt;
+&lt;p&gt;Each suite has its own structure and fixtures you can use to simplify to your testing, just go with what fits your use caser best.. &lt;/p&gt;
+&lt;p&gt;In general it can be difficult to wrap your head around unit tests but by working them into your code you will be able to prevent against &lt;code class=&quot;language-text&quot;&gt;Undefined&lt;/code&gt; behavior, which in alot of cases leads to security issues. My unit tests don’t hit 100% code coverage but in an ideal world that is what we would want to strive for. &lt;/p&gt;
 &lt;hr&gt;
 &lt;h3&gt;To be continued&lt;/h3&gt;
 &lt;p&gt;This post was dragging on quite a bit so check out part 2 for the remaining topics&lt;/p&gt;
