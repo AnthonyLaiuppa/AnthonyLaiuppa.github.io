@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[Laiuppa Blog]]></title><description><![CDATA[A repository of potentially interesting information.]]></description><link>https://anthonylaiuppa.com</link><generator>RSS for Node</generator><lastBuildDate>Thu, 22 Nov 2018 01:07:35 GMT</lastBuildDate><item><title><![CDATA[GoKu, will it scale?]]></title><description><![CDATA[Intro Previously we virtualized a Kubernetes cluster on our localhost, but that is just simulating the cloud. Why dont we take GoKu to the…]]></description><link>https://anthonylaiuppa.com/goku-will-it-scale/</link><guid isPermaLink="false">https://anthonylaiuppa.com/goku-will-it-scale/</guid><content:encoded>&lt;h3&gt;Intro&lt;/h3&gt;
+<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[Laiuppa Blog]]></title><description><![CDATA[A repository of potentially interesting information.]]></description><link>https://anthonylaiuppa.com</link><generator>RSS for Node</generator><lastBuildDate>Thu, 29 Nov 2018 00:04:19 GMT</lastBuildDate><item><title><![CDATA[GoKu, will it scale?]]></title><description><![CDATA[Intro Previously we virtualized a Kubernetes cluster on our localhost, but that is just simulating the cloud. Why dont we take GoKu to the…]]></description><link>https://anthonylaiuppa.com/goku-will-it-scale/</link><guid isPermaLink="false">https://anthonylaiuppa.com/goku-will-it-scale/</guid><content:encoded>&lt;h3&gt;Intro&lt;/h3&gt;
 &lt;p&gt;Previously we virtualized a Kubernetes cluster on our localhost, but that is just simulating the cloud. Why dont we take GoKu to the actual cloud and see how it does? I actually tried to tie this in and scan the same 111 URLs from the last post, but it finished so fast I couldnt believe it. Lets bump things up a notch, what if we want to scan 5000+ sites?&lt;/p&gt;
 &lt;hr&gt;
 &lt;h3&gt;What is scaling?&lt;/h3&gt;
@@ -551,11 +551,47 @@
 &lt;h3&gt;Conclusion&lt;/h3&gt;
 &lt;p&gt;Surprisingly the minkube virtualized kubernetes cluster was able to perform more quickly at 8 minutes, than the map python tool from my previous post that came clocking in at 19 minutes.&lt;/p&gt;
 &lt;p&gt;Pretty interesting given we had to wait on the containers to be created. Although it helps that this approach is effectively asynchronous, compared to the python tool which is single threaded. &lt;/p&gt;
-&lt;p&gt;Overall getting some practice in with Go and Kubernetes was a great way of getting more familiar with both technologies. Dont be afraid to try and make something yourself, just remember to reference the documentation.&lt;/p&gt;</content:encoded></item><item><title><![CDATA[EZCTF, a full stack webapp..]]></title><description><![CDATA[Intro Coming back from DEFCON I was beyond amped to write some code. It was about time to finally complete a full stack web project. Having…]]></description><link>https://anthonylaiuppa.com/ezctf-full-stack/</link><guid isPermaLink="false">https://anthonylaiuppa.com/ezctf-full-stack/</guid><content:encoded>&lt;h3&gt;Intro&lt;/h3&gt;
-&lt;p&gt;Coming back from DEFCON I was beyond amped to write some code. It was about time to finally complete a full stack web project. Having participated in the OPENCTF at DC26, I had a great idea. Why not make a little hacking game to play with some colleagues? So starting from scratch here we go…&lt;/p&gt;
+&lt;p&gt;Overall getting some practice in with Go and Kubernetes was a great way of getting more familiar with both technologies. Dont be afraid to try and make something yourself, just remember to reference the documentation.&lt;/p&gt;</content:encoded></item><item><title><![CDATA[EZCTF, a full stack webapp..]]></title><description><![CDATA[Intro Ever sit down to learn something and at first the examples are great, but then when it comes to getting advanced — you’re lost…]]></description><link>https://anthonylaiuppa.com/ezctf-full-stack/</link><guid isPermaLink="false">https://anthonylaiuppa.com/ezctf-full-stack/</guid><content:encoded>&lt;h3&gt;Intro&lt;/h3&gt;
+&lt;p&gt;Ever sit down to learn something and at first the examples are great, but then when it comes to getting advanced — you’re lost wondering what happened inbetween? When learning I always found it easy to get started, but hard to get anywhere meaningful as all the examples felt like this picture&lt;/p&gt;
+&lt;p&gt;
+  &lt;a
+    class=&quot;gatsby-resp-image-link&quot;
+    href=&quot;/static/owl-756ac987db322938e134d8e14f7d37f7-f54b5.jpg&quot;
+    style=&quot;display: block&quot;
+    target=&quot;_blank&quot;
+    rel=&quot;noopener&quot;
+  &gt;
+  
+  &lt;span
+    class=&quot;gatsby-resp-image-wrapper&quot;
+    style=&quot;position: relative; display: block; ; max-width: 610px; margin-left: auto; margin-right: auto;&quot;
+  &gt;
+    &lt;span
+      class=&quot;gatsby-resp-image-background-image&quot;
+      style=&quot;padding-bottom: 100%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/jpeg;base64,/9j/2wBDABALDA4MChAODQ4SERATGCgaGBYWGDEjJR0oOjM9PDkzODdASFxOQERXRTc4UG1RV19iZ2hnPk1xeXBkeFxlZ2P/2wBDARESEhgVGC8aGi9jQjhCY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2P/wgARCAAUABQDASIAAhEBAxEB/8QAGAABAAMBAAAAAAAAAAAAAAAAAAECBAX/xAAVAQEBAAAAAAAAAAAAAAAAAAAAAf/aAAwDAQACEAMQAAAB7U2zRpBFQuD/xAAYEAACAwAAAAAAAAAAAAAAAAABIAMREv/aAAgBAQABBQI2khyv/8QAFBEBAAAAAAAAAAAAAAAAAAAAIP/aAAgBAwEBPwEf/8QAFBEBAAAAAAAAAAAAAAAAAAAAIP/aAAgBAgEBPwEf/8QAFRABAQAAAAAAAAAAAAAAAAAAIDH/2gAIAQEABj8CEP8A/8QAGhABAAMBAQEAAAAAAAAAAAAAAQARIRAxkf/aAAgBAQABPyEpxhnq31Vf0QbLjHef/9oADAMBAAIAAwAAABCXF0H/xAAUEQEAAAAAAAAAAAAAAAAAAAAg/9oACAEDAQE/EB//xAAUEQEAAAAAAAAAAAAAAAAAAAAg/9oACAECAQE/EB//xAAdEAEAAgICAwAAAAAAAAAAAAABABEhMRBxQVFh/9oACAEBAAE/EBDViEVIXhTh+w7cmEK67gANJcaOGeyk6hon/9k=&apos;); background-size: cover; display: block;&quot;
+    &gt;
+      &lt;img
+        class=&quot;gatsby-resp-image-image&quot;
+        style=&quot;width: 100%; height: 100%; margin: 0; vertical-align: middle; position: absolute; top: 0; left: 0; box-shadow: inset 0px 0px 0px 400px transparent;&quot;
+        alt=&quot;Owl&quot;
+        title=&quot;&quot;
+        src=&quot;/static/owl-756ac987db322938e134d8e14f7d37f7-f54b5.jpg&quot;
+        srcset=&quot;/static/owl-756ac987db322938e134d8e14f7d37f7-47035.jpg 200w,
+/static/owl-756ac987db322938e134d8e14f7d37f7-12edc.jpg 400w,
+/static/owl-756ac987db322938e134d8e14f7d37f7-f54b5.jpg 610w&quot;
+        sizes=&quot;(max-width: 610px) 100vw, 610px&quot;
+      /&gt;
+    &lt;/span&gt;
+  &lt;/span&gt;
+  
+  &lt;/a&gt;
+    &lt;/p&gt;
+&lt;p&gt;It was always hard to find comprehensive code examples that covered a wide range of topics, so I figured I would share this project in hopes someone takes away some newfound information or motivation.&lt;/p&gt;
 &lt;hr&gt;
 &lt;h3&gt;Pre-Reqs&lt;/h3&gt;
-&lt;p&gt;Reading these resources will help you understand the fundamentals needed to accomplish this project.&lt;/p&gt;
+&lt;p&gt;All the pieces at work in the project come from the below technologies and documentation.&lt;/p&gt;
+&lt;p&gt;In short what I’ve done here is written my own web app, conformed it to the specs demonstrated in the &lt;em&gt;Flask blog&lt;/em&gt; tutorial, then added my own supporting structures around it. &lt;/p&gt;
+&lt;p&gt;Whenever there was a need for a specific feature, I would check the following docs to make sure I wasn’t reinventing the wheel. Otherwise it was poignant to roll my own code for the feature. &lt;/p&gt;
 &lt;ol&gt;
 &lt;li&gt;&lt;a href=&quot;https://www.tutorialspoint.com/sdlc/sdlc_overview.htm&quot;&gt;Theory         - Software Development Life Cycle&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;&lt;a href=&quot;https://www.sqlalchemy.org/&quot;&gt;Database       - SQLAlchemy&lt;/a&gt;&lt;/li&gt;
@@ -568,9 +604,10 @@
 &lt;li&gt;&lt;a href=&quot;https://docs.ansible.com/&quot;&gt;Automation     - Ansible&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;&lt;a href=&quot;https://www.terraform.io/docs/index.html&quot;&gt;AWS Deployment - Terraform&lt;/a&gt;&lt;/li&gt;
 &lt;/ol&gt;
-&lt;p&gt;Everything here came from simply reading the documentation and implementing the needed features. &lt;em&gt;The Flask tutorial covers most of whats going on beneath the hood, we’ll show some features we’ve added on top below..&lt;/em&gt;&lt;/p&gt;
+&lt;p&gt;Sometimes you may find features in libraries that kind of meet your use case, if you’re lucky you can extend or build upon their code to make it work for you. &lt;/p&gt;
 &lt;hr&gt;
 &lt;h3&gt;EZCTF&lt;/h3&gt;
+&lt;p&gt;Coming back from DEFCON I was beyond amped to write some code. It was about time to finally complete a full stack web project. Having participated in the OPENCTF at DC26, I had a great idea. Why not make a little hacking game to play with some colleagues? &lt;/p&gt;
 &lt;p&gt;&lt;strong&gt;The mission of this writeup:&lt;/strong&gt; by showing some different aspects of creating a webapp that isnt a standard example, I hope to illustrate different ways basic concepts come together to achieve more nuanced features. Getting started was never a problem, but we’ve all spent alot of time staring at the blinking cursor wondering what next.&lt;/p&gt;
 &lt;p&gt;So what is a CTF?&lt;/p&gt;
 &lt;blockquote&gt;
