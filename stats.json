@@ -29,8 +29,8 @@
       "path---hiding-encrypted-blobs-a15b8f71994bac2f0b07.js.map"
     ],
     "path---": [
-      "path----7e1283d8a1cc98d3aa46.js",
-      "path----7e1283d8a1cc98d3aa46.js.map"
+      "path----8d5197e189e818cc785f.js",
+      "path----8d5197e189e818cc785f.js.map"
     ],
     "component---src-pages-contact-js": [
       "component---src-pages-contact-js-491e2fefb3b96f906e34.js",
@@ -45,8 +45,8 @@
       "component---node-modules-gatsby-plugin-offline-app-shell-js-5c4c5a0f7af9dc69d6d7.js.map"
     ],
     "component---src-layouts-index-js": [
-      "component---src-layouts-index-js-1af0b63a0b81a34f372d.js",
-      "component---src-layouts-index-js-1af0b63a0b81a34f372d.js.map"
+      "component---src-layouts-index-js-b0da5b432722a06a9ca3.js",
+      "component---src-layouts-index-js-b0da5b432722a06a9ca3.js.map"
     ],
     "path---sans-holiday-hacking-challenge": [
       "path---sans-holiday-hacking-challenge-886203b57152ae8acce9.js",
@@ -102,14 +102,18 @@
       "path---six-years-of-links-01c756c18a1464d4cc1b.js",
       "path---six-years-of-links-01c756c18a1464d4cc1b.js.map"
     ],
+    "path---more-ctf-fun": [
+      "path---more-ctf-fun-efa2e2574843935f7fb7.js",
+      "path---more-ctf-fun-efa2e2574843935f7fb7.js.map"
+    ],
     "path---starters": [
       "path---starters-1b95dd69adec64a51a59.js",
       "path---starters-1b95dd69adec64a51a59.js.map"
     ],
     "app": [
-      "app-d07d0ac149afe5f778aa.js",
+      "app-58041940ef7cf0e02abf.js",
       "build-js-styles.css",
-      "app-d07d0ac149afe5f778aa.js.map",
+      "app-58041940ef7cf0e02abf.js.map",
       "build-js-styles.css.map"
     ],
     "component---src-templates-page-template-js": [
