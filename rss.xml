@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[Laiuppa Blog]]></title><description><![CDATA[A repository of potentially interesting information.]]></description><link>https://anthonylaiuppa.com</link><generator>RSS for Node</generator><lastBuildDate>Tue, 18 Dec 2018 15:42:55 GMT</lastBuildDate><item><title><![CDATA[More CTF fun!]]></title><description><![CDATA[Intro A little bit ago a friend sent me a link to a CTF put on by the Leap Security forum. It seems like there’s always a shortage of time…]]></description><link>https://anthonylaiuppa.com/more-ctf-fun/</link><guid isPermaLink="false">https://anthonylaiuppa.com/more-ctf-fun/</guid><content:encoded>&lt;h3&gt;Intro&lt;/h3&gt;
+<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[Laiuppa Blog]]></title><description><![CDATA[A repository of potentially interesting information.]]></description><link>https://anthonylaiuppa.com</link><generator>RSS for Node</generator><lastBuildDate>Tue, 18 Dec 2018 16:16:25 GMT</lastBuildDate><item><title><![CDATA[More CTF fun!]]></title><description><![CDATA[Intro A little bit ago a friend sent me a link to a CTF put on by the Leap Security forum. It seems like there’s always a shortage of time…]]></description><link>https://anthonylaiuppa.com/more-ctf-fun/</link><guid isPermaLink="false">https://anthonylaiuppa.com/more-ctf-fun/</guid><content:encoded>&lt;h3&gt;Intro&lt;/h3&gt;
 &lt;p&gt;A little bit ago a friend sent me a link to a CTF put on by the Leap Security forum. It seems like there’s always a shortage of time so I was only able to get through one challenge, but I wanted to share anyways incase someone out there is wanting to play in CTF’s but doesn’t feel ready. &lt;/p&gt;
 &lt;hr&gt;
 &lt;h3&gt;The Challenge&lt;/h3&gt;
@@ -17,7 +17,7 @@ yo &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt;&lt;span class=&qu
 &lt;blockquote&gt;
 &lt;p&gt;“We found this malware in our /tmp directory, probably not wise to run it.&lt;/p&gt;
 &lt;/blockquote&gt;
-&lt;p&gt;I dont think thats quite the exact hint, but you’ll see soon how relevant it is.&lt;/p&gt;
+&lt;p&gt;I dont think thats quite the exact hint, but you’ll see how relevant it is.&lt;/p&gt;
 &lt;hr&gt;
 &lt;h3&gt;Analysis&lt;/h3&gt;
 &lt;p&gt;I’ve wrote previously about obfuscating python, and it’s immediately apparent that is whats going on here. &lt;/p&gt;
@@ -58,7 +58,7 @@ yo &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt;&lt;span class=&qu
   
   &lt;/a&gt;
     &lt;/p&gt;
-&lt;p&gt;In all this nothing stands out and we seem to be no closer to solving the challenge, so what can we do now? &lt;/p&gt;
+&lt;p&gt;Nothing stands out and we seem to be no closer to solving the challenge, so what can we do now? &lt;/p&gt;
 &lt;p&gt;Well I had considered a dynamic analysis situation, where I place the script in a sandbox and use wireshark to snag the IP it’s going to phone home to, but wheres the fun in that? This is a reversing challenge after all, let’s try to think of a simpler solution. &lt;/p&gt;
 &lt;hr&gt;
 &lt;h3&gt;Solved&lt;/h3&gt;
@@ -105,7 +105,7 @@ yo &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt;&lt;span class=&qu
   
   &lt;/a&gt;
     &lt;/p&gt;
-&lt;p&gt;Voila, we’ve solved it and it was far simpler than initially thought. &lt;/p&gt;</content:encoded></item><item><title><![CDATA[GoKu, will it scale?]]></title><description><![CDATA[Intro Previously we virtualized a Kubernetes cluster on our localhost, but that is just simulating the cloud. Why dont we take GoKu to the…]]></description><link>https://anthonylaiuppa.com/goku-will-it-scale/</link><guid isPermaLink="false">https://anthonylaiuppa.com/goku-will-it-scale/</guid><content:encoded>&lt;h3&gt;Intro&lt;/h3&gt;
+&lt;p&gt;Voila, we’ve solved it and it was far simpler than initially thought. In this case the flag they wanted was the IP Address.  &lt;/p&gt;</content:encoded></item><item><title><![CDATA[GoKu, will it scale?]]></title><description><![CDATA[Intro Previously we virtualized a Kubernetes cluster on our localhost, but that is just simulating the cloud. Why dont we take GoKu to the…]]></description><link>https://anthonylaiuppa.com/goku-will-it-scale/</link><guid isPermaLink="false">https://anthonylaiuppa.com/goku-will-it-scale/</guid><content:encoded>&lt;h3&gt;Intro&lt;/h3&gt;
 &lt;p&gt;Previously we virtualized a Kubernetes cluster on our localhost, but that is just simulating the cloud. Why dont we take GoKu to the actual cloud and see how it does? I actually tried to tie this in and scan the same 111 URLs from the last post, but it finished so fast I couldnt believe it. Lets bump things up a notch, what if we want to scan 5000+ sites?&lt;/p&gt;
 &lt;hr&gt;
 &lt;h3&gt;What is scaling?&lt;/h3&gt;
