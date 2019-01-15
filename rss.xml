@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[Laiuppa Blog]]></title><description><![CDATA[A repository of potentially interesting information.]]></description><link>https://anthonylaiuppa.com</link><generator>RSS for Node</generator><lastBuildDate>Tue, 15 Jan 2019 05:34:28 GMT</lastBuildDate><item><title><![CDATA[SANS Holiday Hacking Challenge]]></title><description><![CDATA[Preamble There are alot of reasons to look forward to the holiday season and the annual SANS Holiday Hacking Challenge is no exception. This…]]></description><link>https://anthonylaiuppa.com/kringlecon/</link><guid isPermaLink="false">https://anthonylaiuppa.com/kringlecon/</guid><content:encoded>&lt;h3&gt;Preamble&lt;/h3&gt;
+<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[Laiuppa Blog]]></title><description><![CDATA[A repository of potentially interesting information.]]></description><link>https://anthonylaiuppa.com</link><generator>RSS for Node</generator><lastBuildDate>Tue, 15 Jan 2019 05:42:57 GMT</lastBuildDate><item><title><![CDATA[SANS Holiday Hacking Challenge]]></title><description><![CDATA[Preamble There are alot of reasons to look forward to the holiday season and the annual SANS Holiday Hacking Challenge is no exception. This…]]></description><link>https://anthonylaiuppa.com/kringlecon/</link><guid isPermaLink="false">https://anthonylaiuppa.com/kringlecon/</guid><content:encoded>&lt;h3&gt;Preamble&lt;/h3&gt;
 &lt;hr&gt;
 &lt;p&gt;There are alot of reasons to look forward to the holiday season and the annual SANS Holiday Hacking Challenge is no exception. This year they went with a conference theme, where you sign into a virtual world and attend &lt;code class=&quot;language-text&quot;&gt;Kringlecon&lt;/code&gt; — a mythical conference hosted by santa and his crack team of information security elves. SANS makes things very approachable by giving you smaller terminal challenges to solve in exchange for hints regarding the bigger objectives. This is my writeup on 2018 SANSHHC, aka Kringlecon.&lt;/p&gt;
 &lt;p&gt;
@@ -2834,8 +2834,8 @@ apparent that we would need to use &lt;code class=&quot;language-text&quot;&gt;C
     &lt;/p&gt;
 &lt;p&gt;With both pieces of the puzzle, now comes the hard part. We need to combine them together into a certificate, and then import the certificate and use it to decrypt the &lt;code class=&quot;language-text&quot;&gt;p_k_e_k&lt;/code&gt; to then decrypt the database. &lt;/p&gt;
 &lt;p&gt;Fortunately a fellow with kringlecon attendee with the handle &lt;em&gt;marlas&lt;/em&gt; linked me these two pages which helped me get everything assembled together. I’ve worked with certificates on Linux systems but on Windows in Powershell this is new territory.&lt;/p&gt;
-&lt;p&gt;&lt;a href=&quot;https://www.ssl.com/how-to/create-a-pfx-p12-certificate-file-using-openssl/&quot;&gt;How to create a PFX Certificate&lt;/a&gt;
-&lt;a href=&quot;https://dscottraynsford.wordpress.com/2017/01/10/using-pfx-files-in-powershell/&quot;&gt;Using a PFX Certificate in powershell&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href=&quot;https://www.ssl.com/how-to/create-a-pfx-p12-certificate-file-using-openssl/&quot;&gt;How to create a PFX Certificate&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href=&quot;https://dscottraynsford.wordpress.com/2017/01/10/using-pfx-files-in-powershell/&quot;&gt;Using a PFX Certificate in powershell&lt;/a&gt;&lt;/p&gt;
 &lt;p&gt;I lined out what I felt was a good decryption function. I made a slight mistake when I copy pasted the script, so for a while I was spinning in circles. I didn’t notice a syntax error I made earlier since the function &lt;code class=&quot;language-text&quot;&gt;e_d_file&lt;/code&gt; hadn’t been called until now. &lt;/p&gt;
 &lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;bash&quot;&gt;
       &lt;pre class=&quot;language-bash&quot;&gt;&lt;code class=&quot;language-bash&quot;&gt;&lt;span class=&quot;token keyword&quot;&gt;function&lt;/span&gt; p_k_d&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token variable&quot;&gt;$pkek&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
@@ -2960,7 +2960,7 @@ apparent that we would need to use &lt;code class=&quot;language-text&quot;&gt;C
   &lt;/a&gt;
     &lt;/p&gt;
 &lt;h2&gt;Challenge10 : Santa’s Vault&lt;/h2&gt;
-&lt;p&gt;—&lt;/p&gt;
+&lt;hr&gt;
 &lt;p&gt;That password looks alot like musical notes… and there’s a piano on the wall. &lt;/p&gt;
 &lt;p&gt;
   &lt;a
