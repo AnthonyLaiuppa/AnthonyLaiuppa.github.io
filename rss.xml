@@ -1,4 +1,418 @@
-<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[Laiuppa Blog]]></title><description><![CDATA[A repository of potentially interesting information.]]></description><link>https://anthonylaiuppa.com</link><generator>RSS for Node</generator><lastBuildDate>Tue, 15 Jan 2019 05:42:57 GMT</lastBuildDate><item><title><![CDATA[SANS Holiday Hacking Challenge]]></title><description><![CDATA[Preamble There are alot of reasons to look forward to the holiday season and the annual SANS Holiday Hacking Challenge is no exception. This…]]></description><link>https://anthonylaiuppa.com/kringlecon/</link><guid isPermaLink="false">https://anthonylaiuppa.com/kringlecon/</guid><content:encoded>&lt;h3&gt;Preamble&lt;/h3&gt;
+<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[Laiuppa Blog]]></title><description><![CDATA[A repository of potentially interesting information.]]></description><link>https://anthonylaiuppa.com</link><generator>RSS for Node</generator><lastBuildDate>Sun, 27 Jan 2019 16:23:45 GMT</lastBuildDate><item><title><![CDATA[One command to rule them all!]]></title><description><![CDATA[Intro While working on getting better with Terraform I noticed there weren’t alot of examples of Kubernetes and AWS being provisioned at the…]]></description><link>https://anthonylaiuppa.com/one-command/</link><guid isPermaLink="false">https://anthonylaiuppa.com/one-command/</guid><content:encoded>&lt;h3&gt;Intro&lt;/h3&gt;
+&lt;hr&gt;
+&lt;p&gt;While working on getting better with Terraform I noticed there weren’t alot of examples of Kubernetes and AWS being provisioned at the same time. I forked the sample code provided by the Terraform project, and modularized it. From there I was able to add in a Kubernetes provisioner with an authentication workaround. This allows us to bring up and provision Kubernetes architecture in AWS with a single command. To give a service to demonstrate, I’ve written a simple GO - API endpoint and accompanying React front end. Break out your bingo card, there’s alot of buzz words coming your way. &lt;/p&gt;
+&lt;h3&gt;Architecture Overview&lt;/h3&gt;
+&lt;hr&gt;
+&lt;p&gt;Lets take a look at what all is acheived by our Terraform code.&lt;/p&gt;
+&lt;p&gt;This is what our ideal architecture looks like in AWS. Our React front end will be hosted in the S3 bucket.&lt;/p&gt;
+&lt;p&gt;
+  &lt;a
+    class=&quot;gatsby-resp-image-link&quot;
+    href=&quot;/static/arch-c75d07f9fbe6ec6d4ed6ab806be77ee3-c541b.png&quot;
+    style=&quot;display: block&quot;
+    target=&quot;_blank&quot;
+    rel=&quot;noopener&quot;
+  &gt;
+  
+  &lt;span
+    class=&quot;gatsby-resp-image-wrapper&quot;
+    style=&quot;position: relative; display: block; ; max-width: 800px; margin-left: auto; margin-right: auto;&quot;
+  &gt;
+    &lt;span
+      class=&quot;gatsby-resp-image-background-image&quot;
+      style=&quot;padding-bottom: 56.25%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAALCAIAAADwazoUAAAACXBIWXMAAAsSAAALEgHS3X78AAAB1UlEQVQoz02Sy27TQBSG82Y8B+JRYMWCReEFWFFYsCGCIoFKQFSkVHXaNA0pocV2nDS2Y8ceX+Nb5szY5viS0tHRzLH0f/r/8ZkOAMOiwMuyfPzy87PXX7ChvAh8nxAHWM4yO/RWI9FwvKAoCsZ4g2B1qoPlqIwC03aCJNTKxZ4rvbuWloa+9HyfczCM1cfDo+mfm3TLgk20pVtgCAPCiOdJ7EXBCj17I+X9/sNx78knQelfyLIk2ra1tmxd003DOL34fSyMHC/cObM6Ay9sx0fFWCEHl/6tMr0afhsePv0lvB1MNVmeeX4Qx5EsK/LfMcsIAN85Y5toprH42j93HUKBTWTT9cLN4mBy8ua7MDk5/bmci8rtyiakyCnQuHZuYQbpmkYLTZ2Z5vpanPd+CIkrbilb6vqr7oez7qPo6AFRR0nGGn1zVDAFwNuqmv7i+R7CrmMXHOhmUcSSv4n3j9X+8Ay07o0ys4KMt2ALV3fGlWXZYHBOCJFUK4gynpeUZvir82oVUJRhUtm0SZvYiFHWzg390zQdXl7Z5pxzHD6702G+yrOqHcxY567DorTOgJ+RBqkF+B7uSe8rK3H9SKBhcOecVz3u1SRoq4PG7b+M1TIU/wMQgGD6sLcm3wAAAABJRU5ErkJggg==&apos;); background-size: cover; display: block;&quot;
+    &gt;
+      &lt;img
+        class=&quot;gatsby-resp-image-image&quot;
+        style=&quot;width: 100%; height: 100%; margin: 0; vertical-align: middle; position: absolute; top: 0; left: 0; box-shadow: inset 0px 0px 0px 400px transparent;&quot;
+        alt=&quot;Cloud_Arch&quot;
+        title=&quot;&quot;
+        src=&quot;/static/arch-c75d07f9fbe6ec6d4ed6ab806be77ee3-48538.png&quot;
+        srcset=&quot;/static/arch-c75d07f9fbe6ec6d4ed6ab806be77ee3-bed0f.png 200w,
+/static/arch-c75d07f9fbe6ec6d4ed6ab806be77ee3-5fd34.png 400w,
+/static/arch-c75d07f9fbe6ec6d4ed6ab806be77ee3-48538.png 800w,
+/static/arch-c75d07f9fbe6ec6d4ed6ab806be77ee3-b70ec.png 1200w,
+/static/arch-c75d07f9fbe6ec6d4ed6ab806be77ee3-c541b.png 1280w&quot;
+        sizes=&quot;(max-width: 800px) 100vw, 800px&quot;
+      /&gt;
+    &lt;/span&gt;
+  &lt;/span&gt;
+  
+  &lt;/a&gt;
+    &lt;/p&gt;
+&lt;p&gt;Further more at the application layer, this is a diagram of Kubernetes architecture that will be implemented.
+The master is provided by AWS with their EKS, and we bring the worker-nodes with the EC2 instances.
+The GO-API is ran in single container pods distributed amongst the nodes. &lt;/p&gt;
+&lt;p&gt;
+  &lt;a
+    class=&quot;gatsby-resp-image-link&quot;
+    href=&quot;/static/kub_arch-81bdcf965c38d0cecd9b7bedc95bd279-3f7c3.png&quot;
+    style=&quot;display: block&quot;
+    target=&quot;_blank&quot;
+    rel=&quot;noopener&quot;
+  &gt;
+  
+  &lt;span
+    class=&quot;gatsby-resp-image-wrapper&quot;
+    style=&quot;position: relative; display: block; ; max-width: 800px; margin-left: auto; margin-right: auto;&quot;
+  &gt;
+    &lt;span
+      class=&quot;gatsby-resp-image-background-image&quot;
+      style=&quot;padding-bottom: 77.47680890538034%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAPCAIAAABr+ngCAAAACXBIWXMAAAsSAAALEgHS3X78AAABX0lEQVQoz43S6XLCMAwEYL//K3LfEMIVIOEItF/jAmmm06IfGlnWrrSyw8d7VhTFYrHg68nwJvhyuWw2m9vt9gsYZZqmq9XqcDg0YPf7nc/zfDKZNK6+wWVZgm232+v1Wr92xHuuzO0zjvYa20in06nBreFut5MHEzgK8of9ABPWAGdZ1u12l8vldDrt9/ua14WE4/FYVEbwbDaLg/GIFCVJMhwOqQUeDAaO+/0elxq8YT6fx2FURG4juFNkEUbFCO+dYEajkb0qQ2T5QRZeih+Px7hljMrbFvB6vYZXgFcggyUGAYGDaqy9Xg+luqQyeYxY0soc04fR6BhMSJtJFCHCZwu6uYs9Jel/PpLb17bpMa1S70wtnbxlYBFr0mq1DKUs6oyfgscS1NmNyGPWP0D8LRqa3Kr5drutjWKKtP3a9t9fGiNkp9Ph4yIheURE/QPWwZKth9eTCuoML6PzJ87iWrt0tZcsAAAAAElFTkSuQmCC&apos;); background-size: cover; display: block;&quot;
+    &gt;
+      &lt;img
+        class=&quot;gatsby-resp-image-image&quot;
+        style=&quot;width: 100%; height: 100%; margin: 0; vertical-align: middle; position: absolute; top: 0; left: 0; box-shadow: inset 0px 0px 0px 400px transparent;&quot;
+        alt=&quot;Kube-arch&quot;
+        title=&quot;&quot;
+        src=&quot;/static/kub_arch-81bdcf965c38d0cecd9b7bedc95bd279-48538.png&quot;
+        srcset=&quot;/static/kub_arch-81bdcf965c38d0cecd9b7bedc95bd279-bed0f.png 200w,
+/static/kub_arch-81bdcf965c38d0cecd9b7bedc95bd279-5fd34.png 400w,
+/static/kub_arch-81bdcf965c38d0cecd9b7bedc95bd279-48538.png 800w,
+/static/kub_arch-81bdcf965c38d0cecd9b7bedc95bd279-b70ec.png 1200w,
+/static/kub_arch-81bdcf965c38d0cecd9b7bedc95bd279-d134a.png 1600w,
+/static/kub_arch-81bdcf965c38d0cecd9b7bedc95bd279-f6ead.png 2400w,
+/static/kub_arch-81bdcf965c38d0cecd9b7bedc95bd279-3f7c3.png 2695w&quot;
+        sizes=&quot;(max-width: 800px) 100vw, 800px&quot;
+      /&gt;
+    &lt;/span&gt;
+  &lt;/span&gt;
+  
+  &lt;/a&gt;
+    &lt;/p&gt;
+&lt;p&gt;This distributed setup with Kubernetes steering the ship is what gives the backend of our application scalability, availability, and rolling upgrades.&lt;/p&gt;
+&lt;h3&gt;Golang - API&lt;/h3&gt;
+&lt;hr&gt;
+&lt;p&gt;Before we get to Terraforming our Kubernetes, we need something to run in our cluster. &lt;/p&gt;
+&lt;p&gt;This snippet shows our implementation of the endpoint by using the &lt;code class=&quot;language-text&quot;&gt;Gin Gonic&lt;/code&gt; framework. &lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;go&quot;&gt;
+      &lt;pre class=&quot;language-go&quot;&gt;&lt;code class=&quot;language-go&quot;&gt;&lt;span class=&quot;token keyword&quot;&gt;func&lt;/span&gt; &lt;span class=&quot;token function&quot;&gt;v1_timestamp&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;c &lt;span class=&quot;token operator&quot;&gt;*&lt;/span&gt;gin&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;Context&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+	timestamp &lt;span class=&quot;token operator&quot;&gt;:=&lt;/span&gt; time&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;Now&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;Unix&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; 
+	c&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;JSON&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token number&quot;&gt;200&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; gin&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;H&lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;token string&quot;&gt;&quot;message&quot;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&quot;Dont let your dreams be dreams. Time:&quot;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&quot;timestamp&quot;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt; timestamp&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;
+&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;
+
+&lt;span class=&quot;token keyword&quot;&gt;func&lt;/span&gt; &lt;span class=&quot;token function&quot;&gt;setupRouter&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token operator&quot;&gt;*&lt;/span&gt;gin&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;Engine &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+	f&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;token boolean&quot;&gt;_&lt;/span&gt; &lt;span class=&quot;token operator&quot;&gt;:=&lt;/span&gt; os&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;Create&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token string&quot;&gt;&quot;api.log&quot;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;
+	gin&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;DefaultWriter &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; io&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;MultiWriter&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;f&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; os&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;Stdout&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;
+	gin&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;SetMode&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;gin&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;ReleaseMode&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;
+	r &lt;span class=&quot;token operator&quot;&gt;:=&lt;/span&gt; gin&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;New&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;
+	r&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;Use&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;gin&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;Logger&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;
+	r&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;Use&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;gin&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;Recovery&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;
+	r&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;Use&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;cors&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;Default&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; 
+	r&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;GET&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token string&quot;&gt;&quot;/timestamp&quot;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; v1_timestamp&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;
+	&lt;span class=&quot;token keyword&quot;&gt;return&lt;/span&gt; r
+&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;
+
+&lt;span class=&quot;token keyword&quot;&gt;func&lt;/span&gt; &lt;span class=&quot;token function&quot;&gt;main&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+	r &lt;span class=&quot;token operator&quot;&gt;:=&lt;/span&gt; &lt;span class=&quot;token function&quot;&gt;setupRouter&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;
+	r&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;Run&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token string&quot;&gt;&quot;:8080&quot;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;
+&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;
+      &lt;/div&gt;
+&lt;p&gt;From here it’s easy to compile it static with no dependencies, then load it into a Scratch Docker container.&lt;/p&gt;
+&lt;p&gt;This gives us a container image to put in our Pod spec that will then be loaded into our cluster. Once loaded, the API will respond to requests at /timestamp.&lt;/p&gt;
+&lt;p&gt;Having our backend in Golang means we can easiy put it in any Kubernetes cluster regardless of cloud provider, or compile it for an operating system if so choose.&lt;/p&gt;
+&lt;h3&gt;React - Front end&lt;/h3&gt;
+&lt;hr&gt;
+&lt;p&gt;React is a powerful Javascript library that we can employ to create single page applications. I used &lt;code class=&quot;language-text&quot;&gt;create-react-app&lt;/code&gt; as a launching point for our front end.&lt;/p&gt;
+&lt;p&gt;This pairs well with our GO - API in giving us a decoupled architecture, meaning we will have to craft a CORS (Cross Origin Resource Sharing) handshake for our requests.&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;java&quot;&gt;
+      &lt;pre class=&quot;language-java&quot;&gt;&lt;code class=&quot;language-java&quot;&gt;  async &lt;span class=&quot;token function&quot;&gt;fetchData&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+  &lt;span class=&quot;token comment&quot;&gt;//await fetch(&apos;http://localhost:8080/timestamp&apos;,{&lt;/span&gt;
+    await &lt;span class=&quot;token function&quot;&gt;fetch&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token string&quot;&gt;&apos;http://api.ezctf.com/timestamp&apos;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+      method&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&quot;GET&quot;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;
+      mode &lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&quot;cors&quot;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;
+      headers &lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt; 
+        &lt;span class=&quot;token string&quot;&gt;&apos;Content-Type&apos;&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&apos;application/json&apos;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;
+        &lt;span class=&quot;token string&quot;&gt;&apos;Accept&apos;&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&apos;application/json&apos;&lt;/span&gt;
+       &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;
+	  &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;
+      &lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;then&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;Response&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;&gt;&lt;/span&gt; Response&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;json&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;
+      &lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;then&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;findresponse&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;&gt;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+        &lt;span class=&quot;token keyword&quot;&gt;this&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;setState&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+          isLoaded&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token boolean&quot;&gt;true&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;
+          message&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; findresponse&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;message&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;
+          timestamp&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; findresponse&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;timestamp&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;
+        &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;
+      &lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token keyword&quot;&gt;catch&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;error &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;&gt;&lt;/span&gt; console&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;log&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token string&quot;&gt;&apos;Parsing failed&apos;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; error&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;  &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;
+
+  &lt;span class=&quot;token function&quot;&gt;render&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+  	var &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt; isLoaded&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; message&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; timestamp &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt; &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;this&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;state&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+
+  	&lt;span class=&quot;token keyword&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;!&lt;/span&gt;isLoaded&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+  		&lt;span class=&quot;token keyword&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;token generics function&quot;&gt;&lt;span class=&quot;token punctuation&quot;&gt;&amp;lt;&lt;/span&gt;div&lt;span class=&quot;token punctuation&quot;&gt;&gt;&lt;/span&gt;&lt;/span&gt;Loading&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt; &lt;span class=&quot;token operator&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;/&lt;/span&gt;div&lt;span class=&quot;token operator&quot;&gt;&gt;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt; 	&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;
+  	&lt;span class=&quot;token keyword&quot;&gt;else&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+    	&lt;span class=&quot;token keyword&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;
+      		&lt;span class=&quot;token operator&quot;&gt;&amp;lt;&lt;/span&gt;div className&lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;token string&quot;&gt;&quot;App&quot;&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;&gt;&lt;/span&gt;
+            Loaded
+            &lt;span class=&quot;token generics function&quot;&gt;&lt;span class=&quot;token punctuation&quot;&gt;&amp;lt;&lt;/span&gt;br&lt;span class=&quot;token punctuation&quot;&gt;&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;/&lt;/span&gt;br&lt;span class=&quot;token operator&quot;&gt;&gt;&lt;/span&gt;
+            &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;message&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;timestamp&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;
+      		&lt;span class=&quot;token operator&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;/&lt;/span&gt;div&lt;span class=&quot;token operator&quot;&gt;&gt;&lt;/span&gt;
+    	&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;  	
+    &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;  &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;
+      &lt;/div&gt;
+&lt;p&gt;The benefit of the decoupled architecture is that we can cleanly separate our front end functions and back end functions. Leaving the state in the user’s browser session can allow us to achieve an idempotent back end and architecture. This allows us to scale the back end easily during times of heavy traffic. &lt;/p&gt;
+&lt;p&gt;But this is the front end block, what about that? We can static compile our React and host it in an S3 bucket, and if we wanted to go further we could set it up behind a Cloudfront distribution. This would allow our application to be very quickly availble to people all over the world with low latency. &lt;/p&gt;
+&lt;p&gt;Compiling the above code and loading it into S3 shows the following when the API is unavailable.&lt;/p&gt;
+&lt;p&gt;
+  &lt;a
+    class=&quot;gatsby-resp-image-link&quot;
+    href=&quot;/static/loading-28b2a8f6a8da317d4e6a6894cd9cabd3-be609.png&quot;
+    style=&quot;display: block&quot;
+    target=&quot;_blank&quot;
+    rel=&quot;noopener&quot;
+  &gt;
+  
+  &lt;span
+    class=&quot;gatsby-resp-image-wrapper&quot;
+    style=&quot;position: relative; display: block; ; max-width: 750px; margin-left: auto; margin-right: auto;&quot;
+  &gt;
+    &lt;span
+      class=&quot;gatsby-resp-image-background-image&quot;
+      style=&quot;padding-bottom: 29.599999999999998%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAGCAYAAADDl76dAAAACXBIWXMAABYlAAAWJQFJUiTwAAAA50lEQVQY062MUU+CcBTFYSOXT8VGuGU+8qlbPScCOtFMEKOl1BPaI2OAn4MNfv1hsfna6my/nXvu7j3SRa/HZb+PLMsoisLVtcrtcMj9wyOzuYvlTJnYDvZ01ua5u8C0bGyxfxqbjCcWpmC1XvPi+Ui6rnM3GqGqKpqmcTMYYBgG7mLJPvokfHsn2IYEryG7fcQu+mD5vMIPtvibgI1wT3h8OHI4fiF5nodj27iuSxzHFEVBmqYkSUKe54Lsx3OyLGs5nU7iLm9vO29+GiSE6rqmLEv+Q9J5aIqrqvoTUlNyTlfczb/VN3ypmzsRcyBCAAAAAElFTkSuQmCC&apos;); background-size: cover; display: block;&quot;
+    &gt;
+      &lt;img
+        class=&quot;gatsby-resp-image-image&quot;
+        style=&quot;width: 100%; height: 100%; margin: 0; vertical-align: middle; position: absolute; top: 0; left: 0; box-shadow: inset 0px 0px 0px 400px transparent;&quot;
+        alt=&quot;Loading&quot;
+        title=&quot;&quot;
+        src=&quot;/static/loading-28b2a8f6a8da317d4e6a6894cd9cabd3-be609.png&quot;
+        srcset=&quot;/static/loading-28b2a8f6a8da317d4e6a6894cd9cabd3-e50aa.png 200w,
+/static/loading-28b2a8f6a8da317d4e6a6894cd9cabd3-5a5fd.png 400w,
+/static/loading-28b2a8f6a8da317d4e6a6894cd9cabd3-be609.png 750w&quot;
+        sizes=&quot;(max-width: 750px) 100vw, 750px&quot;
+      /&gt;
+    &lt;/span&gt;
+  &lt;/span&gt;
+  
+  &lt;/a&gt;
+    &lt;/p&gt;
+&lt;h3&gt;Terraform, Finally&lt;/h3&gt;
+&lt;hr&gt;
+&lt;p&gt;I used &lt;a href=&quot;https://github.com/terraform-providers/terraform-provider-aws/tree/master/examples/eks-getting-started&quot;&gt;EKS Getting Started Guide Configuration&lt;/a&gt; as a starting point for getting the cluster up.
+From there I modularized the code to make it easier to build upon.
+After that I added the &lt;code class=&quot;language-text&quot;&gt;EKS-State&lt;/code&gt; file with a Kubernetes provisioner for our freshly made cluster.&lt;/p&gt;
+&lt;p&gt;This is the structure of our Terraform code. &lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;
+      &lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;.
+├── main.tf
+├── modules
+│   ├── eks-cluster
+│   │   └── main.tf
+│   ├── eks-state
+│   │   └── main.tf
+│   ├── eks-worker-nodes
+│   │   └── main.tf
+│   ├── outputs
+│   │   └── main.tf
+│   ├── r53
+│   │   └── main.tf
+│   ├── s3-react
+│   │   └── main.tf
+│   ├── vpc
+│   │   └── main.tf
+│   └── workstation-external-ip
+│       └── main.tf
+└── variables.tf
+
+9 directories, 10 files&lt;/code&gt;&lt;/pre&gt;
+      &lt;/div&gt;
+&lt;p&gt;Unfortunately Terraform doesnt have AWS kubernetes authentication wrapped in quite yet, so we have to use a local binary to circumvent this.
+Basically this just means that we need more than the Terraform Binary for this, AWSCLI + AWS-IAM-Authenticator, but installing those is trivial. &lt;/p&gt;
+&lt;p&gt;&lt;a href=&quot;https://github.com/terraform-providers/terraform-provider-aws/pull/4904&quot;&gt;Relevant Github Issue&lt;/a&gt;&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;bash&quot;&gt;
+      &lt;pre class=&quot;language-bash&quot;&gt;&lt;code class=&quot;language-bash&quot;&gt;data &lt;span class=&quot;token string&quot;&gt;&quot;external&quot;&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&quot;aws_iam_authenticator&quot;&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+  program &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;token string&quot;&gt;&quot;sh&quot;&lt;/span&gt;, &lt;span class=&quot;token string&quot;&gt;&quot;-c&quot;&lt;/span&gt;, &lt;span class=&quot;token string&quot;&gt;&quot;aws-iam-authenticator token -i &lt;span class=&quot;token variable&quot;&gt;${var.cluster-name}&lt;/span&gt; | jq -r -c .status&quot;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;]&lt;/span&gt;
+&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;
+
+provider &lt;span class=&quot;token string&quot;&gt;&quot;kubernetes&quot;&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+  host                   &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&quot;&lt;span class=&quot;token variable&quot;&gt;${var.aws_eks_cluster_demo_endpoint}&lt;/span&gt;&quot;&lt;/span&gt;
+  cluster_ca_certificate &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&quot;&lt;span class=&quot;token variable&quot;&gt;${base64decode(var.aws_eks_cluster_demo_cert_auth_0_data)}&lt;/span&gt;&quot;&lt;/span&gt;
+  token                  &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&quot;&lt;span class=&quot;token variable&quot;&gt;${data.external.aws_iam_authenticator.result.token}&lt;/span&gt;&quot;&lt;/span&gt;
+  load_config_file       &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token boolean&quot;&gt;false&lt;/span&gt;
+&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;
+
+resource &lt;span class=&quot;token string&quot;&gt;&quot;kubernetes_config_map&quot;&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&quot;aws_auth&quot;&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+  metadata &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+    name      &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&quot;aws-auth&quot;&lt;/span&gt;
+    namespace &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&quot;kube-system&quot;&lt;/span&gt;
+  &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;
+
+  data &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+    mapRoles &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token operator&quot;&gt;&amp;lt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;token string&quot;&gt;YAML
+- rolearn: &lt;span class=&quot;token variable&quot;&gt;${var.aws_iam_role_demo_node}&lt;/span&gt;
+  username: system:node:{{EC2PrivateDNSName}}
+  groups:
+    - system:bootstrappers
+    - system:nodes
+YAML&lt;/span&gt;
+  &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;
+&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;
+      &lt;/div&gt;
+&lt;p&gt;With our token in line, our provider is now authorized to modify our Cluster. &lt;/p&gt;
+&lt;p&gt;The example EKS-Terraform has an output that you need to use kubectl to apply to cluster in order for the nodes to join. &lt;/p&gt;
+&lt;p&gt;Now that we’re using the Kubernetes provider we can simply use the &lt;code class=&quot;language-text&quot;&gt;kubernetes_config_map&lt;/code&gt; resource to join those worker nodes.&lt;/p&gt;
+&lt;p&gt;Next Terraform adds the following to the Kubernetes cluster:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Namespace — Running in the default space is not advised&lt;/li&gt;
+&lt;li&gt;Kube&lt;em&gt;config&lt;/em&gt;map — Join our nodes to the cluster&lt;/li&gt;
+&lt;li&gt;ServiceAccount — A service account on the cluster for our StatefulSets to run under&lt;/li&gt;
+&lt;li&gt;Service — A LoadBalancer allowing ingress to our GO-API pods&lt;/li&gt;
+&lt;li&gt;StatefulSet — Provisions 3 replicated pods of our GO-API with 1gb attached storage&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;In total 36 actions are applied by Terraform. A curl at the end lets us know immediately the service came up correctly.&lt;/p&gt;
+&lt;p&gt;
+  &lt;a
+    class=&quot;gatsby-resp-image-link&quot;
+    href=&quot;/static/complete-bf609ba4a22419c6da80750feb66d1da-b3784.png&quot;
+    style=&quot;display: block&quot;
+    target=&quot;_blank&quot;
+    rel=&quot;noopener&quot;
+  &gt;
+  
+  &lt;span
+    class=&quot;gatsby-resp-image-wrapper&quot;
+    style=&quot;position: relative; display: block; ; max-width: 800px; margin-left: auto; margin-right: auto;&quot;
+  &gt;
+    &lt;span
+      class=&quot;gatsby-resp-image-background-image&quot;
+      style=&quot;padding-bottom: 21.713729308666018%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAECAYAAACOXx+WAAAACXBIWXMAAAsSAAALEgHS3X78AAAA5klEQVQY002P2WrCYBCFY/WiFKESm4RYVMSlRJpcSG3jkhhjXLI0QtxK9f1f4zgzUOjFx5kZfs75j9JeZTCDGC3SZpgK5mKHBt0Mfyt3w9uis85lV4ZjlN6/hLLjChVnIvpgu1Cs/IxuXMDaXzDc/8DKL+inR5jLhIISGIsY9fkG6jSCRsbPbogX2ptRLm8MCmd0f4fXMIPiFFe8fZ/hHG7EFXbxi0F2Qo9MWbvJAbXJSmCz6jiAOlujsUzFpE4z7xyqcQOuplMy1/5D8zZy44r6P9RZJL/jmQMeRx6ePnxUPwMJ4+p3jgqBDMHQOE4AAAAASUVORK5CYII=&apos;); background-size: cover; display: block;&quot;
+    &gt;
+      &lt;img
+        class=&quot;gatsby-resp-image-image&quot;
+        style=&quot;width: 100%; height: 100%; margin: 0; vertical-align: middle; position: absolute; top: 0; left: 0; box-shadow: inset 0px 0px 0px 400px transparent;&quot;
+        alt=&quot;Complete&quot;
+        title=&quot;&quot;
+        src=&quot;/static/complete-bf609ba4a22419c6da80750feb66d1da-48538.png&quot;
+        srcset=&quot;/static/complete-bf609ba4a22419c6da80750feb66d1da-bed0f.png 200w,
+/static/complete-bf609ba4a22419c6da80750feb66d1da-5fd34.png 400w,
+/static/complete-bf609ba4a22419c6da80750feb66d1da-48538.png 800w,
+/static/complete-bf609ba4a22419c6da80750feb66d1da-b3784.png 1027w&quot;
+        sizes=&quot;(max-width: 800px) 100vw, 800px&quot;
+      /&gt;
+    &lt;/span&gt;
+  &lt;/span&gt;
+  
+  &lt;/a&gt;
+    &lt;/p&gt;
+&lt;p&gt;We can use &lt;code class=&quot;language-text&quot;&gt;aws eks update-kubeconfig --name timestamp-kube&lt;/code&gt; to update our kubeconfig so we can inspect our cluster with &lt;code class=&quot;language-text&quot;&gt;kubectl&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;
+  &lt;a
+    class=&quot;gatsby-resp-image-link&quot;
+    href=&quot;/static/kubectl-0aa14646b7f8eeb0def081c6628afe6d-fdcf4.png&quot;
+    style=&quot;display: block&quot;
+    target=&quot;_blank&quot;
+    rel=&quot;noopener&quot;
+  &gt;
+  
+  &lt;span
+    class=&quot;gatsby-resp-image-wrapper&quot;
+    style=&quot;position: relative; display: block; ; max-width: 800px; margin-left: auto; margin-right: auto;&quot;
+  &gt;
+    &lt;span
+      class=&quot;gatsby-resp-image-background-image&quot;
+      style=&quot;padding-bottom: 14.241001564945227%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAADCAYAAACTWi8uAAAACXBIWXMAABYlAAAWJQFJUiTwAAAAoElEQVQI13WOSw+CMBCEexAQX7EkEk08eFQPyktNW0AI+AjRxP//Z8bd4tXDl5ltZmcr5qrBunmBdVV35N+QusXm/rFvflpinF3hJwVG5IdJDjcy8OLcei82WFadzTBCqtaWLIoHQoJ9YG6QVMZLvMw4Rw0n0lYHB9XPP7jDpWI+IAL6zexSIyyftmxyrjClmYNim0LsTxC7rNd/cI4zxBfvRVkSxRSZKQAAAABJRU5ErkJggg==&apos;); background-size: cover; display: block;&quot;
+    &gt;
+      &lt;img
+        class=&quot;gatsby-resp-image-image&quot;
+        style=&quot;width: 100%; height: 100%; margin: 0; vertical-align: middle; position: absolute; top: 0; left: 0; box-shadow: inset 0px 0px 0px 400px transparent;&quot;
+        alt=&quot;Kubectl&quot;
+        title=&quot;&quot;
+        src=&quot;/static/kubectl-0aa14646b7f8eeb0def081c6628afe6d-48538.png&quot;
+        srcset=&quot;/static/kubectl-0aa14646b7f8eeb0def081c6628afe6d-bed0f.png 200w,
+/static/kubectl-0aa14646b7f8eeb0def081c6628afe6d-5fd34.png 400w,
+/static/kubectl-0aa14646b7f8eeb0def081c6628afe6d-48538.png 800w,
+/static/kubectl-0aa14646b7f8eeb0def081c6628afe6d-b70ec.png 1200w,
+/static/kubectl-0aa14646b7f8eeb0def081c6628afe6d-d134a.png 1600w,
+/static/kubectl-0aa14646b7f8eeb0def081c6628afe6d-fdcf4.png 1917w&quot;
+        sizes=&quot;(max-width: 800px) 100vw, 800px&quot;
+      /&gt;
+    &lt;/span&gt;
+  &lt;/span&gt;
+  
+  &lt;/a&gt;
+    &lt;/p&gt;
+&lt;p&gt;With all this back end infrastructure up, lets take a look at the browser again.&lt;/p&gt;
+&lt;p&gt;
+  &lt;a
+    class=&quot;gatsby-resp-image-link&quot;
+    href=&quot;/static/api-de97d4acf1b010c482c9751b9b29a9e8-26360.png&quot;
+    style=&quot;display: block&quot;
+    target=&quot;_blank&quot;
+    rel=&quot;noopener&quot;
+  &gt;
+  
+  &lt;span
+    class=&quot;gatsby-resp-image-wrapper&quot;
+    style=&quot;position: relative; display: block; ; max-width: 800px; margin-left: auto; margin-right: auto;&quot;
+  &gt;
+    &lt;span
+      class=&quot;gatsby-resp-image-background-image&quot;
+      style=&quot;padding-bottom: 20.993589743589745%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAECAYAAACOXx+WAAAACXBIWXMAABYlAAAWJQFJUiTwAAAAzUlEQVQY05WLy06DUBRF70irhQTiN+jAmf0tSyJvSvVn6ldZ7AMuAxkgjzqELG+vGMeeZGU/so+4u7G4vbe5tAxsy+ZiNuNqbjA3Ta4NEyHEf/kLD4sF6fMLT55PGCcEUczScXhcOnh+oHs/DFml64l0Yk2iNE5WiCCK8L0A13XZbF6RsuRtm/G+27PNMu1/8k5zyHNkWZIXkkJKjnnB/nDU/qOqEKgbx5Ff7fueruto25a6rrVvmkbxSa/81+mkN5V6PvfdtDupfhgGvgGAPtC37WwiIQAAAABJRU5ErkJggg==&apos;); background-size: cover; display: block;&quot;
+    &gt;
+      &lt;img
+        class=&quot;gatsby-resp-image-image&quot;
+        style=&quot;width: 100%; height: 100%; margin: 0; vertical-align: middle; position: absolute; top: 0; left: 0; box-shadow: inset 0px 0px 0px 400px transparent;&quot;
+        alt=&quot;API&quot;
+        title=&quot;&quot;
+        src=&quot;/static/api-de97d4acf1b010c482c9751b9b29a9e8-48538.png&quot;
+        srcset=&quot;/static/api-de97d4acf1b010c482c9751b9b29a9e8-bed0f.png 200w,
+/static/api-de97d4acf1b010c482c9751b9b29a9e8-5fd34.png 400w,
+/static/api-de97d4acf1b010c482c9751b9b29a9e8-48538.png 800w,
+/static/api-de97d4acf1b010c482c9751b9b29a9e8-b70ec.png 1200w,
+/static/api-de97d4acf1b010c482c9751b9b29a9e8-26360.png 1248w&quot;
+        sizes=&quot;(max-width: 800px) 100vw, 800px&quot;
+      /&gt;
+    &lt;/span&gt;
+  &lt;/span&gt;
+  
+  &lt;/a&gt;
+    &lt;/p&gt;
+&lt;p&gt;With the api subdomain properly displaying our JSON, the front end should now load.&lt;/p&gt;
+&lt;p&gt;
+  &lt;a
+    class=&quot;gatsby-resp-image-link&quot;
+    href=&quot;/static/loaded-656be56160a96a59cc733f96b1c4708d-b7508.png&quot;
+    style=&quot;display: block&quot;
+    target=&quot;_blank&quot;
+    rel=&quot;noopener&quot;
+  &gt;
+  
+  &lt;span
+    class=&quot;gatsby-resp-image-wrapper&quot;
+    style=&quot;position: relative; display: block; ; max-width: 800px; margin-left: auto; margin-right: auto;&quot;
+  &gt;
+    &lt;span
+      class=&quot;gatsby-resp-image-background-image&quot;
+      style=&quot;padding-bottom: 16.77018633540373%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAADCAYAAACTWi8uAAAACXBIWXMAAAsSAAALEgHS3X78AAAApElEQVQI142NWwqCQBiF3UPRa9S2ItpARNuSkrDyDkEtwhWkOAkGjQhzPc1M9d4PH+fyPxxvOptjNJ5gsVzhGCXw9wGCQwh/Fzh/Ml2c5kjyAklWOLU5PEeI0sx1cZbjcr1hvdnC6ykFpS8MwwAhBDjnEAb+RUrpfoQQtG1reKCqKpRliaZp8Ow6k++o6xp9T+Hhj9Naf4Z+g0aVUm7MesaYw94bQP3UR63amBUAAAAASUVORK5CYII=&apos;); background-size: cover; display: block;&quot;
+    &gt;
+      &lt;img
+        class=&quot;gatsby-resp-image-image&quot;
+        style=&quot;width: 100%; height: 100%; margin: 0; vertical-align: middle; position: absolute; top: 0; left: 0; box-shadow: inset 0px 0px 0px 400px transparent;&quot;
+        alt=&quot;Loaded&quot;
+        title=&quot;&quot;
+        src=&quot;/static/loaded-656be56160a96a59cc733f96b1c4708d-48538.png&quot;
+        srcset=&quot;/static/loaded-656be56160a96a59cc733f96b1c4708d-bed0f.png 200w,
+/static/loaded-656be56160a96a59cc733f96b1c4708d-5fd34.png 400w,
+/static/loaded-656be56160a96a59cc733f96b1c4708d-48538.png 800w,
+/static/loaded-656be56160a96a59cc733f96b1c4708d-b7508.png 805w&quot;
+        sizes=&quot;(max-width: 800px) 100vw, 800px&quot;
+      /&gt;
+    &lt;/span&gt;
+  &lt;/span&gt;
+  
+  &lt;/a&gt;
+    &lt;/p&gt;
+&lt;p&gt;Success! Our front end and back end have successfully communicated. &lt;/p&gt;
+&lt;p&gt;With Terraform managing our Kubernetes we are free to focus on our code. Maybe add a database of motivational messages to pull from and display them in a table.&lt;/p&gt;
+&lt;p&gt;As an added benefit to this model, updating production code is as easy as just pushing code. Of course you would want to implement a more robust pipeline.&lt;/p&gt;
+&lt;p&gt;Pushing new React code is as easy as updating the S3 bucket and all we need to push new Golang is to update our container using Kubernetes versioning.&lt;/p&gt;
+&lt;p&gt;The revision will kick off a &lt;a href=&quot;https://kubernetes.io/docs/tutorials/kubernetes-basics/update/update-intro/&quot;&gt;rolling update&lt;/a&gt; giving our back end continuous integration and delivery with zero downtime.&lt;/p&gt;
+&lt;h3&gt;Conclusion&lt;/h3&gt;
+&lt;hr&gt;
+&lt;p&gt;Wrapping an eco system of components with high interopability in Terraform allows us to achieve alot in just one command. &lt;/p&gt;
+&lt;p&gt;That being &lt;code class=&quot;language-text&quot;&gt;terraform apply --auto-approve&lt;/code&gt; , which in production would be a longer string when ran in a pipeline as you inject env vars or credentials.&lt;/p&gt;
+&lt;p&gt;This post could’ve been packed with much more but for readability I’m attempting to keep them at a reasonable length.&lt;/p&gt;
+&lt;p&gt;If you’d like to see the code or make your own changes &lt;a href=&quot;https://github.com/AnthonyLaiuppa/timestamp&quot;&gt;here it is on my Github&lt;/a&gt;. Fair warning, running it will cost you an AWS bill.&lt;/p&gt;</content:encoded></item><item><title><![CDATA[SANS Holiday Hacking Challenge]]></title><description><![CDATA[Preamble There are alot of reasons to look forward to the holiday season and the annual SANS Holiday Hacking Challenge is no exception. This…]]></description><link>https://anthonylaiuppa.com/kringlecon/</link><guid isPermaLink="false">https://anthonylaiuppa.com/kringlecon/</guid><content:encoded>&lt;h3&gt;Preamble&lt;/h3&gt;
 &lt;hr&gt;
 &lt;p&gt;There are alot of reasons to look forward to the holiday season and the annual SANS Holiday Hacking Challenge is no exception. This year they went with a conference theme, where you sign into a virtual world and attend &lt;code class=&quot;language-text&quot;&gt;Kringlecon&lt;/code&gt; — a mythical conference hosted by santa and his crack team of information security elves. SANS makes things very approachable by giving you smaller terminal challenges to solve in exchange for hints regarding the bigger objectives. This is my writeup on 2018 SANSHHC, aka Kringlecon.&lt;/p&gt;
 &lt;p&gt;

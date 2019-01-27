@@ -29,8 +29,12 @@
       "path---hiding-encrypted-blobs-a15b8f71994bac2f0b07.js.map"
     ],
     "path---": [
-      "path----46d697097f041f834453.js",
-      "path----46d697097f041f834453.js.map"
+      "path----70d6dde7ff0bf8a58002.js",
+      "path----70d6dde7ff0bf8a58002.js.map"
+    ],
+    "path---one-command": [
+      "path---one-command-e299f503d1518ea18e2c.js",
+      "path---one-command-e299f503d1518ea18e2c.js.map"
     ],
     "component---src-pages-contact-js": [
       "component---src-pages-contact-js-491e2fefb3b96f906e34.js",
@@ -45,8 +49,8 @@
       "component---node-modules-gatsby-plugin-offline-app-shell-js-5c4c5a0f7af9dc69d6d7.js.map"
     ],
     "component---src-layouts-index-js": [
-      "component---src-layouts-index-js-9ee5a42848aba25f76e2.js",
-      "component---src-layouts-index-js-9ee5a42848aba25f76e2.js.map"
+      "component---src-layouts-index-js-44f8864eec71038258ac.js",
+      "component---src-layouts-index-js-44f8864eec71038258ac.js.map"
     ],
     "path---kringlecon": [
       "path---kringlecon-ab443ad0b760dd6c482d.js",
@@ -115,9 +119,9 @@
       "path---starters-1b95dd69adec64a51a59.js.map"
     ],
     "app": [
-      "app-3dc3cb0f902a4ce7d54e.js",
+      "app-feca9b9d6483cacace5c.js",
       "build-js-styles.css",
-      "app-3dc3cb0f902a4ce7d54e.js.map",
+      "app-feca9b9d6483cacace5c.js.map",
       "build-js-styles.css.map"
     ],
     "component---src-templates-page-template-js": [
