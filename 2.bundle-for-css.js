@@ -1954,7 +1954,7 @@ webpackJsonp([2],{
 	var debugEnviron;
 	exports.debuglog = function(set) {
 	  if (isUndefined(debugEnviron))
-	    debugEnviron = ({"NODE_ENV":"production","PUBLIC_DIR":"/home/fisctf/blog/public"}).NODE_DEBUG || '';
+	    debugEnviron = ({"NODE_ENV":"production","PUBLIC_DIR":"/home/laiuppa/Desktop/fisctf/blog/public"}).NODE_DEBUG || '';
 	  set = set.toUpperCase();
 	  if (!debugs[set]) {
 	    if (new RegExp('\\b' + set + '\\b', 'i').test(debugEnviron)) {
