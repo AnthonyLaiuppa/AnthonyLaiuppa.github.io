@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" 
+  xmlns:content="http://purl.org/rss/1.0/modules/content/" 
+  xmlns:dc="http://purl.org/dc/elements/1.1/" 
+  xmlns:atom="http://www.w3.org/2005/Atom" 
+  xmlns:sy="http://purl.org/rss/1.0/modules/syndication/" 
+  xmlns:media="http://search.yahoo.com/mrss/">
+  <channel>
+    <title>bug bounty on Laiuppa Blog</title>
+    <link>https://anthonylaiuppa.com/tags/bug-bounty/</link>
+    <description>Recent content in bug bounty on Laiuppa Blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en</language>
+    <copyright>&amp;copy;{year}, All Rights Reserved</copyright>
+    <lastBuildDate>Tue, 23 Oct 2018 06:40:51 +0900</lastBuildDate>
+    
+        <atom:link href="https://anthonylaiuppa.com/tags/bug-bounty/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    
+
+      
+      <item>
+        <title>Mapping website attack surfaces</title>
+        <link>https://anthonylaiuppa.com/posts/mapping-website-attack-surface/</link>
+        <pubDate>Tue, 23 Oct 2018 06:40:51 +0900</pubDate>
+        
+        <atom:modified>Tue, 23 Oct 2018 06:40:51 +0900</atom:modified>
+        <guid>https://anthonylaiuppa.com/posts/mapping-website-attack-surface/</guid>
+        <description>2020 Retrospective While migrating my site years later, it&amp;rsquo;s worth mentioning theres alot of wonderful toolchains available now that really nail this. The biggest one being someone put in the work to properly parse the site-maps.
+Intro Trying bug bounties can be fun, you might even walk off like a prospector with gold. Of course similar to sifting through river water looking for gold, youve got sifting through websites looking for things that catch your eye.</description>
+        
+        <dc:creator>Anthony Laiuppa</dc:creator>
+        <media:content url="https://anthonylaiuppa.comimages/posts/mapping-website-attack-surface/map_cover.png" medium="image"><media:title type="html">featured image</media:title></media:content>
+        
+        
+        
+          
+            
+              <category>python</category>
+            
+          
+            
+              <category>bug bounty</category>
+            
+          
+            
+              <category>reconnaissance</category>
+            
+          
+            
+              <category>osint</category>
+            
+          
+            
+              <category>hacking</category>
+            
+          
+        
+        
+          
+            
+              <category>hacking</category>
+            
+          
+        
+        
+          
+            
+          
+        
+      </item>
+      
+
+    
+  </channel>
+</rss>

@@ -1,0 +1,198 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" 
+  xmlns:content="http://purl.org/rss/1.0/modules/content/" 
+  xmlns:dc="http://purl.org/dc/elements/1.1/" 
+  xmlns:atom="http://www.w3.org/2005/Atom" 
+  xmlns:sy="http://purl.org/rss/1.0/modules/syndication/" 
+  xmlns:media="http://search.yahoo.com/mrss/">
+  <channel>
+    <title>security on Laiuppa Blog</title>
+    <link>https://anthonylaiuppa.com/tags/security/</link>
+    <description>Recent content in security on Laiuppa Blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en</language>
+    <copyright>&amp;copy;{year}, All Rights Reserved</copyright>
+    <lastBuildDate>Mon, 14 Jan 2019 06:40:51 +0900</lastBuildDate>
+    
+        <atom:link href="https://anthonylaiuppa.com/tags/security/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    
+
+      
+      <item>
+        <title>Kringlecon 2018</title>
+        <link>https://anthonylaiuppa.com/posts/kringlecon/</link>
+        <pubDate>Mon, 14 Jan 2019 06:40:51 +0900</pubDate>
+        
+        <atom:modified>Mon, 14 Jan 2019 06:40:51 +0900</atom:modified>
+        <guid>https://anthonylaiuppa.com/posts/kringlecon/</guid>
+        <description>Preamble There are alot of reasons to look forward to the holiday season and the annual SANS Holiday Hacking Challenge is no exception. This year they went with a conference theme, where you sign into a virtual world and attend Kringlecon &amp;ndash; a mythical conference hosted by santa and his crack team of information security elves. SANS makes things very approachable by giving you smaller terminal challenges to solve in exchange for hints regarding the bigger objectives.</description>
+        
+        <dc:creator>Anthony Laiuppa</dc:creator>
+        <media:content url="https://anthonylaiuppa.comimages/posts/kringlecon/flag.png" medium="image"><media:title type="html">featured image</media:title></media:content>
+        
+        
+        
+          
+            
+              <category>ctf</category>
+            
+          
+            
+              <category>hacking</category>
+            
+          
+            
+              <category>python</category>
+            
+          
+            
+              <category>powershell</category>
+            
+          
+            
+              <category>infosec</category>
+            
+          
+            
+              <category>security</category>
+            
+          
+            
+              <category>pcap</category>
+            
+          
+            
+              <category>linux</category>
+            
+          
+            
+              <category>windows</category>
+            
+          
+            
+              <category>reverse engineering</category>
+            
+          
+        
+        
+          
+            
+              <category>hacking</category>
+            
+          
+        
+        
+          
+            
+          
+        
+      </item>
+      
+      <item>
+        <title>EZCTF, a full stack webapp..</title>
+        <link>https://anthonylaiuppa.com/posts/ezctf-full-stack/</link>
+        <pubDate>Wed, 21 Nov 2018 06:40:51 +0900</pubDate>
+        
+        <atom:modified>Wed, 21 Nov 2018 06:40:51 +0900</atom:modified>
+        <guid>https://anthonylaiuppa.com/posts/ezctf-full-stack/</guid>
+        <description>Intro Ever sit down to learn something and at first the examples are great, but then when it comes to getting advanced &amp;ndash; you&amp;rsquo;re lost wondering what happened inbetween? When learning I always found it easy to get started, but hard to get anywhere meaningful as all the examples felt like this picture
+It was always hard to find comprehensive code examples that covered a wide range of topics, so I figured I would share this project in hopes someone takes away some newfound information or motivation.</description>
+        
+        <dc:creator>Anthony Laiuppa</dc:creator>
+        <media:content url="https://anthonylaiuppa.comimages/posts/ezctf-full-stack/flag.png" medium="image"><media:title type="html">featured image</media:title></media:content>
+        
+        
+        
+          
+            
+              <category>python</category>
+            
+          
+            
+              <category>web</category>
+            
+          
+            
+              <category>ctf</category>
+            
+          
+            
+              <category>hacking</category>
+            
+          
+            
+              <category>security</category>
+            
+          
+            
+              <category>selenium</category>
+            
+          
+        
+        
+          
+            
+              <category>programming</category>
+            
+          
+        
+        
+          
+            
+          
+        
+      </item>
+      
+      <item>
+        <title>Six years of saved links</title>
+        <link>https://anthonylaiuppa.com/posts/six-years-of-links/</link>
+        <pubDate>Thu, 03 May 2018 06:40:51 +0900</pubDate>
+        
+        <atom:modified>Thu, 03 May 2018 06:40:51 +0900</atom:modified>
+        <guid>https://anthonylaiuppa.com/posts/six-years-of-links/</guid>
+        <description>Intro Over six years of studying, and working in technology Ive acquired over 600+ links. Losing these links to me would feel like the burning down of the Library of Alexandria. I use alot of them as references for programming and information security based work.
+While scraping all these links I saw the word beginner become less frequent as we got closer to the present day, so I even found a fun way to add a visualization to this post.</description>
+        
+        <dc:creator>Anthony Laiuppa</dc:creator>
+        <media:content url="https://anthonylaiuppa.comimages/posts/six-years-of-links/best_word_cloud.png" medium="image"><media:title type="html">featured image</media:title></media:content>
+        
+        
+        
+          
+            
+              <category>programming</category>
+            
+          
+            
+              <category>python</category>
+            
+          
+            
+              <category>hacking</category>
+            
+          
+            
+              <category>security</category>
+            
+          
+        
+        
+          
+            
+              <category>programming</category>
+            
+          
+        
+        
+          
+            
+          
+        
+      </item>
+      
+
+    
+  </channel>
+</rss>

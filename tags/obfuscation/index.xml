@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" 
+  xmlns:content="http://purl.org/rss/1.0/modules/content/" 
+  xmlns:dc="http://purl.org/dc/elements/1.1/" 
+  xmlns:atom="http://www.w3.org/2005/Atom" 
+  xmlns:sy="http://purl.org/rss/1.0/modules/syndication/" 
+  xmlns:media="http://search.yahoo.com/mrss/">
+  <channel>
+    <title>obfuscation on Laiuppa Blog</title>
+    <link>https://anthonylaiuppa.com/tags/obfuscation/</link>
+    <description>Recent content in obfuscation on Laiuppa Blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en</language>
+    <copyright>&amp;copy;{year}, All Rights Reserved</copyright>
+    <lastBuildDate>Thu, 03 Mar 2016 06:40:51 +0900</lastBuildDate>
+    
+        <atom:link href="https://anthonylaiuppa.com/tags/obfuscation/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    
+
+      
+      <item>
+        <title>Obfuscating python</title>
+        <link>https://anthonylaiuppa.com/posts/obfuscating-python/</link>
+        <pubDate>Thu, 03 Mar 2016 06:40:51 +0900</pubDate>
+        
+        <atom:modified>Thu, 03 Mar 2016 06:40:51 +0900</atom:modified>
+        <guid>https://anthonylaiuppa.com/posts/obfuscating-python/</guid>
+        <description>Intro I got to thinking, you can obfuscate js and vbs when serving up code to people, why not Python? Well to there is that whole whitespace thing and lack of semi-colons, but lets see what we can do.
+ Obfuscation: &amp;ldquo;To make so confused or opaque as to be difficult to perceive or understand&amp;rdquo;
+ In terms of programming one usually doesnt purposefully obfuscate their code as they may wish for others to read it.</description>
+        
+        <dc:creator>Anthony Laiuppa</dc:creator>
+        <media:content url="https://anthonylaiuppa.comimages/posts/obfuscating-python/obfuscated.jpeg" medium="image"><media:title type="html">featured image</media:title></media:content>
+        
+        
+        
+          
+            
+              <category>python</category>
+            
+          
+            
+              <category>hacking</category>
+            
+          
+            
+              <category>obfuscation</category>
+            
+          
+        
+        
+          
+            
+              <category>security</category>
+            
+          
+        
+        
+          
+            
+          
+        
+      </item>
+      
+
+    
+  </channel>
+</rss>

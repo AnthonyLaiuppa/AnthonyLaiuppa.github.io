@@ -1,0 +1,144 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" 
+  xmlns:content="http://purl.org/rss/1.0/modules/content/" 
+  xmlns:dc="http://purl.org/dc/elements/1.1/" 
+  xmlns:atom="http://www.w3.org/2005/Atom" 
+  xmlns:sy="http://purl.org/rss/1.0/modules/syndication/" 
+  xmlns:media="http://search.yahoo.com/mrss/">
+  <channel>
+    <title>gcp on Laiuppa Blog</title>
+    <link>https://anthonylaiuppa.com/tags/gcp/</link>
+    <description>Recent content in gcp on Laiuppa Blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en</language>
+    <copyright>&amp;copy;{year}, All Rights Reserved</copyright>
+    <lastBuildDate>Tue, 06 Nov 2018 06:40:51 +0900</lastBuildDate>
+    
+        <atom:link href="https://anthonylaiuppa.com/tags/gcp/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    
+
+      
+      <item>
+        <title>GoKu, scaling the kube to the max!</title>
+        <link>https://anthonylaiuppa.com/posts/goku-will-it-scale/</link>
+        <pubDate>Tue, 06 Nov 2018 06:40:51 +0900</pubDate>
+        
+        <atom:modified>Tue, 06 Nov 2018 06:40:51 +0900</atom:modified>
+        <guid>https://anthonylaiuppa.com/posts/goku-will-it-scale/</guid>
+        <description>Intro Previously we virtualized a Kubernetes cluster on our localhost, but that is just simulating the cloud. Why dont we take GoKu to the actual cloud and see how it does? I actually tried to tie this in and scan the same 111 URLs from the last post, but it finished so fast I couldnt believe it. Lets bump things up a notch, what if we want to scan 5000+ sites?</description>
+        
+        <dc:creator>Anthony Laiuppa</dc:creator>
+        <media:content url="https://anthonylaiuppa.comimages/posts/goku-will-it-scale/gophers_scale.jpg" medium="image"><media:title type="html">featured image</media:title></media:content>
+        
+        
+        
+          
+            
+              <category>golang</category>
+            
+          
+            
+              <category>kubernetes</category>
+            
+          
+            
+              <category>gcp</category>
+            
+          
+            
+              <category>containers</category>
+            
+          
+            
+              <category>devops</category>
+            
+          
+            
+              <category>aws</category>
+            
+          
+        
+        
+          
+            
+              <category>devops</category>
+            
+          
+        
+        
+          
+            
+          
+        
+      </item>
+      
+      <item>
+        <title>GoKu distributed computing</title>
+        <link>https://anthonylaiuppa.com/posts/goku-distributed-computing/</link>
+        <pubDate>Sun, 04 Nov 2018 06:40:51 +0900</pubDate>
+        
+        <atom:modified>Sun, 04 Nov 2018 06:40:51 +0900</atom:modified>
+        <guid>https://anthonylaiuppa.com/posts/goku-distributed-computing/</guid>
+        <description>Intro Recently I sat down to learn more about Go and Kubernetes, and figured I would share some distributed computing fun had along the way. Youll notice the map tool from the previous post can be slow when getting statuses, we&amp;rsquo;ll use that as a starting point and refine it.
+Overview Lets go over the core technologies at work here, starting with the most basic definition.
+ Container: a standard unit of software that packages up code and all its dependencies so the application runs quickly and reliably from one computing environment to another.</description>
+        
+        <dc:creator>Anthony Laiuppa</dc:creator>
+        <media:content url="https://anthonylaiuppa.comimages/posts/goku-distributed-computing/gopher.png" medium="image"><media:title type="html">featured image</media:title></media:content>
+        
+        
+        
+          
+            
+              <category>golang</category>
+            
+          
+            
+              <category>minikube</category>
+            
+          
+            
+              <category>kubernetes</category>
+            
+          
+            
+              <category>containers</category>
+            
+          
+            
+              <category>aws</category>
+            
+          
+            
+              <category>gcp</category>
+            
+          
+            
+              <category>virtualization</category>
+            
+          
+            
+              <category>python</category>
+            
+          
+        
+        
+          
+            
+              <category>devops</category>
+            
+          
+        
+        
+          
+            
+          
+        
+      </item>
+      
+
+    
+  </channel>
+</rss>

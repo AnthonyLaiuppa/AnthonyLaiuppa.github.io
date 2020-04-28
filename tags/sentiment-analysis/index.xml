@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" 
+  xmlns:content="http://purl.org/rss/1.0/modules/content/" 
+  xmlns:dc="http://purl.org/dc/elements/1.1/" 
+  xmlns:atom="http://www.w3.org/2005/Atom" 
+  xmlns:sy="http://purl.org/rss/1.0/modules/syndication/" 
+  xmlns:media="http://search.yahoo.com/mrss/">
+  <channel>
+    <title>sentiment analysis on Laiuppa Blog</title>
+    <link>https://anthonylaiuppa.com/tags/sentiment-analysis/</link>
+    <description>Recent content in sentiment analysis on Laiuppa Blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en</language>
+    <copyright>&amp;copy;{year}, All Rights Reserved</copyright>
+    <lastBuildDate>Thu, 05 Mar 2020 06:40:51 +0900</lastBuildDate>
+    
+        <atom:link href="https://anthonylaiuppa.com/tags/sentiment-analysis/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    
+
+      
+      <item>
+        <title>Stock Market Sentiment Analysis</title>
+        <link>https://anthonylaiuppa.com/posts/market-sentiment/</link>
+        <pubDate>Thu, 05 Mar 2020 06:40:51 +0900</pubDate>
+        
+        <atom:modified>Thu, 05 Mar 2020 06:40:51 +0900</atom:modified>
+        <guid>https://anthonylaiuppa.com/posts/market-sentiment/</guid>
+        <description>Intro In 2019 I had my first opportunity to drive a Tesla Model 3. This cemented in my mind that it was a car years ahead of the automotive industry, and through technical analysis others seem to agree. Despite this I didn&amp;rsquo;t think to buy any stock, shortly after driving the car it shot up from $330 to over $900. This event fostered a deeper interest in finance, eventually resulting in this post.</description>
+        
+        <dc:creator>Anthony Laiuppa</dc:creator>
+        <media:content url="https://anthonylaiuppa.comimages/posts/market-sentiment/sentiment.png" medium="image"><media:title type="html">featured image</media:title></media:content>
+        
+        
+        
+          
+            
+              <category>programming</category>
+            
+          
+            
+              <category>golang</category>
+            
+          
+            
+              <category>nlp</category>
+            
+          
+            
+              <category>ai</category>
+            
+          
+            
+              <category>sentiment analysis</category>
+            
+          
+        
+        
+          
+            
+              <category>programming</category>
+            
+          
+        
+        
+          
+            
+          
+        
+      </item>
+      
+
+    
+  </channel>
+</rss>

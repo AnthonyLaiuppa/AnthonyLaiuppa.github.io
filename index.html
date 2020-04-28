@@ -1,1056 +1,3206 @@
-<!DOCTYPE html><html lang="en" prefix="og: http://ogp.me/ns#"><head><meta charSet="utf-8"/><meta http-equiv="x-ua-compatible" content="ie=edge"/><meta name="viewport" content="width=device-width, initial-scale=1"/><link rel="preload" href="/component---src-layouts-index-js-0d706d3850fd42cf138e.js" as="script"/><link rel="preload" href="/component---src-pages-index-js-aa9570313651ef926b5a.js" as="script"/><link rel="preload" href="/path---index-206ac74de0d3aab26f03.js" as="script"/><link rel="preload" href="/app-6993dce782ef3f26d602.js" as="script"/><link rel="preload" href="/commons-30cc5e056bda57900576.js" as="script"/><style type="text/css" id="server-side-jss">html {
-  box-sizing: border-box;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-}
-*, *::before, *::after {
-  box-sizing: inherit;
-}
-body {
-  margin: 0;
-  background-color: #fafafa;
-}
-@media print {
-  body {
-    background-color: #fff;
-  }
-}
-.jss33 {
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  display: block;
-  z-index: 0;
-  position: absolute;
-  overflow: hidden;
-  border-radius: inherit;
-  pointer-events: none;
-}
-.jss34 {
-  top: 0;
-  left: 0;
-  width: 50px;
-  height: 50px;
-  opacity: 0;
-  position: absolute;
-}
-.jss35 {
-  opacity: 0.3;
-  transform: scale(1);
-  animation: mui-ripple-enter 550ms cubic-bezier(0.4, 0, 0.2, 1);
-}
-.jss36 {
-  animation-duration: 200ms;
-}
-.jss37 {
-  width: 100%;
-  height: 100%;
-  opacity: 1;
-  display: block;
-  border-radius: 50%;
-  background-color: currentColor;
-}
-.jss38 {
-  opacity: 0;
-  animation: mui-ripple-exit 550ms cubic-bezier(0.4, 0, 0.2, 1);
-}
-.jss39 {
-  top: 0;
-  left: 0;
-  position: absolute;
-  animation: mui-ripple-pulsate 2500ms cubic-bezier(0.4, 0, 0.2, 1) 200ms infinite;
-}
-@keyframes mui-ripple-enter {
-  0% {
-    opacity: 0.1;
-    transform: scale(0);
-  }
-  100% {
-    opacity: 0.3;
-    transform: scale(1);
-  }
-}
-@keyframes mui-ripple-exit {
-  0% {
-    opacity: 1;
-  }
-  100% {
-    opacity: 0;
-  }
-}
-@keyframes mui-ripple-pulsate {
-  0% {
-    transform: scale(1);
-  }
-  50% {
-    transform: scale(0.92);
-  }
-  100% {
-    transform: scale(1);
-  }
-}
-.jss23 {
-  color: inherit;
-  cursor: pointer;
-  margin: 0;
-  border: 0;
-  display: inline-flex;
-  padding: 0;
-  outline: none;
-  position: relative;
-  user-select: none;
-  align-items: center;
-  border-radius: 0;
-  vertical-align: middle;
-  justify-content: center;
-  -moz-appearance: none;
-  text-decoration: none;
-  background-color: transparent;
-  -webkit-appearance: none;
-  -webkit-tap-highlight-color: transparent;
-}
-.jss23::-moz-focus-inner {
-  border-style: none;
-}
-.jss23.jss24 {
-  cursor: default;
-  pointer-events: none;
-}
-.jss17 {
-  flex: 0 0 auto;
-  width: 48px;
-  color: rgba(0, 0, 0, 0.54);
-  height: 48px;
-  padding: 0;
-  font-size: 1.7142857142857142rem;
-  text-align: center;
-  transition: background-color 150ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
-  border-radius: 50%;
-}
-.jss17:hover {
-  background-color: rgba(0, 0, 0, 0.08);
-}
-.jss17.jss21 {
-  color: rgba(0, 0, 0, 0.26);
-}
-@media (hover: none) {
-  .jss17:hover {
-    background-color: transparent;
-  }
-}
-.jss17:hover.jss21 {
-  background-color: transparent;
-}
-.jss18 {
-  color: inherit;
-}
-.jss19 {
-  color: #709425;
-}
-.jss19:hover {
-  background-color: rgba(112, 148, 37, 0.08);
-}
-@media (hover: none) {
-  .jss19:hover {
-    background-color: transparent;
-  }
-}
-.jss20 {
-  color: #f50057;
-}
-.jss20:hover {
-  background-color: rgba(245, 0, 87, 0.08);
-}
-@media (hover: none) {
-  .jss20:hover {
-    background-color: transparent;
-  }
-}
-.jss22 {
-  width: 100%;
-  display: flex;
-  align-items: inherit;
-  justify-content: inherit;
-}
-.jss26 {
-  fill: currentColor;
-  width: 1em;
-  height: 1em;
-  display: inline-block;
-  font-size: 24px;
-  transition: fill 200ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
-  user-select: none;
-  flex-shrink: 0;
-}
-.jss27 {
-  color: #709425;
-}
-.jss28 {
-  color: #f50057;
-}
-.jss29 {
-  color: rgba(0, 0, 0, 0.54);
-}
-.jss30 {
-  color: #f44336;
-}
-.jss31 {
-  color: rgba(0, 0, 0, 0.26);
-}
-.jss32 {
-  font-size: inherit;
-}
-.jss44 {
-  background-color: #fff;
-}
-.jss45 {
-  border-radius: 4px;
-}
-.jss46 {
-  box-shadow: none;
-}
-.jss47 {
-  box-shadow: 0px 1px 3px 0px rgba(0, 0, 0, 0.2),0px 1px 1px 0px rgba(0, 0, 0, 0.14),0px 2px 1px -1px rgba(0, 0, 0, 0.12);
-}
-.jss48 {
-  box-shadow: 0px 1px 5px 0px rgba(0, 0, 0, 0.2),0px 2px 2px 0px rgba(0, 0, 0, 0.14),0px 3px 1px -2px rgba(0, 0, 0, 0.12);
-}
-.jss49 {
-  box-shadow: 0px 1px 8px 0px rgba(0, 0, 0, 0.2),0px 3px 4px 0px rgba(0, 0, 0, 0.14),0px 3px 3px -2px rgba(0, 0, 0, 0.12);
-}
-.jss50 {
-  box-shadow: 0px 2px 4px -1px rgba(0, 0, 0, 0.2),0px 4px 5px 0px rgba(0, 0, 0, 0.14),0px 1px 10px 0px rgba(0, 0, 0, 0.12);
-}
-.jss51 {
-  box-shadow: 0px 3px 5px -1px rgba(0, 0, 0, 0.2),0px 5px 8px 0px rgba(0, 0, 0, 0.14),0px 1px 14px 0px rgba(0, 0, 0, 0.12);
-}
-.jss52 {
-  box-shadow: 0px 3px 5px -1px rgba(0, 0, 0, 0.2),0px 6px 10px 0px rgba(0, 0, 0, 0.14),0px 1px 18px 0px rgba(0, 0, 0, 0.12);
-}
-.jss53 {
-  box-shadow: 0px 4px 5px -2px rgba(0, 0, 0, 0.2),0px 7px 10px 1px rgba(0, 0, 0, 0.14),0px 2px 16px 1px rgba(0, 0, 0, 0.12);
-}
-.jss54 {
-  box-shadow: 0px 5px 5px -3px rgba(0, 0, 0, 0.2),0px 8px 10px 1px rgba(0, 0, 0, 0.14),0px 3px 14px 2px rgba(0, 0, 0, 0.12);
-}
-.jss55 {
-  box-shadow: 0px 5px 6px -3px rgba(0, 0, 0, 0.2),0px 9px 12px 1px rgba(0, 0, 0, 0.14),0px 3px 16px 2px rgba(0, 0, 0, 0.12);
-}
-.jss56 {
-  box-shadow: 0px 6px 6px -3px rgba(0, 0, 0, 0.2),0px 10px 14px 1px rgba(0, 0, 0, 0.14),0px 4px 18px 3px rgba(0, 0, 0, 0.12);
-}
-.jss57 {
-  box-shadow: 0px 6px 7px -4px rgba(0, 0, 0, 0.2),0px 11px 15px 1px rgba(0, 0, 0, 0.14),0px 4px 20px 3px rgba(0, 0, 0, 0.12);
-}
-.jss58 {
-  box-shadow: 0px 7px 8px -4px rgba(0, 0, 0, 0.2),0px 12px 17px 2px rgba(0, 0, 0, 0.14),0px 5px 22px 4px rgba(0, 0, 0, 0.12);
-}
-.jss59 {
-  box-shadow: 0px 7px 8px -4px rgba(0, 0, 0, 0.2),0px 13px 19px 2px rgba(0, 0, 0, 0.14),0px 5px 24px 4px rgba(0, 0, 0, 0.12);
-}
-.jss60 {
-  box-shadow: 0px 7px 9px -4px rgba(0, 0, 0, 0.2),0px 14px 21px 2px rgba(0, 0, 0, 0.14),0px 5px 26px 4px rgba(0, 0, 0, 0.12);
-}
-.jss61 {
-  box-shadow: 0px 8px 9px -5px rgba(0, 0, 0, 0.2),0px 15px 22px 2px rgba(0, 0, 0, 0.14),0px 6px 28px 5px rgba(0, 0, 0, 0.12);
-}
-.jss62 {
-  box-shadow: 0px 8px 10px -5px rgba(0, 0, 0, 0.2),0px 16px 24px 2px rgba(0, 0, 0, 0.14),0px 6px 30px 5px rgba(0, 0, 0, 0.12);
-}
-.jss63 {
-  box-shadow: 0px 8px 11px -5px rgba(0, 0, 0, 0.2),0px 17px 26px 2px rgba(0, 0, 0, 0.14),0px 6px 32px 5px rgba(0, 0, 0, 0.12);
-}
-.jss64 {
-  box-shadow: 0px 9px 11px -5px rgba(0, 0, 0, 0.2),0px 18px 28px 2px rgba(0, 0, 0, 0.14),0px 7px 34px 6px rgba(0, 0, 0, 0.12);
-}
-.jss65 {
-  box-shadow: 0px 9px 12px -6px rgba(0, 0, 0, 0.2),0px 19px 29px 2px rgba(0, 0, 0, 0.14),0px 7px 36px 6px rgba(0, 0, 0, 0.12);
-}
-.jss66 {
-  box-shadow: 0px 10px 13px -6px rgba(0, 0, 0, 0.2),0px 20px 31px 3px rgba(0, 0, 0, 0.14),0px 8px 38px 7px rgba(0, 0, 0, 0.12);
-}
-.jss67 {
-  box-shadow: 0px 10px 13px -6px rgba(0, 0, 0, 0.2),0px 21px 33px 3px rgba(0, 0, 0, 0.14),0px 8px 40px 7px rgba(0, 0, 0, 0.12);
-}
-.jss68 {
-  box-shadow: 0px 10px 14px -6px rgba(0, 0, 0, 0.2),0px 22px 35px 3px rgba(0, 0, 0, 0.14),0px 8px 42px 7px rgba(0, 0, 0, 0.12);
-}
-.jss69 {
-  box-shadow: 0px 11px 14px -7px rgba(0, 0, 0, 0.2),0px 23px 36px 3px rgba(0, 0, 0, 0.14),0px 9px 44px 8px rgba(0, 0, 0, 0.12);
-}
-.jss70 {
-  box-shadow: 0px 11px 15px -7px rgba(0, 0, 0, 0.2),0px 24px 38px 3px rgba(0, 0, 0, 0.14),0px 9px 46px 8px rgba(0, 0, 0, 0.12);
-}
-.jss77 {
-  width: 100%;
-  display: flex;
-  position: relative;
-  box-sizing: border-box;
-  text-align: left;
-  align-items: center;
-  padding-top: 12px;
-  padding-bottom: 12px;
-  justify-content: flex-start;
-  text-decoration: none;
-}
-.jss78 {
-  position: relative;
-}
-.jss79 {
-  background-color: rgba(0, 0, 0, 0.01);
-}
-.jss81 {
-  padding-top: 8px;
-  padding-bottom: 8px;
-}
-.jss82 {
-  opacity: 0.5;
-}
-.jss83 {
-  border-bottom: 1px solid rgba(0, 0, 0, 0.12);
-  background-clip: padding-box;
-}
-.jss84 {
-  padding-left: 16px;
-  padding-right: 16px;
-}
-@media (min-width:600px) {
-  .jss84 {
-    padding-left: 24px;
-    padding-right: 24px;
-  }
-}
-.jss85 {
-  transition: background-color 150ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
-}
-.jss85:hover {
-  text-decoration: none;
-  background-color: rgba(0, 0, 0, 0.01);
-}
-@media (hover: none) {
-  .jss85:hover {
-    background-color: transparent;
-  }
-}
-.jss86 {
-  padding-right: 32px;
-}
-.jss75 {
-  width: auto;
-  color: rgba(0, 0, 0, 0.87);
-  height: 24px;
-  overflow: hidden;
-  font-size: 1.1428571428571428rem;
-  box-sizing: content-box;
-  font-weight: 400;
-  line-height: 1.5em;
-  font-family: Arial, sans-serif;
-  white-space: nowrap;
-  padding-left: 16px;
-  text-overflow: ellipsis;
-  padding-right: 16px;
-}
-.jss75.jss76 {
-  background-color: rgba(0, 0, 0, 0.14);
-}
-.jss71 {
-  margin: 0;
-  padding: 0;
-  position: relative;
-  list-style: none;
-}
-.jss72 {
-  padding-top: 8px;
-  padding-bottom: 8px;
-}
-.jss73 {
-  padding-top: 4px;
-  padding-bottom: 4px;
-}
-.jss74 {
-  padding-top: 0;
-}
-.jss91 {
-  width: 40px;
-  height: 40px;
-  display: flex;
-  position: relative;
-  overflow: hidden;
-  font-size: 1.4285714285714284rem;
-  flex-shrink: 0;
-  font-family: Arial, sans-serif;
-  align-items: center;
-  user-select: none;
-  border-radius: 50%;
-  justify-content: center;
-}
-.jss92 {
-  color: #fafafa;
-  background-color: #bdbdbd;
-}
-.jss93 {
-  width: 100%;
-  height: 100%;
-  text-align: center;
-  object-fit: cover;
-}
-.jss6 {
-  display: none;
-}
-.is-aside.closed .jss6, .moving-featured.closed .jss6 {
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 80px;
-  margin: 0;
-  display: flex;
-  padding: 0 30px 0 40px;
-  position: absolute;
-  align-items: center;
-  flex-direction: row;
-  justify-content: space-between;
-}
-.jss6 h3 {
-  color: #555555;
-  margin: -.2em 0 0 0;
-  font-size: 1.1em;
-  font-weight: 600;
-  text-transform: uppercase;
-}
-.jss6 h3 small {
-  margin: 0 0 .1em;
-  display: block;
-  font-size: .6em;
-  font-weight: 300;
-  letter-spacing: .2em;
-}
-.jss7 {
-  color: #555555;
-}
-.jss8 {
-  color: #709425;
-  margin: 0 calc(-.5rem + 20px) 1em calc(-.5rem + 20px);
-  padding: 0 1em 1em;
-  position: relative;
-  font-size: 1.2em;
-  line-height: 1;
-  font-weight: 300;
-  border-bottom: 1px solid #dedede;
-}
-.jss8 strong {
-  display: block;
-  font-weight: 600;
-}
-.jss8 small {
-  margin: 0 0 .3em 0;
-  display: block;
-}
-@media (min-width: 1024px) {
-  .jss8 {
-    margin: 0 0 1em 0;
-    padding: 0 1em 1.5em;
-  }
-  .is-aside .jss8 {
-    margin: 0 calc(-.5rem + 20px) 1em calc(-.5rem + 20px);
-    padding: 0 0 1em .5em;
-  }
-}
-.jss9 {
-  top: 0;
-  right: 0;
-  position: absolute;
-}
-.jss10 {
-  margin: 0 0 .7em 0;
-  transition: height 1s;
-}
-@media (min-width: 600px) {
-  .jss10 {
-    margin: 0 0 1.5rem 0;
-  }
-}
-@media (min-width: 1024px) {
-  .moving-featured .jss10, .is-aside .jss10 {
-    margin: 0 0 0 0;
-  }
-}
-.jss11 {
-  color: #555555;
-  display: flex;
-  padding: .7em 1em .7em 1em;
-  align-items: center;
-  align-content: center;
-  flex-direction: row;
-  justify-content: flex-start;
-}
-@media (hover: hover) {
-  .jss11:hover {
-    color: #709425;
-  }
-  .jss11:hover .pointer {
-    border-radius: 65% 75%;
-  }
-}
-.jss12 {
-  width: 60px;
-  height: 60px;
-  margin: 0;
-  position: relative;
-  overflow: hidden;
-  transition: all .5s;
-  flex-shrink: 0;
-  border-radius: 75% 65%;
-}
-.jss12 img {
-  width: 100%;
-  height: 100%;
-}
-@media (min-width: 600px) {
-  .jss12 {
-    width: 80px;
-    height: 80px;
-    margin-right: .5em;
-  }
-}
-@media (min-width: 1024px) {
-  .jss12 {
-    width: 90px;
-    height: 90px;
-    transition: all .3s;
-    margin-right: .8em;
-    transition-timing-function: ease;
-  }
-  .moving-featured .jss12, .is-aside .jss12 {
-    width: 30px;
-    height: 30px;
-  }
-}
-.jss13 {
-  width: 100%;
-  margin: 0 0 0 1.5em;
-  display: flex;
-  flex-grow: 1;
-  flex-direction: column;
-}
-.jss13 h1 {
-  margin: 0;
-  font-size: 1.3em;
-  line-height: 1.15;
-  font-weight: 600;
-  letter-spacing: -0.03em;
-}
-.jss13 h2 {
-  margin: .3em 0 0 0;
-  display: block;
-  font-size: 1.1em;
-  line-height: 1.2;
-}
-@media (min-width: 1024px) {
-  .moving-featured .jss13, .is-aside .jss13 {
-    margin: 0 0 0 .5em;
-  }
-}
-@media (min-width: 600px) {
-  .jss13 h2 {
-    font-size: 1.265em;
-  }
-}
-@media (min-width: 1024px) {
-  .jss13 h2 {
-    font-size: 1.4300000000000002em;
-  }
-  .moving-featured .jss13 h2, .is-aside .jss13 h2 {
-    display: none;
-  }
-}
-@media (min-width: 600px) {
-  .jss13 h1 {
-    font-size: 1.4949999999999999em;
-  }
-}
-@media (min-width: 1024px) {
-  .jss13 h1 {
-    font-size: 1.6900000000000002em;
-  }
-  .moving-featured .jss13 h1, .is-aside .jss13 h1 {
-    font-size: 1em;
-    font-weight: 400;
-  }
-}
-.jss3 {
-  top: 0;
-  left: 0;
-  width: 100%;
-  bottom: 0;
-  position: absolute;
-}
-.jss4 {
-  padding: calc(60px + 1.3rem) 1.3rem calc(60px + 1.3rem) 1.3rem;
-}
-@media (min-width: 600px) {
-  .jss4 {
-    padding: calc(60px + 2rem) 2rem calc(60px + 2rem) 2rem;
-  }
-}
-@media (min-width: 1024px) {
-  .jss4 {
-    left: 320px;
-    padding: 2rem  calc(1rem + 17px) calc(2rem + 17px) 2rem;
-  }
-  .moving-featured .jss4, .is-aside .jss4 {
-    padding: 1rem .5rem 1rem .5rem;
-  }
-}
-.jss5 {
-  margin: 0;
-  padding: 0;
-  list-style: none;
-}
-.is-aside.closed .jss5, .moving-featured.closed .jss5 {
-  display: none;
-}
-.jss2 {
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100vh;
-  position: absolute;
-  transform: translate3d(0, 0, 0);
-  background: #ffffff;
-  transition: left .9s;
-  will-change: left, top, bottom, width;
-  transition-timing-function: ease;
-}
-@media (max-width: 1023px) {
-  .jss2.is-aside {
-    left: -100%;
-  }
-  .jss2.is-featured {
-    left: 0;
-  }
-}
-@media (min-width: 1024px) {
-  .jss2.is-featured {
-    top: 0;
-    left: 320px;
-    width: calc(100vw - 320px - 60px);
-    transition: left .9s;
-  }
-  .jss2.is-aside {
-    top: auto;
-    left: 0;
-    width: 319px;
-    z-index: 1;
-    transition: none, bottom 0.5s;
-  }
-  .jss2.moving-aside {
-    top: 0;
-    left: calc(-100vw + 700px);
-    width: calc(100vw - 320px - 60px);
-    transition: left 0.9s;
-  }
-  .jss2.resizing-aside {
-    top: auto;
-    left: 0;
-    width: 319px;
-    transition: none;
-  }
-  .jss2.moving-featured {
-    top: auto;
-    left: 0;
-    width: 319px;
-    bottom: -100%;
-    z-index: 1;
-    transition: bottom .3s;
-  }
-  .jss2.resizing-featured {
-    top: 0;
-    left: calc(-100vw + 700px);
-    width: calc(100vw - 320px - 60px);
-    bottom: auto;
-    transition: none;
-  }
-  .jss2.resizing-aside.closed {
-    bottom: calc(-100% + 100px);
-    height: calc(100% - 100px);
-  }
-  .jss2.resizing-aside.open {
-    bottom: calc(-100% + 100px);
-    height: calc(100% - 100px);
-  }
-  .jss2.is-aside.closed {
-    bottom: calc(-100% + 100px + 80px);
-    height: calc(100% - 100px);
-  }
-  .jss2.is-aside.open {
-    bottom: 0;
-    height: calc(100% - 100px);
-  }
-  .jss2.is-aside::after {
-    top: 0;
-    left: 20px;
-    right: 20px;
-    height: 0;
-    content: "";
-    position: absolute;
-    border-top: 1px solid #dedede;
-  }
-}
-.jss41 {
-  color: #555555;
-}
-.jss42 {
-  pointer-events: none;
-}
-.jss43 {
-  z-index: 1;
-}
-.jss14 {
-  left: 0;
-  width: 100%;
-  bottom: 0;
-  height: 60px;
-  display: flex;
-  padding: 0 20px;
-  position: absolute;
-  background: #ffffff;
-  flex-direction: row;
-  justify-content: space-between;
-}
-.jss14::before {
-  top: 0;
-  left: 20px;
-  right: 20px;
-  height: 0;
-  content: "";
-  position: absolute;
-  border-top: 1px solid #dedede;
-}
-@media (min-width: 600px) {
-  .jss14 {
-    padding: 0 calc(20px * 1.5);
-  }
-}
-@media (min-width: 1024px) {
-  .jss14 {
-    top: 0;
-    left: auto;
-    right: 0;
-    width: 60px;
-    height: 100%;
-    padding: 20px 0;
-    flex-direction: column;
-  }
-  .jss14::before {
-    top: 20px;
-    left: 0;
-    right: auto;
-    width: 0;
-    bottom: 20px;
-    height: auto;
-    border-left: 1px solid #dedede;
-  }
-}
-.jss15 {
-  display: flex;
-  align-items: center;
-  flex-direction: row;
-}
-@media (min-width: 1024px) {
-  .jss15 {
-    flex-direction: column;
-  }
-}
-.jss16 {
-  color: #555555;
-}
-.jss94 {
-  float: right;
-  margin: 5px 10px 0 0;
-}
-.jss95 {
-  color: #555555;
-}
-.jss96 {
-  pointer-events: none;
-}
-.jss87 {
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 60px;
-  position: absolute;
-  background: #ffffff;
-}
-.jss87::before {
-  left: 20px;
-  right: 20px;
-  height: 0;
-  bottom: 0;
-  content: "";
-  position: absolute;
-  border-top: 1px solid #dedede;
-}
-@media (min-width: 1024px) {
-  .jss87 {
-    display: none;
-  }
-}
-.jss88 {
-  float: left;
-  color: #555555;
-  margin: 10px 0 0 15px;
-}
-.jss88 small {
-  margin: 2px 0 0 0;
-  display: block;
-  font-size: .65em;
-}
-.jss89 {
-  float: left;
-  margin: 13px 0 0 30px;
-  display: block;
-}
-.jss90 {
-  width: 36px;
-  border: 1px solid #ddd;
-  height: 36px;
-  border-radius: 65% 75%;
-}
-.jss1 {
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  padding: 1px;
-  position: absolute;
-  overflow: hidden;
-}
-@media print {
-  .jss1 {
-    position: relative;
-    overflow: visible;
-  }
-}
-article, aside, footer, header, nav, section, figcaption, figure, main {
-  display: block;
-}
-h1 {
-  margin: 0.67em 0;
-  font-size: 2em;
-}
-hr {
-  height: 0;
-  overflow: visible;
-  box-sizing: content-box;
-}
-pre {
-  font-size: 1em;
-  font-family: monospace, monospace;
-}
-a:active, a:hover {
-  outline-width: 0;
-}
-abbr[title] {
-  border-bottom: none;
-  text-decoration: underline;
-}
-b, strong {
-  font-weight: bolder;
-}
-code, kbp, samp {
-  font-size: 1em;
-  font-family: monospace, monospace;
-}
-dfn {
-  font-style: italic;
-}
-mark {
-  color: #000;
-  background-color: #ff0;
-}
-small {
-  font-size: 80%;
-}
-sub, sup {
-  position: relative;
-  font-size: 75%;
-  line-height: 0;
-  vertical-align: baseline;
-}
-sup {
-  top: -0.5em;
-}
-sub {
-  bottom: -0.25em;
-}
-audio, video {
-  display: inline-block;
-}
-audio:not([controls]) {
-  height: 0;
-  display: none;
-}
-img {
-  border-style: none;
-  vertical-align: middle;
-}
-svg:not(:root) {
-  overflow: hidden;
-}
-button, input, optgroup, select, textarea {
-  margin: 0;
-  font-size: 100%;
-  font-family: sans-serif;
-  line-height: 1.15;
-}
-button, input {
-  overflow: visible;
-}
-button, select {
-  text-transform: none;
-}
-button, [type=reset], [type=submit] {
-  -webkit-appearance: button;
-}
-button::-moz-focus-inner, [type=button]::-moz-focus-inner, [type=reset]::-moz-focus-inner, [type=submit]::-moz-focus-inner {
-  padding: 0;
-  border-style: none;
-}
-button:-moz-focusring, [type=button]:-moz-focusring, [type=reset]:-moz-focusring, [type=submit]:-moz-focusring {
-  outline: 1px dotted ButtonText;
-}
-fieldset {
-  border: 1px solid #c0c0c0;
-  margin: 0 2px;
-  padding: 0.35em 0.625em 0.75em;
-}
-legend {
-  color: inherit;
-  display: table;
-  padding: 0;
-  max-width: 100%;
-  box-sizing: border-box;
-  white-space: normal;
-}
-progress {
-  display: inline-block;
-  vertical-align: baseline;
-}
-textarea {
-  overflow: auto;
-}
-[type=checkbox], [type=radio] {
-  padding: 0;
-  box-sizing: border-box;
-}
-[type=number]::-webkit-inner-spin-button, [type=number]::-webkit-outer-spin-button {
-  height: auto;
-}
-[type=search] {
-  appearance: textfield;
-  outline-offset: -2px;
-}
-[type=search]::-webkit-search-cancel-button, [type=search]::-webkit-search-decoration {
-  appearance: none;
-}
-::-webkit-file-upload-button {
-  font: inherit;
-  appearance: button;
-}
-details, menu {
-  display: block;
-}
-summary {
-  display: list-item;
-}
-canvas {
-  display: inline-block;
-}
-template {
-  display: none;
-}
-[hidden] {
-  display: none;
-}
-html {
-  box-sizing: border-box;
-  font-family: Arial;
-  line-height: 1.15;
-  text-size-adjust: 100%;
-  -ms-text-size-adjust: 100%;
-  -moz-text-size-adjust: none;
-  -webkit-text-size-adjust: 100%;
-}
-html.wf-active {
-  font-family: Open Sans;
-}
-*, *:before, *:after {
-  box-sizing: inherit;
-}
-noscript {
-  top: 50%;
-  left: 50%;
-  color: #fff;
-  z-index: 1000;
-  padding: 1.5rem 2.5rem;
-  position: absolute;
-  transform: translate(-50%, -50%);
-  background: #d00;
-  box-shadow: 0 0 10px 52px rgba(255,255,255,.8);
-  font-weight: 400;
-  border-radius: 2px;
-}
-body {
-  margin: 0;
-  background: #ffffff;
-  -webkit-tap-highlight-color: rgba(0,0,0,.05);
-}
-main {
-  position: relative;
-}
-h1, h2, h3 {
-  font-weight: 300;
-}
-a {
-  background: transparent;
-  transition: 0.3s;
-  font-weight: bold;
-  text-decoration: none;
-  text-decoration-skip: objects;
-}
-input:-webkit-autofill {
-  -webkit-box-shadow: 0 0 0 50px white inset;
-}
-:not(pre) > code[class*='language-'] {
-  color: #666;
-  padding: 1px 5px;
-  background: #eee;
-  text-shadow: none;
-  border-radius: 2px;
-}</style><title data-react-helmet="true">Laiuppa Blog</title><meta data-react-helmet="true" name="description" content="A repository of potentially interesting information."/><meta data-react-helmet="true" property="og:url" content="https://anthonylaiuppa.comundefined"/><meta data-react-helmet="true" property="og:title" content="Laiuppa Blog"/><meta data-react-helmet="true" property="og:description" content="A repository of potentially interesting information."/><meta data-react-helmet="true" property="og:image" content="preview.jpg"/><meta data-react-helmet="true" property="og:type" content="website"/><meta data-react-helmet="true" property="fb:app_id" content=""/><meta data-react-helmet="true" name="twitter:card" content="summary"/><meta data-react-helmet="true" name="twitter:creator" content="florida_mane"/><link rel="manifest" href="/manifest.webmanifest"/><meta name="theme-color" content="#ffffff"/><link rel="alternate" type="application/rss+xml" href="/rss.xml"/><link rel="sitemap" type="application/xml" href="/sitemap.xml"/><style id="gatsby-inlined-css">code[class*=language-],pre[class*=language-]{color:#f8f8f2;background:none;text-shadow:0 1px rgba(0,0,0,.3);font-family:Consolas,Monaco,Andale Mono,Ubuntu Mono,monospace;text-align:left;white-space:pre;word-spacing:normal;word-break:normal;word-wrap:normal;line-height:1.5;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-hyphens:none;-ms-hyphens:none;hyphens:none}pre[class*=language-]{padding:1em;margin:.5em 0;overflow:auto;border-radius:.3em}:not(pre)>code[class*=language-],pre[class*=language-]{background:#272822}:not(pre)>code[class*=language-]{padding:.1em;border-radius:.3em;white-space:normal}.token.cdata,.token.comment,.token.doctype,.token.prolog{color:#708090}.token.punctuation{color:#f8f8f2}.namespace{opacity:.7}.token.constant,.token.deleted,.token.property,.token.symbol,.token.tag{color:#f92672}.token.boolean,.token.number{color:#ae81ff}.token.attr-name,.token.builtin,.token.char,.token.inserted,.token.selector,.token.string{color:#a6e22e}.language-css .token.string,.style .token.string,.token.entity,.token.operator,.token.url,.token.variable{color:#f8f8f2}.token.atrule,.token.attr-value,.token.class-name,.token.function{color:#e6db74}.token.keyword{color:#66d9ef}.token.important,.token.regex{color:#fd971f}.token.bold,.token.important{font-weight:700}.token.italic{font-style:italic}.token.entity{cursor:help}</style><meta name="apple-mobile-web-app-capable" content="yes"/><meta name="apple-mobile-web-app-status-bar-style" content="#D0E0D8"/><meta name="apple-mobile-web-app-title" content="Lazywill"/><link rel="apple-touch-icon" href="/icons/apple-icon-57x57.png" sizes="57x57"/><link rel="apple-touch-icon" href="/icons/apple-icon-60x60.png" sizes="60x60"/><link rel="apple-touch-icon" href="/icons/apple-icon-72x72.png" sizes="72x72"/><link rel="apple-touch-icon" href="/icons/apple-icon-76x76.png" sizes="76x76"/><link rel="apple-touch-icon" href="/icons/apple-icon-114x114.png" sizes="114x114"/><link rel="apple-touch-icon" href="/icons/apple-icon-120x120.png" sizes="120x120"/><link rel="apple-touch-icon" href="/icons/apple-icon-144x144.png" sizes="144x144"/><link rel="apple-touch-icon" href="/icons/apple-icon-152x152.png" sizes="152x152"/><link rel="apple-touch-icon" href="/icons/apple-icon-180x180.png" sizes="180x180"/><link rel="icon" type="image/png" sizes="16x16" href="/icons/favicon-16x16.png"/><link rel="icon" type="image/png" sizes="32x32" href="/icons/favicon-32x32.png"/><link rel="icon" type="image/png" sizes="96x96" href="/icons/favicon-96x96.png"/></head><body><noscript>You need to enable JavaScript to run this app!</noscript><div id="___gatsby"><div class="jss1"><div></div><nav class="jss2 is-featured open "><div class="jss3"><div style="position:relative;overflow:hidden;width:100%;height:100%"><div style="position:absolute;top:0;left:0;right:0;bottom:0;overflow:hidden;-webkit-overflow-scrolling:touch;margin-right:0;margin-bottom:0"><div class="jss4"><header></header><ul class="jss5"><li class="jss10 null" style="display:block"><a class="jss11" href="/market-sentiment/._index/"><div class="jss13"><h1></h1></div></a></li><li class="jss10 programming" style="display:block"><a class="jss11" href="/market-sentiment/"><div class="jss12 pointer"><div style="height:60px" class="lazyload-placeholder"></div></div><div class="jss13"><h1>Stock Market Sentiment Analysis</h1><h2>Assessing sentiment from social media posts using machine learning</h2></div></a></li><li class="jss10 null" style="display:block"><a class="jss11" href="/maze-runner/._index/"><div class="jss13"><h1></h1></div></a></li><li class="jss10 programming" style="display:block"><a class="jss11" href="/maze-runner/"><div class="jss12 pointer"><div style="height:60px" class="lazyload-placeholder"></div></div><div class="jss13"><h1>Maze runner</h1><h2>Gophers running mazes</h2></div></a></li><li class="jss10 devops" style="display:block"><a class="jss11" href="/one-command/"><div class="jss12 pointer"><div style="height:60px" class="lazyload-placeholder"></div></div><div class="jss13"><h1>Terraforming complete AWS-Kubernetes clusers</h1><h2>So many buzzwords....</h2></div></a></li><li class="jss10 security" style="display:block"><a class="jss11" href="/kringlecon/"><div class="jss12 pointer"><div style="height:60px" class="lazyload-placeholder"></div></div><div class="jss13"><h1>SANS Holiday Hacking Challenge</h1><h2>Kringlecon 2018</h2></div></a></li><li class="jss10 security" style="display:block"><a class="jss11" href="/more-ctf-fun/"><div class="jss12 pointer"><div style="height:60px" class="lazyload-placeholder"></div></div><div class="jss13"><h1>More CTF fun!</h1><h2>Remember, keep it simple</h2></div></a></li><li class="jss10 devops" style="display:block"><a class="jss11" href="/goku-will-it-scale/"><div class="jss12 pointer"><div style="height:60px" class="lazyload-placeholder"></div></div><div class="jss13"><h1>GoKu, will it scale?</h1><h2>The program is containerized so....</h2></div></a></li><li class="jss10 devops" style="display:block"><a class="jss11" href="/goku-distributed-computing/"><div class="jss12 pointer"><div style="height:60px" class="lazyload-placeholder"></div></div><div class="jss13"><h1>GoKu distributed computing</h1><h2>featuring Golang, Docker, and Kubernetes!</h2></div></a></li><li class="jss10 programming" style="display:block"><a class="jss11" href="/ezctf-full-stack/"><div class="jss12 pointer"><div style="height:60px" class="lazyload-placeholder"></div></div><div class="jss13"><h1>EZCTF, a full stack webapp..</h1><h2>Capture The Flag!</h2></div></a></li><li class="jss10 security" style="display:block"><a class="jss11" href="/mapping-website-attack-surface/"><div class="jss12 pointer"><div style="height:60px" class="lazyload-placeholder"></div></div><div class="jss13"><h1>Mapping website attack surfaces</h1><h2>...using our own custom scanning tool!</h2></div></a></li><li class="jss10 misc" style="display:block"><a class="jss11" href="/six-years-of-links/"><div class="jss12 pointer"><div style="height:60px" class="lazyload-placeholder"></div></div><div class="jss13"><h1>Six years of saved links</h1><h2>..and a wordcloud!</h2></div></a></li><li class="jss10 devops" style="display:block"><a class="jss11" href="/harbormaster/"><div class="jss12 pointer"><div style="height:60px" class="lazyload-placeholder"></div></div><div class="jss13"><h1>Harbormaster</h1><h2>Containers, so hot right now</h2></div></a></li><li class="jss10 security" style="display:block"><a class="jss11" href="/breaking-into-penetration-testing/"><div class="jss12 pointer"><div style="height:60px" class="lazyload-placeholder"></div></div><div class="jss13"><h1>Breaking into penetration testing</h1><h2>...how do you pronounce Kali?</h2></div></a></li><li class="jss10 security" style="display:block"><a class="jss11" href="/enumerating-url-shorteners/"><div class="jss12 pointer"><div style="height:60px" class="lazyload-placeholder"></div></div><div class="jss13"><h1>Enumerating URL shorteners</h1><h2>Thats a nice looking pattern youve got there..</h2></div></a></li><li class="jss10 programming" style="display:block"><a class="jss11" href="/packt-bot/"><div class="jss12 pointer"><div style="height:60px" class="lazyload-placeholder"></div></div><div class="jss13"><h1>Making the packtbot</h1><h2>Never miss the deal of the day!</h2></div></a></li><li class="jss10 cryptography" style="display:block"><a class="jss11" href="/hiding-encrypted-blobs/"><div class="jss12 pointer"><div style="height:60px" class="lazyload-placeholder"></div></div><div class="jss13"><h1>Hiding encrypted blobs</h1><h2>Using python to roll our own crypto!</h2></div></a></li><li class="jss10 security" style="display:block"><a class="jss11" href="/sans-holiday-hacking-challenge/"><div class="jss12 pointer"><div style="height:60px" class="lazyload-placeholder"></div></div><div class="jss13"><h1>SANSHHC</h1><h2>SANS Holiday Hacking Challenge</h2></div></a></li><li class="jss10 security" style="display:block"><a class="jss11" href="/binary fun/"><div class="jss12 pointer"><div style="height:60px" class="lazyload-placeholder"></div></div><div class="jss13"><h1>Binary fun</h1><h2>Reverse engineering sounds cool</h2></div></a></li><li class="jss10 security" style="display:block"><a class="jss11" href="/obfuscating-python/"><div class="jss12 pointer"><div style="height:60px" class="lazyload-placeholder"></div></div><div class="jss13"><h1>Obfuscating python</h1><h2>Who knew making code difficult to read could be fun?</h2></div></a></li><li class="jss10 programming" style="display:block"><a class="jss11" href="/project-eulers/"><div class="jss12 pointer"><div style="height:60px" class="lazyload-placeholder"></div></div><div class="jss13"><h1>Project Euler</h1><h2>I chose to do math in my spare time once..</h2></div></a></li></ul></div></div><div style="position:absolute;height:6px;transition:opacity 200ms;opacity:0;display:none;right:2px;bottom:2px;left:2px;border-radius:3px"><div style="position:relative;display:block;height:100%;cursor:pointer;border-radius:inherit;background-color:rgba(0,0,0,.2)"></div></div><div style="position:absolute;width:6px;transition:opacity 200ms;opacity:0;display:none;right:2px;bottom:2px;top:2px;border-radius:3px"><div style="position:relative;display:block;width:100%;cursor:pointer;border-radius:inherit;background-color:rgba(0,0,0,.2)"></div></div></div></div></nav><div class="jss14"><div class="jss15"><button tabindex="0" class="jss23 jss17 jss16" type="button" aria-label="Back to list" title="Back to the list"><span class="jss22"><svg class="jss26" focusable="false" viewBox="0 0 24 24" aria-hidden="true"><g><path d="M10 20v-6h4v6h5v-8h3L12 3 2 12h3v8z"></path></g></svg></span><span class="jss33"></span></button><nav class="jss40"><div><div><button tabindex="0" class="jss23 jss17 jss41" type="button" aria-label="Filter by category" aria-haspopup="true" title="Filter the list by category"><span class="jss22"><svg class="jss26" focusable="false" viewBox="0 0 24 24" aria-hidden="true"><g><path d="M10 18h4v-2h-4v2zM3 6v2h18V6H3zm3 7h12v-2H6v2z"></path></g></svg></span><span class="jss33"></span></button></div><div class="jss42 jss43" style="position:absolute;pointer-events:none;opacity:0"><div class="jss44 jss48 jss45" style="opacity:0;transform:scale(0.75, 0.5625);transform-origin:0 0 0" id="cat-menu-list"><ul class="jss71 jss72" role="menu"><li tabindex="-1" class="jss23 jss77 jss80 jss84 jss85 jss75" role="menuitem">all posts<span class="jss33"></span></li><li tabindex="-1" class="jss23 jss77 jss80 jss84 jss85 jss75" role="menuitem">programming<span class="jss33"></span></li><li tabindex="-1" class="jss23 jss77 jss80 jss84 jss85 jss75" role="menuitem">devops<span class="jss33"></span></li><li tabindex="-1" class="jss23 jss77 jss80 jss84 jss85 jss75" role="menuitem">security<span class="jss33"></span></li><li tabindex="-1" class="jss23 jss77 jss80 jss84 jss85 jss75" role="menuitem">misc<span class="jss33"></span></li><li tabindex="-1" class="jss23 jss77 jss80 jss84 jss85 jss75" role="menuitem">cryptography<span class="jss33"></span></li></ul></div></div></div></nav><a tabindex="0" class="jss23 jss17 jss16" role="button" aria-label="Search" data-shape="closed" title="Search" href="/search/"><span class="jss22"><svg class="jss26 jss16" focusable="false" viewBox="0 0 24 24" aria-hidden="true"><g><path d="M15.5 14h-.79l-.28-.27C15.41 12.59 16 11.11 16 9.5 16 5.91 13.09 3 9.5 3S3 5.91 3 9.5 5.91 16 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z"></path></g></svg></span><span class="jss33"></span></a></div><div class="jss15"><button tabindex="0" class="jss23 jss17" type="button" aria-label="Back to top" title="Scroll to top"><span class="jss22"><svg class="jss26 jss16" focusable="false" viewBox="0 0 24 24" aria-hidden="true"><g><path d="M4 12l1.41 1.41L11 7.83V20h2V7.83l5.58 5.59L20 12l-8-8-8 8z"></path></g></svg></span><span class="jss33"></span></button></div></div><aside class="jss87"><a class="jss89" href="/"><div class="jss91 jss90"><img alt="Anthony Laiuppa" src="/static/avatar.31f56155.jpg" class="jss93"/></div></a><h3 class="jss88">Anthony Laiuppa<small>Learn Hack Explore</small></h3><nav class="jss94"><div><div><button tabindex="0" class="jss23 jss17 jss95" type="button" aria-label="More" aria-haspopup="true"><span class="jss22"><svg class="jss26" focusable="false" viewBox="0 0 24 24" aria-hidden="true"><g><path d="M12 8c1.1 0 2-.9 2-2s-.9-2-2-2-2 .9-2 2 .9 2 2 2zm0 2c-1.1 0-2 .9-2 2s.9 2 2 2 2-.9 2-2-.9-2-2-2zm0 6c-1.1 0-2 .9-2 2s.9 2 2 2 2-.9 2-2-.9-2-2-2z"></path></g></svg></span><span class="jss33"></span></button></div><div class="jss96" style="position:absolute;pointer-events:none;opacity:0"><div class="jss44 jss48 jss45" style="opacity:0;transform:scale(0.75, 0.5625);transform-origin:0 0 0" id="menu-list"><ul class="jss71 jss72" role="menu"><li tabindex="-1" class="jss23 jss77 jss80 jss84 jss85 jss75" role="menuitem">Home<span class="jss33"></span></li><a style="display:block" tabindex="-1" href="/about/"><li tabindex="-1" class="jss23 jss77 jss80 jss84 jss85 jss75" role="menuitem">About<span class="jss33"></span></li></a><a style="display:block" tabindex="-1" href="/starters/"><li tabindex="-1" class="jss23 jss77 jss80 jss84 jss85 jss75" role="menuitem">Coming Soon<span class="jss33"></span></li></a><a style="display:block" tabindex="-1" href="/contact/"><li tabindex="-1" class="jss23 jss77 jss80 jss84 jss85 jss75" role="menuitem">Contact<span class="jss33"></span></li></a></ul></div></div></div></nav></aside></div></div><script id="webpack-manifest">/*<![CDATA[*/window.webpackManifest={"0":"0-a446d29ade0f2ef543e1.js","1":"1-dda6b73bb18efba1bbdc.js","231608221292675":"app-6993dce782ef3f26d602.js","99219681209289":"component---node-modules-gatsby-plugin-offline-app-shell-js-5c4c5a0f7af9dc69d6d7.js","198517197184460":"component---src-templates-post-template-js-745882c2f78e151dd768.js","235131596041995":"component---src-templates-page-template-js-e0434750f574a9276ef2.js","70144966829960":"component---src-pages-contact-js-491e2fefb3b96f906e34.js","35783957827783":"component---src-pages-index-js-aa9570313651ef926b5a.js","142807904292071":"component---src-pages-search-js-cba41e4926360edba36e.js","60335399758886":"path----8d6d2210d55a18f51c18.js","210333531512890":"path---offline-plugin-app-shell-fallback-a0e39f21c11f6a62c5ab.js","45425875825118":"path---project-eulers-542a538d715dd781de01.js","24168661196239":"path---binary-fun-184dbc4ac6aa2dffa03a.js","39859872668372":"path---obfuscating-python-38a8a004a419c4d9431c.js","59542199238068":"path---hiding-encrypted-blobs-0a9f5dd0656c42501052.js","122191101232524":"path---sans-holiday-hacking-challenge-d06714052eddf900a4c3.js","217152131272305":"path---packt-bot-1e655f581c7194752967.js","74464119047818":"path---enumerating-url-shorteners-f5a38506647d4a8e2cee.js","130368935269082":"path---harbormaster-3d6e99ddde81a780a8d8.js","144238700015710":"path---breaking-into-penetration-testing-49bc06ac6229fa786e7b.js","272897209038386":"path---mapping-website-attack-surface-decb60374f62bb5c2a42.js","191621042942889":"path---ezctf-full-stack-20cf046d0190e8de358d.js","23364292092352":"path---goku-distributed-computing-c40ac9bbbdc6f07ab197.js","43187962941379":"path---goku-will-it-scale-b992d2293b429a97986c.js","224335544223130":"path---more-ctf-fun-c113a737fe356a2d69d2.js","63503670762747":"path---one-command-9748f26428fbd0c2219e.js","121657967261441":"path---kringlecon-6312ad41f83480d91d4c.js","217773885212026":"path---six-years-of-links-aff3786de4a8830483d9.js","170786371021445":"path---success-be524032c0f42ec39bcd.js","273950069227526":"path---about-6fb944e0f3f9c0759837.js","230064834116715":"path---starters-1463e0de58ded4065401.js","74765084903247":"path---maze-runner-index-c81ff15c915427dd4f0e.js","18739872996569":"path---market-sentiment-index-bb31ef0cd11c168bb4b4.js","255904533070631":"path---maze-runner-e6c9caf4cf7a34811ac3.js","204622845610410":"path---market-sentiment-01334817e8a3c866fa51.js","184662623972074":"path---contact-a0e39f21c11f6a62c5ab.js","142629428675168":"path---index-206ac74de0d3aab26f03.js","254572558124955":"path---search-84269fabafea3eec14cf.js","114276838955818":"component---src-layouts-index-js-0d706d3850fd42cf138e.js"}/*]]>*/</script><script>
-            
-  
-  if(true) {
-    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-    m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-    })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
-  }
-  if (typeof ga === "function") {
-    ga('create', 'undefined', 'auto');
-      }
-      </script><script>
-        WebFontConfig = {
-          google: {
-            families: ["Open Sans:300,400,600"]
-          }
-        };
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
 
-        (function(d) {
-            var wf = d.createElement('script'), s = d.scripts[0];
-            wf.src = 'https://ajax.googleapis.com/ajax/libs/webfont/1.6.26/webfont.js';
-            wf.async = true;
-            s.parentNode.insertBefore(wf, s);
-        })(document);</script><script>/*<![CDATA[*/["/commons-30cc5e056bda57900576.js","/app-6993dce782ef3f26d602.js","/path---index-206ac74de0d3aab26f03.js","/component---src-pages-index-js-aa9570313651ef926b5a.js","/component---src-layouts-index-js-0d706d3850fd42cf138e.js"].forEach(function(s){document.write('<script src="'+s+'" defer></'+'script>')})/*]]>*/</script></body></html>
+<head prefix="og: http://ogp.me/ns#">
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Laiuppa Blog</title>
+    
+
+
+<script src="/js/enquire.min.dfb99dee1e029d51d6cfb672d847929890b1585402de17f5ed092edd72a688b4.js"></script>
+
+<script defer src="/js/lazysizes.min.31dd6a2d3a1ec0f78a8df007535cf23f03aeb5c70f026e6d6a19dac3b3acc340.js"></script>
+
+<script defer src="/js/fuse.min.94c78ad70b02749822921660cf4e9f0b3701bc0680c421afb784a78228de0275.js"></script>
+
+<script defer src="/js/helper/getParents.min.1618c696be7c98933f9a92677f518b512a74e55bdbb976b09936b4182e93181b.js"></script>
+
+<script defer src="/js/helper/fadeinout.min.93a331f96194789a542f33690bbe4f0c102c7e78ffc018217f5a1c33010bad91.js"></script>
+
+<script defer src="/js/helper/closest.min.js"></script>
+  
+<script>
+  "use strict";
+
+  
+  
+  if (window.NodeList && !NodeList.prototype.forEach) {
+    NodeList.prototype.forEach = Array.prototype.forEach;
+  }
+
+  
+  if (!String.prototype.includes) {
+    String.prototype.includes = function (search, start) {
+      'use strict';
+
+      if (search instanceof RegExp) {
+        throw TypeError('first argument must not be a RegExp');
+      }
+      if (start === undefined) { start = 0; }
+      return this.indexOf(search, start) !== -1;
+    };
+  }
+
+  
+  Document.prototype.append = Element.prototype.append = function append() {
+    this.appendChild(_mutation(arguments));
+  };
+  function _mutation(nodes) {
+    if (!nodes.length) {
+      throw new Error('DOM Exception 8');
+    } else if (nodes.length === 1) {
+      return typeof nodes[0] === 'string' ? document.createTextNode(nodes[0]) : nodes[0];
+    } else {
+      var
+      fragment = document.createDocumentFragment(),
+      length = nodes.length,
+      index = -1,
+      node;
+
+      while (++index < length) {
+        node = nodes[index];
+
+        fragment.appendChild(typeof node === 'string' ? document.createTextNode(node) : node);
+      }
+
+      return fragment;
+    }
+  }
+
+  
+  if (!String.prototype.startsWith) {
+    String.prototype.startsWith = function (searchString, position) {
+      position = position || 0;
+      return this.indexOf(searchString, position) === position;
+    };
+  }
+  
+
+
+  document.addEventListener('DOMContentLoaded', function () {
+    
+    var navCollapseBtn = document.querySelector('.navbar__burger');
+    navCollapseBtn ? navCollapseBtn.addEventListener('click', function (e) {
+      var navCollapse = document.querySelector('.navbarm__collapse');
+
+      if (navCollapse) {
+        var dataOpen = navCollapse.getAttribute('data-open');
+
+        if (dataOpen === 'true') {
+          navCollapse.setAttribute('data-open', 'false');
+          navCollapse.style.maxHeight = 0;
+          navCollapseBtn.classList.remove('is-active');
+        } else {
+          navCollapse.setAttribute('data-open', 'true');
+          navCollapse.style.maxHeight = navCollapse.scrollHeight + "px";
+          navCollapseBtn.classList.add('is-active');
+        }
+      }
+    }) : null;
+    
+
+
+    
+    var summaryContainer = document.querySelector('.summary__container');
+    var searchResult = document.querySelector('.search-result');
+    var searchResultCloseBtn = document.querySelector('.search-result__close');
+    searchResultCloseBtn ? searchResultCloseBtn.addEventListener('click', function (e) {
+      searchResult.setAttribute('data-display', 'none');
+      summaryContainer.setAttribute('data-display', 'block');
+    }) : null;
+    
+
+
+    
+    document.querySelectorAll('.tab') ? 
+    document.querySelectorAll('.tab').forEach(function(elem, idx) {
+      var containerId = elem.getAttribute('id');
+      var containerElem = elem;
+      var tabLinks = elem.querySelectorAll('.tab__link');
+      var tabContents = elem.querySelectorAll('.tab__content');
+      var ids = [];
+
+      tabLinks && tabLinks.length > 0 ?
+      tabLinks.forEach(function(link, index, self) {
+        link.onclick = function(e) {
+          for (var i = 0; i < self.length; i++) {
+            if (index === parseInt(i, 10)) {
+              if (!self[i].classList.contains('active')) {
+                self[i].classList.add('active');
+                tabContents[i].style.display = 'block';
+              }
+            } else {
+              self[i].classList.remove('active');
+              tabContents[i].style.display = 'none';
+            }
+          }
+        }
+      }) : null;
+    }) : null;
+    
+
+
+    
+    document.querySelectorAll('.codetab') ? 
+    document.querySelectorAll('.codetab').forEach(function(elem, idx) {
+      var containerId = elem.getAttribute('id');
+      var containerElem = elem;
+      var codetabLinks = elem.querySelectorAll('.codetab__link');
+      var codetabContents = elem.querySelectorAll('.codetab__content');
+      var ids = [];
+
+      codetabLinks && codetabLinks.length > 0 ?
+      codetabLinks.forEach(function(link, index, self) {
+        link.onclick = function(e) {
+          for (var i = 0; i < self.length; i++) {
+            if (index === parseInt(i, 10)) {
+              if (!self[i].classList.contains('active')) {
+                self[i].classList.add('active');
+                codetabContents[i].style.display = 'block';
+              }
+            } else {
+              self[i].classList.remove('active');
+              codetabContents[i].style.display = 'none';
+            }
+          }
+        }
+      }) : null;
+    }) : null;
+    
+
+
+    
+    var gttBtn = document.getElementById("gtt");
+    gttBtn.style.display = "none";
+    gttBtn.addEventListener('click', function () {
+      if (window.document.documentMode) {
+        document.documentElement.scrollTop = 0;
+      } else {
+        scrollToTop(250);
+      }
+    });
+
+    function scrollToTop(scrollDuration) {
+      var scrollStep = -window.scrollY / (scrollDuration / 15);
+      var scrollInterval = setInterval(function () {
+        if (window.scrollY != 0) {
+          window.scrollBy(0, scrollStep);
+        }
+        else clearInterval(scrollInterval);
+      }, 15);
+    }
+
+    var scrollFunction = function () {
+      if (document.body.scrollTop > 250 || document.documentElement.scrollTop > 250) {
+        gttBtn.style.display = "block";
+      } else {
+        gttBtn.style.display = "none";
+      }
+    }
+    
+
+
+    
+    var expandBtn = document.querySelectorAll('.expand__button');
+
+    for (let i = 0; i < expandBtn.length; i++) {
+      expandBtn[i].addEventListener("click", function () {
+        var content = this.nextElementSibling;
+        if (content.style.maxHeight) {
+          content.style.maxHeight = null;
+          this.querySelector('svg').classList.add('expand-icon__right');
+          this.querySelector('svg').classList.remove('expand-icon__down');
+        } else {
+          content.style.maxHeight = content.scrollHeight + "px";
+          this.querySelector('svg').classList.remove('expand-icon__right');
+          this.querySelector('svg').classList.add('expand-icon__down');
+        }
+      });
+    }
+    
+
+
+    
+    var lastScrollTop = window.pageYOffset || document.documentElement.scrollTop;
+    var tocElem = document.querySelector('.toc');
+    var tableOfContentsElem = tocElem ? tocElem.querySelector('#TableOfContents') : null;
+    var toggleTocElem = document.getElementById('toggle-toc');
+    var singleContentsElem = document.querySelector('.single__contents');
+    var navbar = document.querySelector('.navbar');
+    var tocFlexbox = document.querySelector('.toc__flexbox');
+    var tocFlexboxOuter = document.querySelector('.toc__flexbox--outer');
+    var expandContents = document.querySelectorAll('.expand__content');
+    var boxContents = document.querySelectorAll('.box');
+    var notAllowedTitleIds = null;
+
+    
+    var tocFolding = JSON.parse("true");
+    
+    var tocLevels = JSON.parse("[\"h2\",\"h3\",\"h4\"]");
+    
+    if (tocLevels) {
+      tocLevels = tocLevels.toString();
+    } else {
+      tocLevels = "h1, h2, h3, h4, h5, h6";
+    }
+
+    
+    singleContentsElem && singleContentsElem.querySelectorAll(".tab") ?
+    singleContentsElem.querySelectorAll(".tab").forEach(function (elem) {
+      elem.querySelectorAll(tocLevels).forEach(function (element) {
+        notAllowedTitleIds = Array.isArray(notAllowedTitleIds) ?
+          notAllowedTitleIds.concat(element.getAttribute('id')) :
+          [element.getAttribute('id')];
+      });
+    }) : null;
+
+    
+    expandContents ? expandContents.forEach(function(elem) {
+      elem.querySelectorAll(tocLevels).forEach(function (element) {
+        notAllowedTitleIds = Array.isArray(notAllowedTitleIds) ?
+          notAllowedTitleIds.concat(element.getAttribute('id')) :
+          [element.getAttribute('id')];
+      });
+    }) : null;
+
+    
+    boxContents ? boxContents.forEach(function(elem) {
+      elem.querySelectorAll(tocLevels).forEach(function (element) {
+        notAllowedTitleIds = Array.isArray(notAllowedTitleIds) ?
+          notAllowedTitleIds.concat(element.getAttribute('id')) :
+          [element.getAttribute('id')];
+      });
+    }) : null;
+
+    
+    window.onscroll = function () {
+      scrollFunction();
+      
+      var st = window.pageYOffset || document.documentElement.scrollTop;
+      if (st > lastScrollTop) { 
+        if (st < 250) {
+          gttBtn.style.display = "none";
+        } else {
+          gttBtn.style.display = "block";
+        }
+
+        if (st < 45) {
+          return null;
+        }
+        
+        if (!navbar.classList.contains('navbar--hide')) {
+          navbar.classList.add('navbar--hide');
+        } else if (navbar.classList.contains('navbar--show')) {
+          navbar.classList.remove('navbar--show');
+        }
+
+        if (singleContentsElem) {
+          if (singleContentsElem.querySelectorAll(tocLevels).length > 0) {
+            singleContentsElem.querySelectorAll(tocLevels).forEach(function (elem) {
+              if (toggleTocElem && !toggleTocElem.checked) {
+                return null;
+              }
+
+              if (notAllowedTitleIds && notAllowedTitleIds.includes(elem.getAttribute('id'))) {
+                return null;
+              }
+              
+              if (document.documentElement.scrollTop >= elem.offsetTop) {
+                if (tableOfContentsElem) {
+                  var id = elem.getAttribute('id');
+                  tocElem.querySelectorAll('a').forEach(function (elem) {
+                    elem.classList.remove('active');
+                  });
+                  tocElem.querySelector('a[href="#' + id + '"]') ?
+                    tocElem.querySelector('a[href="#' + id + '"]').classList.add('active') : null;
+
+                  if (false === tocFolding) {
+                    
+                  } else {
+                    tableOfContentsElem.querySelectorAll('ul') ?
+                      tableOfContentsElem.querySelectorAll('ul').forEach(function (rootUl) {
+                        rootUl.querySelectorAll('li').forEach(function (liElem) {
+                          liElem.querySelectorAll('ul').forEach(function (ulElem) {
+                            ulElem.style.display = 'none';
+                          });
+                        });
+                      }) : null;
+                  }
+
+                  var curElem = tableOfContentsElem.querySelector("[href='#" + id + "']");
+                  if (curElem && curElem.nextElementSibling) {
+                    curElem.nextElementSibling.style.display = 'block';
+                  }
+                  getParents(curElem, 'ul') ?
+                    getParents(curElem, 'ul').forEach(function (elem) {
+                      elem.style.display = 'block';
+                    }) : null;
+                }
+              }
+            });
+          } else {
+            if (tocFlexbox) {
+              tocFlexbox.setAttribute('data-position', '');
+              if (!tocFlexbox.classList.contains('hide')) {
+                tocFlexbox.classList.add('hide');
+              }
+            }
+            if (tocFlexboxOuter) {
+              tocFlexboxOuter.setAttribute('data-position', '');
+              if (!tocFlexboxOuter.classList.contains('hide')) {
+                tocFlexboxOuter.classList.add('hide');
+              }
+            }
+          }
+        }
+      } else { 
+        if (st < 250) {
+          gttBtn.style.display = "none";
+        }
+
+        if (navbar.classList.contains('navbar--hide')) {
+          navbar.classList.remove('navbar--hide');
+        } else if (!navbar.classList.contains('navbar--show')) {
+          navbar.classList.add('navbar--show');
+        }
+
+        if (singleContentsElem) {
+          if (singleContentsElem.querySelectorAll(tocLevels).length > 0) {
+            singleContentsElem.querySelectorAll(tocLevels).forEach(function (elem) {
+              if (toggleTocElem && !toggleTocElem.checked) {
+                return null;
+              }
+              
+              if (notAllowedTitleIds && notAllowedTitleIds.includes(elem.getAttribute('id'))) {
+                return null;
+              }
+
+              if (document.documentElement.scrollTop >= elem.offsetTop) {
+                if (tableOfContentsElem) {
+                  var id = elem.getAttribute('id');
+                  tocElem.querySelectorAll('a').forEach(function (elem) {
+                    elem.classList.remove('active');
+                  });
+                  tocElem.querySelector('a[href="#' + id + '"]') ?
+                    tocElem.querySelector('a[href="#' + id + '"]').classList.add('active') : null;
+
+                  if (false === tocFolding) {
+                    
+                  } else {
+                    tableOfContentsElem.querySelectorAll('ul') ?
+                      tableOfContentsElem.querySelectorAll('ul').forEach(function (rootUl) {
+                        rootUl.querySelectorAll('li').forEach(function (liElem) {
+                          liElem.querySelectorAll('ul').forEach(function (ulElem) {
+                            ulElem.style.display = 'none';
+                          });
+                        });
+                      }) : null;
+                  }
+
+                  var curElem = tableOfContentsElem.querySelector("[href='#" + id + "']");
+                  if (curElem && curElem.nextElementSibling) {
+                    curElem.nextElementSibling.style.display = 'block';
+                  }
+                  getParents(curElem, 'ul') ?
+                    getParents(curElem, 'ul').forEach(function (elem) {
+                      elem.style.display = 'block';
+                    }) : null;
+                }
+              }
+            });
+          } else {
+            if (tocFlexbox && !tocFlexbox.classList.contains('hide')) {
+              tocFlexbox.classList.add('hide');
+            }
+            if (tocFlexboxOuter && !tocFlexboxOuter.classList.contains('hide')) {
+              tocFlexboxOuter.classList.add('hide');
+            }
+          }
+          
+        }
+
+        if (tableOfContentsElem && document.documentElement.scrollTop < 250) {
+          if (false === tocFolding) {
+
+          } else {
+            tableOfContentsElem.querySelector('ul') ?
+              tableOfContentsElem.querySelector('ul').querySelectorAll('li').forEach(function (liElem) {
+                liElem.querySelectorAll('ul').forEach(function (ulElem) {
+                  ulElem.style.display = 'none';
+                });
+              }) : null;
+          }
+        }
+      }
+      lastScrollTop = st <= 0 ? 0 : st;
+    };
+  
+
+
+  
+    var localTheme = localStorage.getItem('theme');
+    var rootEleme = document.getElementById('root');
+    var selectThemeElem = document.querySelectorAll('.select-theme');
+    var selectThemeItemElem = document.querySelectorAll('.select-theme__item');
+
+    var setMetaColor = function(themeColor) {
+      var metaMsapplicationTileColor = document.getElementsByName('msapplication-TileColor')[0];
+      var metaThemeColor = document.getElementsByName('theme-color')[0];
+      var metaMsapplicationNavbuttonColor = document.getElementsByName('msapplication-navbutton-color')[0];
+      var metaAppleMobileWebAappStatusBarStyle = document.getElementsByName('apple-mobile-web-app-status-bar-style')[0];
+
+      if (themeColor.includes('dark')) {
+        metaMsapplicationTileColor.setAttribute('content', '#fcfcfa');
+        metaThemeColor.setAttribute('content', '#403E41');
+        metaMsapplicationNavbuttonColor.setAttribute('content', '#403E41');
+        metaAppleMobileWebAappStatusBarStyle.setAttribute('content', '#403E41');
+      } else if (themeColor.includes('light')) {
+        metaMsapplicationTileColor.setAttribute('content', '#555');
+        metaThemeColor.setAttribute('content', '#eee');
+        metaMsapplicationNavbuttonColor.setAttribute('content', '#eee');
+        metaAppleMobileWebAappStatusBarStyle.setAttribute('content', '#eee');
+      } else if (themeColor.includes('hacker')) {
+        metaMsapplicationTileColor.setAttribute('content', '#e3cd26');
+        metaThemeColor.setAttribute('content', '#252526');
+        metaMsapplicationNavbuttonColor.setAttribute('content', '#252526');
+        metaAppleMobileWebAappStatusBarStyle.setAttribute('content', '#252526');
+      } else if (themeColor.includes('solarized')) {
+        metaMsapplicationTileColor.setAttribute('content', '#d3af86');
+        metaThemeColor.setAttribute('content', '#51412c');
+        metaMsapplicationNavbuttonColor.setAttribute('content', '#51412c');
+        metaAppleMobileWebAappStatusBarStyle.setAttribute('content', '#51412c');
+      } else if (themeColor.includes('kimbie')) {
+        metaMsapplicationTileColor.setAttribute('content', '#586e75');
+        metaThemeColor.setAttribute('content', '#eee8d5');
+        metaMsapplicationNavbuttonColor.setAttribute('content', '#eee8d5');
+        metaAppleMobileWebAappStatusBarStyle.setAttribute('content', '#eee8d5');
+      } 
+    }
+    
+    if (localTheme) {
+      selectThemeItemElem ? 
+      selectThemeItemElem.forEach(function (elem) {
+        if (elem.text.trim() === localTheme) {
+          elem.classList.add('is-active');
+        } else {
+          elem.classList.remove('is-active');
+        }
+      }) : null;
+
+      setMetaColor(localTheme);
+    } else {
+      setMetaColor(rootEleme.className);
+    }
+
+    selectThemeItemElem ? 
+    selectThemeItemElem.forEach(function (v, i) {
+      v.addEventListener('click', function (e) {
+        var selectedThemeVariant = e.target.text.trim();
+        localStorage.setItem('theme', selectedThemeVariant);
+        setMetaColor(selectedThemeVariant);
+
+        rootEleme.removeAttribute('class');
+        rootEleme.classList.add('theme__' + selectedThemeVariant);
+        selectThemeElem.forEach(function(rootElem) {
+          rootElem.querySelectorAll('a').forEach(function (elem) {
+            if (elem.classList) {
+              if (elem.text.trim() === selectedThemeVariant) {
+                if (!elem.classList.contains('is-active')) {
+                  elem.classList.add('is-active');
+                }
+              } else {
+                if (elem.classList.contains('is-active')) {
+                  elem.classList.remove('is-active');
+                }
+              }
+            }
+          });
+        });
+
+        if (window.mermaid) {
+          if (selectedThemeVariant === "dark" || selectedThemeVariant === "hacker") {
+            mermaid.initialize({ theme: 'dark' });
+            location.reload();
+          } else {
+            mermaid.initialize({ theme: 'default' });
+            location.reload();
+          }
+        }
+
+        var utterances = document.getElementById('utterances');
+        if (utterances) {
+          utterances.querySelector('iframe').contentWindow.postMessage({
+            type: 'set-theme',
+            theme: selectedThemeVariant === "dark" || selectedThemeVariant === "hacker" ? 'photon-dark' : selectedThemeVariant === 'kimbie' ? 'github-dark-orange' : 'github-light',
+          }, 'https://utteranc.es');
+        }
+
+        var twitterCards = document.querySelectorAll('.twitter-timeline');
+        if (twitterCards) {
+          window.postMessage({
+            type: 'set-twitter-theme',
+            theme: selectedThemeVariant === 'light' || selectedThemeVariant === 'solarized' ? 'light' : 'dark',
+          });
+        }
+      });
+    }) : null;
+  
+
+
+  
+    
+    var permalink = JSON.parse("\"https://anthonylaiuppa.com/\"");
+    var searchResults = null;
+    var searchMenu = null;
+    var searchText = null;
+    
+    
+    var enableSearchHighlight = JSON.parse("true");
+    
+    var searchResultPosition = JSON.parse("\"main\"");
+    
+    var sectionType = JSON.parse("\"page\"");
+
+    var fuse = null;
+
+    (function initFuse() {
+      var xhr = new XMLHttpRequest();
+      xhr.open('GET', permalink + "index.json");
+      xhr.setRequestHeader('Content-Type', 'application/json; charset=utf-8');
+      xhr.onload = function () {
+        if (xhr.status === 200) {
+          fuse = new Fuse(JSON.parse(xhr.response.toString('utf-8')), {
+            keys: sectionType.includes('publication') ? ['title', 'abstract'] : ['title', 'description', 'content'],
+            includeMatches: enableSearchHighlight,
+            shouldSort: true,
+            threshold: 0.4,
+            location: 0,
+            distance: 100,
+            maxPatternLength: 32,
+            minMatchCharLength: 1,
+          });
+          window.fuse = fuse;
+        }
+        else {
+          console.error('[' + xhr.status + ']Error:', xhr.statusText);
+        }
+      };
+      xhr.send();
+    })();
+
+    function makeLi(ulElem, obj) {
+      var li = document.createElement('li');
+      li.className = 'search-result__item';
+      
+      var a = document.createElement('a');
+      a.innerHTML = obj.title;
+      a.setAttribute('class', 'search-result__item--title');
+      a.setAttribute('href', obj.permalink);
+
+      var descDiv = document.createElement('div');
+      descDiv.setAttribute('class', 'search-result__item--desc');
+      if (obj.description) {
+        descDiv.innerHTML = obj.description;
+      } else if (obj.content) {
+        descDiv.innerHTML = obj.content.substring(0, 225);
+      }
+      
+      li.appendChild(a);
+      li.appendChild(descDiv);
+      ulElem.appendChild(li);
+    }
+
+    function makeHighlightLi(ulElem, obj) {
+      var li = document.createElement('li');
+      li.className = 'search-result__item';
+      var descDiv = null;
+
+      var a = document.createElement('a');
+      a.innerHTML = obj.item.title;
+      a.setAttribute('class', 'search-result__item--title');
+      a.setAttribute('href', obj.item.uri);
+
+      if (obj.matches && obj.matches.length) {
+        for (var i = 0; i < obj.matches.length; i++) {
+          if ('title' === obj.matches[i].key) {
+            a = document.createElement('a');
+            a.innerHTML = generateHighlightedText(obj.matches[i].value, obj.matches[i].indices);
+            a.setAttribute('class', 'search-result__item--title');
+            a.setAttribute('href', obj.item.uri);
+          }
+          
+          if ('description' === obj.matches[i].key) {
+            descDiv = document.createElement('div');
+            descDiv.setAttribute('class', 'search-result__item--desc');
+            descDiv.innerHTML = generateHighlightedText(obj.item.description, obj.matches[i].indices);
+          } else if ('content' === obj.matches[i].key) {
+            if (!descDiv) {
+              descDiv = document.createElement('div');
+              descDiv.setAttribute('class', 'search-result__item--desc');
+              descDiv.innerHTML = generateHighlightedText(obj.item.content.substring(0, 150), obj.matches[i].indices);
+            }
+          } else {
+            if (obj.item.description) {
+              descDiv = document.createElement('div');
+              descDiv.setAttribute('class', 'search-result__item--desc');
+              descDiv.innerHTML = obj.item.description;
+            } else {
+              descDiv = document.createElement('div');
+              descDiv.setAttribute('class', 'search-result__item--desc');
+              descDiv.innerHTML = obj.item.content.substring(0, 150);
+            }
+          }
+        }
+
+        li.appendChild(a);
+        if (descDiv) {
+          li.appendChild(descDiv);
+        }
+        if (li) {
+          ulElem.appendChild(li);
+        }
+      }
+    }
+
+    function renderSearchResultsSide(searchText, results) {
+      searchResults = document.getElementById('search-results');
+      searchMenu = document.getElementById('search-menu');
+      searchResults.setAttribute('class', 'dropdown is-active');
+      
+      var ul = document.createElement('ul');
+      ul.setAttribute('class', 'dropdown-content search-content');
+
+      if (results.length) {
+        results.forEach(function (result) {
+          var li = document.createElement('li');
+          var a = document.createElement('a');
+          a.setAttribute('href', result.uri);
+          a.setAttribute('class', 'dropdown-item');
+          a.appendChild(li);
+
+          var titleDiv = document.createElement('div');
+          titleDiv.innerHTML = result.title;
+          titleDiv.setAttribute('class', 'menu-item__title');
+
+          var descDiv = document.createElement('div');
+          descDiv.setAttribute('class', 'menu-item__desc');
+          if (result.description) {
+            descDiv.innerHTML = result.description;
+          } else if (result.content) {
+            descDiv.innerHTML = result.content.substring(0, 150);
+          }
+
+          li.appendChild(titleDiv);
+          li.appendChild(descDiv);
+          ul.appendChild(a);
+        });
+      } else {
+        var li = document.createElement('li');
+        li.setAttribute('class', 'dropdown-item');
+        li.innerText = 'No results found';
+        ul.appendChild(li);
+      }
+
+      while (searchMenu.hasChildNodes()) {
+        searchMenu.removeChild(
+          searchMenu.lastChild
+        );
+      }
+      
+      searchMenu.appendChild(ul);
+    }
+
+    function renderSearchHighlightResultsSide(searchText, results) {
+      searchResults = document.getElementById('search-results');
+      searchMenu = document.getElementById('search-menu');
+      searchResults.setAttribute('class', 'dropdown is-active');
+
+      var ul = document.createElement('ul');
+      ul.setAttribute('class', 'dropdown-content search-content');
+
+      if (results.length) {
+        results.forEach(function (result) {
+          var li = document.createElement('li');
+          var a = document.createElement('a');
+          var descDiv = null;
+
+          a.setAttribute('href', result.item.uri);
+          a.setAttribute('class', 'dropdown-item');
+          a.appendChild(li);
+
+          var titleDiv = document.createElement('div');
+          titleDiv.innerHTML = result.item.title;
+          titleDiv.setAttribute('class', 'menu-item__title');
+          
+          if (result.matches && result.matches.length) {
+            for (var i = 0; i < result.matches.length; i++) {
+              if ('title' === result.matches[i].key) {
+                titleDiv.innerHTML = generateHighlightedText(result.matches[i].value, result.matches[i].indices);
+              }
+
+              if ('description' === result.matches[i].key) {
+                descDiv = document.createElement('div');
+                descDiv.setAttribute('class', 'menu-item__desc');
+                descDiv.innerHTML = generateHighlightedText(result.item.description, result.matches[i].indices);
+              } else if ('content' === result.matches[i].key) {
+                if (!descDiv) {
+                  descDiv = document.createElement('div');
+                  descDiv.setAttribute('class', 'menu-item__desc');
+                  descDiv.innerHTML = generateHighlightedText(result.item.content.substring(0, 150), result.matches[i].indices);
+                }
+              } else {
+                if (result.item.description) {
+                  descDiv = document.createElement('div');
+                  descDiv.setAttribute('class', 'menu-item__desc');
+                  descDiv.innerHTML = result.item.description;
+                } else {
+                  descDiv = document.createElement('div');
+                  descDiv.setAttribute('class', 'menu-item__desc');
+                  descDiv.innerHTML = result.item.content.substring(0, 150);
+                }
+              }
+            }
+            
+            li.appendChild(titleDiv);
+            if (descDiv) {
+              li.appendChild(descDiv);
+            }
+            ul.appendChild(a);
+          }
+        });
+      } else {
+        var li = document.createElement('li');
+        li.setAttribute('class', 'dropdown-item');
+        li.innerText = 'No results found';
+        ul.appendChild(li);
+      }
+
+      while (searchMenu.hasChildNodes()) {
+        searchMenu.removeChild(
+          searchMenu.lastChild
+        );
+      }
+      searchMenu.appendChild(ul);
+    }
+
+    function renderSearchResultsMobile(searchText, results) {
+      searchResults = document.getElementById('search-mobile-results');
+
+      var content = document.createElement('div');
+      content.setAttribute('class', 'mobile-search__content');
+
+      if (results.length > 0) {
+        results.forEach(function (result) {
+          var item = document.createElement('a');
+          item.setAttribute('href', result.uri);
+          item.innerHTML = '<div class="mobile-search__item"><div class="mobile-search__item--title">📄 ' + result.title + '</div><div class="mobile-search__item--desc">' + (result.description ? result.description : result.content) + '</div></div>';
+          content.appendChild(item);
+        });
+      } else {
+        var item = document.createElement('span');
+        content.appendChild(item);
+      }
+
+      let wrap = document.getElementById('search-mobile-results');
+      while (wrap.firstChild) {
+        wrap.removeChild(wrap.firstChild)
+      }
+      searchResults.appendChild(content);      
+    }
+
+    function renderSearchHighlightResultsMobile(searchText, results) {
+      searchResults = document.getElementById('search-mobile-results');
+
+      var ul = document.createElement('div');
+      ul.setAttribute('class', 'mobile-search__content');
+
+      if (results.length) {
+        results.forEach(function (result) {
+          var li = document.createElement('li');
+          var a = document.createElement('a');
+          var descDiv = null;
+
+          a.setAttribute('href', result.item.uri);
+          a.appendChild(li);
+          li.setAttribute('class', 'mobile-search__item');
+
+          var titleDiv = document.createElement('div');
+          titleDiv.innerHTML = result.item.title;
+          titleDiv.setAttribute('class', 'mobile-search__item--title');
+          
+          if (result.matches && result.matches.length) {
+            for (var i = 0; i < result.matches.length; i++) {
+              if ('title' === result.matches[i].key) {
+                titleDiv.innerHTML = generateHighlightedText(result.matches[i].value, result.matches[i].indices);
+              }
+
+              if ('description' === result.matches[i].key) {
+                descDiv = document.createElement('div');
+                descDiv.setAttribute('class', 'mobile-search__item--desc');
+                descDiv.innerHTML = generateHighlightedText(result.item.description, result.matches[i].indices);
+              } else if ('content' === result.matches[i].key) {
+                if (!descDiv) {
+                  descDiv = document.createElement('div');
+                  descDiv.setAttribute('class', 'mobile-search__item--desc');
+                  descDiv.innerHTML = generateHighlightedText(result.item.content.substring(0, 150), result.matches[i].indices);
+                }
+              } else {
+                if (result.item.description) {
+                  descDiv = document.createElement('div');
+                  descDiv.setAttribute('class', 'mobile-search__item--desc');
+                  descDiv.innerHTML = result.item.description;
+                } else {
+                  descDiv = document.createElement('div');
+                  descDiv.setAttribute('class', 'mobile-search__item--desc');
+                  descDiv.innerHTML = result.item.content.substring(0, 150);
+                }
+              }
+            }
+            
+            li.appendChild(titleDiv);
+            if (descDiv) {
+              li.appendChild(descDiv);
+            }
+            ul.appendChild(a);
+          }
+        });
+      } else {
+        var item = document.createElement('span');
+        ul.appendChild(item);
+      }
+
+      let wrap = document.getElementById('search-mobile-results');
+      while (wrap.firstChild) {
+        wrap.removeChild(wrap.firstChild)
+      }
+      searchResults.appendChild(ul);
+    }
+
+    function generateHighlightedText(text, regions) {
+      if (!regions) {
+        return text;
+      }
+
+      var content = '', nextUnhighlightedRegionStartingIndex = 0;
+
+      regions.forEach(function(region) {
+        if (region[0] === region[1]) {
+          return null;
+        }
+        
+        content += '' +
+          text.substring(nextUnhighlightedRegionStartingIndex, region[0]) +
+          '<span class="search__highlight">' +
+            text.substring(region[0], region[1] + 1) +
+          '</span>' +
+        '';
+        nextUnhighlightedRegionStartingIndex = region[1] + 1;
+      });
+
+      content += text.substring(nextUnhighlightedRegionStartingIndex);
+
+      return content;
+    };
+
+    var searchElem = document.getElementById('search');
+    var searchMobile = document.getElementById('search-mobile');
+    var searchResultsContainer = document.getElementById('search-results');
+
+    searchElem ?
+    searchElem.addEventListener('input', function(e) {
+      if (!e.target.value | window.innerWidth < 770) {
+        searchResultsContainer ? searchResultsContainer.setAttribute('class', 'dropdown') : null;
+        searchResult ? searchResult.setAttribute('data-display', 'none') : null;
+        summaryContainer ? summaryContainer.setAttribute('data-display', 'block') : null;
+        return null;
+      }
+
+      searchText = e.target.value;
+      var results = fuse.search(e.target.value);
+      
+      if (searchResultPosition === "main") {
+        if (enableSearchHighlight) {
+          renderSearchHighlightResultsMain(searchText, results);
+        } else {
+          renderSearchResultsMain(searchText, results);
+        }
+      } else {
+        if (enableSearchHighlight) {
+          renderSearchHighlightResultsSide(searchText, results);
+        } else {
+          renderSearchResultsSide(searchText, results);
+        }
+        
+        var dropdownItems = searchResultsContainer.querySelectorAll('.dropdown-item');
+        dropdownItems ? dropdownItems.forEach(function(item) {
+          item.addEventListener('mousedown', function(e) {
+            e.target.click();
+          });
+        }) : null;
+      }
+    }) : null;
+
+    searchElem ? 
+    searchElem.addEventListener('blur', function() {
+      if (window.innerWidth < 770) {
+        return null;
+      }
+      searchResultsContainer ? searchResultsContainer.setAttribute('class', 'dropdown') : null;
+    }) : null;
+
+    searchElem ? 
+    searchElem.addEventListener('click', function(e) {
+      if (window.innerWidth < 770) {
+        return null;
+      }
+      if (!e.target.value) {
+        searchResultsContainer ? searchResultsContainer.setAttribute('class', 'dropdown') : null;
+        return null;
+      }
+
+      searchText = e.target.value;
+      var results = fuse.search(e.target.value);
+
+      if (searchResultPosition === "main") {
+        if (enableSearchHighlight) {
+          renderSearchHighlightResultsMain(searchText, results);
+        } else {
+          renderSearchResultsMain(searchText, results);
+        }
+      } else{
+        if (enableSearchHighlight) {
+          renderSearchHighlightResultsSide(searchText, results);
+        } else {
+          renderSearchResultsSide(searchText, results);
+        }
+
+        var dropdownItems = searchResultsContainer.querySelectorAll('.dropdown-item');
+        dropdownItems ? dropdownItems.forEach(function (item) {
+          item.addEventListener('mousedown', function (e) {
+            e.target.click();
+          });
+        }) : null;
+      }
+    }) : null;
+
+    var searchMenuElem = document.getElementById("search-menu");
+    var activeItem = document.querySelector('#search-menu .dropdown-item.is-active');
+    var activeIndex = null;
+    var items = null;
+    var searchContainerMaxHeight = 350;
+
+    searchElem ? 
+    searchElem.addEventListener('keydown', function(e) {
+      if (window.innerWidth < 770) {
+        return null;
+      }
+
+      if (e.key === 'Escape') {
+        searchResult ? searchResult.setAttribute('data-display', 'none') : null;
+        summaryContainer ? summaryContainer.setAttribute('data-display', 'block') : null;
+      }
+
+      var items = document.querySelectorAll('#search-menu .dropdown-item');
+      var keyCode = e.which || e.keyCode;
+
+      if (!items || !items.length) {
+        return null;
+      }
+      
+      if (e.key === 'ArrowDown' || keyCode === 40) {
+        if (activeIndex === null) {
+          activeIndex = 0;
+          items[activeIndex].classList.remove('is-active');
+        } else {
+          items[activeIndex].classList.remove('is-active');
+          activeIndex = activeIndex === items.length - 1 ? 0 : activeIndex + 1;
+        }
+        items[activeIndex].classList.add('is-active');
+
+        let overflowedPixel = items[activeIndex].offsetTop + items[activeIndex].clientHeight - searchContainerMaxHeight;
+        if (overflowedPixel > 0) {
+          document.querySelector(".search-content").scrollTop += items[activeIndex].getBoundingClientRect().height;
+        } else if (activeIndex === 0) {
+          document.querySelector(".search-content").scrollTop = 0;
+        }
+      } else if (e.key === 'ArrowUp' || keyCode === 38) {
+        if (activeIndex === null) {
+          activeIndex = items.length - 1;
+          items[activeIndex].classList.remove('is-active');
+        } else {
+          items[activeIndex].classList.remove('is-active');
+          activeIndex = activeIndex === 0 ? items.length - 1 : activeIndex - 1;
+        }
+        items[activeIndex].classList.add('is-active');
+        
+        let overflowedPixel = items[activeIndex].offsetTop + items[activeIndex].clientHeight - searchContainerMaxHeight;
+        if (overflowedPixel < 0) {
+          document.querySelector(".search-content").scrollTop -= items[activeIndex].getBoundingClientRect().height;
+        } else {
+          document.querySelector(".search-content").scrollTop = overflowedPixel + items[activeIndex].getBoundingClientRect().height;
+        }
+      } else if (e.key === 'Enter' || keyCode === 13) {
+        if (items[activeIndex] && items[activeIndex].getAttribute('href')) {
+          location.href = items[activeIndex].getAttribute('href');
+        }
+      } else if (e.key === 'Escape' || keyCode === 27) {
+        e.target.value = null;
+        if (searchResults) {
+          searchResults.classList.remove('is-active');
+        }
+      }
+    }) : null;
+
+    searchMobile ? 
+    searchMobile.addEventListener('input', function(e) {
+      if (!e.target.value) {
+        let wrap = document.getElementById('search-mobile-results');
+        while (wrap.firstChild) {
+          wrap.removeChild(wrap.firstChild);
+        }
+        return null;
+      }
+
+      searchText = e.target.value;
+      var results = fuse.search(e.target.value);
+      renderSearchResultsMobile(searchText, results);
+      if (enableSearchHighlight) {
+        renderSearchHighlightResultsMobile(searchText, results);
+      } else {
+        renderSearchResultsMobile(searchText, results);
+      }
+    }) : null;
+  
+
+
+  
+    var mobileSearchInputElem = document.querySelector('#search-mobile');
+    var mobileSearchClassElem = document.querySelector('.mobile-search');
+    var mobileSearchBtnElem = document.querySelector('#mobileSearchBtn');
+    var mobileSearchCloseBtnElem = document.querySelector('#search-mobile-close');
+    var mobileSearchContainer = document.querySelector('#search-mobile-container');
+    var mobileSearchResultsElem = document.querySelector('#search-mobile-results');
+    var htmlElem = document.querySelector('html');
+
+    if (mobileSearchClassElem) {
+      mobileSearchClassElem.style.display = 'none';
+    }
+
+    mobileSearchBtnElem ? 
+    mobileSearchBtnElem.addEventListener('click', function () {
+      if (mobileSearchContainer) {
+        mobileSearchContainer.style.display = 'block';
+      }
+
+      if (mobileSearchInputElem) {
+        mobileSearchInputElem.focus();
+      }
+
+      if (htmlElem) {
+        htmlElem.style.overflowY = 'hidden';
+      }
+    }) : null;
+
+    mobileSearchCloseBtnElem ? 
+    mobileSearchCloseBtnElem.addEventListener('click', function() {
+      if (mobileSearchContainer) {
+        mobileSearchContainer.style.display = 'none';
+      }
+
+      if (mobileSearchInputElem) {
+        mobileSearchInputElem.value = '';
+      }
+      
+      if (mobileSearchResultsElem) {
+        while (mobileSearchResultsElem.firstChild) {
+          mobileSearchResultsElem.removeChild(mobileSearchResultsElem.firstChild);
+        }
+      }
+
+      if (htmlElem) {
+        htmlElem.style.overflowY = 'visible';
+      }
+    }) : null;
+
+    mobileSearchInputElem ?
+    mobileSearchInputElem.addEventListener('keydown', function(e) {
+      var keyCode = e.which || e.keyCode;
+      if (e.key === 'Escape' || keyCode === 27) {
+        if (mobileSearchContainer) {
+          mobileSearchContainer.style.display = 'none';
+        }
+        
+        if (mobileSearchInputElem) {
+          mobileSearchInputElem.value = '';
+        }
+
+        if (mobileSearchResultsElem) {
+          while (mobileSearchResultsElem.firstChild) {
+            mobileSearchResultsElem.removeChild(mobileSearchResultsElem.firstChild);
+          }
+        }
+        if (htmlElem) {
+          htmlElem.style.overflowY = 'visible';
+        }
+      }
+    }) : null;
+  
+
+
+  
+    function renderSearchResultsMain(searchText, results) {
+      var searchBody = document.querySelector('.search-result__body');
+      var originUl = searchBody.querySelector('ul');
+      var ul = document.createElement('ul');
+      
+      if (!searchText) {
+        searchResult ? searchResult.setAttribute('data-display', 'none') : null;
+        summaryContainer ? summaryContainer.setAttribute('data-display', 'block') : null;
+      } else if (results) {
+        if (results && results.length) {
+          results.forEach(function (result) {
+            makeLi(ul, result);
+          });
+
+          searchResult ? searchResult.setAttribute('data-display', 'block') : null;
+          summaryContainer ? summaryContainer.setAttribute('data-display', 'none') : null;
+        }
+      }
+
+      originUl.parentNode.replaceChild(ul, originUl);
+    }
+
+    function renderSearchHighlightResultsMain(searchText, results) {
+      var searchBody = document.querySelector('.search-result__body');
+      var originUl = searchBody.querySelector('ul');
+      var ul = document.createElement('ul');
+
+      if (!searchText) {
+        searchResult ? searchResult.setAttribute('data-display', 'none') : null;
+        summaryContainer ? summaryContainer.setAttribute('data-display', 'block') : null;
+      } else if (results) {
+        if (results && results.length) {
+          results.forEach(function (result) {
+            makeHighlightLi(ul, result);
+          });
+
+          searchResult ? searchResult.setAttribute('data-display', 'block') : null;
+          summaryContainer ? summaryContainer.setAttribute('data-display', 'none') : null;
+        }
+      }
+
+      originUl.parentNode.replaceChild(ul, originUl);
+    }
+  
+  });
+</script>    
+    
+
+
+<link rel="stylesheet" href="/css/main.min.css">
+
+
+    
+<link rel="alternate" type="application/rss&#43;xml" title="RSS" href="https://anthonylaiuppa.com/index.xml">
+
+<meta name="description" content="A repository of potentially useful information." />
+
+
+<meta name="created" content="2019-02-28T00:00:00&#43;0000">
+<meta name="modified" content="2019-02-28T00:00:00&#43;0000">
+<meta property="article:published_time" content="2019-02-28T00:00:00&#43;0000">
+
+<meta name="author" content="Anthony Laiuppa">
+
+
+<meta property="og:site_name" content="Laiuppa Blog">
+<meta property="og:title" content="">
+<meta property="og:url" content="https://anthonylaiuppa.com/">
+<meta property="og:type" content="website">
+<meta property="og:description" content="A repository of potentially useful information.">
+
+<meta name="generator" content="Hugo 0.69.2" />
+<meta name="msapplication-TileColor" content="#fff">
+
+<meta name="theme-color" content="#fff">
+
+<meta name="msapplication-navbutton-color" content="#fff">
+
+<meta name="apple-mobile-web-app-status-bar-style" content="#fff">
+
+<link rel="canonical" href="https://anthonylaiuppa.com/">
+
+<link rel="manifest" href="/manifest.json">
+
+  <link rel="apple-touch-icon" sizes="57x57" href="/favicon/apple-icon-57x57.png">
+  <link rel="apple-touch-icon" sizes="60x60" href="/favicon/apple-icon-60x60.png">
+  <link rel="apple-touch-icon" sizes="72x72" href="/favicon/apple-icon-72x72.png">
+  <link rel="apple-touch-icon" sizes="76x76" href="/favicon/apple-icon-76x76.png">
+  <link rel="apple-touch-icon" sizes="114x114" href="/favicon/apple-icon-114x114.png">
+  <link rel="apple-touch-icon" sizes="120x120" href="/favicon/apple-icon-120x120.png">
+  <link rel="apple-touch-icon" sizes="144x144" href="/favicon/apple-icon-144x144.png">
+  <link rel="apple-touch-icon" sizes="152x152" href="/favicon/apple-icon-152x152.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="/favicon/apple-icon-180x180.png">
+  <link rel="icon" type="image/png" sizes="192x192" href="/favicon/android-icon-192x192.png">
+  <link rel="icon" type="image/png" sizes="192x192" href="/favicon/android-icon-512x512.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="96x96" href="/favicon/favicon-96x96.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon/favicon-16x16.png">
+  <meta name="msapplication-TileColor" content="#ffffff">
+  <meta name="msapplication-TileImage" content="/ms-icon-144x144.png">
+
+
+    <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebPage",
+    "url" : "https://anthonylaiuppa.com/",
+    "name": "",
+    "description": "A repository of potentially useful information.",
+    "mainEntityOfPage": {
+      "@type": "WebPage",
+      "@id": "https://anthonylaiuppa.com"
+    },
+    "publisher": {
+      "@type": "Organization",
+      "name": "Laiuppa Blog",
+      "url": "https://anthonylaiuppa.com"
+    }
+  }
+</script>
+
+    
+  
+  
+
+
+
+
+
+
+
+    
+</head>
+
+<body id="root" class="theme__dark">
+    <script>
+        var localTheme = localStorage.getItem('theme');
+        if (localTheme) {
+            document.getElementById('root').className = 'theme__' + localTheme;
+        }
+    </script>
+    <div id="container">
+        
+
+
+
+
+
+        <div class="wrapper" data-type="page" data-kind="home">
+            <nav class="navbar" role="navigation" aria-label="main navigation" data-dir="ltr">
+  <div class="navbar__brand">
+    
+    <a href="/" title="Home" rel="home" class="navbar__logo-link">
+      <img src="/logo.png" alt="Home" class="navbar__logo">
+    </a>
+    
+    
+      <a href="/" title="Home" rel="home" class="navbar__title-link">
+        <h6 class="navbar__title">Laiuppa Blog</h6>
+      </a>
+    
+  </div>
+
+  
+<div class="theme theme-mobile" data-ani="true">
+  <div class="dropdown">
+    <button class="dropdown-trigger navbar__slide-down" aria-label="Select Theme Button" style="" data-ani="true">
+      <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24"><path fill="none" d="M24 0H0v24h24V0z"/><path fill="currentColor" d="M6.34 7.93c-3.12 3.12-3.12 8.19 0 11.31C7.9 20.8 9.95 21.58 12 21.58s4.1-.78 5.66-2.34c3.12-3.12 3.12-8.19 0-11.31l-4.95-4.95c-.39-.39-1.02-.39-1.41 0L6.34 7.93zM12 19.59c-1.6 0-3.11-.62-4.24-1.76C6.62 16.69 6 15.19 6 13.59s.62-3.11 1.76-4.24L12 5.1v14.49z"/></svg>      
+    </button>
+    <div class="dropdown-content select-theme">
+      
+        
+        <a href="#" class="dropdown-item select-theme__item is-active">
+          dark
+        </a>
+        
+        <a href="#" class="dropdown-item select-theme__item ">
+          light
+        </a>
+        
+        <a href="#" class="dropdown-item select-theme__item ">
+          hacker
+        </a>
+        
+        <a href="#" class="dropdown-item select-theme__item ">
+          solarized
+        </a>
+        
+        <a href="#" class="dropdown-item select-theme__item ">
+          kimbie
+        </a>
+        
+      
+    </div>
+  </div>
+</div>
+
+
+<div id="mobileSearchBtn" class="mobile-search__btn" data-ani="true">
+  <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" fill="currentColor" viewBox="0 0 24 24"><path fill="none" d="M0 0h24v24H0V0z"/><path d="M15.5 14h-.79l-.28-.27c1.2-1.4 1.82-3.31 1.48-5.34-.47-2.78-2.79-5-5.59-5.34-4.23-.52-7.79 3.04-7.27 7.27.34 2.8 2.56 5.12 5.34 5.59 2.03.34 3.94-.28 5.34-1.48l.27.28v.79l4.25 4.25c.41.41 1.08.41 1.49 0 .41-.41.41-1.08 0-1.49L15.5 14zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z"/></svg>
+</div>
+
+<div id="search-mobile-container" class="mobile-search hide" data-dir="ltr">
+  <div class="mobile-search__top">
+    <input id="search-mobile" type="text" aria-label="Mobile Search" placeholder="Search" class="mobile-search__top--input"/>
+    <div id="search-mobile-close" class="mobile-search__top--icon">
+      <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24"><path opacity=".87" fill="none" d="M0 0h24v24H0V0z"/><path fill="currentColor" d="M12 2C6.47 2 2 6.47 2 12s4.47 10 10 10 10-4.47 10-10S17.53 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8zm3.59-13L12 10.59 8.41 7 7 8.41 10.59 12 7 15.59 8.41 17 12 13.41 15.59 17 17 15.59 13.41 12 17 8.41z"/></svg>
+    </div>
+  </div>
+  <div id="search-mobile-results" class="mobile-search__body">
+    
+  </div>
+</div>
+
+
+<a role="button" class="navbar__burger" aria-label="menu" aria-expanded="false"
+  data-ani="true">
+  <span aria-hidden="true"></span>
+  <span aria-hidden="true"></span>
+  <span aria-hidden="true"></span>
+</a>
+<div class="navbarm__collapse" data-open="false">
+  <ul dir="ltr">
+    
+    
+      
+      
+      
+      
+
+      
+        <li class="navbarm__menu--item ">
+          <a href="/about">About</a>
+        </li>
+      
+      
+    
+      
+      
+      
+      
+
+      
+        <li class="navbarm__menu--item ">
+          <a href="/archive">Archive</a>
+        </li>
+      
+      
+    
+      
+      
+      
+      
+
+      
+        <li class="navbarm__menu--item ">
+          <a href="/posts">Posts</a>
+        </li>
+      
+      
+    
+      
+      
+      
+      
+
+      
+        <li class="navbarm__menu--item ">
+          <a href="/showcase">Showcase</a>
+        </li>
+      
+      
+    
+
+    
+      <li class="navbarm__menu--item ">
+        <a href="/tags" class="navbarm__menu--term" data-index="0">
+          Tags
+        </a>
+      </li>
+    
+      <li class="navbarm__menu--item ">
+        <a href="/categories" class="navbarm__menu--term" data-index="1">
+          Categories
+        </a>
+      </li>
+    
+      <li class="navbarm__menu--item ">
+        <a href="/series" class="navbarm__menu--term" data-index="2">
+          Series
+        </a>
+      </li>
+    
+  </ul>
+</div>
+  <div class="navbar__menu">
+  
+<div class="theme" data-ani="true">
+  <div class="dropdown">
+    <button class="dropdown-trigger navbar__slide-down" aria-label="Select Theme Button" data-ani="true">
+      <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24"><path fill="none" d="M24 0H0v24h24V0z"/><path fill="currentColor" d="M6.34 7.93c-3.12 3.12-3.12 8.19 0 11.31C7.9 20.8 9.95 21.58 12 21.58s4.1-.78 5.66-2.34c3.12-3.12 3.12-8.19 0-11.31l-4.95-4.95c-.39-.39-1.02-.39-1.41 0L6.34 7.93zM12 19.59c-1.6 0-3.11-.62-4.24-1.76C6.62 16.69 6 15.19 6 13.59s.62-3.11 1.76-4.24L12 5.1v14.49z"/></svg>      
+    </button>
+    <div class="dropdown-content select-theme">
+      
+        
+        <a href="#" class="dropdown-item select-theme__item is-active">
+          dark
+        </a>
+        
+        <a href="#" class="dropdown-item select-theme__item ">
+          light
+        </a>
+        
+        <a href="#" class="dropdown-item select-theme__item ">
+          hacker
+        </a>
+        
+        <a href="#" class="dropdown-item select-theme__item ">
+          solarized
+        </a>
+        
+        <a href="#" class="dropdown-item select-theme__item ">
+          kimbie
+        </a>
+        
+      
+    </div>
+  </div>
+</div>
+
+  
+  
+  
+  
+  
+  
+  
+  <a href="/about" class="navbar__menu-item navbar__slide-down " dir="ltr" data-ani="true">About</a>
+  
+  
+  
+  
+  
+  
+  
+  <a href="/archive" class="navbar__menu-item navbar__slide-down " dir="ltr" data-ani="true">Archive</a>
+  
+  
+  
+  
+  
+  
+  
+  <a href="/posts" class="navbar__menu-item navbar__slide-down " dir="ltr" data-ani="true">Posts</a>
+  
+  
+  
+  
+  
+  
+  
+  <a href="/showcase" class="navbar__menu-item navbar__slide-down " dir="ltr" data-ani="true">Showcase</a>
+  
+  
+</div>
+</nav>
+            
+<header class="header">
+    
+          
+  
+    
+      <div class="site-header basicflex-column site-header__align-center" data-ani="true" style="width: 100%; height: 200px; padding: 0px 50px;">
+        
+                    
+          
+          <div class="site-header__title site-header__title--shadow" style="font-size: 44px; ;">
+            Learn Hack Explore
+          </div>
+          
+        
+        
+          <div style="height: 16px"></div>
+        
+        
+           
+          <div class="site-header__subtitle" style="font-size: 18px; " data-cursive="true">
+            A repository of potentially useful information.
+          </div>
+                
+        
+      </div>
+    
+  
+    
+  
+    
+  
+
+    
+</header>
+
+            
+<main class="main inner" data-sidebar-position="right">
+    <div class="list__main lm">
+        <div class="summary__container" data-display="block">
+            
+            
+                
+            
+                
+            
+                
+            
+                
+            
+                
+            
+                
+            
+                
+            
+            
+            
+                
+  <article class="summary-classic" data-ani="true">
+  <div class="summary-classic__flex-box" >
+
+    
+    <div class="summary-classic__image-container summary-classic__image-wrapper" data-position="right" data-hwm="">
+      <a href="https://anthonylaiuppa.com/posts/golang-api-scraping/">
+        <img data-src="/images/posts/golang-scraping/gopher.png" alt="Effortless API Scraping With Golang" src="data:image/svg+xml,%0A%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24'%3E%3Cpath fill='none' d='M0 0h24v24H0V0z'/%3E%3Cpath fill='%23aaa' d='M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm-1 16H6c-.55 0-1-.45-1-1V6c0-.55.45-1 1-1h12c.55 0 1 .45 1 1v12c0 .55-.45 1-1 1zm-4.44-6.19l-2.35 3.02-1.56-1.88c-.2-.25-.58-.24-.78.01l-1.74 2.23c-.26.33-.02.81.39.81h8.98c.41 0 .65-.47.4-.8l-2.55-3.39c-.19-.26-.59-.26-.79 0z'/%3E%3C/svg%3E" class="lazyload summary-classic__image" data-ani="true" data-hwm="" style=""/>
+      </a>
+    </div>
+    
+
+    <div class="summary-classic__content">
+      <header>
+        <h5 class="title h5"><a href='https://anthonylaiuppa.com/posts/golang-api-scraping/'> Effortless API Scraping With Golang</a> </h5>
+        <h6 class="subtitle caption">
+          <time title="Written At" dir="ltr">📅&nbsp;Apr 24, 2020 </time>
+          
+          <span title="Reading Time" dir="ltr"> &middot; ☕&nbsp;4&nbsp;min read </span>
+          
+        </h6>
+      </header>
+      <div>
+        <div class="summary-classic__text p2">
+          
+            Scraping APIs has never been easier
+          
+        </div>
+      </div>
+    </div>
+
+    
+    
+  </div>
+  <hr />
+</article>
+
+            
+                
+  <article class="summary-classic" data-ani="true">
+  <div class="summary-classic__flex-box" >
+
+    
+    <div class="summary-classic__image-container summary-classic__image-wrapper" data-position="right" data-hwm="">
+      <a href="https://anthonylaiuppa.com/posts/market-sentiment/">
+        <img data-src="/images/posts/market-sentiment/sentiment.png" alt="Stock Market Sentiment Analysis" src="data:image/svg+xml,%0A%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24'%3E%3Cpath fill='none' d='M0 0h24v24H0V0z'/%3E%3Cpath fill='%23aaa' d='M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm-1 16H6c-.55 0-1-.45-1-1V6c0-.55.45-1 1-1h12c.55 0 1 .45 1 1v12c0 .55-.45 1-1 1zm-4.44-6.19l-2.35 3.02-1.56-1.88c-.2-.25-.58-.24-.78.01l-1.74 2.23c-.26.33-.02.81.39.81h8.98c.41 0 .65-.47.4-.8l-2.55-3.39c-.19-.26-.59-.26-.79 0z'/%3E%3C/svg%3E" class="lazyload summary-classic__image" data-ani="true" data-hwm="" style=""/>
+      </a>
+    </div>
+    
+
+    <div class="summary-classic__content">
+      <header>
+        <h5 class="title h5"><a href='https://anthonylaiuppa.com/posts/market-sentiment/'> Stock Market Sentiment Analysis</a> </h5>
+        <h6 class="subtitle caption">
+          <time title="Written At" dir="ltr">📅&nbsp;Mar 5, 2020 </time>
+          
+          <span title="Reading Time" dir="ltr"> &middot; ☕&nbsp;6&nbsp;min read </span>
+          
+        </h6>
+      </header>
+      <div>
+        <div class="summary-classic__text p2">
+          
+            Assessing sentiment from social media posts using machine learning
+          
+        </div>
+      </div>
+    </div>
+
+    
+    
+  </div>
+  <hr />
+</article>
+
+            
+                
+  <article class="summary-classic" data-ani="true">
+  <div class="summary-classic__flex-box" >
+
+    
+    <div class="summary-classic__image-container summary-classic__image-wrapper" data-position="right" data-hwm="">
+      <a href="https://anthonylaiuppa.com/posts/maze-runner/">
+        <img data-src="/images/posts/maze-runner/mazerunners.jpg" alt="Maze runner" src="data:image/svg+xml,%0A%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24'%3E%3Cpath fill='none' d='M0 0h24v24H0V0z'/%3E%3Cpath fill='%23aaa' d='M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm-1 16H6c-.55 0-1-.45-1-1V6c0-.55.45-1 1-1h12c.55 0 1 .45 1 1v12c0 .55-.45 1-1 1zm-4.44-6.19l-2.35 3.02-1.56-1.88c-.2-.25-.58-.24-.78.01l-1.74 2.23c-.26.33-.02.81.39.81h8.98c.41 0 .65-.47.4-.8l-2.55-3.39c-.19-.26-.59-.26-.79 0z'/%3E%3C/svg%3E" class="lazyload summary-classic__image" data-ani="true" data-hwm="" style=""/>
+      </a>
+    </div>
+    
+
+    <div class="summary-classic__content">
+      <header>
+        <h5 class="title h5"><a href='https://anthonylaiuppa.com/posts/maze-runner/'> Maze runner</a> </h5>
+        <h6 class="subtitle caption">
+          <time title="Written At" dir="ltr">📅&nbsp;Oct 17, 2019 </time>
+          
+          <span title="Reading Time" dir="ltr"> &middot; ☕&nbsp;4&nbsp;min read </span>
+          
+        </h6>
+      </header>
+      <div>
+        <div class="summary-classic__text p2">
+          
+            Gophers running mazes
+          
+        </div>
+      </div>
+    </div>
+
+    
+    
+  </div>
+  <hr />
+</article>
+
+            
+                
+  <article class="summary-classic" data-ani="true">
+  <div class="summary-classic__flex-box" >
+
+    
+    <div class="summary-classic__image-container summary-classic__image-wrapper" data-position="right" data-hwm="">
+      <a href="https://anthonylaiuppa.com/posts/one-command/">
+        <img data-src="/images/posts/one-command/legowall.jpg" alt="Terraforming complete AWS-Kubernetes clusers" src="data:image/svg+xml,%0A%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24'%3E%3Cpath fill='none' d='M0 0h24v24H0V0z'/%3E%3Cpath fill='%23aaa' d='M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm-1 16H6c-.55 0-1-.45-1-1V6c0-.55.45-1 1-1h12c.55 0 1 .45 1 1v12c0 .55-.45 1-1 1zm-4.44-6.19l-2.35 3.02-1.56-1.88c-.2-.25-.58-.24-.78.01l-1.74 2.23c-.26.33-.02.81.39.81h8.98c.41 0 .65-.47.4-.8l-2.55-3.39c-.19-.26-.59-.26-.79 0z'/%3E%3C/svg%3E" class="lazyload summary-classic__image" data-ani="true" data-hwm="" style=""/>
+      </a>
+    </div>
+    
+
+    <div class="summary-classic__content">
+      <header>
+        <h5 class="title h5"><a href='https://anthonylaiuppa.com/posts/one-command/'> Terraforming complete AWS-Kubernetes clusers</a> </h5>
+        <h6 class="subtitle caption">
+          <time title="Written At" dir="ltr">📅&nbsp;Jan 27, 2019 </time>
+          
+          <span title="Reading Time" dir="ltr"> &middot; ☕&nbsp;7&nbsp;min read </span>
+          
+        </h6>
+      </header>
+      <div>
+        <div class="summary-classic__text p2">
+          
+            So many buzzwords....
+          
+        </div>
+      </div>
+    </div>
+
+    
+    
+  </div>
+  <hr />
+</article>
+
+            
+                
+  <article class="summary-classic" data-ani="true">
+  <div class="summary-classic__flex-box" >
+
+    
+    <div class="summary-classic__image-container summary-classic__image-wrapper" data-position="right" data-hwm="">
+      <a href="https://anthonylaiuppa.com/posts/kringlecon/">
+        <img data-src="/images/posts/kringlecon/flag.png" alt="Kringlecon 2018" src="data:image/svg+xml,%0A%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24'%3E%3Cpath fill='none' d='M0 0h24v24H0V0z'/%3E%3Cpath fill='%23aaa' d='M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm-1 16H6c-.55 0-1-.45-1-1V6c0-.55.45-1 1-1h12c.55 0 1 .45 1 1v12c0 .55-.45 1-1 1zm-4.44-6.19l-2.35 3.02-1.56-1.88c-.2-.25-.58-.24-.78.01l-1.74 2.23c-.26.33-.02.81.39.81h8.98c.41 0 .65-.47.4-.8l-2.55-3.39c-.19-.26-.59-.26-.79 0z'/%3E%3C/svg%3E" class="lazyload summary-classic__image" data-ani="true" data-hwm="" style=""/>
+      </a>
+    </div>
+    
+
+    <div class="summary-classic__content">
+      <header>
+        <h5 class="title h5"><a href='https://anthonylaiuppa.com/posts/kringlecon/'> Kringlecon 2018</a> </h5>
+        <h6 class="subtitle caption">
+          <time title="Written At" dir="ltr">📅&nbsp;Jan 14, 2019 </time>
+          
+          <span title="Reading Time" dir="ltr"> &middot; ☕&nbsp;20&nbsp;min read </span>
+          
+        </h6>
+      </header>
+      <div>
+        <div class="summary-classic__text p2">
+          
+            SANS Holiday Hacking Challenge
+          
+        </div>
+      </div>
+    </div>
+
+    
+    
+  </div>
+  <hr />
+</article>
+
+            
+                
+  <article class="summary-classic" data-ani="true">
+  <div class="summary-classic__flex-box" >
+
+    
+    <div class="summary-classic__image-container summary-classic__image-wrapper" data-position="right" data-hwm="">
+      <a href="https://anthonylaiuppa.com/posts/more-ctf-fun/">
+        <img data-src="/images/posts/more-ctf-fun/flag.png" alt="More CTF fun!" src="data:image/svg+xml,%0A%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24'%3E%3Cpath fill='none' d='M0 0h24v24H0V0z'/%3E%3Cpath fill='%23aaa' d='M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm-1 16H6c-.55 0-1-.45-1-1V6c0-.55.45-1 1-1h12c.55 0 1 .45 1 1v12c0 .55-.45 1-1 1zm-4.44-6.19l-2.35 3.02-1.56-1.88c-.2-.25-.58-.24-.78.01l-1.74 2.23c-.26.33-.02.81.39.81h8.98c.41 0 .65-.47.4-.8l-2.55-3.39c-.19-.26-.59-.26-.79 0z'/%3E%3C/svg%3E" class="lazyload summary-classic__image" data-ani="true" data-hwm="" style=""/>
+      </a>
+    </div>
+    
+
+    <div class="summary-classic__content">
+      <header>
+        <h5 class="title h5"><a href='https://anthonylaiuppa.com/posts/more-ctf-fun/'> More CTF fun!</a> </h5>
+        <h6 class="subtitle caption">
+          <time title="Written At" dir="ltr">📅&nbsp;Dec 16, 2018 </time>
+          
+          <span title="Reading Time" dir="ltr"> &middot; ☕&nbsp;3&nbsp;min read </span>
+          
+        </h6>
+      </header>
+      <div>
+        <div class="summary-classic__text p2">
+          
+            Remember, keep it simple
+          
+        </div>
+      </div>
+    </div>
+
+    
+    
+  </div>
+  <hr />
+</article>
+
+            
+                
+  <article class="summary-classic" data-ani="true">
+  <div class="summary-classic__flex-box" >
+
+    
+    <div class="summary-classic__image-container summary-classic__image-wrapper" data-position="right" data-hwm="">
+      <a href="https://anthonylaiuppa.com/posts/ezctf-full-stack/">
+        <img data-src="/images/posts/ezctf-full-stack/flag.png" alt="EZCTF, a full stack webapp.." src="data:image/svg+xml,%0A%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24'%3E%3Cpath fill='none' d='M0 0h24v24H0V0z'/%3E%3Cpath fill='%23aaa' d='M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm-1 16H6c-.55 0-1-.45-1-1V6c0-.55.45-1 1-1h12c.55 0 1 .45 1 1v12c0 .55-.45 1-1 1zm-4.44-6.19l-2.35 3.02-1.56-1.88c-.2-.25-.58-.24-.78.01l-1.74 2.23c-.26.33-.02.81.39.81h8.98c.41 0 .65-.47.4-.8l-2.55-3.39c-.19-.26-.59-.26-.79 0z'/%3E%3C/svg%3E" class="lazyload summary-classic__image" data-ani="true" data-hwm="" style=""/>
+      </a>
+    </div>
+    
+
+    <div class="summary-classic__content">
+      <header>
+        <h5 class="title h5"><a href='https://anthonylaiuppa.com/posts/ezctf-full-stack/'> EZCTF, a full stack webapp..</a> </h5>
+        <h6 class="subtitle caption">
+          <time title="Written At" dir="ltr">📅&nbsp;Nov 21, 2018 </time>
+          
+          <span title="Reading Time" dir="ltr"> &middot; ☕&nbsp;8&nbsp;min read </span>
+          
+        </h6>
+      </header>
+      <div>
+        <div class="summary-classic__text p2">
+          
+            Capture The Flag!
+          
+        </div>
+      </div>
+    </div>
+
+    
+    
+  </div>
+  <hr />
+</article>
+
+            
+                
+  <article class="summary-classic" data-ani="true">
+  <div class="summary-classic__flex-box" >
+
+    
+    <div class="summary-classic__image-container summary-classic__image-wrapper" data-position="right" data-hwm="">
+      <a href="https://anthonylaiuppa.com/posts/goku-will-it-scale/">
+        <img data-src="/images/posts/goku-will-it-scale/gophers_scale.jpg" alt="GoKu, scaling the kube to the max!" src="data:image/svg+xml,%0A%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24'%3E%3Cpath fill='none' d='M0 0h24v24H0V0z'/%3E%3Cpath fill='%23aaa' d='M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm-1 16H6c-.55 0-1-.45-1-1V6c0-.55.45-1 1-1h12c.55 0 1 .45 1 1v12c0 .55-.45 1-1 1zm-4.44-6.19l-2.35 3.02-1.56-1.88c-.2-.25-.58-.24-.78.01l-1.74 2.23c-.26.33-.02.81.39.81h8.98c.41 0 .65-.47.4-.8l-2.55-3.39c-.19-.26-.59-.26-.79 0z'/%3E%3C/svg%3E" class="lazyload summary-classic__image" data-ani="true" data-hwm="" style=""/>
+      </a>
+    </div>
+    
+
+    <div class="summary-classic__content">
+      <header>
+        <h5 class="title h5"><a href='https://anthonylaiuppa.com/posts/goku-will-it-scale/'> GoKu, scaling the kube to the max!</a> </h5>
+        <h6 class="subtitle caption">
+          <time title="Written At" dir="ltr">📅&nbsp;Nov 6, 2018 </time>
+          
+          <span title="Reading Time" dir="ltr"> &middot; ☕&nbsp;4&nbsp;min read </span>
+          
+        </h6>
+      </header>
+      <div>
+        <div class="summary-classic__text p2">
+          
+            The program is containerized so....
+          
+        </div>
+      </div>
+    </div>
+
+    
+    
+  </div>
+  <hr />
+</article>
+
+            
+                
+  <article class="summary-classic" data-ani="true">
+  <div class="summary-classic__flex-box" >
+
+    
+    <div class="summary-classic__image-container summary-classic__image-wrapper" data-position="right" data-hwm="">
+      <a href="https://anthonylaiuppa.com/posts/goku-distributed-computing/">
+        <img data-src="/images/posts/goku-distributed-computing/gopher.png" alt="GoKu distributed computing" src="data:image/svg+xml,%0A%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24'%3E%3Cpath fill='none' d='M0 0h24v24H0V0z'/%3E%3Cpath fill='%23aaa' d='M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm-1 16H6c-.55 0-1-.45-1-1V6c0-.55.45-1 1-1h12c.55 0 1 .45 1 1v12c0 .55-.45 1-1 1zm-4.44-6.19l-2.35 3.02-1.56-1.88c-.2-.25-.58-.24-.78.01l-1.74 2.23c-.26.33-.02.81.39.81h8.98c.41 0 .65-.47.4-.8l-2.55-3.39c-.19-.26-.59-.26-.79 0z'/%3E%3C/svg%3E" class="lazyload summary-classic__image" data-ani="true" data-hwm="" style=""/>
+      </a>
+    </div>
+    
+
+    <div class="summary-classic__content">
+      <header>
+        <h5 class="title h5"><a href='https://anthonylaiuppa.com/posts/goku-distributed-computing/'> GoKu distributed computing</a> </h5>
+        <h6 class="subtitle caption">
+          <time title="Written At" dir="ltr">📅&nbsp;Nov 4, 2018 </time>
+          
+          <span title="Reading Time" dir="ltr"> &middot; ☕&nbsp;4&nbsp;min read </span>
+          
+        </h6>
+      </header>
+      <div>
+        <div class="summary-classic__text p2">
+          
+            featuring Golang, Docker, and Kubernetes!
+          
+        </div>
+      </div>
+    </div>
+
+    
+    
+  </div>
+  <hr />
+</article>
+
+            
+                
+  <article class="summary-classic" data-ani="true">
+  <div class="summary-classic__flex-box" >
+
+    
+    <div class="summary-classic__image-container summary-classic__image-wrapper" data-position="right" data-hwm="">
+      <a href="https://anthonylaiuppa.com/posts/mapping-website-attack-surface/">
+        <img data-src="/images/posts/mapping-website-attack-surface/map_cover.png" alt="Mapping website attack surfaces" src="data:image/svg+xml,%0A%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24'%3E%3Cpath fill='none' d='M0 0h24v24H0V0z'/%3E%3Cpath fill='%23aaa' d='M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm-1 16H6c-.55 0-1-.45-1-1V6c0-.55.45-1 1-1h12c.55 0 1 .45 1 1v12c0 .55-.45 1-1 1zm-4.44-6.19l-2.35 3.02-1.56-1.88c-.2-.25-.58-.24-.78.01l-1.74 2.23c-.26.33-.02.81.39.81h8.98c.41 0 .65-.47.4-.8l-2.55-3.39c-.19-.26-.59-.26-.79 0z'/%3E%3C/svg%3E" class="lazyload summary-classic__image" data-ani="true" data-hwm="" style=""/>
+      </a>
+    </div>
+    
+
+    <div class="summary-classic__content">
+      <header>
+        <h5 class="title h5"><a href='https://anthonylaiuppa.com/posts/mapping-website-attack-surface/'> Mapping website attack surfaces</a> </h5>
+        <h6 class="subtitle caption">
+          <time title="Written At" dir="ltr">📅&nbsp;Oct 23, 2018 </time>
+          
+          <span title="Reading Time" dir="ltr"> &middot; ☕&nbsp;5&nbsp;min read </span>
+          
+        </h6>
+      </header>
+      <div>
+        <div class="summary-classic__text p2">
+          
+            ...using our own custom scanning tool!
+          
+        </div>
+      </div>
+    </div>
+
+    
+    
+  </div>
+  <hr />
+</article>
+
+            
+                
+  <article class="summary-classic" data-ani="true">
+  <div class="summary-classic__flex-box" >
+
+    
+    <div class="summary-classic__image-container summary-classic__image-wrapper" data-position="right" data-hwm="">
+      <a href="https://anthonylaiuppa.com/posts/six-years-of-links/">
+        <img data-src="/images/posts/six-years-of-links/best_word_cloud.png" alt="Six years of saved links" src="data:image/svg+xml,%0A%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24'%3E%3Cpath fill='none' d='M0 0h24v24H0V0z'/%3E%3Cpath fill='%23aaa' d='M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm-1 16H6c-.55 0-1-.45-1-1V6c0-.55.45-1 1-1h12c.55 0 1 .45 1 1v12c0 .55-.45 1-1 1zm-4.44-6.19l-2.35 3.02-1.56-1.88c-.2-.25-.58-.24-.78.01l-1.74 2.23c-.26.33-.02.81.39.81h8.98c.41 0 .65-.47.4-.8l-2.55-3.39c-.19-.26-.59-.26-.79 0z'/%3E%3C/svg%3E" class="lazyload summary-classic__image" data-ani="true" data-hwm="" style=""/>
+      </a>
+    </div>
+    
+
+    <div class="summary-classic__content">
+      <header>
+        <h5 class="title h5"><a href='https://anthonylaiuppa.com/posts/six-years-of-links/'> Six years of saved links</a> </h5>
+        <h6 class="subtitle caption">
+          <time title="Written At" dir="ltr">📅&nbsp;May 3, 2018 </time>
+          
+          <span title="Reading Time" dir="ltr"> &middot; ☕&nbsp;36&nbsp;min read </span>
+          
+        </h6>
+      </header>
+      <div>
+        <div class="summary-classic__text p2">
+          
+            ..and a wordcloud!
+          
+        </div>
+      </div>
+    </div>
+
+    
+    
+  </div>
+  <hr />
+</article>
+
+            
+                
+  <article class="summary-classic" data-ani="true">
+  <div class="summary-classic__flex-box" >
+
+    
+    <div class="summary-classic__image-container summary-classic__image-wrapper" data-position="right" data-hwm="">
+      <a href="https://anthonylaiuppa.com/posts/harbormaster/">
+        <img data-src="/images/posts/harbormaster/tasks.png" alt="Harbormaster" src="data:image/svg+xml,%0A%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24'%3E%3Cpath fill='none' d='M0 0h24v24H0V0z'/%3E%3Cpath fill='%23aaa' d='M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm-1 16H6c-.55 0-1-.45-1-1V6c0-.55.45-1 1-1h12c.55 0 1 .45 1 1v12c0 .55-.45 1-1 1zm-4.44-6.19l-2.35 3.02-1.56-1.88c-.2-.25-.58-.24-.78.01l-1.74 2.23c-.26.33-.02.81.39.81h8.98c.41 0 .65-.47.4-.8l-2.55-3.39c-.19-.26-.59-.26-.79 0z'/%3E%3C/svg%3E" class="lazyload summary-classic__image" data-ani="true" data-hwm="" style=""/>
+      </a>
+    </div>
+    
+
+    <div class="summary-classic__content">
+      <header>
+        <h5 class="title h5"><a href='https://anthonylaiuppa.com/posts/harbormaster/'> Harbormaster</a> </h5>
+        <h6 class="subtitle caption">
+          <time title="Written At" dir="ltr">📅&nbsp;Apr 18, 2018 </time>
+          
+          <span title="Reading Time" dir="ltr"> &middot; ☕&nbsp;6&nbsp;min read </span>
+          
+        </h6>
+      </header>
+      <div>
+        <div class="summary-classic__text p2">
+          
+            Containers, so hot right now
+          
+        </div>
+      </div>
+    </div>
+
+    
+    
+  </div>
+  <hr />
+</article>
+
+            
+                
+  <article class="summary-classic" data-ani="true">
+  <div class="summary-classic__flex-box" >
+
+    
+    <div class="summary-classic__image-container summary-classic__image-wrapper" data-position="right" data-hwm="">
+      <a href="https://anthonylaiuppa.com/posts/breaking-into-penetration-testing/">
+        <img data-src="/images/posts/breaking-into-penetration-testing/generateVM.PNG" alt="Breaking into penetration testing" src="data:image/svg+xml,%0A%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24'%3E%3Cpath fill='none' d='M0 0h24v24H0V0z'/%3E%3Cpath fill='%23aaa' d='M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm-1 16H6c-.55 0-1-.45-1-1V6c0-.55.45-1 1-1h12c.55 0 1 .45 1 1v12c0 .55-.45 1-1 1zm-4.44-6.19l-2.35 3.02-1.56-1.88c-.2-.25-.58-.24-.78.01l-1.74 2.23c-.26.33-.02.81.39.81h8.98c.41 0 .65-.47.4-.8l-2.55-3.39c-.19-.26-.59-.26-.79 0z'/%3E%3C/svg%3E" class="lazyload summary-classic__image" data-ani="true" data-hwm="" style=""/>
+      </a>
+    </div>
+    
+
+    <div class="summary-classic__content">
+      <header>
+        <h5 class="title h5"><a href='https://anthonylaiuppa.com/posts/breaking-into-penetration-testing/'> Breaking into penetration testing</a> </h5>
+        <h6 class="subtitle caption">
+          <time title="Written At" dir="ltr">📅&nbsp;Oct 27, 2017 </time>
+          
+          <span title="Reading Time" dir="ltr"> &middot; ☕&nbsp;5&nbsp;min read </span>
+          
+        </h6>
+      </header>
+      <div>
+        <div class="summary-classic__text p2">
+          
+            ...how do you pronounce Kali?
+          
+        </div>
+      </div>
+    </div>
+
+    
+    
+  </div>
+  <hr />
+</article>
+
+            
+            
+
+
+  
+  
+  
+  
+    
+  
+  <ul class="pagination">
+    
+      
+      <script>
+      </script>
+      
+        <li
+        class="active"><a href="/">1</a></li>
+      
+    
+      
+      <script>
+      </script>
+      
+        <li
+        ><a href="/page/2/">2</a></li>
+      
+    
+  </ul>
+
+        </div>
+        <div class="search-result" data-display="none">
+  <div class="search-result__header">
+    <div class="search-result__close" data-dir="ltr">
+      <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24"><path opacity=".87" fill="none" d="M0 0h24v24H0V0z"/><path fill="currentColor" d="M12 2C6.47 2 2 6.47 2 12s4.47 10 10 10 10-4.47 10-10S17.53 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8zm3.59-13L12 10.59 8.41 7 7 8.41 10.59 12 7 15.59 8.41 17 12 13.41 15.59 17 17 15.59 13.41 12 17 8.41z"/></svg>
+    </div>
+  </div>
+  <div class="search-result__body">
+    <ul>
+      <li class="search-result__item">
+        <div class="search-result__item--title">
+        </div>
+        <div class="search-result__item--desc">
+        </div>
+      </li>
+    </ul>
+  </div>
+</div>
+    </div>
+
+    
+        <aside class="list__sidebar r" data-dir="ltr">
+            
+<div class="sidebar">
+    
+
+<div class="search">
+  <span class="icon">
+    <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" fill="currentColor" viewBox="0 0 24 24"><path fill="none" d="M0 0h24v24H0V0z"/><path d="M15.5 14h-.79l-.28-.27c1.2-1.4 1.82-3.31 1.48-5.34-.47-2.78-2.79-5-5.59-5.34-4.23-.52-7.79 3.04-7.27 7.27.34 2.8 2.56 5.12 5.34 5.59 2.03.34 3.94-.28 5.34-1.48l.27.28v.79l4.25 4.25c.41.41 1.08.41 1.49 0 .41-.41.41-1.08 0-1.49L15.5 14zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z"/></svg>
+  </span>
+  <input id="search" aria-label="Site Search" class="input" type="text" placeholder="Search" autocomplete="off">
+  <div id="search-results" class="dropdown">
+    <div id="search-menu" class="dropdown-menu" role="menu">
+    </div>
+  </div>
+</div>
+
+
+    
+<section class="bio" data-dir="ltr">
+  
+  <hr class="hr-slash bio-hr"/>
+  <div class="bio__photo-wrapper">
+    
+    
+      
+        <img data-src="/images/whoami/avatar.jpg" alt="Anthony Laiuppa" src="data:image/svg+xml,%0A%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24'%3E%3Cpath fill='none' d='M0 0h24v24H0V0z'/%3E%3Cpath fill='%23aaa' d='M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm-1 16H6c-.55 0-1-.45-1-1V6c0-.55.45-1 1-1h12c.55 0 1 .45 1 1v12c0 .55-.45 1-1 1zm-4.44-6.19l-2.35 3.02-1.56-1.88c-.2-.25-.58-.24-.78.01l-1.74 2.23c-.26.33-.02.81.39.81h8.98c.41 0 .65-.47.4-.8l-2.55-3.39c-.19-.26-.59-.26-.79 0z'/%3E%3C/svg%3E" class="lazyload bio__photo" data-ani="true"/>
+           
+    
+  </div>
+  
+  <hr class="hr-slash bio-hr"/>
+  <div class="bio__name">
+    Anthony Laiuppa
+  </div>
+  <div class="bio__desc">
+    DevSecOps Engineer
+  </div>
+  
+  
+
+  
+  <div class="bio__info">
+    <div class="bio__info--icon">
+      <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24"><path fill="none" d="M0 0h24v24H0V0z"/><path fill="currentColor" d="M12 8c-2.21 0-4 1.79-4 4s1.79 4 4 4 4-1.79 4-4-1.79-4-4-4zm8.94 3c-.46-4.17-3.77-7.48-7.94-7.94V2c0-.55-.45-1-1-1s-1 .45-1 1v1.06C6.83 3.52 3.52 6.83 3.06 11H2c-.55 0-1 .45-1 1s.45 1 1 1h1.06c.46 4.17 3.77 7.48 7.94 7.94V22c0 .55.45 1 1 1s1-.45 1-1v-1.06c4.17-.46 7.48-3.77 7.94-7.94H22c.55 0 1-.45 1-1s-.45-1-1-1h-1.06zM12 19c-3.87 0-7-3.13-7-7s3.13-7 7-7 7 3.13 7 7-3.13 7-7 7z"/></svg>
+    </div>
+    Florida, USA
+  </div>
+  
+
+  
+
+  
+  <div class="bio__info">
+    <div class="bio__info--icon">
+      <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24"><path fill="none" d="M0 0h24v24H0V0z"/><path fill="currentColor" d="M17 7h-3c-.55 0-1 .45-1 1s.45 1 1 1h3c1.65 0 3 1.35 3 3s-1.35 3-3 3h-3c-.55 0-1 .45-1 1s.45 1 1 1h3c2.76 0 5-2.24 5-5s-2.24-5-5-5zm-9 5c0 .55.45 1 1 1h6c.55 0 1-.45 1-1s-.45-1-1-1H9c-.55 0-1 .45-1 1zm2 3H7c-1.65 0-3-1.35-3-3s1.35-3 3-3h3c.55 0 1-.45 1-1s-.45-1-1-1H7c-2.76 0-5 2.24-5 5s2.24 5 5 5h3c.55 0 1-.45 1-1s-.45-1-1-1z"/></svg>
+    </div>
+    <a href="https://anthonylaiuppa.com/" target="_blank" rel="noreferrer">https://anthonylaiuppa.com/</a>    
+  </div>
+  
+
+  <div class="bio__social">
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+      <a href="https://github.com/AnthonyLaiuppa" target="_blank" rel="noreferrer" title="github" aria-label="github">
+        <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="25" height="25" viewBox="0 0 24 24" version="1.1">
+<g id="surface3680">
+<path fill="currentColor" d="M 10.898438 2.101562 C 6.300781 2.601562 2.601562 6.300781 2.101562 10.800781 C 1.601562 15.5 4.300781 19.699219 8.398438 21.300781 C 8.699219 21.398438 9 21.199219 9 20.800781 L 9 19.199219 C 9 19.199219 8.601562 19.300781 8.101562 19.300781 C 6.699219 19.300781 6.101562 18.101562 6 17.398438 C 5.898438 17 5.699219 16.699219 5.398438 16.398438 C 5.101562 16.300781 5 16.300781 5 16.199219 C 5 16 5.300781 16 5.398438 16 C 6 16 6.5 16.699219 6.699219 17 C 7.199219 17.800781 7.800781 18 8.101562 18 C 8.5 18 8.800781 17.898438 9 17.800781 C 9.101562 17.101562 9.398438 16.398438 10 16 C 7.699219 15.5 6 14.199219 6 12 C 6 10.898438 6.5 9.800781 7.199219 9 C 7.101562 8.800781 7 8.300781 7 7.601562 C 7 7.199219 7 6.601562 7.300781 6 C 7.300781 6 8.699219 6 10.101562 7.300781 C 10.601562 7.101562 11.300781 7 12 7 C 12.699219 7 13.398438 7.101562 14 7.300781 C 15.300781 6 16.800781 6 16.800781 6 C 17 6.601562 17 7.199219 17 7.601562 C 17 8.398438 16.898438 8.800781 16.800781 9 C 17.5 9.800781 18 10.800781 18 12 C 18 14.199219 16.300781 15.5 14 16 C 14.601562 16.5 15 17.398438 15 18.300781 L 15 20.898438 C 15 21.199219 15.300781 21.5 15.699219 21.398438 C 19.398438 19.898438 22 16.300781 22 12.101562 C 22 6.101562 16.898438 1.398438 10.898438 2.101562 Z M 10.898438 2.101562 "/>
+</g>
+</svg>
+
+      </a>
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+      <a href="https://www.linkedin.com/in/anthony-laiuppa-52a43085" target="_blank" rel="noreferrer" title="linkedin" aria-label="linkedin">
+        <svg xmlns="http://www.w3.org/2000/svg" fill="#000000" viewBox="0 0 30 30" width="25" height="25"><path fill="currentColor" d="M24,4H6C4.895,4,4,4.895,4,6v18c0,1.105,0.895,2,2,2h18c1.105,0,2-0.895,2-2V6C26,4.895,25.105,4,24,4z M10.954,22h-2.95 v-9.492h2.95V22z M9.449,11.151c-0.951,0-1.72-0.771-1.72-1.72c0-0.949,0.77-1.719,1.72-1.719c0.948,0,1.719,0.771,1.719,1.719 C11.168,10.38,10.397,11.151,9.449,11.151z M22.004,22h-2.948v-4.616c0-1.101-0.02-2.517-1.533-2.517 c-1.535,0-1.771,1.199-1.771,2.437V22h-2.948v-9.492h2.83v1.297h0.04c0.394-0.746,1.356-1.533,2.791-1.533 c2.987,0,3.539,1.966,3.539,4.522V22z"/></svg>
+
+      </a>
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+      <a href="https://twitter.com/Florida_Mane" target="_blank" rel="noreferrer" title="twitter" aria-label="twitter">
+        <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="25" height="25" viewBox="0 0 32 32" version="1.1">
+<g id="surface676">
+<path fill="currentColor" d="M 28 8.558594 C 27.117188 8.949219 26.167969 9.214844 25.171875 9.332031 C 26.1875 8.722656 26.96875 7.757812 27.335938 6.609375 C 26.386719 7.171875 25.332031 7.582031 24.210938 7.804688 C 23.3125 6.847656 22.03125 6.246094 20.617188 6.246094 C 17.898438 6.246094 15.691406 8.453125 15.691406 11.171875 C 15.691406 11.558594 15.734375 11.933594 15.820312 12.292969 C 11.726562 12.089844 8.097656 10.128906 5.671875 7.148438 C 5.246094 7.875 5.003906 8.722656 5.003906 9.625 C 5.003906 11.332031 5.871094 12.839844 7.195312 13.722656 C 6.386719 13.695312 5.628906 13.476562 4.964844 13.105469 C 4.964844 13.128906 4.964844 13.148438 4.964844 13.167969 C 4.964844 15.554688 6.660156 17.546875 8.914062 17.996094 C 8.5 18.109375 8.066406 18.171875 7.617188 18.171875 C 7.300781 18.171875 6.988281 18.140625 6.691406 18.082031 C 7.316406 20.039062 9.136719 21.460938 11.289062 21.503906 C 9.605469 22.824219 7.480469 23.609375 5.175781 23.609375 C 4.777344 23.609375 4.386719 23.585938 4 23.539062 C 6.179688 24.9375 8.765625 25.753906 11.546875 25.753906 C 20.605469 25.753906 25.558594 18.25 25.558594 11.742188 C 25.558594 11.53125 25.550781 11.316406 25.542969 11.105469 C 26.503906 10.410156 27.339844 9.542969 28 8.558594 Z M 28 8.558594 "/>
+</g>
+</svg>
+
+      </a>
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+  </div>
+</section>
+<hr class="hr-fade sidebar-hr"/>
+
+
+    
+    
+
+    
+        
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+
+        
+        <section class="sidebar-recent">
+            <a href="/posts/" class="sidebar-recent__title p2">Posts</a>
+            <ul class="sidebar-recent__ul">
+                
+                    <li>
+                        <a href="/posts/golang-api-scraping/" class="sidebar-recent__a p2">Effortless API Scraping With Golang</a>
+                    </li>
+                
+                    <li>
+                        <a href="/posts/market-sentiment/" class="sidebar-recent__a p2">Stock Market Sentiment Analysis</a>
+                    </li>
+                
+                    <li>
+                        <a href="/posts/maze-runner/" class="sidebar-recent__a p2">Maze runner</a>
+                    </li>
+                
+                    <li>
+                        <a href="/posts/one-command/" class="sidebar-recent__a p2">Terraforming complete AWS-Kubernetes clusers</a>
+                    </li>
+                
+                    <li>
+                        <a href="/posts/kringlecon/" class="sidebar-recent__a p2">Kringlecon 2018</a>
+                    </li>
+                
+            </ul>
+        </section>
+        <hr class="hr-fade sidebar-hr" />
+        
+    
+</div>
+
+<div class="taxo-root">
+
+<div class="taxo">
+    <section>
+        <span class="title p2">
+            <a href="/tags/" class="taxo__title">
+                Tags
+            </a>
+        </span>
+        
+        
+            <span class="tag">
+                <a href="/tags/ai/" class="is-tags taxo__link" data-dir="ltr">
+                    <span class="taxo__text">
+                        ai
+                    </span>
+                    <span class="taxo__num" dir="auto">
+                        1
+                    </span>
+                </a>
+            </span>
+        
+        
+        
+            <span class="tag">
+                <a href="/tags/algorithm/" class="is-tags taxo__link" data-dir="ltr">
+                    <span class="taxo__text">
+                        algorithm
+                    </span>
+                    <span class="taxo__num" dir="auto">
+                        1
+                    </span>
+                </a>
+            </span>
+        
+        
+        
+            <span class="tag">
+                <a href="/tags/android/" class="is-tags taxo__link" data-dir="ltr">
+                    <span class="taxo__text">
+                        android
+                    </span>
+                    <span class="taxo__num" dir="auto">
+                        1
+                    </span>
+                </a>
+            </span>
+        
+        
+        
+            <span class="tag">
+                <a href="/tags/ansible/" class="is-tags taxo__link" data-dir="ltr">
+                    <span class="taxo__text">
+                        ansible
+                    </span>
+                    <span class="taxo__num" dir="auto">
+                        1
+                    </span>
+                </a>
+            </span>
+        
+        
+        
+            <span class="tag">
+                <a href="/tags/automation/" class="is-tags taxo__link" data-dir="ltr">
+                    <span class="taxo__text">
+                        automation
+                    </span>
+                    <span class="taxo__num" dir="auto">
+                        2
+                    </span>
+                </a>
+            </span>
+        
+        
+        
+            <span class="tag">
+                <a href="/tags/aws/" class="is-tags taxo__link" data-dir="ltr">
+                    <span class="taxo__text">
+                        aws
+                    </span>
+                    <span class="taxo__num" dir="auto">
+                        2
+                    </span>
+                </a>
+            </span>
+        
+        
+        
+            <span class="tag">
+                <a href="/tags/bug-bounty/" class="is-tags taxo__link" data-dir="ltr">
+                    <span class="taxo__text">
+                        bug bounty
+                    </span>
+                    <span class="taxo__num" dir="auto">
+                        1
+                    </span>
+                </a>
+            </span>
+        
+        
+        
+            <span class="tag">
+                <a href="/tags/containers/" class="is-tags taxo__link" data-dir="ltr">
+                    <span class="taxo__text">
+                        containers
+                    </span>
+                    <span class="taxo__num" dir="auto">
+                        3
+                    </span>
+                </a>
+            </span>
+        
+        
+        
+            <span class="tag">
+                <a href="/tags/ctf/" class="is-tags taxo__link" data-dir="ltr">
+                    <span class="taxo__text">
+                        ctf
+                    </span>
+                    <span class="taxo__num" dir="auto">
+                        5
+                    </span>
+                </a>
+            </span>
+        
+        
+        
+            <span class="tag">
+                <a href="/tags/devops/" class="is-tags taxo__link" data-dir="ltr">
+                    <span class="taxo__text">
+                        devops
+                    </span>
+                    <span class="taxo__num" dir="auto">
+                        1
+                    </span>
+                </a>
+            </span>
+        
+        
+        
+            <span class="tag">
+                <a href="/tags/docker/" class="is-tags taxo__link" data-dir="ltr">
+                    <span class="taxo__text">
+                        docker
+                    </span>
+                    <span class="taxo__num" dir="auto">
+                        1
+                    </span>
+                </a>
+            </span>
+        
+        
+        
+            <span class="tag">
+                <a href="/tags/encryption/" class="is-tags taxo__link" data-dir="ltr">
+                    <span class="taxo__text">
+                        encryption
+                    </span>
+                    <span class="taxo__num" dir="auto">
+                        1
+                    </span>
+                </a>
+            </span>
+        
+        
+        
+            <span class="tag">
+                <a href="/tags/enumeration/" class="is-tags taxo__link" data-dir="ltr">
+                    <span class="taxo__text">
+                        enumeration
+                    </span>
+                    <span class="taxo__num" dir="auto">
+                        1
+                    </span>
+                </a>
+            </span>
+        
+        
+        
+            <span class="tag">
+                <a href="/tags/exploitation/" class="is-tags taxo__link" data-dir="ltr">
+                    <span class="taxo__text">
+                        exploitation
+                    </span>
+                    <span class="taxo__num" dir="auto">
+                        1
+                    </span>
+                </a>
+            </span>
+        
+        
+        
+            <span class="tag">
+                <a href="/tags/gcp/" class="is-tags taxo__link" data-dir="ltr">
+                    <span class="taxo__text">
+                        gcp
+                    </span>
+                    <span class="taxo__num" dir="auto">
+                        2
+                    </span>
+                </a>
+            </span>
+        
+        
+        
+            <span class="tag">
+                <a href="/tags/golang/" class="is-tags taxo__link" data-dir="ltr">
+                    <span class="taxo__text">
+                        golang
+                    </span>
+                    <span class="taxo__num" dir="auto">
+                        6
+                    </span>
+                </a>
+            </span>
+        
+        
+        
+            <span class="tag">
+                <a href="/tags/hacking/" class="is-tags taxo__link" data-dir="ltr">
+                    <span class="taxo__text">
+                        hacking
+                    </span>
+                    <span class="taxo__num" dir="auto">
+                        10
+                    </span>
+                </a>
+            </span>
+        
+        
+        
+            <span class="tag">
+                <a href="/tags/index/" class="is-tags taxo__link" data-dir="ltr">
+                    <span class="taxo__text">
+                        index
+                    </span>
+                    <span class="taxo__num" dir="auto">
+                        1
+                    </span>
+                </a>
+            </span>
+        
+        
+        
+            <span class="tag">
+                <a href="/tags/infosec/" class="is-tags taxo__link" data-dir="ltr">
+                    <span class="taxo__text">
+                        infosec
+                    </span>
+                    <span class="taxo__num" dir="auto">
+                        2
+                    </span>
+                </a>
+            </span>
+        
+        
+        
+            <span class="tag">
+                <a href="/tags/kali/" class="is-tags taxo__link" data-dir="ltr">
+                    <span class="taxo__text">
+                        kali
+                    </span>
+                    <span class="taxo__num" dir="auto">
+                        2
+                    </span>
+                </a>
+            </span>
+        
+        
+        
+            <span class="tag">
+                <a href="/tags/kubernetes/" class="is-tags taxo__link" data-dir="ltr">
+                    <span class="taxo__text">
+                        kubernetes
+                    </span>
+                    <span class="taxo__num" dir="auto">
+                        2
+                    </span>
+                </a>
+            </span>
+        
+        
+        
+            <span class="tag">
+                <a href="/tags/linux/" class="is-tags taxo__link" data-dir="ltr">
+                    <span class="taxo__text">
+                        linux
+                    </span>
+                    <span class="taxo__num" dir="auto">
+                        2
+                    </span>
+                </a>
+            </span>
+        
+        
+        
+            <span class="tag">
+                <a href="/tags/metasploit/" class="is-tags taxo__link" data-dir="ltr">
+                    <span class="taxo__text">
+                        metasploit
+                    </span>
+                    <span class="taxo__num" dir="auto">
+                        1
+                    </span>
+                </a>
+            </span>
+        
+        
+        
+            <span class="tag">
+                <a href="/tags/minikube/" class="is-tags taxo__link" data-dir="ltr">
+                    <span class="taxo__text">
+                        minikube
+                    </span>
+                    <span class="taxo__num" dir="auto">
+                        1
+                    </span>
+                </a>
+            </span>
+        
+        
+        
+            <span class="tag">
+                <a href="/tags/nlp/" class="is-tags taxo__link" data-dir="ltr">
+                    <span class="taxo__text">
+                        nlp
+                    </span>
+                    <span class="taxo__num" dir="auto">
+                        1
+                    </span>
+                </a>
+            </span>
+        
+        
+        
+            <span class="tag">
+                <a href="/tags/nmap/" class="is-tags taxo__link" data-dir="ltr">
+                    <span class="taxo__text">
+                        nmap
+                    </span>
+                    <span class="taxo__num" dir="auto">
+                        1
+                    </span>
+                </a>
+            </span>
+        
+        
+        
+            <span class="tag">
+                <a href="/tags/obfuscation/" class="is-tags taxo__link" data-dir="ltr">
+                    <span class="taxo__text">
+                        obfuscation
+                    </span>
+                    <span class="taxo__num" dir="auto">
+                        1
+                    </span>
+                </a>
+            </span>
+        
+        
+        
+            <span class="tag">
+                <a href="/tags/osint/" class="is-tags taxo__link" data-dir="ltr">
+                    <span class="taxo__text">
+                        osint
+                    </span>
+                    <span class="taxo__num" dir="auto">
+                        3
+                    </span>
+                </a>
+            </span>
+        
+        
+        
+            <span class="tag">
+                <a href="/tags/password-cracking/" class="is-tags taxo__link" data-dir="ltr">
+                    <span class="taxo__text">
+                        password cracking
+                    </span>
+                    <span class="taxo__num" dir="auto">
+                        1
+                    </span>
+                </a>
+            </span>
+        
+        
+        
+            <span class="tag">
+                <a href="/tags/pcap/" class="is-tags taxo__link" data-dir="ltr">
+                    <span class="taxo__text">
+                        pcap
+                    </span>
+                    <span class="taxo__num" dir="auto">
+                        1
+                    </span>
+                </a>
+            </span>
+        
+        
+        
+            <span class="tag">
+                <a href="/tags/powershell/" class="is-tags taxo__link" data-dir="ltr">
+                    <span class="taxo__text">
+                        powershell
+                    </span>
+                    <span class="taxo__num" dir="auto">
+                        1
+                    </span>
+                </a>
+            </span>
+        
+        
+        
+            <span class="tag">
+                <a href="/tags/programming/" class="is-tags taxo__link" data-dir="ltr">
+                    <span class="taxo__text">
+                        programming
+                    </span>
+                    <span class="taxo__num" dir="auto">
+                        5
+                    </span>
+                </a>
+            </span>
+        
+        
+        
+            <span class="tag">
+                <a href="/tags/python/" class="is-tags taxo__link" data-dir="ltr">
+                    <span class="taxo__text">
+                        python
+                    </span>
+                    <span class="taxo__num" dir="auto">
+                        13
+                    </span>
+                </a>
+            </span>
+        
+        
+        
+            <span class="tag">
+                <a href="/tags/reconnaissance/" class="is-tags taxo__link" data-dir="ltr">
+                    <span class="taxo__text">
+                        reconnaissance
+                    </span>
+                    <span class="taxo__num" dir="auto">
+                        3
+                    </span>
+                </a>
+            </span>
+        
+        
+        
+            <span class="tag">
+                <a href="/tags/reverse-engineering/" class="is-tags taxo__link" data-dir="ltr">
+                    <span class="taxo__text">
+                        reverse engineering
+                    </span>
+                    <span class="taxo__num" dir="auto">
+                        2
+                    </span>
+                </a>
+            </span>
+        
+        
+        
+            <span class="tag">
+                <a href="/tags/scraping/" class="is-tags taxo__link" data-dir="ltr">
+                    <span class="taxo__text">
+                        scraping
+                    </span>
+                    <span class="taxo__num" dir="auto">
+                        3
+                    </span>
+                </a>
+            </span>
+        
+        
+        
+            <span class="tag">
+                <a href="/tags/security/" class="is-tags taxo__link" data-dir="ltr">
+                    <span class="taxo__text">
+                        security
+                    </span>
+                    <span class="taxo__num" dir="auto">
+                        3
+                    </span>
+                </a>
+            </span>
+        
+        
+        
+            <span class="tag">
+                <a href="/tags/selenium/" class="is-tags taxo__link" data-dir="ltr">
+                    <span class="taxo__text">
+                        selenium
+                    </span>
+                    <span class="taxo__num" dir="auto">
+                        1
+                    </span>
+                </a>
+            </span>
+        
+        
+        
+            <span class="tag">
+                <a href="/tags/sentiment-analysis/" class="is-tags taxo__link" data-dir="ltr">
+                    <span class="taxo__text">
+                        sentiment analysis
+                    </span>
+                    <span class="taxo__num" dir="auto">
+                        1
+                    </span>
+                </a>
+            </span>
+        
+        
+        
+            <span class="tag">
+                <a href="/tags/steganography/" class="is-tags taxo__link" data-dir="ltr">
+                    <span class="taxo__text">
+                        steganography
+                    </span>
+                    <span class="taxo__num" dir="auto">
+                        1
+                    </span>
+                </a>
+            </span>
+        
+        
+        
+            <span class="tag">
+                <a href="/tags/virtualization/" class="is-tags taxo__link" data-dir="ltr">
+                    <span class="taxo__text">
+                        virtualization
+                    </span>
+                    <span class="taxo__num" dir="auto">
+                        2
+                    </span>
+                </a>
+            </span>
+        
+        
+        
+            <span class="tag">
+                <a href="/tags/web/" class="is-tags taxo__link" data-dir="ltr">
+                    <span class="taxo__text">
+                        web
+                    </span>
+                    <span class="taxo__num" dir="auto">
+                        2
+                    </span>
+                </a>
+            </span>
+        
+        
+        
+            <span class="tag">
+                <a href="/tags/windows/" class="is-tags taxo__link" data-dir="ltr">
+                    <span class="taxo__text">
+                        windows
+                    </span>
+                    <span class="taxo__num" dir="auto">
+                        1
+                    </span>
+                </a>
+            </span>
+        
+        
+    </section>
+</div>
+
+
+<div class="taxo">
+    <section>
+        <span class="title p2">
+            <a href="/categories/" class="taxo__title">
+                Categories
+            </a>
+        </span>
+        
+        
+            <span class="tag">
+                <a href="/categories/devops/" class="is-categories taxo__link" data-dir="ltr">
+                    <span class="taxo__text">
+                        devops
+                    </span>
+                    <span class="taxo__num" dir="auto">
+                        3
+                    </span>
+                </a>
+            </span>
+        
+        
+        
+            <span class="tag">
+                <a href="/categories/hacking/" class="is-categories taxo__link" data-dir="ltr">
+                    <span class="taxo__text">
+                        hacking
+                    </span>
+                    <span class="taxo__num" dir="auto">
+                        4
+                    </span>
+                </a>
+            </span>
+        
+        
+        
+            <span class="tag">
+                <a href="/categories/programming/" class="is-categories taxo__link" data-dir="ltr">
+                    <span class="taxo__text">
+                        programming
+                    </span>
+                    <span class="taxo__num" dir="auto">
+                        9
+                    </span>
+                </a>
+            </span>
+        
+        
+        
+            <span class="tag">
+                <a href="/categories/security/" class="is-categories taxo__link" data-dir="ltr">
+                    <span class="taxo__text">
+                        security
+                    </span>
+                    <span class="taxo__num" dir="auto">
+                        5
+                    </span>
+                </a>
+            </span>
+        
+        
+    </section>
+</div>
+
+
+
+</div>
+<hr class="hr-fade sidebar-hr" />
+
+
+        </aside>
+    
+</main>
+<script>
+    
+    var sidebarPosition = JSON.parse("\"right\"");
+    
+    var enableSidebar = JSON.parse("true");
+
+    var listMainElem = document.querySelector('.list__main');
+    var listSideElem = document.querySelector('.list__sidebar');
+
+    var gridSmall = 'l';
+    var gridBig = 'mr';
+    var gridFull = 'lmr'
+
+    if (sidebarPosition === "right") {
+        gridSmall = 'r';
+        gridBig = 'lm'
+    }
+
+    enquire.register("screen and (max-width: 769px)", {
+        match: function () {
+            if (enableSidebar) {
+                listMainElem.classList.remove(gridBig);
+                listMainElem.classList.add(gridFull);
+                listSideElem.classList.remove(gridSmall);
+                listSideElem.classList.add('hide');
+            } else {
+                if (listMainElem && !listMainElem.classList.contains(gridFull)) {
+                    listMainElem.classList.remove(gridBig);
+                    listMainElem.classList.add(gridFull);
+                }
+
+                if (listSideElem && !listSideElem.classList.contains('hide')) {
+                    listSideElem.classList.add('hide');
+                }
+            }
+
+        },
+        unmatch: function () {
+            if (enableSidebar) {
+                listMainElem.classList.remove(gridFull);
+                listMainElem.classList.add(gridBig);
+                listSideElem.classList.add(gridSmall);
+                listSideElem.classList.remove('hide');
+            } else {
+                if (listMainElem && !listMainElem.classList.contains(gridFull)) {
+                    listMainElem.classList.remove(gridBig);
+                    listMainElem.classList.add(gridFull);
+                }
+
+                if (listSideElem && !listSideElem.classList.contains('hide')) {
+                    listSideElem.classList.add('hide');
+                }
+            }
+
+            var navCollapseBtn = document.querySelector('.navbar__burger');
+            var navCollapse = document.getElementsByClassName('navbarm__collapse')[0];
+            if (navCollapse) {
+                navCollapse.setAttribute('data-open', false);
+                navCollapse.style.maxHeight = 0;
+                navCollapseBtn.classList.remove('is-active');
+            }
+            if (document.getElementsByClassName('navbar__menu')[0]) {
+                document.getElementsByClassName('navbar__menu')[0].classList.remove('is-active');
+            }
+            if (document.getElementsByClassName('mobile-search')[0]) {
+                document.getElementsByClassName('mobile-search')[0].classList.add('hide');
+            }
+        },
+        setup: function () { },
+        deferSetup: true,
+        destroy: function () { },
+    });
+</script>
+
+<script>
+  window.onload = function() {
+    
+    
+    var enableBusuanzi = JSON.parse("false");
+    if (enableBusuanzi) {
+      var sitePvElem = document.querySelector('#busuanzi_value_site_pv');
+      var siteUvElem = document.querySelector('#busuanzi_value_site_uv');
+      sitePvElem.textContent = sitePvElem.textContent.replace(/(\d)(?=(\d\d\d)+(?!\d))/g, "$1,");
+      siteUvElem.textContent = siteUvElem.textContent.replace(/(\d)(?=(\d\d\d)+(?!\d))/g, "$1,");
+    }
+  }
+</script>
+
+            
+            <footer class="footer">
+    
+    
+<div class="footer__social">
+  <div class="social">
+    
+            
+    
+            
+    
+            
+    
+            
+    
+            
+    
+            
+    
+      
+      <a href="https://github.com/AnthonyLaiuppa" title="github" aria-label="github">
+        <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="32" height="32" viewBox="0 0 24 24" version="1.1">
+<g id="surface3680">
+<path fill="currentColor" d="M 10.898438 2.101562 C 6.300781 2.601562 2.601562 6.300781 2.101562 10.800781 C 1.601562 15.5 4.300781 19.699219 8.398438 21.300781 C 8.699219 21.398438 9 21.199219 9 20.800781 L 9 19.199219 C 9 19.199219 8.601562 19.300781 8.101562 19.300781 C 6.699219 19.300781 6.101562 18.101562 6 17.398438 C 5.898438 17 5.699219 16.699219 5.398438 16.398438 C 5.101562 16.300781 5 16.300781 5 16.199219 C 5 16 5.300781 16 5.398438 16 C 6 16 6.5 16.699219 6.699219 17 C 7.199219 17.800781 7.800781 18 8.101562 18 C 8.5 18 8.800781 17.898438 9 17.800781 C 9.101562 17.101562 9.398438 16.398438 10 16 C 7.699219 15.5 6 14.199219 6 12 C 6 10.898438 6.5 9.800781 7.199219 9 C 7.101562 8.800781 7 8.300781 7 7.601562 C 7 7.199219 7 6.601562 7.300781 6 C 7.300781 6 8.699219 6 10.101562 7.300781 C 10.601562 7.101562 11.300781 7 12 7 C 12.699219 7 13.398438 7.101562 14 7.300781 C 15.300781 6 16.800781 6 16.800781 6 C 17 6.601562 17 7.199219 17 7.601562 C 17 8.398438 16.898438 8.800781 16.800781 9 C 17.5 9.800781 18 10.800781 18 12 C 18 14.199219 16.300781 15.5 14 16 C 14.601562 16.5 15 17.398438 15 18.300781 L 15 20.898438 C 15 21.199219 15.300781 21.5 15.699219 21.398438 C 19.398438 19.898438 22 16.300781 22 12.101562 C 22 6.101562 16.898438 1.398438 10.898438 2.101562 Z M 10.898438 2.101562 "/>
+</g>
+</svg>
+
+      </a>
+            
+    
+            
+    
+            
+    
+            
+    
+            
+    
+            
+    
+      
+      <a href="https://www.linkedin.com/in/anthony-laiuppa-52a43085" title="linkedin" aria-label="linkedin">
+        <svg xmlns="http://www.w3.org/2000/svg" fill="#000000" viewBox="0 0 30 30" width="32" height="32"><path fill="currentColor" d="M24,4H6C4.895,4,4,4.895,4,6v18c0,1.105,0.895,2,2,2h18c1.105,0,2-0.895,2-2V6C26,4.895,25.105,4,24,4z M10.954,22h-2.95 v-9.492h2.95V22z M9.449,11.151c-0.951,0-1.72-0.771-1.72-1.72c0-0.949,0.77-1.719,1.72-1.719c0.948,0,1.719,0.771,1.719,1.719 C11.168,10.38,10.397,11.151,9.449,11.151z M22.004,22h-2.948v-4.616c0-1.101-0.02-2.517-1.533-2.517 c-1.535,0-1.771,1.199-1.771,2.437V22h-2.948v-9.492h2.83v1.297h0.04c0.394-0.746,1.356-1.533,2.791-1.533 c2.987,0,3.539,1.966,3.539,4.522V22z"/></svg>
+
+      </a>
+            
+    
+            
+    
+            
+    
+            
+    
+            
+    
+            
+    
+            
+    
+            
+    
+            
+    
+            
+    
+            
+    
+            
+    
+      
+      <a href="https://twitter.com/Florida_Mane" title="twitter" aria-label="twitter">
+        <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="32" height="32" viewBox="0 0 32 32" version="1.1">
+<g id="surface676">
+<path fill="currentColor" d="M 28 8.558594 C 27.117188 8.949219 26.167969 9.214844 25.171875 9.332031 C 26.1875 8.722656 26.96875 7.757812 27.335938 6.609375 C 26.386719 7.171875 25.332031 7.582031 24.210938 7.804688 C 23.3125 6.847656 22.03125 6.246094 20.617188 6.246094 C 17.898438 6.246094 15.691406 8.453125 15.691406 11.171875 C 15.691406 11.558594 15.734375 11.933594 15.820312 12.292969 C 11.726562 12.089844 8.097656 10.128906 5.671875 7.148438 C 5.246094 7.875 5.003906 8.722656 5.003906 9.625 C 5.003906 11.332031 5.871094 12.839844 7.195312 13.722656 C 6.386719 13.695312 5.628906 13.476562 4.964844 13.105469 C 4.964844 13.128906 4.964844 13.148438 4.964844 13.167969 C 4.964844 15.554688 6.660156 17.546875 8.914062 17.996094 C 8.5 18.109375 8.066406 18.171875 7.617188 18.171875 C 7.300781 18.171875 6.988281 18.140625 6.691406 18.082031 C 7.316406 20.039062 9.136719 21.460938 11.289062 21.503906 C 9.605469 22.824219 7.480469 23.609375 5.175781 23.609375 C 4.777344 23.609375 4.386719 23.585938 4 23.539062 C 6.179688 24.9375 8.765625 25.753906 11.546875 25.753906 C 20.605469 25.753906 25.558594 18.25 25.558594 11.742188 C 25.558594 11.53125 25.550781 11.316406 25.542969 11.105469 C 26.503906 10.410156 27.339844 9.542969 28 8.558594 Z M 28 8.558594 "/>
+</g>
+</svg>
+
+      </a>
+            
+    
+            
+    
+            
+    
+            
+    
+            
+    
+            
+    
+    
+  
+  
+    
+      <a href="https://anthonylaiuppa.com//index.xml" type="application/rss+xml" title="RSS" aria-label="RSS Feed Link">
+        <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24"><path fill="none" d="M0 0h24v24H0V0z"/><circle fill="currentColor" cx="6.18" cy="17.82" r="2.18"/><path fill="currentColor" d="M5.59 10.23c-.84-.14-1.59.55-1.59 1.4 0 .71.53 1.28 1.23 1.4 2.92.51 5.22 2.82 5.74 5.74.12.7.69 1.23 1.4 1.23.85 0 1.54-.75 1.41-1.59-.68-4.2-3.99-7.51-8.19-8.18zm-.03-5.71C4.73 4.43 4 5.1 4 5.93c0 .73.55 1.33 1.27 1.4 6.01.6 10.79 5.38 11.39 11.39.07.73.67 1.28 1.4 1.28.84 0 1.5-.73 1.42-1.56-.73-7.34-6.57-13.19-13.92-13.92z"/></svg>
+      </a>
+    
+  
+
+  </div>
+</div>
+
+    
+<div id="gtt">
+  <div class="gtt">
+    <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24"><path fill="currentColor" d="M8.12 14.71L12 10.83l3.88 3.88c.39.39 1.02.39 1.41 0 .39-.39.39-1.02 0-1.41L12.7 8.71c-.39-.39-1.02-.39-1.41 0L6.7 13.3c-.39.39-.39 1.02 0 1.41.39.38 1.03.39 1.42 0z"/></svg>
+  </div>
+</div>
+
+    <hr />
+
+    <div class="basicflex">
+        
+            <a href="" class="footer__link" target="_blank" rel="noreferrer"></a>
+        
+            <a href="" class="footer__link" target="_blank" rel="noreferrer"></a>
+        
+    </div>
+
+    <div class="footer__poweredby">
+        
+                
+            <p class="caption">
+                
+                    ©2020, All Rights Reserved
+                
+            </p>
+        
+
+        
+            <p class="caption">Powered by <a href="https://gohugo.io/" target="_blank" rel="noreferrer">Hugo</a> and the <a href="https://github.com/zzossig/hugo-theme-zzo" target="_blank" rel="noreferrer">Zzo theme</a></p>
+        
+        
+    </div> 
+</footer>
+        </div>
+        
+
+
+
+
+
+<div class="wrapper__right hide" data-pad="true" dir="ltr">
+  <script>document.querySelector('.wrapper__right').classList.remove('hide')</script>
+  
+</div>
+
+    </div>
+</body>
+
+</html>

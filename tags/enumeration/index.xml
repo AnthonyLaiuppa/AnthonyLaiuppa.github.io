@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" 
+  xmlns:content="http://purl.org/rss/1.0/modules/content/" 
+  xmlns:dc="http://purl.org/dc/elements/1.1/" 
+  xmlns:atom="http://www.w3.org/2005/Atom" 
+  xmlns:sy="http://purl.org/rss/1.0/modules/syndication/" 
+  xmlns:media="http://search.yahoo.com/mrss/">
+  <channel>
+    <title>enumeration on Laiuppa Blog</title>
+    <link>https://anthonylaiuppa.com/tags/enumeration/</link>
+    <description>Recent content in enumeration on Laiuppa Blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en</language>
+    <copyright>&amp;copy;{year}, All Rights Reserved</copyright>
+    <lastBuildDate>Wed, 11 Jan 2017 06:40:51 +0900</lastBuildDate>
+    
+        <atom:link href="https://anthonylaiuppa.com/tags/enumeration/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    
+
+      
+      <item>
+        <title>Enumerating URL shorteners</title>
+        <link>https://anthonylaiuppa.com/posts/enumerating-url-shorteners/</link>
+        <pubDate>Wed, 11 Jan 2017 06:40:51 +0900</pubDate>
+        
+        <atom:modified>Wed, 11 Jan 2017 06:40:51 +0900</atom:modified>
+        <guid>https://anthonylaiuppa.com/posts/enumerating-url-shorteners/</guid>
+        <description>Intro I was at work when I almost dropped a URL into goo.gl, you know because short URLs are awesome. However I stopped right before I dropped it in because Google was kind enough to tell me that all URLs shortened are public. Then it occured to me that just haphazardly dropping links in is of course an OPSec issue. With billions of shortened URLs in existence is it really though?</description>
+        
+        <dc:creator>Anthony Laiuppa</dc:creator>
+        <media:content url="https://anthonylaiuppa.comimages/posts/enumerating-url-shorteners/oddstuff.PNG" medium="image"><media:title type="html">featured image</media:title></media:content>
+        
+        
+        
+          
+            
+              <category>enumeration</category>
+            
+          
+            
+              <category>python</category>
+            
+          
+            
+              <category>hacking</category>
+            
+          
+            
+              <category>reconnaissance</category>
+            
+          
+            
+              <category>osint</category>
+            
+          
+        
+        
+          
+            
+              <category>security</category>
+            
+          
+        
+        
+          
+            
+          
+        
+      </item>
+      
+
+    
+  </channel>
+</rss>

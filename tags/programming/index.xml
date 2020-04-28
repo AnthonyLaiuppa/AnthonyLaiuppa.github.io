@@ -1,0 +1,257 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" 
+  xmlns:content="http://purl.org/rss/1.0/modules/content/" 
+  xmlns:dc="http://purl.org/dc/elements/1.1/" 
+  xmlns:atom="http://www.w3.org/2005/Atom" 
+  xmlns:sy="http://purl.org/rss/1.0/modules/syndication/" 
+  xmlns:media="http://search.yahoo.com/mrss/">
+  <channel>
+    <title>programming on Laiuppa Blog</title>
+    <link>https://anthonylaiuppa.com/tags/programming/</link>
+    <description>Recent content in programming on Laiuppa Blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en</language>
+    <copyright>&amp;copy;{year}, All Rights Reserved</copyright>
+    <lastBuildDate>Fri, 24 Apr 2020 06:40:51 +0900</lastBuildDate>
+    
+        <atom:link href="https://anthonylaiuppa.com/tags/programming/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    
+
+      
+      <item>
+        <title>Effortless API Scraping With Golang</title>
+        <link>https://anthonylaiuppa.com/posts/golang-api-scraping/</link>
+        <pubDate>Fri, 24 Apr 2020 06:40:51 +0900</pubDate>
+        
+        <atom:modified>Fri, 24 Apr 2020 06:40:51 +0900</atom:modified>
+        <guid>https://anthonylaiuppa.com/posts/golang-api-scraping/</guid>
+        <description>Intro The internet is chock full of information, and often times there is a need to aggregate it in order to gain insights through additional analysis. To that end, scraping information from the internet can become somewhat reptitive.
+Here we&amp;rsquo;ll explore a simple approach to automating part of the process of writing the code to retrieve information from the web.
+Overview With the bulk of the internet transitioning to more decoupled models we are seeing more and more API&amp;rsquo;s.</description>
+        
+        <dc:creator>Anthony Laiuppa</dc:creator>
+        <media:content url="https://anthonylaiuppa.comimages/posts/golang-scraping/gopher.png" medium="image"><media:title type="html">featured image</media:title></media:content>
+        
+        
+        
+          
+            
+              <category>programming</category>
+            
+          
+            
+              <category>golang</category>
+            
+          
+            
+              <category>scraping</category>
+            
+          
+            
+              <category>automation</category>
+            
+          
+        
+        
+          
+            
+              <category>programming</category>
+            
+          
+        
+        
+          
+            
+          
+        
+      </item>
+      
+      <item>
+        <title>Stock Market Sentiment Analysis</title>
+        <link>https://anthonylaiuppa.com/posts/market-sentiment/</link>
+        <pubDate>Thu, 05 Mar 2020 06:40:51 +0900</pubDate>
+        
+        <atom:modified>Thu, 05 Mar 2020 06:40:51 +0900</atom:modified>
+        <guid>https://anthonylaiuppa.com/posts/market-sentiment/</guid>
+        <description>Intro In 2019 I had my first opportunity to drive a Tesla Model 3. This cemented in my mind that it was a car years ahead of the automotive industry, and through technical analysis others seem to agree. Despite this I didn&amp;rsquo;t think to buy any stock, shortly after driving the car it shot up from $330 to over $900. This event fostered a deeper interest in finance, eventually resulting in this post.</description>
+        
+        <dc:creator>Anthony Laiuppa</dc:creator>
+        <media:content url="https://anthonylaiuppa.comimages/posts/market-sentiment/sentiment.png" medium="image"><media:title type="html">featured image</media:title></media:content>
+        
+        
+        
+          
+            
+              <category>programming</category>
+            
+          
+            
+              <category>golang</category>
+            
+          
+            
+              <category>nlp</category>
+            
+          
+            
+              <category>ai</category>
+            
+          
+            
+              <category>sentiment analysis</category>
+            
+          
+        
+        
+          
+            
+              <category>programming</category>
+            
+          
+        
+        
+          
+            
+          
+        
+      </item>
+      
+      <item>
+        <title>Maze runner</title>
+        <link>https://anthonylaiuppa.com/posts/maze-runner/</link>
+        <pubDate>Thu, 17 Oct 2019 06:40:51 +0900</pubDate>
+        
+        <atom:modified>Thu, 17 Oct 2019 06:40:51 +0900</atom:modified>
+        <guid>https://anthonylaiuppa.com/posts/maze-runner/</guid>
+        <description>Intro While digging around on a bug bounty I came across a company&amp;rsquo;s subdomain that hosts a maze challenge. Probably for vetting interviewees.
+Overview The instructions were pretty simple, and we get three endpoints to work with.
+ Start - Returns an ~ID~ for the Maze, as well as ~Height~ and ~Width~ Check - Returns a 200 status code if the Maze location(x,y) you sent it is valid Solve - Returns a 200 if you solve the maze  The end of the maze is Height-1, Width-1</description>
+        
+        <dc:creator>Anthony Laiuppa</dc:creator>
+        <media:content url="https://anthonylaiuppa.comimages/posts/maze-runner/mazerunners.jpg" medium="image"><media:title type="html">featured image</media:title></media:content>
+        
+        
+        
+          
+            
+              <category>programming</category>
+            
+          
+            
+              <category>golang</category>
+            
+          
+        
+        
+          
+            
+              <category>programming</category>
+            
+          
+        
+        
+          
+            
+          
+        
+      </item>
+      
+      <item>
+        <title>Terraforming complete AWS-Kubernetes clusers</title>
+        <link>https://anthonylaiuppa.com/posts/one-command/</link>
+        <pubDate>Sun, 27 Jan 2019 06:40:51 +0900</pubDate>
+        
+        <atom:modified>Sun, 27 Jan 2019 06:40:51 +0900</atom:modified>
+        <guid>https://anthonylaiuppa.com/posts/one-command/</guid>
+        <description>Intro While working on getting better with Terraform I noticed there weren&amp;rsquo;t alot of examples of Kubernetes and AWS being provisioned at the same time. I forked the sample code provided by the Terraform project, and modularized it. From there I was able to add in a Kubernetes provider and patch in authentication. This allows us to create and provision Kubernetes architecture in AWS with a single command. To give a service to demonstrate, I&amp;rsquo;ve written a simple API endpoint in Golang and accompanying React front end.</description>
+        
+        <dc:creator>Anthony Laiuppa</dc:creator>
+        <media:content url="https://anthonylaiuppa.comimages/posts/one-command/legowall.jpg" medium="image"><media:title type="html">featured image</media:title></media:content>
+        
+        
+        
+          
+            
+              <category>programming</category>
+            
+          
+            
+              <category>golang</category>
+            
+          
+            
+              <category>scraping</category>
+            
+          
+            
+              <category>automation</category>
+            
+          
+        
+        
+          
+            
+              <category>programming</category>
+            
+          
+        
+        
+          
+            
+          
+        
+      </item>
+      
+      <item>
+        <title>Six years of saved links</title>
+        <link>https://anthonylaiuppa.com/posts/six-years-of-links/</link>
+        <pubDate>Thu, 03 May 2018 06:40:51 +0900</pubDate>
+        
+        <atom:modified>Thu, 03 May 2018 06:40:51 +0900</atom:modified>
+        <guid>https://anthonylaiuppa.com/posts/six-years-of-links/</guid>
+        <description>Intro Over six years of studying, and working in technology Ive acquired over 600+ links. Losing these links to me would feel like the burning down of the Library of Alexandria. I use alot of them as references for programming and information security based work.
+While scraping all these links I saw the word beginner become less frequent as we got closer to the present day, so I even found a fun way to add a visualization to this post.</description>
+        
+        <dc:creator>Anthony Laiuppa</dc:creator>
+        <media:content url="https://anthonylaiuppa.comimages/posts/six-years-of-links/best_word_cloud.png" medium="image"><media:title type="html">featured image</media:title></media:content>
+        
+        
+        
+          
+            
+              <category>programming</category>
+            
+          
+            
+              <category>python</category>
+            
+          
+            
+              <category>hacking</category>
+            
+          
+            
+              <category>security</category>
+            
+          
+        
+        
+          
+            
+              <category>programming</category>
+            
+          
+        
+        
+          
+            
+          
+        
+      </item>
+      
+
+    
+  </channel>
+</rss>

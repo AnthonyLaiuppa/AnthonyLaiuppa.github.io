@@ -1,0 +1,3669 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+<head prefix="og: http://ogp.me/ns#">
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Kringlecon 2018 – Laiuppa Blog</title>
+    
+
+
+<script src="/js/enquire.min.dfb99dee1e029d51d6cfb672d847929890b1585402de17f5ed092edd72a688b4.js"></script>
+
+<script defer src="/js/lazysizes.min.31dd6a2d3a1ec0f78a8df007535cf23f03aeb5c70f026e6d6a19dac3b3acc340.js"></script>
+
+<script defer src="/js/fuse.min.94c78ad70b02749822921660cf4e9f0b3701bc0680c421afb784a78228de0275.js"></script>
+
+<script defer src="/js/helper/getParents.min.1618c696be7c98933f9a92677f518b512a74e55bdbb976b09936b4182e93181b.js"></script>
+
+<script defer src="/js/helper/fadeinout.min.93a331f96194789a542f33690bbe4f0c102c7e78ffc018217f5a1c33010bad91.js"></script>
+
+<script defer src="/js/helper/closest.min.js"></script>
+  
+<script>
+  "use strict";
+
+  
+  
+  if (window.NodeList && !NodeList.prototype.forEach) {
+    NodeList.prototype.forEach = Array.prototype.forEach;
+  }
+
+  
+  if (!String.prototype.includes) {
+    String.prototype.includes = function (search, start) {
+      'use strict';
+
+      if (search instanceof RegExp) {
+        throw TypeError('first argument must not be a RegExp');
+      }
+      if (start === undefined) { start = 0; }
+      return this.indexOf(search, start) !== -1;
+    };
+  }
+
+  
+  Document.prototype.append = Element.prototype.append = function append() {
+    this.appendChild(_mutation(arguments));
+  };
+  function _mutation(nodes) {
+    if (!nodes.length) {
+      throw new Error('DOM Exception 8');
+    } else if (nodes.length === 1) {
+      return typeof nodes[0] === 'string' ? document.createTextNode(nodes[0]) : nodes[0];
+    } else {
+      var
+      fragment = document.createDocumentFragment(),
+      length = nodes.length,
+      index = -1,
+      node;
+
+      while (++index < length) {
+        node = nodes[index];
+
+        fragment.appendChild(typeof node === 'string' ? document.createTextNode(node) : node);
+      }
+
+      return fragment;
+    }
+  }
+
+  
+  if (!String.prototype.startsWith) {
+    String.prototype.startsWith = function (searchString, position) {
+      position = position || 0;
+      return this.indexOf(searchString, position) === position;
+    };
+  }
+  
+
+
+  document.addEventListener('DOMContentLoaded', function () {
+    
+    var navCollapseBtn = document.querySelector('.navbar__burger');
+    navCollapseBtn ? navCollapseBtn.addEventListener('click', function (e) {
+      var navCollapse = document.querySelector('.navbarm__collapse');
+
+      if (navCollapse) {
+        var dataOpen = navCollapse.getAttribute('data-open');
+
+        if (dataOpen === 'true') {
+          navCollapse.setAttribute('data-open', 'false');
+          navCollapse.style.maxHeight = 0;
+          navCollapseBtn.classList.remove('is-active');
+        } else {
+          navCollapse.setAttribute('data-open', 'true');
+          navCollapse.style.maxHeight = navCollapse.scrollHeight + "px";
+          navCollapseBtn.classList.add('is-active');
+        }
+      }
+    }) : null;
+    
+
+
+    
+    var summaryContainer = document.querySelector('.summary__container');
+    var searchResult = document.querySelector('.search-result');
+    var searchResultCloseBtn = document.querySelector('.search-result__close');
+    searchResultCloseBtn ? searchResultCloseBtn.addEventListener('click', function (e) {
+      searchResult.setAttribute('data-display', 'none');
+      summaryContainer.setAttribute('data-display', 'block');
+    }) : null;
+    
+
+
+    
+    document.querySelectorAll('.tab') ? 
+    document.querySelectorAll('.tab').forEach(function(elem, idx) {
+      var containerId = elem.getAttribute('id');
+      var containerElem = elem;
+      var tabLinks = elem.querySelectorAll('.tab__link');
+      var tabContents = elem.querySelectorAll('.tab__content');
+      var ids = [];
+
+      tabLinks && tabLinks.length > 0 ?
+      tabLinks.forEach(function(link, index, self) {
+        link.onclick = function(e) {
+          for (var i = 0; i < self.length; i++) {
+            if (index === parseInt(i, 10)) {
+              if (!self[i].classList.contains('active')) {
+                self[i].classList.add('active');
+                tabContents[i].style.display = 'block';
+              }
+            } else {
+              self[i].classList.remove('active');
+              tabContents[i].style.display = 'none';
+            }
+          }
+        }
+      }) : null;
+    }) : null;
+    
+
+
+    
+    document.querySelectorAll('.codetab') ? 
+    document.querySelectorAll('.codetab').forEach(function(elem, idx) {
+      var containerId = elem.getAttribute('id');
+      var containerElem = elem;
+      var codetabLinks = elem.querySelectorAll('.codetab__link');
+      var codetabContents = elem.querySelectorAll('.codetab__content');
+      var ids = [];
+
+      codetabLinks && codetabLinks.length > 0 ?
+      codetabLinks.forEach(function(link, index, self) {
+        link.onclick = function(e) {
+          for (var i = 0; i < self.length; i++) {
+            if (index === parseInt(i, 10)) {
+              if (!self[i].classList.contains('active')) {
+                self[i].classList.add('active');
+                codetabContents[i].style.display = 'block';
+              }
+            } else {
+              self[i].classList.remove('active');
+              codetabContents[i].style.display = 'none';
+            }
+          }
+        }
+      }) : null;
+    }) : null;
+    
+
+
+    
+    var gttBtn = document.getElementById("gtt");
+    gttBtn.style.display = "none";
+    gttBtn.addEventListener('click', function () {
+      if (window.document.documentMode) {
+        document.documentElement.scrollTop = 0;
+      } else {
+        scrollToTop(250);
+      }
+    });
+
+    function scrollToTop(scrollDuration) {
+      var scrollStep = -window.scrollY / (scrollDuration / 15);
+      var scrollInterval = setInterval(function () {
+        if (window.scrollY != 0) {
+          window.scrollBy(0, scrollStep);
+        }
+        else clearInterval(scrollInterval);
+      }, 15);
+    }
+
+    var scrollFunction = function () {
+      if (document.body.scrollTop > 250 || document.documentElement.scrollTop > 250) {
+        gttBtn.style.display = "block";
+      } else {
+        gttBtn.style.display = "none";
+      }
+    }
+    
+
+
+    
+    var expandBtn = document.querySelectorAll('.expand__button');
+
+    for (let i = 0; i < expandBtn.length; i++) {
+      expandBtn[i].addEventListener("click", function () {
+        var content = this.nextElementSibling;
+        if (content.style.maxHeight) {
+          content.style.maxHeight = null;
+          this.querySelector('svg').classList.add('expand-icon__right');
+          this.querySelector('svg').classList.remove('expand-icon__down');
+        } else {
+          content.style.maxHeight = content.scrollHeight + "px";
+          this.querySelector('svg').classList.remove('expand-icon__right');
+          this.querySelector('svg').classList.add('expand-icon__down');
+        }
+      });
+    }
+    
+
+
+    
+    var lastScrollTop = window.pageYOffset || document.documentElement.scrollTop;
+    var tocElem = document.querySelector('.toc');
+    var tableOfContentsElem = tocElem ? tocElem.querySelector('#TableOfContents') : null;
+    var toggleTocElem = document.getElementById('toggle-toc');
+    var singleContentsElem = document.querySelector('.single__contents');
+    var navbar = document.querySelector('.navbar');
+    var tocFlexbox = document.querySelector('.toc__flexbox');
+    var tocFlexboxOuter = document.querySelector('.toc__flexbox--outer');
+    var expandContents = document.querySelectorAll('.expand__content');
+    var boxContents = document.querySelectorAll('.box');
+    var notAllowedTitleIds = null;
+
+    
+    var tocFolding = JSON.parse("true");
+    
+    var tocLevels = JSON.parse("[\"h2\",\"h3\",\"h4\"]");
+    
+    if (tocLevels) {
+      tocLevels = tocLevels.toString();
+    } else {
+      tocLevels = "h1, h2, h3, h4, h5, h6";
+    }
+
+    
+    singleContentsElem && singleContentsElem.querySelectorAll(".tab") ?
+    singleContentsElem.querySelectorAll(".tab").forEach(function (elem) {
+      elem.querySelectorAll(tocLevels).forEach(function (element) {
+        notAllowedTitleIds = Array.isArray(notAllowedTitleIds) ?
+          notAllowedTitleIds.concat(element.getAttribute('id')) :
+          [element.getAttribute('id')];
+      });
+    }) : null;
+
+    
+    expandContents ? expandContents.forEach(function(elem) {
+      elem.querySelectorAll(tocLevels).forEach(function (element) {
+        notAllowedTitleIds = Array.isArray(notAllowedTitleIds) ?
+          notAllowedTitleIds.concat(element.getAttribute('id')) :
+          [element.getAttribute('id')];
+      });
+    }) : null;
+
+    
+    boxContents ? boxContents.forEach(function(elem) {
+      elem.querySelectorAll(tocLevels).forEach(function (element) {
+        notAllowedTitleIds = Array.isArray(notAllowedTitleIds) ?
+          notAllowedTitleIds.concat(element.getAttribute('id')) :
+          [element.getAttribute('id')];
+      });
+    }) : null;
+
+    
+    window.onscroll = function () {
+      scrollFunction();
+      
+      var st = window.pageYOffset || document.documentElement.scrollTop;
+      if (st > lastScrollTop) { 
+        if (st < 250) {
+          gttBtn.style.display = "none";
+        } else {
+          gttBtn.style.display = "block";
+        }
+
+        if (st < 45) {
+          return null;
+        }
+        
+        if (!navbar.classList.contains('navbar--hide')) {
+          navbar.classList.add('navbar--hide');
+        } else if (navbar.classList.contains('navbar--show')) {
+          navbar.classList.remove('navbar--show');
+        }
+
+        if (singleContentsElem) {
+          if (singleContentsElem.querySelectorAll(tocLevels).length > 0) {
+            singleContentsElem.querySelectorAll(tocLevels).forEach(function (elem) {
+              if (toggleTocElem && !toggleTocElem.checked) {
+                return null;
+              }
+
+              if (notAllowedTitleIds && notAllowedTitleIds.includes(elem.getAttribute('id'))) {
+                return null;
+              }
+              
+              if (document.documentElement.scrollTop >= elem.offsetTop) {
+                if (tableOfContentsElem) {
+                  var id = elem.getAttribute('id');
+                  tocElem.querySelectorAll('a').forEach(function (elem) {
+                    elem.classList.remove('active');
+                  });
+                  tocElem.querySelector('a[href="#' + id + '"]') ?
+                    tocElem.querySelector('a[href="#' + id + '"]').classList.add('active') : null;
+
+                  if (false === tocFolding) {
+                    
+                  } else {
+                    tableOfContentsElem.querySelectorAll('ul') ?
+                      tableOfContentsElem.querySelectorAll('ul').forEach(function (rootUl) {
+                        rootUl.querySelectorAll('li').forEach(function (liElem) {
+                          liElem.querySelectorAll('ul').forEach(function (ulElem) {
+                            ulElem.style.display = 'none';
+                          });
+                        });
+                      }) : null;
+                  }
+
+                  var curElem = tableOfContentsElem.querySelector("[href='#" + id + "']");
+                  if (curElem && curElem.nextElementSibling) {
+                    curElem.nextElementSibling.style.display = 'block';
+                  }
+                  getParents(curElem, 'ul') ?
+                    getParents(curElem, 'ul').forEach(function (elem) {
+                      elem.style.display = 'block';
+                    }) : null;
+                }
+              }
+            });
+          } else {
+            if (tocFlexbox) {
+              tocFlexbox.setAttribute('data-position', '');
+              if (!tocFlexbox.classList.contains('hide')) {
+                tocFlexbox.classList.add('hide');
+              }
+            }
+            if (tocFlexboxOuter) {
+              tocFlexboxOuter.setAttribute('data-position', '');
+              if (!tocFlexboxOuter.classList.contains('hide')) {
+                tocFlexboxOuter.classList.add('hide');
+              }
+            }
+          }
+        }
+      } else { 
+        if (st < 250) {
+          gttBtn.style.display = "none";
+        }
+
+        if (navbar.classList.contains('navbar--hide')) {
+          navbar.classList.remove('navbar--hide');
+        } else if (!navbar.classList.contains('navbar--show')) {
+          navbar.classList.add('navbar--show');
+        }
+
+        if (singleContentsElem) {
+          if (singleContentsElem.querySelectorAll(tocLevels).length > 0) {
+            singleContentsElem.querySelectorAll(tocLevels).forEach(function (elem) {
+              if (toggleTocElem && !toggleTocElem.checked) {
+                return null;
+              }
+              
+              if (notAllowedTitleIds && notAllowedTitleIds.includes(elem.getAttribute('id'))) {
+                return null;
+              }
+
+              if (document.documentElement.scrollTop >= elem.offsetTop) {
+                if (tableOfContentsElem) {
+                  var id = elem.getAttribute('id');
+                  tocElem.querySelectorAll('a').forEach(function (elem) {
+                    elem.classList.remove('active');
+                  });
+                  tocElem.querySelector('a[href="#' + id + '"]') ?
+                    tocElem.querySelector('a[href="#' + id + '"]').classList.add('active') : null;
+
+                  if (false === tocFolding) {
+                    
+                  } else {
+                    tableOfContentsElem.querySelectorAll('ul') ?
+                      tableOfContentsElem.querySelectorAll('ul').forEach(function (rootUl) {
+                        rootUl.querySelectorAll('li').forEach(function (liElem) {
+                          liElem.querySelectorAll('ul').forEach(function (ulElem) {
+                            ulElem.style.display = 'none';
+                          });
+                        });
+                      }) : null;
+                  }
+
+                  var curElem = tableOfContentsElem.querySelector("[href='#" + id + "']");
+                  if (curElem && curElem.nextElementSibling) {
+                    curElem.nextElementSibling.style.display = 'block';
+                  }
+                  getParents(curElem, 'ul') ?
+                    getParents(curElem, 'ul').forEach(function (elem) {
+                      elem.style.display = 'block';
+                    }) : null;
+                }
+              }
+            });
+          } else {
+            if (tocFlexbox && !tocFlexbox.classList.contains('hide')) {
+              tocFlexbox.classList.add('hide');
+            }
+            if (tocFlexboxOuter && !tocFlexboxOuter.classList.contains('hide')) {
+              tocFlexboxOuter.classList.add('hide');
+            }
+          }
+          
+        }
+
+        if (tableOfContentsElem && document.documentElement.scrollTop < 250) {
+          if (false === tocFolding) {
+
+          } else {
+            tableOfContentsElem.querySelector('ul') ?
+              tableOfContentsElem.querySelector('ul').querySelectorAll('li').forEach(function (liElem) {
+                liElem.querySelectorAll('ul').forEach(function (ulElem) {
+                  ulElem.style.display = 'none';
+                });
+              }) : null;
+          }
+        }
+      }
+      lastScrollTop = st <= 0 ? 0 : st;
+    };
+  
+
+
+  
+    var localTheme = localStorage.getItem('theme');
+    var rootEleme = document.getElementById('root');
+    var selectThemeElem = document.querySelectorAll('.select-theme');
+    var selectThemeItemElem = document.querySelectorAll('.select-theme__item');
+
+    var setMetaColor = function(themeColor) {
+      var metaMsapplicationTileColor = document.getElementsByName('msapplication-TileColor')[0];
+      var metaThemeColor = document.getElementsByName('theme-color')[0];
+      var metaMsapplicationNavbuttonColor = document.getElementsByName('msapplication-navbutton-color')[0];
+      var metaAppleMobileWebAappStatusBarStyle = document.getElementsByName('apple-mobile-web-app-status-bar-style')[0];
+
+      if (themeColor.includes('dark')) {
+        metaMsapplicationTileColor.setAttribute('content', '#fcfcfa');
+        metaThemeColor.setAttribute('content', '#403E41');
+        metaMsapplicationNavbuttonColor.setAttribute('content', '#403E41');
+        metaAppleMobileWebAappStatusBarStyle.setAttribute('content', '#403E41');
+      } else if (themeColor.includes('light')) {
+        metaMsapplicationTileColor.setAttribute('content', '#555');
+        metaThemeColor.setAttribute('content', '#eee');
+        metaMsapplicationNavbuttonColor.setAttribute('content', '#eee');
+        metaAppleMobileWebAappStatusBarStyle.setAttribute('content', '#eee');
+      } else if (themeColor.includes('hacker')) {
+        metaMsapplicationTileColor.setAttribute('content', '#e3cd26');
+        metaThemeColor.setAttribute('content', '#252526');
+        metaMsapplicationNavbuttonColor.setAttribute('content', '#252526');
+        metaAppleMobileWebAappStatusBarStyle.setAttribute('content', '#252526');
+      } else if (themeColor.includes('solarized')) {
+        metaMsapplicationTileColor.setAttribute('content', '#d3af86');
+        metaThemeColor.setAttribute('content', '#51412c');
+        metaMsapplicationNavbuttonColor.setAttribute('content', '#51412c');
+        metaAppleMobileWebAappStatusBarStyle.setAttribute('content', '#51412c');
+      } else if (themeColor.includes('kimbie')) {
+        metaMsapplicationTileColor.setAttribute('content', '#586e75');
+        metaThemeColor.setAttribute('content', '#eee8d5');
+        metaMsapplicationNavbuttonColor.setAttribute('content', '#eee8d5');
+        metaAppleMobileWebAappStatusBarStyle.setAttribute('content', '#eee8d5');
+      } 
+    }
+    
+    if (localTheme) {
+      selectThemeItemElem ? 
+      selectThemeItemElem.forEach(function (elem) {
+        if (elem.text.trim() === localTheme) {
+          elem.classList.add('is-active');
+        } else {
+          elem.classList.remove('is-active');
+        }
+      }) : null;
+
+      setMetaColor(localTheme);
+    } else {
+      setMetaColor(rootEleme.className);
+    }
+
+    selectThemeItemElem ? 
+    selectThemeItemElem.forEach(function (v, i) {
+      v.addEventListener('click', function (e) {
+        var selectedThemeVariant = e.target.text.trim();
+        localStorage.setItem('theme', selectedThemeVariant);
+        setMetaColor(selectedThemeVariant);
+
+        rootEleme.removeAttribute('class');
+        rootEleme.classList.add('theme__' + selectedThemeVariant);
+        selectThemeElem.forEach(function(rootElem) {
+          rootElem.querySelectorAll('a').forEach(function (elem) {
+            if (elem.classList) {
+              if (elem.text.trim() === selectedThemeVariant) {
+                if (!elem.classList.contains('is-active')) {
+                  elem.classList.add('is-active');
+                }
+              } else {
+                if (elem.classList.contains('is-active')) {
+                  elem.classList.remove('is-active');
+                }
+              }
+            }
+          });
+        });
+
+        if (window.mermaid) {
+          if (selectedThemeVariant === "dark" || selectedThemeVariant === "hacker") {
+            mermaid.initialize({ theme: 'dark' });
+            location.reload();
+          } else {
+            mermaid.initialize({ theme: 'default' });
+            location.reload();
+          }
+        }
+
+        var utterances = document.getElementById('utterances');
+        if (utterances) {
+          utterances.querySelector('iframe').contentWindow.postMessage({
+            type: 'set-theme',
+            theme: selectedThemeVariant === "dark" || selectedThemeVariant === "hacker" ? 'photon-dark' : selectedThemeVariant === 'kimbie' ? 'github-dark-orange' : 'github-light',
+          }, 'https://utteranc.es');
+        }
+
+        var twitterCards = document.querySelectorAll('.twitter-timeline');
+        if (twitterCards) {
+          window.postMessage({
+            type: 'set-twitter-theme',
+            theme: selectedThemeVariant === 'light' || selectedThemeVariant === 'solarized' ? 'light' : 'dark',
+          });
+        }
+      });
+    }) : null;
+  
+
+
+  
+    
+    var permalink = JSON.parse("\"https://anthonylaiuppa.com/posts/kringlecon/\"");
+    var searchResults = null;
+    var searchMenu = null;
+    var searchText = null;
+    
+    
+    var enableSearchHighlight = JSON.parse("true");
+    
+    var searchResultPosition = JSON.parse("\"main\"");
+    
+    var sectionType = JSON.parse("\"posts\"");
+
+    var fuse = null;
+
+    (function initFuse() {
+      var xhr = new XMLHttpRequest();
+      xhr.open('GET', permalink + "index.json");
+      xhr.setRequestHeader('Content-Type', 'application/json; charset=utf-8');
+      xhr.onload = function () {
+        if (xhr.status === 200) {
+          fuse = new Fuse(JSON.parse(xhr.response.toString('utf-8')), {
+            keys: sectionType.includes('publication') ? ['title', 'abstract'] : ['title', 'description', 'content'],
+            includeMatches: enableSearchHighlight,
+            shouldSort: true,
+            threshold: 0.4,
+            location: 0,
+            distance: 100,
+            maxPatternLength: 32,
+            minMatchCharLength: 1,
+          });
+          window.fuse = fuse;
+        }
+        else {
+          console.error('[' + xhr.status + ']Error:', xhr.statusText);
+        }
+      };
+      xhr.send();
+    })();
+
+    function makeLi(ulElem, obj) {
+      var li = document.createElement('li');
+      li.className = 'search-result__item';
+      
+      var a = document.createElement('a');
+      a.innerHTML = obj.title;
+      a.setAttribute('class', 'search-result__item--title');
+      a.setAttribute('href', obj.permalink);
+
+      var descDiv = document.createElement('div');
+      descDiv.setAttribute('class', 'search-result__item--desc');
+      if (obj.description) {
+        descDiv.innerHTML = obj.description;
+      } else if (obj.content) {
+        descDiv.innerHTML = obj.content.substring(0, 225);
+      }
+      
+      li.appendChild(a);
+      li.appendChild(descDiv);
+      ulElem.appendChild(li);
+    }
+
+    function makeHighlightLi(ulElem, obj) {
+      var li = document.createElement('li');
+      li.className = 'search-result__item';
+      var descDiv = null;
+
+      var a = document.createElement('a');
+      a.innerHTML = obj.item.title;
+      a.setAttribute('class', 'search-result__item--title');
+      a.setAttribute('href', obj.item.uri);
+
+      if (obj.matches && obj.matches.length) {
+        for (var i = 0; i < obj.matches.length; i++) {
+          if ('title' === obj.matches[i].key) {
+            a = document.createElement('a');
+            a.innerHTML = generateHighlightedText(obj.matches[i].value, obj.matches[i].indices);
+            a.setAttribute('class', 'search-result__item--title');
+            a.setAttribute('href', obj.item.uri);
+          }
+          
+          if ('description' === obj.matches[i].key) {
+            descDiv = document.createElement('div');
+            descDiv.setAttribute('class', 'search-result__item--desc');
+            descDiv.innerHTML = generateHighlightedText(obj.item.description, obj.matches[i].indices);
+          } else if ('content' === obj.matches[i].key) {
+            if (!descDiv) {
+              descDiv = document.createElement('div');
+              descDiv.setAttribute('class', 'search-result__item--desc');
+              descDiv.innerHTML = generateHighlightedText(obj.item.content.substring(0, 150), obj.matches[i].indices);
+            }
+          } else {
+            if (obj.item.description) {
+              descDiv = document.createElement('div');
+              descDiv.setAttribute('class', 'search-result__item--desc');
+              descDiv.innerHTML = obj.item.description;
+            } else {
+              descDiv = document.createElement('div');
+              descDiv.setAttribute('class', 'search-result__item--desc');
+              descDiv.innerHTML = obj.item.content.substring(0, 150);
+            }
+          }
+        }
+
+        li.appendChild(a);
+        if (descDiv) {
+          li.appendChild(descDiv);
+        }
+        if (li) {
+          ulElem.appendChild(li);
+        }
+      }
+    }
+
+    function renderSearchResultsSide(searchText, results) {
+      searchResults = document.getElementById('search-results');
+      searchMenu = document.getElementById('search-menu');
+      searchResults.setAttribute('class', 'dropdown is-active');
+      
+      var ul = document.createElement('ul');
+      ul.setAttribute('class', 'dropdown-content search-content');
+
+      if (results.length) {
+        results.forEach(function (result) {
+          var li = document.createElement('li');
+          var a = document.createElement('a');
+          a.setAttribute('href', result.uri);
+          a.setAttribute('class', 'dropdown-item');
+          a.appendChild(li);
+
+          var titleDiv = document.createElement('div');
+          titleDiv.innerHTML = result.title;
+          titleDiv.setAttribute('class', 'menu-item__title');
+
+          var descDiv = document.createElement('div');
+          descDiv.setAttribute('class', 'menu-item__desc');
+          if (result.description) {
+            descDiv.innerHTML = result.description;
+          } else if (result.content) {
+            descDiv.innerHTML = result.content.substring(0, 150);
+          }
+
+          li.appendChild(titleDiv);
+          li.appendChild(descDiv);
+          ul.appendChild(a);
+        });
+      } else {
+        var li = document.createElement('li');
+        li.setAttribute('class', 'dropdown-item');
+        li.innerText = 'No results found';
+        ul.appendChild(li);
+      }
+
+      while (searchMenu.hasChildNodes()) {
+        searchMenu.removeChild(
+          searchMenu.lastChild
+        );
+      }
+      
+      searchMenu.appendChild(ul);
+    }
+
+    function renderSearchHighlightResultsSide(searchText, results) {
+      searchResults = document.getElementById('search-results');
+      searchMenu = document.getElementById('search-menu');
+      searchResults.setAttribute('class', 'dropdown is-active');
+
+      var ul = document.createElement('ul');
+      ul.setAttribute('class', 'dropdown-content search-content');
+
+      if (results.length) {
+        results.forEach(function (result) {
+          var li = document.createElement('li');
+          var a = document.createElement('a');
+          var descDiv = null;
+
+          a.setAttribute('href', result.item.uri);
+          a.setAttribute('class', 'dropdown-item');
+          a.appendChild(li);
+
+          var titleDiv = document.createElement('div');
+          titleDiv.innerHTML = result.item.title;
+          titleDiv.setAttribute('class', 'menu-item__title');
+          
+          if (result.matches && result.matches.length) {
+            for (var i = 0; i < result.matches.length; i++) {
+              if ('title' === result.matches[i].key) {
+                titleDiv.innerHTML = generateHighlightedText(result.matches[i].value, result.matches[i].indices);
+              }
+
+              if ('description' === result.matches[i].key) {
+                descDiv = document.createElement('div');
+                descDiv.setAttribute('class', 'menu-item__desc');
+                descDiv.innerHTML = generateHighlightedText(result.item.description, result.matches[i].indices);
+              } else if ('content' === result.matches[i].key) {
+                if (!descDiv) {
+                  descDiv = document.createElement('div');
+                  descDiv.setAttribute('class', 'menu-item__desc');
+                  descDiv.innerHTML = generateHighlightedText(result.item.content.substring(0, 150), result.matches[i].indices);
+                }
+              } else {
+                if (result.item.description) {
+                  descDiv = document.createElement('div');
+                  descDiv.setAttribute('class', 'menu-item__desc');
+                  descDiv.innerHTML = result.item.description;
+                } else {
+                  descDiv = document.createElement('div');
+                  descDiv.setAttribute('class', 'menu-item__desc');
+                  descDiv.innerHTML = result.item.content.substring(0, 150);
+                }
+              }
+            }
+            
+            li.appendChild(titleDiv);
+            if (descDiv) {
+              li.appendChild(descDiv);
+            }
+            ul.appendChild(a);
+          }
+        });
+      } else {
+        var li = document.createElement('li');
+        li.setAttribute('class', 'dropdown-item');
+        li.innerText = 'No results found';
+        ul.appendChild(li);
+      }
+
+      while (searchMenu.hasChildNodes()) {
+        searchMenu.removeChild(
+          searchMenu.lastChild
+        );
+      }
+      searchMenu.appendChild(ul);
+    }
+
+    function renderSearchResultsMobile(searchText, results) {
+      searchResults = document.getElementById('search-mobile-results');
+
+      var content = document.createElement('div');
+      content.setAttribute('class', 'mobile-search__content');
+
+      if (results.length > 0) {
+        results.forEach(function (result) {
+          var item = document.createElement('a');
+          item.setAttribute('href', result.uri);
+          item.innerHTML = '<div class="mobile-search__item"><div class="mobile-search__item--title">📄 ' + result.title + '</div><div class="mobile-search__item--desc">' + (result.description ? result.description : result.content) + '</div></div>';
+          content.appendChild(item);
+        });
+      } else {
+        var item = document.createElement('span');
+        content.appendChild(item);
+      }
+
+      let wrap = document.getElementById('search-mobile-results');
+      while (wrap.firstChild) {
+        wrap.removeChild(wrap.firstChild)
+      }
+      searchResults.appendChild(content);      
+    }
+
+    function renderSearchHighlightResultsMobile(searchText, results) {
+      searchResults = document.getElementById('search-mobile-results');
+
+      var ul = document.createElement('div');
+      ul.setAttribute('class', 'mobile-search__content');
+
+      if (results.length) {
+        results.forEach(function (result) {
+          var li = document.createElement('li');
+          var a = document.createElement('a');
+          var descDiv = null;
+
+          a.setAttribute('href', result.item.uri);
+          a.appendChild(li);
+          li.setAttribute('class', 'mobile-search__item');
+
+          var titleDiv = document.createElement('div');
+          titleDiv.innerHTML = result.item.title;
+          titleDiv.setAttribute('class', 'mobile-search__item--title');
+          
+          if (result.matches && result.matches.length) {
+            for (var i = 0; i < result.matches.length; i++) {
+              if ('title' === result.matches[i].key) {
+                titleDiv.innerHTML = generateHighlightedText(result.matches[i].value, result.matches[i].indices);
+              }
+
+              if ('description' === result.matches[i].key) {
+                descDiv = document.createElement('div');
+                descDiv.setAttribute('class', 'mobile-search__item--desc');
+                descDiv.innerHTML = generateHighlightedText(result.item.description, result.matches[i].indices);
+              } else if ('content' === result.matches[i].key) {
+                if (!descDiv) {
+                  descDiv = document.createElement('div');
+                  descDiv.setAttribute('class', 'mobile-search__item--desc');
+                  descDiv.innerHTML = generateHighlightedText(result.item.content.substring(0, 150), result.matches[i].indices);
+                }
+              } else {
+                if (result.item.description) {
+                  descDiv = document.createElement('div');
+                  descDiv.setAttribute('class', 'mobile-search__item--desc');
+                  descDiv.innerHTML = result.item.description;
+                } else {
+                  descDiv = document.createElement('div');
+                  descDiv.setAttribute('class', 'mobile-search__item--desc');
+                  descDiv.innerHTML = result.item.content.substring(0, 150);
+                }
+              }
+            }
+            
+            li.appendChild(titleDiv);
+            if (descDiv) {
+              li.appendChild(descDiv);
+            }
+            ul.appendChild(a);
+          }
+        });
+      } else {
+        var item = document.createElement('span');
+        ul.appendChild(item);
+      }
+
+      let wrap = document.getElementById('search-mobile-results');
+      while (wrap.firstChild) {
+        wrap.removeChild(wrap.firstChild)
+      }
+      searchResults.appendChild(ul);
+    }
+
+    function generateHighlightedText(text, regions) {
+      if (!regions) {
+        return text;
+      }
+
+      var content = '', nextUnhighlightedRegionStartingIndex = 0;
+
+      regions.forEach(function(region) {
+        if (region[0] === region[1]) {
+          return null;
+        }
+        
+        content += '' +
+          text.substring(nextUnhighlightedRegionStartingIndex, region[0]) +
+          '<span class="search__highlight">' +
+            text.substring(region[0], region[1] + 1) +
+          '</span>' +
+        '';
+        nextUnhighlightedRegionStartingIndex = region[1] + 1;
+      });
+
+      content += text.substring(nextUnhighlightedRegionStartingIndex);
+
+      return content;
+    };
+
+    var searchElem = document.getElementById('search');
+    var searchMobile = document.getElementById('search-mobile');
+    var searchResultsContainer = document.getElementById('search-results');
+
+    searchElem ?
+    searchElem.addEventListener('input', function(e) {
+      if (!e.target.value | window.innerWidth < 770) {
+        searchResultsContainer ? searchResultsContainer.setAttribute('class', 'dropdown') : null;
+        searchResult ? searchResult.setAttribute('data-display', 'none') : null;
+        summaryContainer ? summaryContainer.setAttribute('data-display', 'block') : null;
+        return null;
+      }
+
+      searchText = e.target.value;
+      var results = fuse.search(e.target.value);
+      
+      if (searchResultPosition === "main") {
+        if (enableSearchHighlight) {
+          renderSearchHighlightResultsMain(searchText, results);
+        } else {
+          renderSearchResultsMain(searchText, results);
+        }
+      } else {
+        if (enableSearchHighlight) {
+          renderSearchHighlightResultsSide(searchText, results);
+        } else {
+          renderSearchResultsSide(searchText, results);
+        }
+        
+        var dropdownItems = searchResultsContainer.querySelectorAll('.dropdown-item');
+        dropdownItems ? dropdownItems.forEach(function(item) {
+          item.addEventListener('mousedown', function(e) {
+            e.target.click();
+          });
+        }) : null;
+      }
+    }) : null;
+
+    searchElem ? 
+    searchElem.addEventListener('blur', function() {
+      if (window.innerWidth < 770) {
+        return null;
+      }
+      searchResultsContainer ? searchResultsContainer.setAttribute('class', 'dropdown') : null;
+    }) : null;
+
+    searchElem ? 
+    searchElem.addEventListener('click', function(e) {
+      if (window.innerWidth < 770) {
+        return null;
+      }
+      if (!e.target.value) {
+        searchResultsContainer ? searchResultsContainer.setAttribute('class', 'dropdown') : null;
+        return null;
+      }
+
+      searchText = e.target.value;
+      var results = fuse.search(e.target.value);
+
+      if (searchResultPosition === "main") {
+        if (enableSearchHighlight) {
+          renderSearchHighlightResultsMain(searchText, results);
+        } else {
+          renderSearchResultsMain(searchText, results);
+        }
+      } else{
+        if (enableSearchHighlight) {
+          renderSearchHighlightResultsSide(searchText, results);
+        } else {
+          renderSearchResultsSide(searchText, results);
+        }
+
+        var dropdownItems = searchResultsContainer.querySelectorAll('.dropdown-item');
+        dropdownItems ? dropdownItems.forEach(function (item) {
+          item.addEventListener('mousedown', function (e) {
+            e.target.click();
+          });
+        }) : null;
+      }
+    }) : null;
+
+    var searchMenuElem = document.getElementById("search-menu");
+    var activeItem = document.querySelector('#search-menu .dropdown-item.is-active');
+    var activeIndex = null;
+    var items = null;
+    var searchContainerMaxHeight = 350;
+
+    searchElem ? 
+    searchElem.addEventListener('keydown', function(e) {
+      if (window.innerWidth < 770) {
+        return null;
+      }
+
+      if (e.key === 'Escape') {
+        searchResult ? searchResult.setAttribute('data-display', 'none') : null;
+        summaryContainer ? summaryContainer.setAttribute('data-display', 'block') : null;
+      }
+
+      var items = document.querySelectorAll('#search-menu .dropdown-item');
+      var keyCode = e.which || e.keyCode;
+
+      if (!items || !items.length) {
+        return null;
+      }
+      
+      if (e.key === 'ArrowDown' || keyCode === 40) {
+        if (activeIndex === null) {
+          activeIndex = 0;
+          items[activeIndex].classList.remove('is-active');
+        } else {
+          items[activeIndex].classList.remove('is-active');
+          activeIndex = activeIndex === items.length - 1 ? 0 : activeIndex + 1;
+        }
+        items[activeIndex].classList.add('is-active');
+
+        let overflowedPixel = items[activeIndex].offsetTop + items[activeIndex].clientHeight - searchContainerMaxHeight;
+        if (overflowedPixel > 0) {
+          document.querySelector(".search-content").scrollTop += items[activeIndex].getBoundingClientRect().height;
+        } else if (activeIndex === 0) {
+          document.querySelector(".search-content").scrollTop = 0;
+        }
+      } else if (e.key === 'ArrowUp' || keyCode === 38) {
+        if (activeIndex === null) {
+          activeIndex = items.length - 1;
+          items[activeIndex].classList.remove('is-active');
+        } else {
+          items[activeIndex].classList.remove('is-active');
+          activeIndex = activeIndex === 0 ? items.length - 1 : activeIndex - 1;
+        }
+        items[activeIndex].classList.add('is-active');
+        
+        let overflowedPixel = items[activeIndex].offsetTop + items[activeIndex].clientHeight - searchContainerMaxHeight;
+        if (overflowedPixel < 0) {
+          document.querySelector(".search-content").scrollTop -= items[activeIndex].getBoundingClientRect().height;
+        } else {
+          document.querySelector(".search-content").scrollTop = overflowedPixel + items[activeIndex].getBoundingClientRect().height;
+        }
+      } else if (e.key === 'Enter' || keyCode === 13) {
+        if (items[activeIndex] && items[activeIndex].getAttribute('href')) {
+          location.href = items[activeIndex].getAttribute('href');
+        }
+      } else if (e.key === 'Escape' || keyCode === 27) {
+        e.target.value = null;
+        if (searchResults) {
+          searchResults.classList.remove('is-active');
+        }
+      }
+    }) : null;
+
+    searchMobile ? 
+    searchMobile.addEventListener('input', function(e) {
+      if (!e.target.value) {
+        let wrap = document.getElementById('search-mobile-results');
+        while (wrap.firstChild) {
+          wrap.removeChild(wrap.firstChild);
+        }
+        return null;
+      }
+
+      searchText = e.target.value;
+      var results = fuse.search(e.target.value);
+      renderSearchResultsMobile(searchText, results);
+      if (enableSearchHighlight) {
+        renderSearchHighlightResultsMobile(searchText, results);
+      } else {
+        renderSearchResultsMobile(searchText, results);
+      }
+    }) : null;
+  
+
+
+  
+    var mobileSearchInputElem = document.querySelector('#search-mobile');
+    var mobileSearchClassElem = document.querySelector('.mobile-search');
+    var mobileSearchBtnElem = document.querySelector('#mobileSearchBtn');
+    var mobileSearchCloseBtnElem = document.querySelector('#search-mobile-close');
+    var mobileSearchContainer = document.querySelector('#search-mobile-container');
+    var mobileSearchResultsElem = document.querySelector('#search-mobile-results');
+    var htmlElem = document.querySelector('html');
+
+    if (mobileSearchClassElem) {
+      mobileSearchClassElem.style.display = 'none';
+    }
+
+    mobileSearchBtnElem ? 
+    mobileSearchBtnElem.addEventListener('click', function () {
+      if (mobileSearchContainer) {
+        mobileSearchContainer.style.display = 'block';
+      }
+
+      if (mobileSearchInputElem) {
+        mobileSearchInputElem.focus();
+      }
+
+      if (htmlElem) {
+        htmlElem.style.overflowY = 'hidden';
+      }
+    }) : null;
+
+    mobileSearchCloseBtnElem ? 
+    mobileSearchCloseBtnElem.addEventListener('click', function() {
+      if (mobileSearchContainer) {
+        mobileSearchContainer.style.display = 'none';
+      }
+
+      if (mobileSearchInputElem) {
+        mobileSearchInputElem.value = '';
+      }
+      
+      if (mobileSearchResultsElem) {
+        while (mobileSearchResultsElem.firstChild) {
+          mobileSearchResultsElem.removeChild(mobileSearchResultsElem.firstChild);
+        }
+      }
+
+      if (htmlElem) {
+        htmlElem.style.overflowY = 'visible';
+      }
+    }) : null;
+
+    mobileSearchInputElem ?
+    mobileSearchInputElem.addEventListener('keydown', function(e) {
+      var keyCode = e.which || e.keyCode;
+      if (e.key === 'Escape' || keyCode === 27) {
+        if (mobileSearchContainer) {
+          mobileSearchContainer.style.display = 'none';
+        }
+        
+        if (mobileSearchInputElem) {
+          mobileSearchInputElem.value = '';
+        }
+
+        if (mobileSearchResultsElem) {
+          while (mobileSearchResultsElem.firstChild) {
+            mobileSearchResultsElem.removeChild(mobileSearchResultsElem.firstChild);
+          }
+        }
+        if (htmlElem) {
+          htmlElem.style.overflowY = 'visible';
+        }
+      }
+    }) : null;
+  
+
+
+  
+    function renderSearchResultsMain(searchText, results) {
+      var searchBody = document.querySelector('.search-result__body');
+      var originUl = searchBody.querySelector('ul');
+      var ul = document.createElement('ul');
+      
+      if (!searchText) {
+        searchResult ? searchResult.setAttribute('data-display', 'none') : null;
+        summaryContainer ? summaryContainer.setAttribute('data-display', 'block') : null;
+      } else if (results) {
+        if (results && results.length) {
+          results.forEach(function (result) {
+            makeLi(ul, result);
+          });
+
+          searchResult ? searchResult.setAttribute('data-display', 'block') : null;
+          summaryContainer ? summaryContainer.setAttribute('data-display', 'none') : null;
+        }
+      }
+
+      originUl.parentNode.replaceChild(ul, originUl);
+    }
+
+    function renderSearchHighlightResultsMain(searchText, results) {
+      var searchBody = document.querySelector('.search-result__body');
+      var originUl = searchBody.querySelector('ul');
+      var ul = document.createElement('ul');
+
+      if (!searchText) {
+        searchResult ? searchResult.setAttribute('data-display', 'none') : null;
+        summaryContainer ? summaryContainer.setAttribute('data-display', 'block') : null;
+      } else if (results) {
+        if (results && results.length) {
+          results.forEach(function (result) {
+            makeHighlightLi(ul, result);
+          });
+
+          searchResult ? searchResult.setAttribute('data-display', 'block') : null;
+          summaryContainer ? summaryContainer.setAttribute('data-display', 'none') : null;
+        }
+      }
+
+      originUl.parentNode.replaceChild(ul, originUl);
+    }
+  
+  });
+</script>    
+    
+
+
+<link rel="stylesheet" href="/css/main.min.css">
+
+
+    
+<meta name="description" content="SANS Holiday Hacking Challenge" />
+
+
+<meta name="keywords" content="ctf,hacking,python,powershell,infosec,security,pcap,linux,windows,reverse engineering">
+
+<meta name="created" content="2019-01-14T06:40:51&#43;0900">
+<meta name="modified" content="2019-01-14T06:40:51&#43;0900">
+<meta property="article:published_time" content="2019-01-14T06:40:51&#43;0900">
+
+<meta name="author" content="Anthony Laiuppa">
+
+
+<meta property="og:site_name" content="Laiuppa Blog">
+<meta property="og:title" content="Kringlecon 2018">
+<meta property="og:url" content="https://anthonylaiuppa.com/posts/kringlecon/">
+<meta property="og:type" content="article">
+<meta property="og:description" content="SANS Holiday Hacking Challenge">
+
+  
+    <meta property="og:image" content="https://anthonylaiuppa.com/images/posts/kringlecon/flag.png">
+    <meta property="og:image:url" content="https://anthonylaiuppa.com/images/posts/kringlecon/flag.png">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:app:name:iphone" content="Laiuppa Blog">
+    <meta property="twitter:title" content="Kringlecon 2018">
+    <meta property="twitter:description" content="SANS Holiday Hacking Challenge">
+  
+
+<meta name="generator" content="Hugo 0.69.2" />
+<meta name="msapplication-TileColor" content="#fff">
+
+<meta name="theme-color" content="#fff">
+
+<meta name="msapplication-navbutton-color" content="#fff">
+
+<meta name="apple-mobile-web-app-status-bar-style" content="#fff">
+
+<link rel="canonical" href="https://anthonylaiuppa.com/posts/kringlecon/">
+
+<link rel="manifest" href="/manifest.json">
+
+  <link rel="apple-touch-icon" sizes="57x57" href="/favicon/apple-icon-57x57.png">
+  <link rel="apple-touch-icon" sizes="60x60" href="/favicon/apple-icon-60x60.png">
+  <link rel="apple-touch-icon" sizes="72x72" href="/favicon/apple-icon-72x72.png">
+  <link rel="apple-touch-icon" sizes="76x76" href="/favicon/apple-icon-76x76.png">
+  <link rel="apple-touch-icon" sizes="114x114" href="/favicon/apple-icon-114x114.png">
+  <link rel="apple-touch-icon" sizes="120x120" href="/favicon/apple-icon-120x120.png">
+  <link rel="apple-touch-icon" sizes="144x144" href="/favicon/apple-icon-144x144.png">
+  <link rel="apple-touch-icon" sizes="152x152" href="/favicon/apple-icon-152x152.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="/favicon/apple-icon-180x180.png">
+  <link rel="icon" type="image/png" sizes="192x192" href="/favicon/android-icon-192x192.png">
+  <link rel="icon" type="image/png" sizes="192x192" href="/favicon/android-icon-512x512.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="96x96" href="/favicon/favicon-96x96.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon/favicon-16x16.png">
+  <meta name="msapplication-TileColor" content="#ffffff">
+  <meta name="msapplication-TileImage" content="/ms-icon-144x144.png">
+
+
+    <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebPage",
+    "headline": "Kringlecon 2018",
+    "datePublished": "2019-01-14T06:40:51+09:00",
+    "dateModified": "2019-01-14T06:40:51+09:00",
+    "url" : "https://anthonylaiuppa.com/posts/kringlecon/",
+    "description": "SANS Holiday Hacking Challenge",
+    "keywords": ["ctf","hacking","python","powershell","infosec","security","pcap","linux","windows","reverse engineering"],
+    "image" : "https://anthonylaiuppa.com/images/posts/kringlecon/flag.png",
+    "mainEntityOfPage": {
+      "@type": "WebPage",
+      "@id": "https://anthonylaiuppa.com"
+    },
+    "publisher": {
+      "@type": "Organization",
+      "name": "Laiuppa Blog",
+      "url": "https://anthonylaiuppa.com"
+    }
+  }
+</script>
+
+    
+  
+  
+
+
+
+
+
+
+
+    
+</head>
+
+<body id="root" class="theme__dark">
+    <script>
+        var localTheme = localStorage.getItem('theme');
+        if (localTheme) {
+            document.getElementById('root').className = 'theme__' + localTheme;
+        }
+    </script>
+    <div id="container">
+        
+
+
+
+
+
+        <div class="wrapper" data-type="posts" data-kind="page">
+            <nav class="navbar" role="navigation" aria-label="main navigation" data-dir="ltr">
+  <div class="navbar__brand">
+    
+    <a href="/" title="Home" rel="home" class="navbar__logo-link">
+      <img src="/logo.png" alt="Home" class="navbar__logo">
+    </a>
+    
+    
+      <a href="/" title="Home" rel="home" class="navbar__title-link">
+        <h6 class="navbar__title">Laiuppa Blog</h6>
+      </a>
+    
+  </div>
+
+  
+<div class="theme theme-mobile" data-ani="true">
+  <div class="dropdown">
+    <button class="dropdown-trigger navbar__slide-down" aria-label="Select Theme Button" style="" data-ani="true">
+      <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24"><path fill="none" d="M24 0H0v24h24V0z"/><path fill="currentColor" d="M6.34 7.93c-3.12 3.12-3.12 8.19 0 11.31C7.9 20.8 9.95 21.58 12 21.58s4.1-.78 5.66-2.34c3.12-3.12 3.12-8.19 0-11.31l-4.95-4.95c-.39-.39-1.02-.39-1.41 0L6.34 7.93zM12 19.59c-1.6 0-3.11-.62-4.24-1.76C6.62 16.69 6 15.19 6 13.59s.62-3.11 1.76-4.24L12 5.1v14.49z"/></svg>      
+    </button>
+    <div class="dropdown-content select-theme">
+      
+        
+        <a href="#" class="dropdown-item select-theme__item is-active">
+          dark
+        </a>
+        
+        <a href="#" class="dropdown-item select-theme__item ">
+          light
+        </a>
+        
+        <a href="#" class="dropdown-item select-theme__item ">
+          hacker
+        </a>
+        
+        <a href="#" class="dropdown-item select-theme__item ">
+          solarized
+        </a>
+        
+        <a href="#" class="dropdown-item select-theme__item ">
+          kimbie
+        </a>
+        
+      
+    </div>
+  </div>
+</div>
+
+
+<div id="mobileSearchBtn" class="mobile-search__btn" data-ani="true">
+  <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" fill="currentColor" viewBox="0 0 24 24"><path fill="none" d="M0 0h24v24H0V0z"/><path d="M15.5 14h-.79l-.28-.27c1.2-1.4 1.82-3.31 1.48-5.34-.47-2.78-2.79-5-5.59-5.34-4.23-.52-7.79 3.04-7.27 7.27.34 2.8 2.56 5.12 5.34 5.59 2.03.34 3.94-.28 5.34-1.48l.27.28v.79l4.25 4.25c.41.41 1.08.41 1.49 0 .41-.41.41-1.08 0-1.49L15.5 14zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z"/></svg>
+</div>
+
+<div id="search-mobile-container" class="mobile-search hide" data-dir="ltr">
+  <div class="mobile-search__top">
+    <input id="search-mobile" type="text" aria-label="Mobile Search" placeholder="Search" class="mobile-search__top--input"/>
+    <div id="search-mobile-close" class="mobile-search__top--icon">
+      <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24"><path opacity=".87" fill="none" d="M0 0h24v24H0V0z"/><path fill="currentColor" d="M12 2C6.47 2 2 6.47 2 12s4.47 10 10 10 10-4.47 10-10S17.53 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8zm3.59-13L12 10.59 8.41 7 7 8.41 10.59 12 7 15.59 8.41 17 12 13.41 15.59 17 17 15.59 13.41 12 17 8.41z"/></svg>
+    </div>
+  </div>
+  <div id="search-mobile-results" class="mobile-search__body">
+    
+  </div>
+</div>
+
+
+<a role="button" class="navbar__burger" aria-label="menu" aria-expanded="false"
+  data-ani="true">
+  <span aria-hidden="true"></span>
+  <span aria-hidden="true"></span>
+  <span aria-hidden="true"></span>
+</a>
+<div class="navbarm__collapse" data-open="false">
+  <ul dir="ltr">
+    
+    
+      
+      
+      
+      
+
+      
+        <li class="navbarm__menu--item ">
+          <a href="/about">About</a>
+        </li>
+      
+      
+    
+      
+      
+      
+      
+
+      
+        <li class="navbarm__menu--item ">
+          <a href="/archive">Archive</a>
+        </li>
+      
+      
+    
+      
+      
+      
+      
+
+      
+        <li class="navbarm__menu--item active">
+          <a href="/posts">Posts</a>
+        </li>
+      
+      
+    
+      
+      
+      
+      
+
+      
+        <li class="navbarm__menu--item ">
+          <a href="/showcase">Showcase</a>
+        </li>
+      
+      
+    
+
+    
+      <li class="navbarm__menu--item ">
+        <a href="/tags" class="navbarm__menu--term" data-index="0">
+          Tags
+        </a>
+      </li>
+    
+      <li class="navbarm__menu--item ">
+        <a href="/categories" class="navbarm__menu--term" data-index="1">
+          Categories
+        </a>
+      </li>
+    
+      <li class="navbarm__menu--item ">
+        <a href="/series" class="navbarm__menu--term" data-index="2">
+          Series
+        </a>
+      </li>
+    
+  </ul>
+</div>
+  <div class="navbar__menu">
+  
+<div class="theme" data-ani="true">
+  <div class="dropdown">
+    <button class="dropdown-trigger navbar__slide-down" aria-label="Select Theme Button" data-ani="true">
+      <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24"><path fill="none" d="M24 0H0v24h24V0z"/><path fill="currentColor" d="M6.34 7.93c-3.12 3.12-3.12 8.19 0 11.31C7.9 20.8 9.95 21.58 12 21.58s4.1-.78 5.66-2.34c3.12-3.12 3.12-8.19 0-11.31l-4.95-4.95c-.39-.39-1.02-.39-1.41 0L6.34 7.93zM12 19.59c-1.6 0-3.11-.62-4.24-1.76C6.62 16.69 6 15.19 6 13.59s.62-3.11 1.76-4.24L12 5.1v14.49z"/></svg>      
+    </button>
+    <div class="dropdown-content select-theme">
+      
+        
+        <a href="#" class="dropdown-item select-theme__item is-active">
+          dark
+        </a>
+        
+        <a href="#" class="dropdown-item select-theme__item ">
+          light
+        </a>
+        
+        <a href="#" class="dropdown-item select-theme__item ">
+          hacker
+        </a>
+        
+        <a href="#" class="dropdown-item select-theme__item ">
+          solarized
+        </a>
+        
+        <a href="#" class="dropdown-item select-theme__item ">
+          kimbie
+        </a>
+        
+      
+    </div>
+  </div>
+</div>
+
+  
+  
+  
+  
+  
+  
+  
+  <a href="/about" class="navbar__menu-item navbar__slide-down " dir="ltr" data-ani="true">About</a>
+  
+  
+  
+  
+  
+  
+  
+  <a href="/archive" class="navbar__menu-item navbar__slide-down " dir="ltr" data-ani="true">Archive</a>
+  
+  
+  
+  
+  
+  
+  
+  <a href="/posts" class="navbar__menu-item navbar__slide-down active" dir="ltr" data-ani="true">Posts</a>
+  
+  
+  
+  
+  
+  
+  
+  <a href="/showcase" class="navbar__menu-item navbar__slide-down " dir="ltr" data-ani="true">Showcase</a>
+  
+  
+</div>
+</nav>
+            
+            
+
+<main class="single__main main">
+  
+    <nav class="breadcrumb hide" aria-label="breadcrumbs">
+  <script>document.querySelector('.breadcrumb').classList.remove('hide')</script>
+  <ol>
+    
+  
+  
+  
+  
+  
+  <li >
+    
+      <a href="https://anthonylaiuppa.com/" class="capitalize">Laiuppa Blog</a>
+    
+  </li>
+  
+  
+  <li >
+    
+      <a href="https://anthonylaiuppa.com/posts/" class="capitalize">Posts</a>
+    
+  </li>
+  
+  
+  <li  class="is-active" >
+    
+      <span>Kringlecon 2018</span>
+    
+  </li>
+  
+  </ol>
+  
+</nav>
+  
+  
+  <div class="single ">
+    <div class="single__nojs">This page looks best with JavaScript enabled</div>
+    <script>document.querySelector('.single').classList.remove('hide'); document.querySelector('.single__nojs').classList.add('hide');</script>
+    <h2 class="single__title" data-ani="true">Kringlecon 2018</h2>
+    <div class="single__meta">
+      
+<div class="single__infos">
+  <time class="single__info" title="Written At">📅&nbsp;Jan 14, 2019 </time>
+  
+  &nbsp;&middot;&nbsp; <span class="single__info" title="Reading Time"> ☕&nbsp;20&nbsp;min read </span>
+  
+  <span class="single__info">
+    
+  </span>
+</div>
+      
+<ul class="single__tags caption">
+  
+  🏷️
+  
+
+  <li><a href="https://anthonylaiuppa.com/tags/ctf/" class="single__tag" title="ctf">#ctf</a></li>
+
+  <li><a href="https://anthonylaiuppa.com/tags/hacking/" class="single__tag" title="hacking">#hacking</a></li>
+
+  <li><a href="https://anthonylaiuppa.com/tags/infosec/" class="single__tag" title="infosec">#infosec</a></li>
+
+  <li><a href="https://anthonylaiuppa.com/tags/linux/" class="single__tag" title="linux">#linux</a></li>
+
+  <li><a href="https://anthonylaiuppa.com/tags/pcap/" class="single__tag" title="pcap">#pcap</a></li>
+
+  <li><a href="https://anthonylaiuppa.com/tags/powershell/" class="single__tag" title="powershell">#powershell</a></li>
+
+  <li><a href="https://anthonylaiuppa.com/tags/python/" class="single__tag" title="python">#python</a></li>
+
+  <li><a href="https://anthonylaiuppa.com/tags/reverse-engineering/" class="single__tag" title="reverse engineering">#reverse engineering</a></li>
+
+  <li><a href="https://anthonylaiuppa.com/tags/security/" class="single__tag" title="security">#security</a></li>
+
+  <li><a href="https://anthonylaiuppa.com/tags/windows/" class="single__tag" title="windows">#windows</a></li>
+
+</ul>
+    </div>
+    <article class="single__contents" data-dir="ltr" data-ani="true">
+      
+<div class="expand">
+  <button type="button" class="expand__button" aria-label="Expand Button">
+    <span class="expand-icon expand-icon__right">
+      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path fill="currentColor" d="M9.29 15.88L13.17 12 9.29 8.12c-.39-.39-.39-1.02 0-1.41.39-.39 1.02-.39 1.41 0l4.59 4.59c.39.39.39 1.02 0 1.41L10.7 17.3c-.39.39-1.02.39-1.41 0-.38-.39-.39-1.03 0-1.42z"/></svg>
+    </span>
+    What&#39;s on this Page
+  </button>
+  <div class="expand__content expand__content--toc">
+    <nav id="TableOfContents">
+  <ul>
+    <li>
+      <ul>
+        <li><a href="#preamble">Preamble</a></li>
+      </ul>
+    </li>
+    <li><a href="#table-of-challenges">Table of Challenges</a></li>
+    <li><a href="#challenge-1">Challenge 1</a>
+      <ul>
+        <li><a href="#terminal-challenge-1--essential-editor-skills">Terminal Challenge 1 : Essential Editor Skills</a></li>
+        <li><a href="#objective-1--orientation-challenge">Objective 1 : Orientation Challenge</a></li>
+      </ul>
+    </li>
+    <li><a href="#challenge-2">Challenge 2</a>
+      <ul>
+        <li><a href="#terminal-challenge-2--the-name-game">Terminal Challenge 2 : The Name Game</a></li>
+        <li><a href="#objective-2--directory-browsing">Objective 2 : Directory Browsing</a></li>
+      </ul>
+    </li>
+    <li><a href="#challenge-3">Challenge 3</a>
+      <ul>
+        <li><a href="#terminal-challenge-3--lethal-forenseicelfication">Terminal Challenge 3 : Lethal ForenseicELFication</a></li>
+        <li><a href="#objective-3-de-brujin-sequences">Objective 3: de brujin sequences</a></li>
+      </ul>
+    </li>
+    <li><a href="#challenge-4">Challenge 4</a>
+      <ul>
+        <li><a href="#terminal-challenge-4--stall-mucking-report">Terminal Challenge 4 : Stall Mucking Report</a></li>
+        <li><a href="#objective-4--data-repo-analysis">Objective 4 : Data Repo Analysis</a></li>
+      </ul>
+    </li>
+    <li><a href="#challenge-5">Challenge 5</a>
+      <ul>
+        <li><a href="#terminal-challenge-5-curling-master">Terminal Challenge 5: CURLing Master</a></li>
+        <li><a href="#objective-5--ad-privelege-discovery">Objective 5 : AD Privelege Discovery</a></li>
+      </ul>
+    </li>
+    <li><a href="#challenge-6">Challenge 6</a>
+      <ul>
+        <li><a href="#terminal-challenge-6--yule-log-analysis">Terminal Challenge 6 : Yule Log Analysis</a></li>
+        <li><a href="#objective-6--badge-manipulation">Objective 6 : Badge Manipulation</a></li>
+      </ul>
+    </li>
+    <li><a href="#challenge-7">Challenge 7</a>
+      <ul>
+        <li><a href="#terminal-challenge-7--dev-ops-fail">Terminal Challenge 7 : Dev Ops Fail</a></li>
+        <li><a href="#objective-7--hr-incident-response">Objective 7 : HR Incident Response</a></li>
+      </ul>
+    </li>
+    <li><a href="#challenge-8">Challenge 8</a>
+      <ul>
+        <li><a href="#terminal-challenge-8--python-escape-from-la">Terminal Challenge 8 : Python Escape from LA</a></li>
+        <li><a href="#objective-8--network-traffic-forensics">Objective 8 : Network Traffic Forensics</a></li>
+      </ul>
+    </li>
+    <li><a href="#challenge-9">Challenge 9</a>
+      <ul>
+        <li><a href="#terminal-challenge-9--sleigh-bell-lottery">Terminal Challenge 9 : Sleigh Bell Lottery</a></li>
+        <li><a href="#obective-9">Obective 9</a>
+          <ul>
+            <li><a href="#obective-91--catch-the-malware">Obective 9.1 : Catch the Malware</a></li>
+            <li><a href="#obective-92--identify-the-domain">Obective 9.2 : Identify the Domain</a></li>
+            <li><a href="#obective-93--stop-the-malware">Obective 9.3 : Stop the Malware</a></li>
+            <li><a href="#objective-94--recover-alabasters-password">Objective 9.4 : Recover Alabaster&rsquo;s Password</a></li>
+          </ul>
+        </li>
+      </ul>
+    </li>
+    <li><a href="#challenge-10--santas-vault">Challenge 10 : Santa&rsquo;s Vault</a>
+      <ul>
+        <li><a href="#objective-10--who-did-it">Objective 10 : Who did it?</a></li>
+      </ul>
+    </li>
+    <li><a href="#prologue">Prologue</a></li>
+  </ul>
+</nav>
+  </div>
+</div>
+
+      <h3 id="preamble">Preamble</h3>
+<hr />
+<p>There are alot of reasons to look forward to the holiday season and the annual SANS Holiday Hacking Challenge is no exception. This year they went with a conference theme, where you sign into a virtual world and attend <code>Kringlecon</code> &ndash; a mythical conference hosted by santa and his crack team of information security elves. SANS makes things very approachable by giving you smaller terminal challenges to solve in exchange for hints regarding the bigger objectives. This is my writeup on 2018 SANSHHC, aka Kringlecon.</p>
+<p><img src="../../images/posts/kringlecon/completed.png" alt="Completed" /></p>
+<p>On a personal note, this year was my favorite SANSHHC yet, the variety of challenges and exposure to unfamiliar (to me) technologies was phenomenal. The ASCII art was also a great treat, I was always excited to solve the terminal challenges and see what came out. Hopefully you&rsquo;re able to take something away from this and use it in your next CTF.</p>
+<h2 id="table-of-challenges">Table of Challenges</h2>
+<hr />
+<p>We got a little bit of everything with this years SANS Holiday Hacking Challenge, so heres an overview incase there is anything in particular you want to check out.</p>
+<table>
+<thead>
+<tr>
+<th>Title</th>
+<th align="right">Gist</th>
+<th align="center">(Objective) Difficulty</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1.  Essential Editor Skills / Orientation Challenge</td>
+<td align="right">Vim/HTML</td>
+<td align="center">1/5</td>
+</tr>
+<tr>
+<td>2.  The Name Game / Directory Browsing</td>
+<td align="right">CMD Injection/ Dir traversal</td>
+<td align="center">1/5</td>
+</tr>
+<tr>
+<td>3.  Lethal ForenseicELFication / De Brujin Sequences</td>
+<td align="right">Trufflehog / de Brujin Sequence</td>
+<td align="center">1/5</td>
+</tr>
+<tr>
+<td>4.  Stall Mucking Report / Data Repo analysis</td>
+<td align="right">SMB / Trufflehog</td>
+<td align="center">2/5</td>
+</tr>
+<tr>
+<td>5.  CURLing Master / AD Privelege Discovery</td>
+<td align="right">cURL / Bloodhound</td>
+<td align="center">3/5</td>
+</tr>
+<tr>
+<td>6.  Yule Log Analysis / Badge Manipulation</td>
+<td align="right">Windows evtx / SQL injection</td>
+<td align="center">3/5</td>
+</tr>
+<tr>
+<td>7.  Dev Ops Fail / HR Incident Response</td>
+<td align="right">git / CSV Injection</td>
+<td align="center">4/5</td>
+</tr>
+<tr>
+<td>8.  Python Escape from LA / Network Traffic Forensics</td>
+<td align="right">Python / Wireshark</td>
+<td align="center">4/5</td>
+</tr>
+<tr>
+<td>9.  Sleighbell Lottery / Ransomware Recovery</td>
+<td align="right">gdb / Snort / Malware analysis</td>
+<td align="center">5/5</td>
+</tr>
+<tr>
+<td>10. Santas Vault / Who did it?</td>
+<td align="right">Music / Story</td>
+<td align="center">1/5</td>
+</tr>
+</tbody>
+</table>
+<h2 id="challenge-1">Challenge 1</h2>
+<hr />
+<h3 id="terminal-challenge-1--essential-editor-skills">Terminal Challenge 1 : Essential Editor Skills</h3>
+<p>The first elf we come across, Bushy Evergreen, is next to a terminal that is stuck in VIM and needs our help to get out.</p>
+<p><img src="../../images/posts/kringlecon/essential_editor_skills.png" alt="Editor" /></p>
+<p>It feels every other time I bring up VIM&hellip; someone says they can never figure out how to exit it.</p>
+<p>This is an age old debate, so I&rsquo;ll just say I love VIM, and I&rsquo;d definitely recommend learning it.</p>
+<p>Being able to use a terminal editor effectively is great when you&rsquo;re dealing with remote <em>Nix systems</em>.</p>
+<blockquote>
+<p>Escape -&gt; <code>:q!</code></p>
+</blockquote>
+<p><img src="../../images/posts/kringlecon/essential_editor_term.png" alt="No Editor" /></p>
+<h3 id="objective-1--orientation-challenge">Objective 1 : Orientation Challenge</h3>
+<p>The first objective was a quiz with some SANSHHC history, having done the past two, this wasn&rsquo;t too bad at all.</p>
+<p><img src="../../images/posts/kringlecon/c1_solve.png" alt="C1_Solve" /></p>
+<h2 id="challenge-2">Challenge 2</h2>
+<hr />
+<h3 id="terminal-challenge-2--the-name-game">Terminal Challenge 2 : The Name Game</h3>
+<blockquote>
+<p>To solve this challenge, determine the new worker&rsquo;s first name and submit to runtoanswer.</p>
+</blockquote>
+<p><img src="../../images/posts/kringlecon/the_name_game.png" alt="Name Game" /></p>
+<p>The elf dropped a hint relating to command injection and SQLite, from there the path was clear.</p>
+<p>In this case the ampersand allowed us to append an additional command spilling the DB and info we wneeded for the solve.</p>
+<h3 id="objective-2--directory-browsing">Objective 2 : Directory Browsing</h3>
+<blockquote>
+<p>Who submitted (First Last) the rejected talk titled <em>Data Loss for Rainbow Teams: A Path in the Darkness</em> ?</p>
+</blockquote>
+<p>This objective has you go to a Call For Papers site, with the name of the challenge being Directory Browsing I had all I needed upfront.</p>
+<p><img src="../../images/posts/kringlecon/c2_url.png" alt="CFP Site" /></p>
+<p>Immediately going to the website it was sparse and attention was immediately drawn to the URL.</p>
+<p>Alright so what if we try to strip the end off?</p>
+<p><img src="../../images/posts/kringlecon/c2_dir_traversal.png" alt="CFP Directory" /></p>
+<p>That <code>rejected_talks.c1_solve</code> is looking like our target, lets pop it open and use the find function real quick.</p>
+<p><img src="../../images/posts/kringlecon/c2_find.png" alt="CFP Success" /></p>
+<p><img src="../../images/posts/kringlecon/c2_solve.png" alt="CFP Solve" /></p>
+<h2 id="challenge-3">Challenge 3</h2>
+<hr />
+<h3 id="terminal-challenge-3--lethal-forenseicelfication">Terminal Challenge 3 : Lethal ForenseicELFication</h3>
+<blockquote>
+<p>Find the first name of the elf of whom a love poem was written.  Complete this challenge by submitting that name to runtoanswer.</p>
+</blockquote>
+<p>Alright so to get started I always like to look around the directory and see if anything catches my eye. In this case we&rsquo;re immediately draw to <code>.viminfo</code><br />
+lets spill its contents and see what that&rsquo;s all about.</p>
+<p><img src="../../images/posts/kringlecon/letah_forensicelfication.png" alt="LE1" /></p>
+<p>We can see Elinore is a name prominently featured here, as if someone removed it from their poem, thus that is our answer.</p>
+<p><img src="../../images/posts/kringlecon/lethal_forensicelfication_solve.png" alt="LE2" /></p>
+<h3 id="objective-3-de-brujin-sequences">Objective 3: de brujin sequences</h3>
+<blockquote>
+<p>The room is protected by a door passcode. Upon entering the correct passcode, what message is presented to the speaker?</p>
+</blockquote>
+<p>We&rsquo;re presented with a door sporting a pin made up of a combination containing 4 shapes.</p>
+<p><img src="../../images/posts/kringlecon/ch3_doorsolve.png" alt="C3" /></p>
+<p>I was fortunate, while clicking around I luckily guessed it, but how do we do this proper?</p>
+<p><img src="../../images/posts/kringlecon/c3_requests.png" alt="Requests" /></p>
+<p>Well, opening Chromes <code>developer tools -&gt; network tab</code> we can see where the request is being made to validate the pin, from there we can just use some quick<br />
+pythons to automate some brute forcing action. To be incredibly precise you could read about de brujin sequences and adjust your script accordingly.</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-python" data-lang="python"><span class="kn">import</span> <span class="nn">requests</span>
+<span class="kn">from</span> <span class="nn">itertools</span> <span class="kn">import</span> <span class="n">product</span>
+
+<span class="n">a</span> <span class="o">=</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">]</span>
+<span class="n">possible_pins</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="n">product</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">repeat</span><span class="o">=</span><span class="mi">4</span><span class="p">))</span>
+
+<span class="k">for</span> <span class="n">pin</span> <span class="ow">in</span> <span class="n">possible_pins</span><span class="p">:</span>
+
+	<span class="n">attempt</span> <span class="o">=</span> <span class="s1">&#39;&#39;</span>
+	<span class="k">for</span> <span class="n">thing</span> <span class="ow">in</span> <span class="n">pin</span><span class="p">:</span>
+		<span class="n">attempt</span> <span class="o">=</span> <span class="n">attempt</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">thing</span><span class="p">)</span>
+
+	<span class="n">url</span><span class="o">=</span><span class="s1">&#39;https://doorpasscoden.kringlecastle.com/checkpass.php?i=&#39;</span><span class="o">+</span><span class="nb">str</span><span class="p">(</span><span class="n">attempt</span><span class="p">)</span><span class="o">+</span><span class="s1">&#39;&amp;resourceId=undefined&#39;</span>
+	<span class="n">resp</span><span class="o">=</span><span class="n">requests</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">url</span><span class="p">)</span>
+	<span class="k">print</span><span class="p">(</span><span class="n">url</span><span class="p">)</span>
+	<span class="k">print</span><span class="p">(</span><span class="n">resp</span><span class="o">.</span><span class="n">text</span><span class="p">)</span>
+	<span class="k">if</span> <span class="s1">&#39;true&#39;</span> <span class="ow">in</span> <span class="n">resp</span><span class="o">.</span><span class="n">text</span><span class="p">:</span>
+		<span class="k">print</span><span class="p">(</span><span class="s1">&#39;Found pin {0}&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">attempt</span><span class="p">))</span>
+		<span class="nb">exit</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
+</code></pre></td></tr></table>
+</div>
+</div><p><img src="../../images/posts/kringlecon/c3_door_solve_terminal.png" alt="Door" /></p>
+<h2 id="challenge-4">Challenge 4</h2>
+<hr />
+<h3 id="terminal-challenge-4--stall-mucking-report">Terminal Challenge 4 : Stall Mucking Report</h3>
+<blockquote>
+<p>Complete this challenge by uploading the elf&rsquo;s report.txt file to the samba share at //localhost/report-upload/</p>
+</blockquote>
+<p>Alright so this challenge references samba, and the only thing on the directory is report.txt.</p>
+<p>We can use <code>ps aux</code> to check for running processes, looking for something samba.</p>
+<p><img src="../../images/posts/kringlecon/stall_mucking_repot.png" alt="PS Aux" /></p>
+<p>From there we can see a line with the name <em>manager</em>, and that looks to be of interest, lets use <code>grep</code> to narrow our results.</p>
+<p>We can see the password used and then craft our own command to upload the report using the same.</p>
+<p><img src="../../images/posts/kringlecon/stall_mucking_solve.png" alt="Upload" /></p>
+<h3 id="objective-4--data-repo-analysis">Objective 4 : Data Repo Analysis</h3>
+<blockquote>
+<p>Retrieve the encrypted ZIP file from the North Pole Git repository. What is the password to open this file?</p>
+</blockquote>
+<p>Did you say git repository? Well git tends to retain everything through versioning, which is great&hellip; unless you accidentally committed some sort of secret.</p>
+<p>Then we can use a tool called <code>Trufflehog</code> to find it. I thoroughly recommend implementing Trufflehog as part of your CI/CD process to help spot accidental secret commits early.</p>
+<p>So all we need to do is pull the repository and point <code>Trufflehog</code> at it.</p>
+<p><img src="../../images/posts/kringlecon/ch4_trufflehog.png" alt="Trufflehog" /></p>
+<p><img src="../../images/posts/kringlecon/ch4_solve.png" alt="C4 Solve" /></p>
+<h2 id="challenge-5">Challenge 5</h2>
+<hr />
+<h3 id="terminal-challenge-5-curling-master">Terminal Challenge 5: CURLing Master</h3>
+<blockquote>
+<p>Complete this challenge by submitting the right HTTP request to the server at http://localhost:8080/ to get the candy striper started again.</p>
+</blockquote>
+<p>Alright, following that statement they say to checkout <code>/etc/nginx/nginx.conf</code>, if we cat it and take a look&hellip; we see a comment helping us narrow down whats important here.</p>
+<p><img src="../../images/posts/kringlecon/candy_striper_hint.png" alt="CURL Master Hint" /></p>
+<p>HTTP2 is different, so a quick consult to our CURL documentation gives us a flag to throw in.</p>
+<p><img src="../../images/posts/kringlecon/candy_striper.png" alt="CURL" /></p>
+<p>After that the output tells us to add a POST and have <code>status=on</code>, no problem just throw it on the end of our <code>CURL</code> command and voila.</p>
+<p><img src="../../images/posts/kringlecon/candy_striper_solved.png" alt="Striper Solve" /></p>
+<h3 id="objective-5--ad-privelege-discovery">Objective 5 : AD Privelege Discovery</h3>
+<blockquote>
+<p>Using the data set contained in this SANS Slingshot Linux image, find a reliable path from a Kerberoastable user to the Domain Admins group. What’s the user’s logon name?</p>
+</blockquote>
+<p>Alright, so if we throw the image into virtualbox and fire up bloodhound the data is already preloaded.</p>
+<p>From there I was able to spot a filter that would give us our desired result.</p>
+<p><img src="../../images/posts/kringlecon/c5.png" alt="Bloodhound" /></p>
+<p>This was pretty sweet, I&rsquo;d never seen Bloodhound before but being able to visualize all these AD relations was great. Then being able to create attack paths off it sounds even more awesome.</p>
+<p><img src="../../images/posts/kringlecon/c5_solve.png" alt="C5 Solve" /></p>
+<h2 id="challenge-6">Challenge 6</h2>
+<hr />
+<h3 id="terminal-challenge-6--yule-log-analysis">Terminal Challenge 6 : Yule Log Analysis</h3>
+<blockquote>
+<p>Submit the compromised webmail username to runtoanswer to complete this challenge.</p>
+</blockquote>
+<p>This challenge has a <code>.evtx logfile</code> and a <code>Python</code> script to convert it to something you can <code>grep</code>.</p>
+<p>Windows event logs are pretty straight forward and well documented, you can see the standard structure below.</p>
+<p><img src="../../images/posts/kringlecon/yule_evtx.png" alt="Logs" /></p>
+<p>I used <code>targetusername</code> as a filter to narrow results down, then looked at various users until I could identify which was compromised via the log.</p>
+<p>Coming back to do this writeup I noticed I didnt take a picture of the exact event that tipped me off. Whoops.</p>
+<p><img src="../../images/posts/kringlecon/yule_logs_solved.png" alt="Log solve" /></p>
+<h3 id="objective-6--badge-manipulation">Objective 6 : Badge Manipulation</h3>
+<blockquote>
+<p>Bypass the authentication mechanism associated with the room near Pepper Minstix. A sample employee badge is available. What is the access control number revealed by the door authentication panel?</p>
+</blockquote>
+<p>Immediately two things become clear.</p>
+<ol>
+<li>This is going to be a SQL Injection Challenge</li>
+<li>Based on that badge I&rsquo;m going to have to load it into a QR code.</li>
+</ol>
+<p>I&rsquo;m by no means a SQLi ninja, I just know enough to be dangerous. So lets stick an apostrophe in a QR code and see what happens.</p>
+<p><img src="../../images/posts/kringlecon/c6_error.png" alt="c6 error" /></p>
+<p><code>{&quot;data&quot;:&quot;EXCEPTION AT (LINE 96 \&quot;user_info = query(\&quot;SELECT first_name,last_name,enabled FROM employees WHERE authorized = 1 AND uid = '{}' LIMIT 1\&quot;.format(uid))\&quot;): (1064, u\&quot;You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near '''' LIMIT 1' at line 1\&quot;)&quot;,&quot;request&quot;:false}</code></p>
+<p>From this I understand that we&rsquo;re injecting our payload into <code>uid</code>, and the DB flavor is <code>MariaDB</code>.</p>
+<p>After trying many payloads and trying to think through the backend logic, I felt like I was at an impasse.</p>
+<p>I reached out to a DBA friend of mine, JB for some <code>SQL</code> knowledge and he helped me understand what I was missing here.</p>
+<p>Before I go ahead show the final payload lets talk about something else I missed here, the added relevance of the employee badge.</p>
+<p>If we give the door our employee badge, we get this message <code>{&quot;data&quot;:&quot;Authorized User Account Has Been Disabled!&quot;,&quot;request&quot;:false}</code></p>
+<p>They keyword here being disabled. Now proceeding onward, what does our SQLi payload look like?</p>
+<p><img src="../../images/posts/kringlecon/c6_sqli.png" alt="C6 SQLI" /></p>
+<p>I really wanted to understand why this was the answer as opposed to something like <code>or '1='1';--</code>.</p>
+<p>The logic:</p>
+<ol>
+<li>Assuming our SQL roughly evaluates to <code>SELECT first_name,last_name,enabled FROM employees WHERE authorized = 1 AND uid = 'a' or enabled = 1 and ''=' LIMIT 1</code></li>
+<li>dont worry about uid, if we were supposed to manipulate that, then Alabaster Snowball&rsquo;s QR code would&rsquo;ve had a UID to look at</li>
+<li>so we add the subquery in to bypass the logic, SQLs ordering will execute that first which will cause the conditional to evaluate as true</li>
+<li>this allows us to get results back from the query</li>
+<li>the <code>limit</code> 1 on the end however means that we only get the first result, and the first results account is disabled</li>
+<li>adding <code>enabled=1</code> allows us to return a result with a passing account</li>
+</ol>
+<p><img src="../../images/posts/kringlecon/c6_granted.png" alt="C6 Granted" /></p>
+<p><img src="../../images/posts/kringlecon/c6_solve.png" alt="C6 Solve" /></p>
+<h2 id="challenge-7">Challenge 7</h2>
+<hr />
+<h3 id="terminal-challenge-7--dev-ops-fail">Terminal Challenge 7 : Dev Ops Fail</h3>
+<p>This one is succinct, and similar to the Trufflehog challenge being git is the culprit. Except this time we get no <code>Trufflehog</code>, what do we do??</p>
+<p>We use Git. <code>git help</code> -&gt; <code>git log</code> (Identify commit to examine) -&gt; <code>git diff _commit_</code></p>
+<p><img src="../../images/posts/kringlecon/dev_ops_fail_term.png" alt="TC7" /></p>
+<p><img src="../../images/posts/kringlecon/dev_ops_fail_git_log.png" alt="TC7 ii" /></p>
+<p><img src="../../images/posts/kringlecon/dev_ops_fail_git_diff.png" alt="TC7 iii" /></p>
+<p><img src="../../images/posts/kringlecon/dev_ops_fail_solve.png" alt="TC7 iv" /></p>
+<h3 id="objective-7--hr-incident-response">Objective 7 : HR Incident Response</h3>
+<blockquote>
+<p>Santa uses an Elf Resources website to look for talented information security professionals. Gain access to the website and fetch the document C:\candidate_evaluation.docx. Which terrorist organization is secretly supported by the job applicant whose name begins with &ldquo;K&rdquo;?</p>
+</blockquote>
+<p>Web challenges are always fun and the hints all point to this one being a csv injection. Looking at the site we see a nice form with a file upload.</p>
+<p><img src="../../images/posts/kringlecon/c7_site.png" alt="O7 Site" /></p>
+<p>At this point Im not sure what my csv injection should be, so I try my favorite approach &ndash; poking around the site and seeing what I find</p>
+<p><img src="../../images/posts/kringlecon/c7_hint.png" alt="O7" /></p>
+<p>Oh alright, armed with this fresh knowledge lets make a super simple <code>payload.csv</code></p>
+<p><img src="../../images/posts/kringlecon/c7_payload.png" alt="O7 i" /></p>
+<p>Submitting this triggers a file download of the aforementioned candidate_evaluation.docx.</p>
+<p><img src="../../images/posts/kringlecon/c7_file.png" alt="O7 ii" /></p>
+<p><img src="../../images/posts/kringlecon/c7_solve.png" alt="O7 iii" /></p>
+<h2 id="challenge-8">Challenge 8</h2>
+<hr />
+<h3 id="terminal-challenge-8--python-escape-from-la">Terminal Challenge 8 : Python Escape from LA</h3>
+<blockquote>
+<p>To complete this challenge, escape Python and run ../../images/posts/kringlecon/i_escaped</p>
+</blockquote>
+<p>This one has an accompanying talk so I watched that to learn how to get this one done.</p>
+<p><a href="https://youtu.be/ZVx2Sxl3B9c">Escaping Python Shells</a></p>
+<p><img src="../../images/posts/kringlecon/py_escape_solved.png" alt="Py Esc" /></p>
+<p>In the talk he was implementing a black list on the python shell and demonstrating creative ways to circumvent it.</p>
+<p>I like Python so I thought Id try some other creative ways to get around it.</p>
+<p>The first thing that came to mind was base64 encoding for a filter bypass</p>
+<p><img src="../../images/posts/kringlecon/py_escape_attempts.png" alt="Base64" /></p>
+<p>Next someone had mentioned I should look up the globals function in the Python standard library.<br />
+If its not blacklisted then we can use it to overwrite the global variable containing the blacklisted function names.</p>
+<p><img src="../../images/posts/kringlecon/py_escape_globals.png" alt="globals" /></p>
+<p>Looks line <em>restricted terms</em> is what we want to overwrite, lets give it a go.</p>
+<p><img src="../../images/posts/kringlecon/py_escape_global_win.png" alt="Globals exec" /></p>
+<h3 id="objective-8--network-traffic-forensics">Objective 8 : Network Traffic Forensics</h3>
+<blockquote>
+<p>Santa has introduced a web-based packet capture and analysis tool to support the elves and their information security work. Using the system, access and decrypt HTTP/2 network activity. What is the name of the song described in the document sent from Holly Evergreen to Alabaster Snowball?</p>
+</blockquote>
+<p>Armed with my new found knowledge of HTTP/2 from the CURL master challenge, and the hints from the Python Escape I was feeling ready to tackle this one.</p>
+<p>I also don&rsquo;t do alot with Wireshark so I&rsquo;m excited to get some more time in using it.</p>
+<p>Well heres the site. When you sign in and poke around it has a nice UI, but that&rsquo;s not what we&rsquo;re here for. It gives us our PCAP file but its encrypted.</p>
+<p><img src="../../images/posts/kringlecon/c8_site.png" alt="C8 Site" /></p>
+<p>So what do we do? Directory traversal is easy, lets start there. The app is snappy so we&rsquo;ll look for something associated with those kinds of web frameworks.</p>
+<p><img src="../../images/posts/kringlecon/c8_error.png" alt="C8 Error" /></p>
+<p>Boy do I love a good error message. A quick Google and it looks like we&rsquo;re working with NPM/Node.</p>
+<p>A comment line in the HTML of the site mentions rushing into production and accidentally including dev code&hellip;</p>
+<p><img src="../../images/posts/kringlecon/c8_appjs.png" alt="C8 App" /></p>
+<p>Look at that, the source code! Not to mention, if our goal is to decrypt then seeing <code>server.key</code> is looking promising.</p>
+<p>&hellip;But its not, its a red herring. They&rsquo;re trying to draw our eyes away. If we look above the variables <code>dev_mode</code> and <code>key_log_path</code> start to look interested. Dev mode is set to true (Because its dev code remember? How fortunate.), so that means we can reach it. Lets throw <code>SSLKEYLOGFILE</code> onto the end of our URL.</p>
+<p><img src="../../images/posts/kringlecon/c8_sslkeylogpath.png" alt="SSLKEYLOGFILE" /></p>
+<p>Another error message&hellip; but at least we can clearly see the next breadcrumb. Some more mild fiddling around with the URL and we finally get.</p>
+<p><img src="../../images/posts/kringlecon/c8_sslke.png" alt="SSLKEY" /></p>
+<p>Sweet, the key! Now we can download it, and feed it to <code>Wireshark</code> to decrypt our <code>HTTP/2</code> traffic. The SANS videos accompanying Kringlecon helped me understand more about Wireshark and its filters, making this much easier.</p>
+<p><img src="../../images/posts/kringlecon/c8_alabaster.png" alt="Decrypted" /></p>
+<p>Well I don&rsquo;t see any indication of an attachment in this PCAP, but finding some credentials gives me a new direction. What if we try to log into Alabaster Snowballs account using them?</p>
+<p><img src="../../images/posts/kringlecon/c8_alabaster_pcap.png" alt="Logged in" /></p>
+<p>I was wondering why have us login, and I thought some of the text on that login screen was phrased interestingly.</p>
+<p>Moving on, from here we can download the PCAP, open it, and see it&rsquo;s not encrypted. Not only that, but it&rsquo;s easy to scroll through and see where the email begins as a <code>Follow TCP Stream</code>. So if we just right click <code>Follow Stream</code> we&rsquo;re rewarded with this.</p>
+<p><img src="../../images/posts/kringlecon/c8_attachment.png" alt="Stream" /></p>
+<p>Look, Base64! We can wrangle that with a few lines of <code>Python</code> to dump it out into a file. Opening the file I see the word PDF, so I immediately close it, save it as <code>.pdf</code> and reopen it.</p>
+<p><img src="../../images/posts/kringlecon/c8_decodedattachment.png" alt="Decoded Stream" /></p>
+<p>Seeing the PDF open with nothing wrong was pretty awesome, I&rsquo;d never pulled an attachment out of <code>Wireshark</code> like this before.</p>
+<p><img src="../../images/posts/kringlecon/c8_solved.png" alt="C8 Solve" /></p>
+<h2 id="challenge-9">Challenge 9</h2>
+<hr />
+<h3 id="terminal-challenge-9--sleigh-bell-lottery">Terminal Challenge 9 : Sleigh Bell Lottery</h3>
+<blockquote>
+<p>Complete this challenge by winning the sleighbell lottery for Shinny Upatree.</p>
+</blockquote>
+<p>Descriptive right? Theres a little lottery binary, objdump, and GDB in the directory, chances are we need to call a function.</p>
+<p>Most of the terminal challenge have been simple so far, so lets treat this one the same way.</p>
+<p>First we&rsquo;ll use objdump to look at the functions in the binary and see if any jump out at us.</p>
+<p><img src="../../images/posts/kringlecon/sleigh_bell_lottery_2.png" alt="Ojbdump" /></p>
+<p>It does get much more apparent than that, so how do we call it?</p>
+<p>Since we were provided with GDB we can just place a breakpoint at main then jump to the winwinwin function.</p>
+<p><img src="../../images/posts/kringlecon/sleigh_bell_lottery_1.png" alt="Commands" /></p>
+<p>Pretty straight forward, a great introductary challenge for GDB if you&rsquo;re not familiar with it already.</p>
+<p>Sadly this is the last piece of ASCII art, I thoroughly enjoyed them all and could&rsquo;ve easily spent a whole post admiring the art they put into this.</p>
+<p><img src="../../images/posts/kringlecon/sleigh_bell_lottery_3.png" alt="Art" /></p>
+<h3 id="obective-9">Obective 9</h3>
+<p>For me Challenge 9 was a doozy, both for introducing me to new concepts, and challenging my understanding of existing ones.</p>
+<h4 id="obective-91--catch-the-malware">Obective 9.1 : Catch the Malware</h4>
+<blockquote>
+<p>Assist Alabaster by building a Snort filter to identify the malware plaguing Santa&rsquo;s Castle.</p>
+</blockquote>
+<p>They provide us a snort terminal to input our answer onto, and some PCAPs with traffic to analyze. More Wireshark action!</p>
+<p><img src="../../images/posts/kringlecon/c91_traffic.png" alt="9-1" /></p>
+<p>Immediately we notice quite a few things going on here.</p>
+<ol>
+<li>They DNS queries with malicious traffic all have hex strings at the start</li>
+<li>The DNS names are dynamic</li>
+<li>The content size of the packets containing the malicious code is apparent</li>
+<li>Decoding the malicious packets TXT segment shows us the malware transmitting its source</li>
+</ol>
+<p><img src="../../images/posts/kringlecon/c91_pcapdecoded.png" alt="Source" /></p>
+<p>Neat but we cant block based on the hex body, or the packet size, or the DNS names because then we may shun legit traffic.</p>
+<p>So what does that leave? Upon closer inspection you&rsquo;ll notice that all the DNS names begin with that same hex string, we can use that!</p>
+<p>I&rsquo;ve not done anything with Snort outside of studying for cert exams so writing a rule was new to me. After reading a few sites it became<br />
+apparent that we would need to use <code>Content</code> as our blocker, and a kind person recommended I convert the hex string to bytes for this.</p>
+<p>After doing that we windup with the following rule.</p>
+<p><img src="../../images/posts/kringlecon/c91_snortrule.png" alt="Snortrule" /></p>
+<p><img src="../../images/posts/kringlecon/c91_termsolve.png" alt="Rule" /></p>
+<p><img src="../../images/posts/kringlecon/c91_solve.png" alt="C91Solve" /></p>
+<p>I&rsquo;ve been alternating between turning the answers ingame, and on that static site you see, when we give it the terminal output from the above it gives us the Word document for the next challenge.</p>
+<p><img src="../../images/posts/kringlecon/c91_postdoc.png" alt="doc" /></p>
+<h4 id="obective-92--identify-the-domain">Obective 9.2 : Identify the Domain</h4>
+<blockquote>
+<p>Using the Word docm file, identify the domain name that the malware communicates with.</p>
+</blockquote>
+<p><a href="https://youtu.be/wd12XRq2DNk">Analyzing Powershell Malware</a></p>
+<p>Using the awesome Kringlecon talk on Powershell Malware analysis we have our base of knowledge to work through this.</p>
+<p>Lets get started, first thing we need to do is extract the Macro from the Doc that is calling the powershell code that has the virus.</p>
+<p><img src="../../images/posts/kringlecon/c92_wordmacro.png" alt="Olevba" /></p>
+<p>There&rsquo;s our Macro alright but its heavily obfuscated, if we just drop the iex() function from the code we can pipe the deobfuscated string to standard output.</p>
+<p><img src="../../images/posts/kringlecon/c92_dropper_deob.png" alt="Deobfuscated" /></p>
+<p>Well that URL certainly looks like it could be the domain the malware communicates with, lets try that out.</p>
+<p><img src="../../images/posts/kringlecon/c92_solve.png" alt="Success" /></p>
+<h4 id="obective-93--stop-the-malware">Obective 9.3 : Stop the Malware</h4>
+<blockquote>
+<p>Identify a way to stop the malware in its tracks!</p>
+</blockquote>
+<p>Wannacookie is a clear name play on that nasty wannacry malware, so we know theres a killswitch involved!</p>
+<p>If we slightly modify the dropper code by removing things like <code>iex()</code> and then execute it, it&rsquo;ll reward us with the source.</p>
+<p><img src="../../images/posts/kringlecon/c93_source.png" alt="Source" /></p>
+<p>Sweet we have source code now! Sadly its a single line, so from here I had to drop it into Powershell ISE and prettify it back into something human readable.</p>
+<p>After we do that, we have alot of type conversion functions, some encryption functions, and a main function called <code>wanc</code>.</p>
+<p>The first line of <code>wanc</code> has an interesting string that it attempts to resolve on the next line in a conditional, a prime suspect for our killswitch domain.</p>
+<p>What we&rsquo;ll wanna do is set a breakpoint on the following line then manually run that string through its decoder functions so we can examine the output.</p>
+<p><img src="../../images/posts/kringlecon/c93_termsolve.png" alt="Found the domain" /></p>
+<p>They provide us a fun little &lsquo;Ho-Ho Daddy&rsquo; domain registrar, so lets go try our string there.</p>
+<p><img src="../../images/posts/kringlecon/c93_hoho.png" alt="Registered" /></p>
+<p>Slightly different from the Powershell reversing video, but obvious enough to get us moving forward.</p>
+<h4 id="objective-94--recover-alabasters-password">Objective 9.4 : Recover Alabaster&rsquo;s Password</h4>
+<blockquote>
+<p>Recover Alabaster&rsquo;s password as found in the the encrypted password vault.</p>
+</blockquote>
+<p>This challenge was ranked the hardest and rightfully so, you need a firm grasp on the concepts of encryption to tackle this one.</p>
+<p>We can see by analyzing the functions in the Malware that they are implementing asymmetric encrpytion.</p>
+<p><a href="https://cheapsslsecurity.com/blog/what-is-asymmetric-encryption-understand-with-simple-examples/">What is asymmetric encryption?</a></p>
+<p>The two actions we want to hone in on are:</p>
+<ul>
+<li>Create a private key for just that user, this would be the unique one the malware authors give upon payment.</li>
+<li>Encrypt the private key using the private key from their C&amp;C server</li>
+</ul>
+<p>We&rsquo;ll want to do the opposite. We already have our source code from 9.3, what does 9.4 give us?</p>
+<p>This challenge supplies us with a memory dump of the program and an encrypted DB &ndash; <code>alabasters-passwords.elfdb.wannacookie</code> .</p>
+<p>The memory dump is relevant becuse the private key is generated with random bytes, so we&rsquo;ll need to fish the exact key used out of the dump using <code>Power dump</code></p>
+<p>In order to narrow the search critera out of all the 11000 variables, I put a break point in the malware and just grabbed the length of <code>p_k_e_k</code>, the encrypted private key that was used to encrypt the elfdb.</p>
+<p><img src="../../images/posts/kringlecon/c94_pkeklen.png" alt="Length" /></p>
+<p>Sweet, now lets run a length match in <code>Power dump</code> against the powershell memory dump.</p>
+<p><img src="../../images/posts/kringlecon/c94_foundpkek.png" alt="Found" /></p>
+<p>We&rsquo;re lucky to have gotten one result back, this makes things much easier for us.</p>
+<p><img src="../../images/posts/kringlecon/c94_pkek.png" alt="Pkek" /></p>
+<p>Alright, so now we have the solution, but its unusable since it&rsquo;s encrypted. We&rsquo;ll need to get the asymmetric encryption pieces in order to decrypt it.</p>
+<p>Immediately one thing stands out, we have to change our computers <code>WORKGROUP</code> to <em>KringleCastle</em> or the program wont continue to execute.</p>
+<p>Moving past that, I noticed another hex string a function called g_o_dns() containing a hex string. Decoded the string evaluates to <em>server.crt</em>.</p>
+<p>A quick breakpoint, a function call&hellip;. and we&rsquo;re rewarded with our server.crt, the first half of the asymmetric pair.</p>
+<p><img src="../../images/posts/kringlecon/c94_servercrt.png" alt="Server.crt" /></p>
+<p>Awesome, now all we need is a private key. Maybe the attackers didn&rsquo;t secure their infrastructure and we can leak the private key the same way, just with a hex encoded string containing a value of <em>server.key</em>.</p>
+<p><img src="../../images/posts/kringlecon/c94_privkey.png" alt="Private key" /></p>
+<p>With both pieces of the puzzle, now comes the hard part. We need to combine them together into a certificate, and then import the certificate and use it to decrypt the <code>p_k_e_k</code> to then decrypt the database.</p>
+<p>Fortunately a fellow with kringlecon attendee with the handle <em>marlas</em> linked me these two pages which helped me get everything assembled together. I&rsquo;ve worked with certificates on Linux systems but on Windows in Powershell this is new territory.</p>
+<p><a href="https://www.ssl.com/how-to/create-a-pfx-p12-certificate-file-using-openssl/">How to create a PFX Certificate</a></p>
+<p><a href="https://dscottraynsford.wordpress.com/2017/01/10/using-pfx-files-in-powershell/">Using a PFX Certificate in powershell</a></p>
+<p>I lined out what I felt was a good decryption function. I made a slight mistake when I copy pasted the script, so for a while I was spinning in circles. I didn&rsquo;t notice a syntax error I made earlier since the function <code>e_d_file</code> hadn&rsquo;t been called until now.</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash"><span class="k">function</span> p_k_d<span class="o">(</span><span class="nv">$pkek</span><span class="o">){</span>
+    <span class="nv">$PFXPath</span> <span class="o">=</span> <span class="s1">&#39;C:\Users\user\power_dump\cert.pfx&#39;</span>
+    <span class="nv">$PFWPassword</span> <span class="o">=</span> <span class="s1">&#39;lol&#39;</span>
+    <span class="nv">$PFX</span> <span class="o">=</span> New-Object -TypeName <span class="s1">&#39;System.Security.Cryptography.X509Certificates.X509Certificate2Collection&#39;</span><span class="p">;</span>
+    <span class="nv">$PFX</span>.Import<span class="o">(</span><span class="nv">$PFXPath</span>, <span class="nv">$PFWPassword</span>, <span class="o">[</span>System.Security.Cryptography.X509Certificates.X509KeyStorageFlags<span class="o">]</span>::PersistKeySet<span class="o">)</span><span class="p">;</span>
+    <span class="nv">$cert_bytes</span> <span class="o">=</span> <span class="k">$(</span>H2B <span class="nv">$pkek</span><span class="k">)</span>
+    <span class="nv">$decKey</span> <span class="o">=</span> <span class="nv">$PFX</span>.PrivateKey.Decrypt<span class="o">(</span><span class="nv">$cert_bytes</span>, <span class="nv">$true</span><span class="o">)</span><span class="p">;</span>
+    <span class="k">return</span> <span class="nv">$decKey</span>
+<span class="o">}</span><span class="p">;</span>
+
+<span class="k">function</span> eat_cookies<span class="o">{</span>
+    <span class="nv">$pkek</span> <span class="o">=</span> <span class="s1">&#39;3cf903522e1a3966805b50e7f7dd51dc7969c73cfb1663a75a56ebf4aa4a1849d1949005437dc44b8464dca05680d531b7a971672d87b24b7a6d672d1d811e6c34f42b2f8d7f2b43aab698b537d2df2f401c2a09fbe24c5833d2c5861139c4b4d3147abb55e671d0cac709d1cfe86860b6417bf019789950d0bf8d83218a56e69309a2bb17dcede7abfffd065ee0491b379be44029ca4321e60407d44e6e381691dae5e551cb2354727ac257d977722188a946c75a295e714b668109d75c00100b94861678ea16f8b79b756e45776d29268af1720bc49995217d814ffd1e4b6edce9ee57976f9ab398f9a8479cf911d7d47681a77152563906a2c29c6d12f971&#39;</span>
+    <span class="nv">$dec_key</span> <span class="o">=</span> <span class="o">(</span>p_k_d<span class="o">(</span><span class="nv">$pkek</span><span class="o">))</span><span class="p">;</span>
+    <span class="nv">$DBFile</span> <span class="o">=</span> <span class="s1">&#39;C:\Users\user\power_dump\alabaster_passwords.elfdb.wannacookie&#39;</span>
+    <span class="o">(</span>e_d_file <span class="nv">$dec_key</span>, <span class="nv">$DBFile</span>, <span class="nv">$false</span><span class="o">)</span><span class="p">;</span>
+<span class="o">}</span><span class="p">;</span>
+</code></pre></td></tr></table>
+</div>
+</div><p>The extension is <code>.elfdb</code> and not knowing any elves, I opted to open it in N++ because I am not sure what else to use..</p>
+<p><img src="../../images/posts/kringlecon/c94_decrypteddb.png" alt="Decypted Elfdb" /></p>
+<p>Oh, thats what else Im going to open it with, SQLite.</p>
+<p><img src="../../images/posts/kringlecon/c94_dbclean.png" alt="DB Clean" /></p>
+<p>Fortunately they didnt fill this with alot of data and we have our answer immediately.</p>
+<p><img src="../../images/posts/kringlecon/c94_solve.png" alt="c94_solve.png" /></p>
+<h2 id="challenge-10--santas-vault">Challenge 10 : Santa&rsquo;s Vault</h2>
+<hr />
+<p>That password looks alot like musical notes&hellip; and there&rsquo;s a piano on the wall.</p>
+<p><img src="../../images/posts/kringlecon/room.png" alt="Room" /></p>
+<p>Not only that, but the PDF we got from the TCP Stream earlier mentioned the key of D.</p>
+<p>Lets throw this all together in an online music transposer, and I&rsquo;m not sure what key to start with so we&rsquo;ll use the default of E.</p>
+<p><img src="../../images/posts/kringlecon/santas_melody.png" alt="santas_melody" /></p>
+<p>E was the right key to start with! With that, we&rsquo;ve completed all the challenges we need to finish Kringlecon.</p>
+<p><img src="../../images/posts/kringlecon/santas_vault.png" alt="Santas_vault" /></p>
+<h3 id="objective-10--who-did-it">Objective 10 : Who did it?</h3>
+<blockquote>
+<p>Who was the mastermind behind the whole KringleCon plan?</p>
+</blockquote>
+<p><img src="../../images/posts/kringlecon/c10.png" alt="Santa" /></p>
+<p>Santa reveals he did this all for us.</p>
+<p>I actually answered this one before I found got through the piano door, I gave it a guess. Trying &ldquo;Santa&rdquo; as a guess kind of felt like trying &ldquo;password&rdquo; but it worked! My second lucky guess in this writeup.</p>
+<h2 id="prologue">Prologue</h2>
+<hr />
+<p>This was the first SANS Holiday Hacking Challenge I&rsquo;ve completed. It felt really great for so many technical concepts to come together in accomplihing these objectives. I learned an immense amount and had the opportunity to hone some existing skills with practice. Not to mention, that ASCII art was pretty sweet.</p>
+<p>I get asked regularly by people how to learn or get better at InfoSec type skills.</p>
+<p>CTFs like this <code>SANSHHC</code> are the place to do just that. Especially with the Holiday Hack challenge; SANS provides you so much information, challenges to pit it against, and an environment to mingle with other like minded people. Thats a solid environment to learn in as opposed to trudging through youtube videos and documentation, if you say you want to learn but don&rsquo;t take advantage of these opportunities then you&rsquo;re missing out. Don&rsquo;t worry if you aren&rsquo;t sure where to start, just jump into the CTF and see what it asks of you.</p>
+<p>In the end it&rsquo;s all just learning and practice, which was <code>Kringlecons</code> gift to us all along this holiday season.</p>
+
+    </article>
+    
+    <script>
+  'use strict';
+  
+  function wrap(el, wrapper) {
+    el.parentNode.insertBefore(wrapper, el);
+    wrapper.appendChild(el);
+  }
+
+  (function () {
+    var singleContentsElem = document.querySelector('.single__contents');
+    singleContentsElem ? 
+    singleContentsElem.querySelectorAll('pre > code').forEach(function(elem) {
+      var dataLang = elem.getAttribute('data-lang');
+      var dataLangWrapper = document.createElement('div');
+      var code = null;
+      var codeTitle = null;
+
+      if (dataLang && dataLang.includes(':')) {
+        code = dataLang.split(':')[0];
+        codeTitle = dataLang.split(':')[1];
+
+        dataLangWrapper.className = 'language-' + code;
+        dataLangWrapper.setAttribute('data-lang', codeTitle);
+
+        elem.className = 'language-' + code;
+        elem.setAttribute('data-lang', codeTitle);
+        elem.setAttribute('id', codeTitle);
+      } else if (!dataLang) {
+        dataLangWrapper.setAttribute('data-lang', 'Code');
+        dataLangWrapper.className = 'language-code';
+      }
+
+      if (!dataLang || codeTitle) {
+        wrap(elem.parentNode, dataLangWrapper);
+      }
+
+    }) : null;
+  })();
+
+  var langCodeElem = document.querySelectorAll('.language-code');
+  langCodeElem ? langCodeElem.forEach(function (elem) {
+    var newElem = document.createElement('span');
+    newElem.className = 'copy-to-clipboard';
+    newElem.setAttribute('title', 'Copy to clipboard');
+    elem.append(newElem);
+  }) : null;
+  
+</script>
+    
+<div class="donation">
+  <div class="donation__message">
+    Share on
+  </div>
+  <div class="donation__icons">
+    
+    
+    
+      
+        <a href="https://www.facebook.com/sharer/sharer.php?u=https%3a%2f%2fanthonylaiuppa.com%2fposts%2fkringlecon%2f" title="Facebook" aria-label="Facebook Share Button" class="donation__item" target="_blank" rel="noreferrer" data-type="share">
+          <svg data-name="facebook" enable-background="new 0 0 24 24" viewBox="0 0 24 24" width="35" height="35" fill="currentColor" xmlns="http://www.w3.org/2000/svg"><path d="m15.997 3.985h2.191v-3.816c-.378-.052-1.678-.169-3.192-.169-3.159 0-5.323 1.987-5.323 5.639v3.361h-3.486v4.266h3.486v10.734h4.274v-10.733h3.345l.531-4.266h-3.877v-2.939c.001-1.233.333-2.077 2.051-2.077z"/></svg>
+        </a>
+      
+    
+      
+        <a href="https://twitter.com/intent/tweet?text=Kringlecon%202018&url=https%3a%2f%2fanthonylaiuppa.com%2fposts%2fkringlecon%2f&hashtags=ctf%2chacking%2cpython%2cpowershell%2cinfosec%2csecurity%2cpcap%2clinux%2cwindows%2creverse%20engineering&via=" title="Twitter" aria-label="Twitter Share Button" class="donation__item" target="_blank" rel="noreferrer" data-type="share">
+          <svg data-name="twitter" enable-background="new 0 0 24 24" viewBox="0 0 24 24" width="35" height="35" fill="currentColor" xmlns="http://www.w3.org/2000/svg"><path d="m21.534 7.113c.976-.693 1.797-1.558 2.466-2.554v-.001c-.893.391-1.843.651-2.835.777 1.02-.609 1.799-1.566 2.165-2.719-.951.567-2.001.967-3.12 1.191-.903-.962-2.19-1.557-3.594-1.557-2.724 0-4.917 2.211-4.917 4.921 0 .39.033.765.114 1.122-4.09-.2-7.71-2.16-10.142-5.147-.424.737-.674 1.58-.674 2.487 0 1.704.877 3.214 2.186 4.089-.791-.015-1.566-.245-2.223-.606v.054c0 2.391 1.705 4.377 3.942 4.835-.401.11-.837.162-1.29.162-.315 0-.633-.018-.931-.084.637 1.948 2.447 3.381 4.597 3.428-1.674 1.309-3.8 2.098-6.101 2.098-.403 0-.79-.018-1.177-.067 2.18 1.405 4.762 2.208 7.548 2.208 8.683 0 14.342-7.244 13.986-14.637z"/></svg>
+        </a>
+      
+    
+  </div>
+</div>
+
+    
+    
+<div class="whoami__gutter"></div>
+<hr class="hr-slash whoami-hr"/>
+<section class="whoami">
+  <div class="whoami__image-wrapper">
+    
+    
+      
+        <img data-src="/images/whoami/avatar.jpg" src="data:image/svg+xml,%0A%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24'%3E%3Cpath fill='none' d='M0 0h24v24H0V0z'/%3E%3Cpath fill='%23aaa' d='M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm-1 16H6c-.55 0-1-.45-1-1V6c0-.55.45-1 1-1h12c.55 0 1 .45 1 1v12c0 .55-.45 1-1 1zm-4.44-6.19l-2.35 3.02-1.56-1.88c-.2-.25-.58-.24-.78.01l-1.74 2.23c-.26.33-.02.81.39.81h8.98c.41 0 .65-.47.4-.8l-2.55-3.39c-.19-.26-.59-.26-.79 0z'/%3E%3C/svg%3E" alt="Anthony Laiuppa" class="lazyload whoami__image"/>
+      
+    
+  </div>
+  <div class="whoami__contents">
+    <div class="whoami__written-by">
+      WRITTEN BY
+    </div>
+    <div class="whoami__title">
+      
+        Anthony Laiuppa
+      
+    </div>
+    <div class="whoami__desc">
+      
+        DevSecOps Engineer
+      
+    </div>
+    <div class="whoami__social">
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      <a href="https://github.com/AnthonyLaiuppa" title="github" aria-label="github">
+        <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="25" height="25" viewBox="0 0 24 24" version="1.1">
+<g id="surface3680">
+<path fill="currentColor" d="M 10.898438 2.101562 C 6.300781 2.601562 2.601562 6.300781 2.101562 10.800781 C 1.601562 15.5 4.300781 19.699219 8.398438 21.300781 C 8.699219 21.398438 9 21.199219 9 20.800781 L 9 19.199219 C 9 19.199219 8.601562 19.300781 8.101562 19.300781 C 6.699219 19.300781 6.101562 18.101562 6 17.398438 C 5.898438 17 5.699219 16.699219 5.398438 16.398438 C 5.101562 16.300781 5 16.300781 5 16.199219 C 5 16 5.300781 16 5.398438 16 C 6 16 6.5 16.699219 6.699219 17 C 7.199219 17.800781 7.800781 18 8.101562 18 C 8.5 18 8.800781 17.898438 9 17.800781 C 9.101562 17.101562 9.398438 16.398438 10 16 C 7.699219 15.5 6 14.199219 6 12 C 6 10.898438 6.5 9.800781 7.199219 9 C 7.101562 8.800781 7 8.300781 7 7.601562 C 7 7.199219 7 6.601562 7.300781 6 C 7.300781 6 8.699219 6 10.101562 7.300781 C 10.601562 7.101562 11.300781 7 12 7 C 12.699219 7 13.398438 7.101562 14 7.300781 C 15.300781 6 16.800781 6 16.800781 6 C 17 6.601562 17 7.199219 17 7.601562 C 17 8.398438 16.898438 8.800781 16.800781 9 C 17.5 9.800781 18 10.800781 18 12 C 18 14.199219 16.300781 15.5 14 16 C 14.601562 16.5 15 17.398438 15 18.300781 L 15 20.898438 C 15 21.199219 15.300781 21.5 15.699219 21.398438 C 19.398438 19.898438 22 16.300781 22 12.101562 C 22 6.101562 16.898438 1.398438 10.898438 2.101562 Z M 10.898438 2.101562 "/>
+</g>
+</svg>
+
+      </a>
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      <a href="https://www.linkedin.com/in/anthony-laiuppa-52a43085" title="linkedin" aria-label="linkedin">
+        <svg xmlns="http://www.w3.org/2000/svg" fill="#000000" viewBox="0 0 30 30" width="25" height="25"><path fill="currentColor" d="M24,4H6C4.895,4,4,4.895,4,6v18c0,1.105,0.895,2,2,2h18c1.105,0,2-0.895,2-2V6C26,4.895,25.105,4,24,4z M10.954,22h-2.95 v-9.492h2.95V22z M9.449,11.151c-0.951,0-1.72-0.771-1.72-1.72c0-0.949,0.77-1.719,1.72-1.719c0.948,0,1.719,0.771,1.719,1.719 C11.168,10.38,10.397,11.151,9.449,11.151z M22.004,22h-2.948v-4.616c0-1.101-0.02-2.517-1.533-2.517 c-1.535,0-1.771,1.199-1.771,2.437V22h-2.948v-9.492h2.83v1.297h0.04c0.394-0.746,1.356-1.533,2.791-1.533 c2.987,0,3.539,1.966,3.539,4.522V22z"/></svg>
+
+      </a>
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      <a href="https://twitter.com/Florida_Mane" title="twitter" aria-label="twitter">
+        <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="25" height="25" viewBox="0 0 32 32" version="1.1">
+<g id="surface676">
+<path fill="currentColor" d="M 28 8.558594 C 27.117188 8.949219 26.167969 9.214844 25.171875 9.332031 C 26.1875 8.722656 26.96875 7.757812 27.335938 6.609375 C 26.386719 7.171875 25.332031 7.582031 24.210938 7.804688 C 23.3125 6.847656 22.03125 6.246094 20.617188 6.246094 C 17.898438 6.246094 15.691406 8.453125 15.691406 11.171875 C 15.691406 11.558594 15.734375 11.933594 15.820312 12.292969 C 11.726562 12.089844 8.097656 10.128906 5.671875 7.148438 C 5.246094 7.875 5.003906 8.722656 5.003906 9.625 C 5.003906 11.332031 5.871094 12.839844 7.195312 13.722656 C 6.386719 13.695312 5.628906 13.476562 4.964844 13.105469 C 4.964844 13.128906 4.964844 13.148438 4.964844 13.167969 C 4.964844 15.554688 6.660156 17.546875 8.914062 17.996094 C 8.5 18.109375 8.066406 18.171875 7.617188 18.171875 C 7.300781 18.171875 6.988281 18.140625 6.691406 18.082031 C 7.316406 20.039062 9.136719 21.460938 11.289062 21.503906 C 9.605469 22.824219 7.480469 23.609375 5.175781 23.609375 C 4.777344 23.609375 4.386719 23.585938 4 23.539062 C 6.179688 24.9375 8.765625 25.753906 11.546875 25.753906 C 20.605469 25.753906 25.558594 18.25 25.558594 11.742188 C 25.558594 11.53125 25.550781 11.316406 25.542969 11.105469 C 26.503906 10.410156 27.339844 9.542969 28 8.558594 Z M 28 8.558594 "/>
+</g>
+</svg>
+
+      </a>
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+    </div>
+  </div>
+</section>
+<hr class="hr-slash whoami-hr" />
+
+
+    <section class="related">
+    
+    
+    <h1 class="related__title">
+      <hr class="hr-dots"/>
+      <div>
+        See Also
+      </div>
+      <hr class="hr-dots"/>
+    </h1>
+    <ul class="related-ul">
+        
+        <li>
+          <a href="/posts/more-ctf-fun/" class="related__link">More CTF fun!</a>
+        </li>
+        
+        <li>
+          <a href="/posts/ezctf-full-stack/" class="related__link">EZCTF, a full stack webapp..</a>
+        </li>
+        
+        <li>
+          <a href="/posts/sans-holiday-hacking-challenge/" class="related__link">SANSHHC</a>
+        </li>
+        
+        <li>
+          <a href="/posts/six-years-of-links/" class="related__link">Six years of saved links</a>
+        </li>
+        
+        <li>
+          <a href="/posts/binary-fun/" class="related__link">Binary fun</a>
+        </li>
+        
+    </ul>
+    
+  </section>
+    <div class="grow"></div>
+<nav class="pagination-single">
+  
+    
+      <a href="https://anthonylaiuppa.com/posts/more-ctf-fun/" class="pagination-single__left">
+        <div class="pagination-single__icon">
+          <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" viewBox="0 0 24 24"><path fill="none" d="M0 0h24v24H0V0z"/><path fill="currentColor" d="M19 11H7.83l4.88-4.88c.39-.39.39-1.03 0-1.42-.39-.39-1.02-.39-1.41 0l-6.59 6.59c-.39.39-.39 1.02 0 1.41l6.59 6.59c.39.39 1.02.39 1.41 0 .39-.39.39-1.02 0-1.41L7.83 13H19c.55 0 1-.45 1-1s-.45-1-1-1z"/></svg>
+        </div>
+        <div class="pagination-single__left-title">More CTF fun!</div>      
+      </a>
+    
+    <div class="grow"></div>
+    
+      <a href="https://anthonylaiuppa.com/posts/one-command/" class="pagination-single__right">      
+        <div class="pagination-single__right-title">Terraforming complete AWS-Kubernetes clusers</div>
+        <div class="pagination-single__icon">
+          <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" viewBox="0 0 24 24"><path fill="none" d="M0 0h24v24H0V0z"/><path fill="currentColor" d="M5 13h11.17l-4.88 4.88c-.39.39-.39 1.03 0 1.42.39.39 1.02.39 1.41 0l6.59-6.59c.39-.39.39-1.02 0-1.41l-6.58-6.6c-.39-.39-1.02-.39-1.41 0-.39.39-.39 1.02 0 1.41L16.17 11H5c-.55 0-1 .45-1 1s.45 1 1 1z"/></svg>
+        </div>
+      </a>
+    
+  
+</nav>
+    
+  
+
+    <div class="modal micromodal-slide" id="modal" aria-hidden="true">
+  <div class="modal__overlay" tabindex="-1" data-micromodal-close>
+    <div class="modal__container" role="dialog" aria-modal="true" aria-labelledby="modal-title">
+      
+      <div class="modal__content" id="modal-content">
+        <div id="mySwipe" class="swipe">
+          <div class="swipe-wrap">
+          </div>
+        </div>
+      </div>
+
+      <span class="modal__items">
+        
+        <span class="modal__header">
+          <div class="modal__paging" title="Page Info" aria-label="Current Page">
+          </div>
+          <div class="modal__icon modal__toolbar modal__toolbar--close" title="Close" aria-label="Close Button" data-micromodal-close>
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 26 26" width="25" height="25"><path fill="currentColor" d="M 21.734375 19.640625 L 19.636719 21.734375 C 19.253906 22.121094 18.628906 22.121094 18.242188 21.734375 L 13 16.496094 L 7.761719 21.734375 C 7.375 22.121094 6.746094 22.121094 6.363281 21.734375 L 4.265625 19.640625 C 3.878906 19.253906 3.878906 18.628906 4.265625 18.242188 L 9.503906 13 L 4.265625 7.761719 C 3.882813 7.371094 3.882813 6.742188 4.265625 6.363281 L 6.363281 4.265625 C 6.746094 3.878906 7.375 3.878906 7.761719 4.265625 L 13 9.507813 L 18.242188 4.265625 C 18.628906 3.878906 19.257813 3.878906 19.636719 4.265625 L 21.734375 6.359375 C 22.121094 6.746094 22.121094 7.375 21.738281 7.761719 L 16.496094 13 L 21.734375 18.242188 C 22.121094 18.628906 22.121094 19.253906 21.734375 19.640625 Z"/></svg>
+          </div>
+          <div class="modal__icon modal__toolbar modal__toolbar--full" title="Full Screen" aria-label="Full Screen Button">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="25" height="25"><path fill="currentColor" d="M 5 3 C 3.9069372 3 3 3.9069372 3 5 L 3 8 A 1.0001 1.0001 0 1 0 5 8 L 5 5 L 8 5 A 1.0001 1.0001 0 1 0 8 3 L 5 3 z M 16 3 A 1.0001 1.0001 0 1 0 16 5 L 19 5 L 19 8 A 1.0001 1.0001 0 1 0 21 8 L 21 5 C 21 3.9069372 20.093063 3 19 3 L 16 3 z M 3.984375 14.986328 A 1.0001 1.0001 0 0 0 3 16 L 3 19 C 3 20.093063 3.9069372 21 5 21 L 8 21 A 1.0001 1.0001 0 1 0 8 19 L 5 19 L 5 16 A 1.0001 1.0001 0 0 0 3.984375 14.986328 z M 19.984375 14.986328 A 1.0001 1.0001 0 0 0 19 16 L 19 19 L 16 19 A 1.0001 1.0001 0 1 0 16 21 L 19 21 C 20.093063 21 21 20.093063 21 19 L 21 16 A 1.0001 1.0001 0 0 0 19.984375 14.986328 z"/></svg>
+          </div>
+          <div class="modal__icon modal__toolbar modal__toolbar--normal" title="Normal Screen" aria-label="Normal Screen Button">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 50 50" width="25" height="25"><path fill="currentColor" d="M 16.96875 4.972656 C 15.867188 4.988281 14.984375 5.894531 15 7 L 15 15 L 7 15 C 6.277344 14.988281 5.609375 15.367188 5.246094 15.992188 C 4.878906 16.613281 4.878906 17.386719 5.246094 18.007813 C 5.609375 18.632813 6.277344 19.011719 7 19 L 19 19 L 19 7 C 19.007813 6.460938 18.796875 5.941406 18.414063 5.558594 C 18.03125 5.175781 17.511719 4.964844 16.96875 4.972656 Z M 32.96875 4.972656 C 31.921875 4.988281 31.0625 5.8125 31.003906 6.859375 C 31 6.90625 31 6.953125 31 7 L 31 19 L 43 19 C 43.066406 19 43.132813 19 43.199219 18.992188 C 44.269531 18.894531 45.070313 17.972656 45.015625 16.902344 C 44.964844 15.828125 44.074219 14.988281 43 15 L 35 15 L 35 7 C 35.007813 6.460938 34.796875 5.941406 34.414063 5.558594 C 34.03125 5.175781 33.511719 4.964844 32.96875 4.972656 Z M 7 31 C 6.277344 30.988281 5.609375 31.367188 5.246094 31.992188 C 4.878906 32.613281 4.878906 33.386719 5.246094 34.007813 C 5.609375 34.632813 6.277344 35.011719 7 35 L 15 35 L 15 43 C 14.988281 43.722656 15.367188 44.390625 15.992188 44.753906 C 16.613281 45.121094 17.386719 45.121094 18.007813 44.753906 C 18.632813 44.390625 19.011719 43.722656 19 43 L 19 31 Z M 31 31 L 31 43 C 30.988281 43.722656 31.367188 44.390625 31.992188 44.753906 C 32.613281 45.121094 33.386719 45.121094 34.007813 44.753906 C 34.632813 44.390625 35.011719 43.722656 35 43 L 35 35 L 43 35 C 43.722656 35.011719 44.390625 34.632813 44.753906 34.007813 C 45.121094 33.386719 45.121094 32.613281 44.753906 31.992188 C 44.390625 31.367188 43.722656 30.988281 43 31 Z"/></svg>
+          </div>
+        </span>
+        
+        <div class="modal__icon modal__arrow modal__arrow--left" title="Arrow Left" aria-label="Arrow Left Button">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 26 26" width="28" height="28"><path fill="currentColor" d="M 23.28125 11 L 10 10 L 10 6.851563 C 10 6.523438 9.839844 6.277344 9.519531 6.03125 C 9.199219 5.949219 8.878906 5.949219 8.640625 6.113281 C 5.359375 8.410156 2.238281 12.257813 2.160156 12.421875 C 2.082031 12.578125 2.007813 12.8125 2.003906 12.976563 C 2.003906 12.980469 2 12.988281 2 12.992188 C 2 13.15625 2.078125 13.402344 2.160156 13.484375 C 2.238281 13.648438 5.28125 17.507813 8.640625 19.804688 C 8.960938 19.96875 9.28125 20.050781 9.519531 19.886719 C 9.839844 19.722656 10 19.476563 10 19.148438 L 10 16 L 23.28125 15 C 23.679688 14.679688 24 13.875 24 12.992188 C 24 12.195313 23.761719 11.320313 23.28125 11 Z"/></svg>
+        </div>
+        
+        <div class="modal__icon modal__arrow modal__arrow--right" title="Arrow Right" aria-label="Arrow Right Button">
+
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 26 26" width="28" height="28"><path fill="currentColor" d="M 2.71875 11.023438 L 16 10.023438 L 16 6.875 C 16 6.546875 16.160156 6.300781 16.480469 6.054688 C 16.800781 5.972656 17.121094 5.972656 17.359375 6.136719 C 20.640625 8.433594 23.761719 12.28125 23.839844 12.445313 C 23.917969 12.601563 23.992188 12.835938 23.996094 13 C 23.996094 13.003906 24 13.011719 24 13.015625 C 24 13.179688 23.921875 13.425781 23.839844 13.507813 C 23.761719 13.671875 20.71875 17.53125 17.359375 19.828125 C 17.039063 19.992188 16.71875 20.074219 16.480469 19.910156 C 16.160156 19.746094 16 19.5 16 19.171875 L 16 16.023438 L 2.71875 15.023438 C 2.320313 14.703125 2 13.898438 2 13.015625 C 2 12.21875 2.238281 11.34375 2.71875 11.023438 Z"/></svg>
+        </div>
+
+        <div class="modal__caption">
+          <div class="modal__caption--text">
+          </div>
+        </div>
+
+      </span>
+    </div>
+  </div>
+</div>
+
+
+<script defer src="/js/swipe.min.08ff2be1b74347bad9e267f732f1388d271b2f9d97b6a8a87bd6a510f17c5ad2.js"></script>
+
+<script defer src="/js/micromodal.min.de01b44b2f383056bbcaf6ee921fd385d79108ec1129afd0eb2f3f5a07e11f45.js"></script>
+
+<script defer src="/js/helper/fadeinout.min.js"></script>
+
+<script>
+document.addEventListener('DOMContentLoaded', function () {
+  
+   
+  var docElem = document.documentElement;
+
+   
+  function openFullscreen() {
+    if (docElem.requestFullscreen) {
+      docElem.requestFullscreen();
+    } else if (docElem.mozRequestFullScreen) {  
+      docElem.mozRequestFullScreen();
+    } else if (docElem.webkitRequestFullscreen) {  
+      docElem.webkitRequestFullscreen();
+    } else if (docElem.msRequestFullscreen) {  
+      docElem.msRequestFullscreen();
+    }
+  }
+
+   
+  function closeFullscreen() {
+    if (document.fullscreenElement ||
+      document.webkitFullscreenElement ||
+      document.mozFullScreenElement) {
+      if (document.exitFullscreen) {
+        document.exitFullscreen();
+      } else if (document.mozCancelFullScreen) {  
+        document.mozCancelFullScreen();
+      } else if (document.webkitExitFullscreen) {  
+        document.webkitExitFullscreen();
+      } else if (document.msExitFullscreen) {  
+        document.msExitFullscreen();
+      }
+    }
+  }
+
+  var modal = document.getElementById('modal');
+  var galleryContainerElem = document.querySelector('.gallery__container');
+  var swipeWrapElem = document.querySelector('.swipe-wrap');
+  var mySwipeElem = document.getElementById('mySwipe');
+  var arrowLeftElem = document.querySelector('.modal__arrow--left');
+  var arrowRightElem = document.querySelector('.modal__arrow--right');
+  var closeElem = document.querySelector('.modal__toolbar--close');
+  var fullElem = document.querySelector('.modal__toolbar--full');
+  var normalElem = document.querySelector('.modal__toolbar--normal');
+  var captionElem = document.querySelector('.modal__caption');
+  var pagingElem = document.querySelector('.modal__paging');
+  var itemsElem = document.querySelector('.modal__items');
+  var imgTotalNum = null;
+  var myFadeTimeout = null;
+  var mySwipe = null;
+  var keydownFunction = function (e) {
+    if (e.key === 'ArrowRight') {
+      if (modal && modal.classList.contains('is-open')) {
+        mySwipe.next();
+      }
+    } else if (e.key === 'ArrowLeft') {
+      if (modal && modal.classList.contains('is-open')) {
+        mySwipe.prev();
+      }
+    }
+  }
+
+  if (galleryContainerElem) {
+    imgTotalNum = galleryContainerElem.querySelectorAll('img').length;
+  } else {
+    galleryContainerElem = document.querySelector('.single__contents');
+    imgTotalNum = galleryContainerElem.querySelectorAll('img').length;
+  }
+
+  MicroModal.init({
+    onClose: function () {
+      if (mySwipe) {
+        mySwipe.kill();
+        mySwipe = null;
+        closeFullscreen();
+      }
+      window.removeEventListener('keydown', keydownFunction);
+    },
+    disableScroll: true,
+    disableFocus: true,
+    awaitOpenAnimation: false,
+    awaitCloseAnimation: false,
+    debugMode: false,
+  });
+
+  var imageLoad = function(src) {
+    return new Promise(function(resolve, reject) {
+      var newImg = new Image;
+      newImg.onload = function() {
+        resolve(newImg);
+      }
+      newImg.onerror = reject;
+      newImg.src = src;
+    });
+  }
+
+  galleryContainerElem.querySelectorAll('img').forEach(function (elem, idx) {
+    elem.style.cursor = 'pointer';
+
+    var clonedElem = elem.cloneNode(true);
+    clonedElem.style.maxHeight = '100%';
+    clonedElem.style.maxWidth = '100%';
+    clonedElem.onclick = function (e) {
+      e.stopPropagation();
+    }
+
+    var wrapper = document.createElement('div');
+    wrapper.style.width = '100%';
+    wrapper.style.height = '100vh';
+    wrapper.setAttribute('data-micromodal-close', '');
+    wrapper.onclick = function () {
+      if (mySwipe) {
+        mySwipe.kill();
+        mySwipe = null;
+      }
+    }
+    wrapper.onmouseenter = function () {
+      clearTimeout(myFadeTimeout);
+      fadeIn(itemsElem, 200);
+    };
+    wrapper.onmouseleave = function () {
+      myFadeTimeout = setTimeout(function () {
+        fadeOut(itemsElem, 200);
+      }, 2500);
+    }
+    wrapper.ontouchstart = function() {
+      fadeIn(itemsElem, 200);
+    }
+    wrapper.append(clonedElem);
+    swipeWrapElem.append(wrapper);
+
+    elem.addEventListener('click', async function (e) {
+      MicroModal.show('modal');
+      if (mySwipe) {
+        mySwipe.kill();
+        mySwipe = null;
+      }
+
+      var imgSrc = e.target.getAttribute('data-src') || e.target.getAttribute('src');
+      var img = await imageLoad(imgSrc);
+      clonedElem.style.width = img.width + 'px';
+      clonedElem.style.height = img.height + 'px';
+      
+      
+      mySwipe = new Swipe(mySwipeElem, {
+        startSlide: idx,
+        draggable: true,
+        autoRestart: false,
+        continuous: false,
+        disableScroll: true,
+        stopPropagation: true,
+        callback: async function (index, element) {
+          
+          var imgElem = element.querySelector('img');
+          var imgSrc = imgElem.getAttribute('data-src') || imgElem.getAttribute('src');
+          var img = await imageLoad(imgSrc);
+          imgElem.style.width = img.width + 'px';
+          imgElem.style.height = img.height + 'px';
+
+          
+          if (captionElem && imgElem) {
+            var caption = null;
+            if (imgElem.getAttribute('data-caption')) {
+              caption = imgElem.getAttribute('data-caption');
+            } else if (imgElem.getAttribute('title')) {
+              caption = imgElem.getAttribute('title');
+            } else if (imgElem.getAttribute('alt')) {
+              caption = imgElem.getAttribute('alt');
+            } else {
+              caption = imgElem.getAttribute('src');
+            }
+
+            captionElem.querySelector('.modal__caption--text').innerText = caption;
+            pagingElem.innerText = (index + 1) + ' / ' + imgTotalNum;
+
+            clearTimeout(myFadeTimeout);
+            fadeIn(itemsElem, 200);
+          }
+        },
+      });
+
+      fadeIn(itemsElem);
+
+      
+      if (captionElem) {
+        var caption = null;
+        if (e.target.getAttribute('data-caption')) {
+          caption = e.target.getAttribute('data-caption');
+        } else if (e.target.getAttribute('title')) {
+          caption = e.target.getAttribute('title');
+        } else if (e.target.getAttribute('alt')) {
+          caption = e.target.getAttribute('alt');
+        } else {
+          caption = e.target.getAttribute('src');
+        }
+
+        captionElem.querySelector('.modal__caption--text').innerText = caption;
+        pagingElem.innerText = (idx + 1) + ' / ' + imgTotalNum;
+      }
+
+      if (normalElem && fullElem) {
+        normalElem.style.zIndex = -1;
+        normalElem.style.opacity = 0;
+        fullElem.style.zIndex = 25;
+        fullElem.style.opacity = 1;
+      }
+    });
+
+    window.addEventListener('keydown', keydownFunction);
+  });
+
+  arrowLeftElem ?
+    arrowLeftElem.addEventListener('click', function (e) {
+      if (mySwipe) {
+        mySwipe.prev();
+      }
+    }) : null;
+  arrowRightElem ?
+    arrowRightElem.addEventListener('click', function (e) {
+      if (mySwipe) {
+        mySwipe.next();
+      }
+    }) : null;
+
+  closeElem ?
+    closeElem.addEventListener('click', function () {
+      if (mySwipe) {
+        mySwipe.kill();
+        mySwipe = null;
+      }
+      closeFullscreen();
+      MicroModal.close('modal');
+    }) : null;
+
+  fullElem ?
+    fullElem.addEventListener('click', function (e) {
+      openFullscreen();
+      if (normalElem) {
+        normalElem.style.zIndex = 25;
+        normalElem.style.opacity = 1;
+        fullElem.style.zIndex = -1;
+        fullElem.style.opacity = 0;
+      }
+    }) : null;
+
+  normalElem ?
+    normalElem.addEventListener('click', function (e) {
+      closeFullscreen();
+      if (fullElem) {
+        fullElem.style.zIndex = 25;
+        fullElem.style.opacity = 1;
+        normalElem.style.zIndex = -1;
+        normalElem.style.opacity = 0;
+      }
+    }) : null;
+  
+});
+</script>
+
+    <div class="hide">
+      
+
+<div class="search">
+  <span class="icon">
+    <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" fill="currentColor" viewBox="0 0 24 24"><path fill="none" d="M0 0h24v24H0V0z"/><path d="M15.5 14h-.79l-.28-.27c1.2-1.4 1.82-3.31 1.48-5.34-.47-2.78-2.79-5-5.59-5.34-4.23-.52-7.79 3.04-7.27 7.27.34 2.8 2.56 5.12 5.34 5.59 2.03.34 3.94-.28 5.34-1.48l.27.28v.79l4.25 4.25c.41.41 1.08.41 1.49 0 .41-.41.41-1.08 0-1.49L15.5 14zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z"/></svg>
+  </span>
+  <input id="search" aria-label="Site Search" class="input" type="text" placeholder="Search" autocomplete="off">
+  <div id="search-results" class="dropdown">
+    <div id="search-menu" class="dropdown-menu" role="menu">
+    </div>
+  </div>
+</div>
+
+
+    </div>
+  </div>
+</main>
+
+
+<aside class="single__side main-side">
+  
+
+
+<section class="sidebar hide">
+  <script>document.querySelector('.sidebar').classList.remove('hide')</script>
+  <div class="toc__flexbox" data-position="absolute">
+    <h6 class="toc__title" data-ani="true">What&#39;s on this Page</h6>
+    
+      <label class="switch" data-ani="true">
+        <input id="toggle-toc" aria-label="Toggle TOC" type="checkbox" >
+        <span class="slider round"></span>
+      </label>
+    
+  </div>
+  <div class="toc hide" data-dir="ltr" data-folding="true" data-ani="true">
+    <nav id="TableOfContents">
+  <ul>
+    <li>
+      <ul>
+        <li><a href="#preamble">Preamble</a></li>
+      </ul>
+    </li>
+    <li><a href="#table-of-challenges">Table of Challenges</a></li>
+    <li><a href="#challenge-1">Challenge 1</a>
+      <ul>
+        <li><a href="#terminal-challenge-1--essential-editor-skills">Terminal Challenge 1 : Essential Editor Skills</a></li>
+        <li><a href="#objective-1--orientation-challenge">Objective 1 : Orientation Challenge</a></li>
+      </ul>
+    </li>
+    <li><a href="#challenge-2">Challenge 2</a>
+      <ul>
+        <li><a href="#terminal-challenge-2--the-name-game">Terminal Challenge 2 : The Name Game</a></li>
+        <li><a href="#objective-2--directory-browsing">Objective 2 : Directory Browsing</a></li>
+      </ul>
+    </li>
+    <li><a href="#challenge-3">Challenge 3</a>
+      <ul>
+        <li><a href="#terminal-challenge-3--lethal-forenseicelfication">Terminal Challenge 3 : Lethal ForenseicELFication</a></li>
+        <li><a href="#objective-3-de-brujin-sequences">Objective 3: de brujin sequences</a></li>
+      </ul>
+    </li>
+    <li><a href="#challenge-4">Challenge 4</a>
+      <ul>
+        <li><a href="#terminal-challenge-4--stall-mucking-report">Terminal Challenge 4 : Stall Mucking Report</a></li>
+        <li><a href="#objective-4--data-repo-analysis">Objective 4 : Data Repo Analysis</a></li>
+      </ul>
+    </li>
+    <li><a href="#challenge-5">Challenge 5</a>
+      <ul>
+        <li><a href="#terminal-challenge-5-curling-master">Terminal Challenge 5: CURLing Master</a></li>
+        <li><a href="#objective-5--ad-privelege-discovery">Objective 5 : AD Privelege Discovery</a></li>
+      </ul>
+    </li>
+    <li><a href="#challenge-6">Challenge 6</a>
+      <ul>
+        <li><a href="#terminal-challenge-6--yule-log-analysis">Terminal Challenge 6 : Yule Log Analysis</a></li>
+        <li><a href="#objective-6--badge-manipulation">Objective 6 : Badge Manipulation</a></li>
+      </ul>
+    </li>
+    <li><a href="#challenge-7">Challenge 7</a>
+      <ul>
+        <li><a href="#terminal-challenge-7--dev-ops-fail">Terminal Challenge 7 : Dev Ops Fail</a></li>
+        <li><a href="#objective-7--hr-incident-response">Objective 7 : HR Incident Response</a></li>
+      </ul>
+    </li>
+    <li><a href="#challenge-8">Challenge 8</a>
+      <ul>
+        <li><a href="#terminal-challenge-8--python-escape-from-la">Terminal Challenge 8 : Python Escape from LA</a></li>
+        <li><a href="#objective-8--network-traffic-forensics">Objective 8 : Network Traffic Forensics</a></li>
+      </ul>
+    </li>
+    <li><a href="#challenge-9">Challenge 9</a>
+      <ul>
+        <li><a href="#terminal-challenge-9--sleigh-bell-lottery">Terminal Challenge 9 : Sleigh Bell Lottery</a></li>
+        <li><a href="#obective-9">Obective 9</a>
+          <ul>
+            <li><a href="#obective-91--catch-the-malware">Obective 9.1 : Catch the Malware</a></li>
+            <li><a href="#obective-92--identify-the-domain">Obective 9.2 : Identify the Domain</a></li>
+            <li><a href="#obective-93--stop-the-malware">Obective 9.3 : Stop the Malware</a></li>
+            <li><a href="#objective-94--recover-alabasters-password">Objective 9.4 : Recover Alabaster&rsquo;s Password</a></li>
+          </ul>
+        </li>
+      </ul>
+    </li>
+    <li><a href="#challenge-10--santas-vault">Challenge 10 : Santa&rsquo;s Vault</a>
+      <ul>
+        <li><a href="#objective-10--who-did-it">Objective 10 : Who did it?</a></li>
+      </ul>
+    </li>
+    <li><a href="#prologue">Prologue</a></li>
+  </ul>
+</nav>
+  </div>
+</section>
+
+
+
+</aside>
+
+<script>
+  
+  
+  
+
+  var enableToc = JSON.parse("true");
+  var toc = JSON.parse("null");
+  var tocPosition = JSON.parse("\"inner\"");
+  
+  var singleMainElem = document.querySelector('.single__main');
+  var singleSideElem = document.querySelector('.single__side');
+
+  enquire.register("screen and (max-width: 769px)", {
+    match: function () {
+      if ((enableToc || toc) && tocPosition !== "outer") {
+        if (singleMainElem && singleSideElem) {
+          singleMainElem.classList.remove('main-main');
+          singleMainElem.classList.add('main');
+          singleSideElem.classList.remove('main-side');
+          singleSideElem.classList.add('hide');
+        }
+      } else if (tocPosition === "outer") {
+        if (singleMainElem && !singleMainElem.classList.contains('main-main')) {
+          singleMainElem.classList.remove('main-main');
+          singleMainElem.classList.add('main');
+        }
+        if (singleSideElem && !singleSideElem.classList.contains('hide')) {
+          singleSideElem.classList.add('hide');
+        }
+      }
+    },
+    unmatch: function () {
+      if ((enableToc || toc) && tocPosition !== "outer") {
+        singleMainElem.classList.remove('main');
+        singleMainElem.classList.add('main-main');
+        singleSideElem.classList.remove('hide');
+        singleSideElem.classList.add('main-side');
+      } else if (tocPosition === "outer") {
+        if (singleMainElem && !singleMainElem.classList.contains('main-main')) {
+          singleMainElem.classList.remove('main-main');
+          singleMainElem.classList.add('main');
+        }
+        if (singleSideElem && !singleSideElem.classList.contains('hide')) {
+          singleSideElem.classList.add('hide');
+        }
+      }
+
+      var navCollapseBtn = document.querySelector('.navbar__burger');
+      var navCollapse = document.getElementsByClassName('navbarm__collapse')[0];
+      if (navCollapse) {
+        navCollapse.setAttribute('data-open', false);
+        navCollapse.style.maxHeight = 0;
+        navCollapseBtn.classList.remove('is-active');
+      }
+      document.getElementsByClassName('navbar__menu')[0].classList.remove('is-active');
+      document.getElementsByClassName('mobile-search')[0].classList.add('hide');
+    },
+    setup: function () { },
+    deferSetup: true,
+    destroy: function () { },
+  });
+</script>
+
+
+
+
+<script defer src="/js/clipboard.min.1626706afc88d95ebe1173b553ec732c6dc82a576989315fdf5e7779af738a44.js"></script>
+
+<script defer src="/js/helper/getParents.min.js"></script>
+
+<script defer src="/js/helper/closest.min.js"></script>
+
+<script defer src="/js/helper/prev.min.js"></script>
+
+<script defer src="/js/helper/prop.min.js"></script>
+
+<script defer src="/js/helper/fadeinout.min.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<script>
+  'use strict';
+
+  window.onload = function() {
+    var navbar = document.querySelector('.navbar');
+    var singleContentsElem = document.querySelector('.single__contents');
+
+    
+    
+    
+    var enableBusuanzi = JSON.parse("false");
+    var busuanziPagePV = JSON.parse("true");
+    
+    if (enableBusuanzi && busuanziPagePV) {
+      var pagePvElem = document.querySelector('#busuanzi_value_page_pv');
+      pagePvElem.textContent = pagePvElem.textContent.replace(/(\d)(?=(\d\d\d)+(?!\d))/g, "$1,");
+    }    
+    
+
+
+    
+    
+    
+    
+    
+    
+    var enableToc = JSON.parse("true");
+    var toc = JSON.parse("null");
+    var hideToc = JSON.parse("true");
+    var tocFlexbox = document.querySelector('.toc__flexbox');
+    var tocFlexboxOuter = document.querySelector('.toc__flexbox--outer');
+    var tocFolding = JSON.parse("true");
+    
+    if ((enableToc || toc) && document.querySelector('.toc')) {
+      var tableOfContentsElem = document.querySelector('.toc').querySelector('#TableOfContents');
+
+      if (false === tocFolding) {
+
+      } else {
+        tableOfContentsElem.querySelectorAll('ul') ?
+          tableOfContentsElem.querySelectorAll('ul').forEach(function (rootUl) {
+            rootUl.querySelectorAll('li').forEach(function (liElem) {
+              liElem.querySelectorAll('ul').forEach(function (ulElem) {
+                ulElem.style.display = 'none';
+              });
+            });
+          }) : null;
+      }
+
+      if (tableOfContentsElem) {
+        if (tableOfContentsElem.querySelectorAll('a').length > 0) {
+          tableOfContentsElem.querySelectorAll('a').forEach(function (elem) {
+            elem.addEventListener('click', function () {
+              var id = elem.getAttribute('id');
+              navbar.classList.remove('navbar--show');
+              navbar.classList.remove('navbar--hide');
+              navbar.classList.add('navbar--hide');
+
+              document.querySelector('.toc').querySelectorAll('a').forEach(function (elem) {
+                elem.classList.remove('active');
+              });
+              elem.classList.add('active');
+
+              var curElem = tableOfContentsElem.querySelector('[href="#' + id + '"]');
+              if (curElem && curElem.nextElementSibling) {
+                curElem.nextElementSibling.style.display = 'block';
+              }
+              if (curElem) {
+                getParents(curElem, 'ul') ?
+                  getParents(curElem, 'ul').forEach(function (elem) {
+                    elem.style.display = 'block';
+                  }) : null;
+              }
+            });
+          });
+        } else {
+          if (tocFlexbox) {
+            tocFlexbox.setAttribute('data-position', '');
+            if (!tocFlexbox.classList.contains('hide')) {
+              tocFlexbox.classList.add('hide');
+            }
+          }
+          if (tocFlexboxOuter) {
+            tocFlexboxOuter.setAttribute('data-position', '');
+            if (!tocFlexboxOuter.classList.contains('hide')) {
+              tocFlexboxOuter.classList.add('hide');
+            }
+          }
+        }
+      }
+
+      
+      var toggleTocElem = document.getElementById("toggle-toc");
+      var visibleTocElem = document.getElementById('visible-toc');
+      var tocElem = document.querySelector('.toc');
+      var mainElem = document.querySelector('main');
+      var sideElem = document.querySelector('side');
+      var tocFlexboxElem = document.querySelector('.toc__flexbox');
+
+      toggleTocElem ? 
+      toggleTocElem.addEventListener('change', function(e) {
+        if (e.target.checked) {
+          if (tocElem) {
+            fadeIn(tocElem, 200);
+          }
+          if (tocFlexboxElem) {
+            tocFlexboxElem.setAttribute('data-position', 'fixed');
+          }
+
+          if (mainElem) {
+            mainElem.classList.remove('main-main');
+            mainElem.classList.remove('main');
+            mainElem.classList.add('main-main');
+          }
+          if (sideElem) {
+            sideElem.classList.remove('main-side');
+          }
+        } else {
+          if (tocElem) {
+            fadeOut(tocElem, 200);
+          }
+          if (tocFlexboxElem) {
+            tocFlexboxElem.setAttribute('data-position', 'absolute');
+          }
+
+          if (mainElem) {
+            mainElem.classList.remove('main-main');
+            mainElem.classList.remove('main');
+            mainElem.classList.add('main');
+          }
+          if (sideElem) {
+            sideElem.classList.remove('main-side');
+          }
+        }
+      }) : null;
+
+      visibleTocElem ?
+      visibleTocElem.addEventListener('change', function(e) {
+        if (e.target.checked) {
+          if (tocElem) {
+            fadeIn(tocElem, 200);
+          }
+        } else {
+          if (tocElem) {
+            fadeOut(tocElem, 200);
+          }
+        }
+      }) : null;
+    }
+    
+
+
+    
+    var tables = document.querySelectorAll('.single__contents > table');
+    for (let i = 0; i < tables.length; i++) {
+      var table = tables[i];
+      var wrapper = document.createElement('div');
+      wrapper.className = 'table-wrapper';
+      table.parentElement.replaceChild(wrapper, table);
+      wrapper.appendChild(table);
+    }
+    
+
+
+    
+    var text, clip = new ClipboardJS('.anchor');
+    var headers = singleContentsElem.querySelectorAll("h1, h2, h3, h4");
+
+    
+    var languagedir = JSON.parse("\"ltr\"");
+
+    headers ? 
+    headers.forEach(function (elem) {
+      var url = encodeURI(document.location.origin + document.location.pathname);
+      var link = url + "#" + elem.getAttribute('id');
+      var newElemOuter = document.createElement('span');
+      newElemOuter.classList.add('anchor');
+      newElemOuter.classList.add('hide');
+      newElemOuter.setAttribute('data-clipboard-text', link);
+      newElemOuter.style.position = 'relative';
+
+      var newElemInner = document.createElement('span');
+      newElemInner.style.fontSize = '1rem';
+      newElemInner.style.position = 'absolute';
+      newElemInner.style.top = '50%';
+      newElemInner.style.transform = 'translateY(-50%)';
+      newElemInner.innerText = "🔗";
+
+      if (languagedir === "rtl") {
+        newElemInner.style.left = '-2rem';
+      } else {
+        newElemInner.style.right = '-2rem';
+      }
+
+      newElemOuter.append(newElemInner);
+      elem.append(newElemOuter);
+
+      elem.addEventListener('mouseenter', function() {
+        this.querySelector('.anchor').classList.remove('hide');
+      });
+      elem.addEventListener('mouseleave', function () {
+        this.querySelector('.anchor').classList.add('hide');
+      });
+    }) : null;
+
+    document.querySelectorAll('.anchor').forEach(function(elem) {
+      elem.addEventListener('mouseleave', function() {
+        elem.setAttribute('aria-label', null);
+        elem.classList.remove('tooltipped');
+        elem.classList.remove('tooltipped-s');
+        elem.classList.remove('tooltipped-w');
+      });
+    });
+
+    clip.on('success', function (e) {
+      e.clearSelection();
+      e.trigger.setAttribute('aria-label', 'Link copied to clipboard!');
+      e.trigger.classList.add('tooltipped');
+      e.trigger.classList.add('tooltipped-s');
+    });
+    
+
+
+    
+    var clipInit = false;
+    var preChromaElem = document.querySelectorAll('pre.chroma');
+    var langCodeElem = document.querySelectorAll('.language-code');
+    var dollarCodeElem = document.querySelectorAll('div.language-\\$');
+    var gtCodeElem = document.querySelectorAll('div.language-\\>');
+
+    var makeClipboard = function(elem) {
+      var code = elem,
+        text = elem.textContent;
+        
+      if (text.length > 15) {
+        if (!clipInit) {
+          var text, clip = new ClipboardJS('.copy-to-clipboard', {
+            text: function (trigger) {
+              var codeElem = prev(trigger).querySelectorAll('code');
+              if (codeElem.length > 1) {
+                text = prev(trigger).querySelector('code[class^="language-"]').textContent;
+              } else {
+                text = prev(trigger).querySelector('code').textContent;
+              }
+
+              return text.replace(/^\$\s/gm, '');
+            }
+          });
+
+          var inPre;
+          clip.on('success', function (e) {
+            e.clearSelection();
+            inPre = prop(e.trigger.parentNode, 'tagName') == 'PRE';
+            e.trigger.setAttribute('aria-label', 'Copied to clipboard!');
+            e.trigger.classList.add('tooltipped');
+            e.trigger.classList.add('tooltipped-w');
+          });
+
+          clip.on('error', function (e) {
+            inPre = prop(e.trigger.parentNode, 'tagName') == 'PRE';
+            e.trigger.setAttribute('aria-label', e.action.toString());
+            e.trigger.classList.add('tooltipped');
+            e.trigger.classList.add('tooltipped-w');
+          });
+
+          clipInit = true;
+        }
+
+        var notAllowedClass = ['language-mermaid', 'language-viz', 'language-wave', 'language-chart', 'language-msc', 'language-flowchart'];
+        var isNotAllowedIncluded = false;
+        var curClassName = code.getAttribute('class');
+
+        for (var i = 0; i < notAllowedClass.length; i++) {
+          if (curClassName && curClassName.startsWith(notAllowedClass[i])) {
+            isNotAllowedIncluded = true;
+            break;
+          }
+        }
+
+        if (!isNotAllowedIncluded) {
+          if (curClassName) {
+            var newClipboardElem = document.createElement('span');
+            newClipboardElem.setAttribute('class', 'copy-to-clipboard');
+            newClipboardElem.setAttribute('title', 'Copy to clipboard');
+            elem.parentNode.parentNode.insertBefore(newClipboardElem, elem.parentNode.nextElementSibling);
+          }
+        }
+      }
+    }
+
+    var makeSymbolClipboard = function(elem) {
+      var clipboardSpan = document.createElement('span');
+      clipboardSpan.setAttribute('class', 'copy-to-clipboard');
+      clipboardSpan.setAttribute('title', 'Copy to clipboard');
+      elem.parentNode.parentNode.insertBefore(clipboardSpan, elem.parentNode.nextElementSibling);
+    }
+
+    preChromaElem ? 
+    preChromaElem.forEach(function(elem) {
+      elem.querySelectorAll('code').forEach(function(codeElem) {
+        makeClipboard(codeElem);
+      });
+    }) : null;
+    
+    langCodeElem ? 
+    langCodeElem.forEach(function(elem) {
+      elem.querySelectorAll('code').forEach(function (codeElem) {
+        makeClipboard(codeElem);
+      });
+    }) : null;
+
+    dollarCodeElem ? 
+    dollarCodeElem.forEach(function(elem) {
+      elem.querySelectorAll('code').forEach(function (codeElem) {
+        makeSymbolClipboard(codeElem);
+      });
+    }) : null;
+
+    gtCodeElem ?
+    gtCodeElem.forEach(function(elem) {
+      elem.querySelectorAll('code').forEach(function (codeElem) {
+        makeSymbolClipboard(codeElem);
+      });
+    }) : null;
+    
+
+
+    
+    dollarCodeElem ?
+    dollarCodeElem.forEach(function(elem) {
+      var lnts = elem.parentNode.parentNode ? elem.parentNode.parentNode.querySelectorAll('.lnt') : null;
+      lnts ? 
+      lnts.forEach(function(lnt) {
+        lnt.innerHTML = '$<br/>';
+      }) : null;
+    }) : null;
+
+    gtCodeElem ?
+    gtCodeElem.forEach(function(elem) {
+      var lnts = elem.parentNode.parentNode ? elem.parentNode.parentNode.querySelectorAll('.lnt') : null;
+      lnts ? 
+      lnts.forEach(function(lnt) {
+        lnt.innerHTML = '><br/>';
+      }) : null;
+    }) : null;
+    
+
+
+    
+    
+    var lib = JSON.parse("null");
+
+    if (lib && lib.includes('mermaid')) {
+      
+      var themeVariant = localStorage.getItem('theme') || JSON.parse("\"dark\"");
+
+      if (themeVariant === "dark" || themeVariant === "hacker") {
+        mermaid.initialize({ theme: 'dark' });
+      } else {
+        mermaid.initialize({ theme: 'default' });
+      }
+      
+      var mermaids = [];
+      [].push.apply(mermaids, document.getElementsByClassName('language-mermaid'));
+      mermaids.forEach(function(elem) {
+        var elemParentNode = elem.parentNode;
+
+        if (elemParentNode !== document.body) {
+          elemParentNode.parentNode.insertBefore(elem, elemParentNode);
+          elemParentNode.parentNode.removeChild(elemParentNode);
+        }
+
+        var newElemWrapper = document.createElement('div');
+        newElemWrapper.classList.add('mermaid');
+        newElemWrapper.style.padding = '34px 4px 6px';
+        newElemWrapper.innerHTML = elem.innerHTML;
+        elem.replaceWith(newElemWrapper);
+      });
+    }
+    
+    
+
+    
+    if (lib && lib.includes('katex')) {
+      var mathElements = document.getElementsByClassName('math');
+      var options = {
+        delimiters: [
+          { left: "$$", right: "$$", display: true },
+          { left: "\\[", right: "\\]", display: true },
+          { left: "$", right: "$", display: false },
+          { left: "\\(", right: "\\)", display: false }
+        ],
+      };
+
+      renderMathInElement(document.querySelector('.single__contents'), options);
+    }
+    
+
+
+    
+    if (lib && lib.includes('flowchartjs')) {
+      
+      var options = JSON.parse("{\"arrow-end\":\"block\",\"element-color\":\"black\",\"fill\":\"white\",\"flowstate\":{\"approved\":{\"fill\":\"#58C4A3\",\"font-size\":12,\"no-text\":\"n/a\",\"yes-text\":\"APPROVED\"},\"current\":{\"fill\":\"yellow\",\"font-color\":\"red\",\"font-weight\":\"bold\"},\"future\":{\"fill\":\"#FFFF99\"},\"invalid\":{\"fill\":\"#444444\"},\"past\":{\"fill\":\"#CCCCCC\",\"font-size\":12},\"rejected\":{\"fill\":\"#C45879\",\"font-size\":12,\"no-text\":\"REJECTED\",\"yes-text\":\"n/a\"},\"request\":{\"fill\":\"blue\"}},\"font-color\":\"black\",\"font-size\":14,\"line-color\":\"black\",\"line-length\":50,\"line-width\":3,\"no-text\":\"no\",\"scale\":1,\"symbols\":{\"end\":{\"class\":\"end-element\"},\"start\":{\"element-color\":\"green\",\"fill\":\"yellow\",\"font-color\":\"red\"}},\"text-margin\":10,\"x\":0,\"y\":0,\"yes-text\":\"yes\"}");
+      var jsonContent = null;
+
+      var flowchartPrefix = "language-flowchart";
+      var index = 0;
+      Array.prototype.forEach.call(document.querySelectorAll("[class^=" + flowchartPrefix + "]"), function(x){
+          x.style.display = 'none'
+          x.parentNode.style.backgroundColor = "transparent"
+          jsonContent = x.innerText;
+
+          var node0 = document.createElement('div');
+          node0.id = 'flowchart' + index;
+          x.parentNode.insertBefore(node0, x);
+
+          var diagram = flowchart.parse(jsonContent);
+          diagram.drawSVG("flowchart"+index, options);
+
+          index +=1;
+      });      
+    }
+    
+
+
+    
+    
+
+
+    
+    if (lib && lib.includes('msc')) {
+      
+      var options = JSON.parse("{\"theme\":\"hand\"}");
+      var jsonContent = null;
+
+      var index = 0;
+      var chartPrefix = "language-msc";
+      Array.prototype.forEach.call(document.querySelectorAll("[class^=" + chartPrefix + "]"), function (x) {
+        x.style.display = 'none'
+        x.parentNode.style.backgroundColor = "transparent"
+        jsonContent = x.innerText;
+        var node0 = document.createElement('div');
+        node0.id = 'msc' + index;
+        x.parentNode.insertBefore(node0, x);
+        var diagram = Diagram.parse(jsonContent);
+        diagram.drawSVG("msc" + index, options);
+        index += 1;
+      });
+    }
+    
+
+
+    
+    if (lib && lib.includes('chart')) {
+      var borderColor = "#666";
+      var bgColor = "#ddd";
+      var borderWidth = 2;
+
+      Chart.defaults.global.elements.rectangle.borderWidth = borderWidth;
+      Chart.defaults.global.elements.rectangle.borderColor = borderColor;
+      Chart.defaults.global.elements.rectangle.backgroundColor = bgColor;
+
+      Chart.defaults.global.elements.line.borderWidth = borderWidth;
+      Chart.defaults.global.elements.line.borderColor = borderColor;
+      Chart.defaults.global.elements.line.backgroundColor = bgColor;
+
+      Chart.defaults.global.elements.point.borderWidth = borderWidth;
+      Chart.defaults.global.elements.point.borderColor = borderColor;
+      Chart.defaults.global.elements.point.backgroundColor = bgColor;
+
+      var chartPrefix = "language-chart";
+      var index = 0;
+      var jsonContent = null;
+
+      Array.prototype.forEach.call(document.querySelectorAll("[class^=" + chartPrefix + "]"), function (x) {
+        x.style.display = 'none'
+        x.parentNode.style.backgroundColor = "transparent"
+        jsonContent = x.innerText;
+        var node0 = document.createElement('canvas');
+        var source = null;
+        node0.height = 200;
+        node0.style.height = 200;
+        node0.id = 'myChart' + index;
+        source = JSON.parse(jsonContent);
+        x.parentNode.insertBefore(node0, x);
+        var ctx = document.getElementById('myChart' + index).getContext('2d');
+        var myChart = new Chart(ctx, source);
+        index += 1;
+      });            
+    }
+    
+
+
+    
+    if (lib && lib.includes('wavedrom')) {
+      var wavePrefix = "language-wave";
+      var index = 0;
+      var jsonContent = null;
+      
+      Array.prototype.forEach.call(document.querySelectorAll("[class^=" + wavePrefix + "]"), function (x) {
+        x.style.display = 'none'
+        x.parentNode.style.backgroundColor = "transparent"
+        jsonContent = x.innerText;
+        var node0 = document.createElement('div');
+        var source = null;
+        node0.id = 'WaveDrom_Display_' + index;
+        source = JSON.parse(jsonContent);
+        x.parentNode.insertBefore(node0, x);
+        WaveDrom.RenderWaveForm(index, source, "WaveDrom_Display_");
+        index += 1;
+      });
+    }
+    
+
+
+    
+    if (lib && lib.includes('viz')) {
+      var vizPrefix = "language-viz-";
+      Array.prototype.forEach.call(document.querySelectorAll("[class^=" + vizPrefix + "]"), function (x) {
+        x.style.display = 'none'
+        x.parentNode.style.backgroundColor = "transparent"
+        var engine;
+        x.getAttribute("class").split(" ").forEach(function (cls) {
+          if (cls.startsWith(vizPrefix)) {
+            engine = cls.substr(vizPrefix.length);
+          }
+        });
+        var viz = new Viz();
+        viz.renderSVGElement(x.innerText, { engine: engine })
+          .then(function (element) {
+            element.style.width = "100%";
+            x.parentNode.insertBefore(element, x);
+          })
+      });
+    }
+    
+    
+  }
+</script>
+
+
+            
+            <footer class="footer">
+    
+    
+<div class="footer__social">
+  <div class="social">
+    
+            
+    
+            
+    
+            
+    
+            
+    
+            
+    
+            
+    
+      
+      <a href="https://github.com/AnthonyLaiuppa" title="github" aria-label="github">
+        <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="32" height="32" viewBox="0 0 24 24" version="1.1">
+<g id="surface3680">
+<path fill="currentColor" d="M 10.898438 2.101562 C 6.300781 2.601562 2.601562 6.300781 2.101562 10.800781 C 1.601562 15.5 4.300781 19.699219 8.398438 21.300781 C 8.699219 21.398438 9 21.199219 9 20.800781 L 9 19.199219 C 9 19.199219 8.601562 19.300781 8.101562 19.300781 C 6.699219 19.300781 6.101562 18.101562 6 17.398438 C 5.898438 17 5.699219 16.699219 5.398438 16.398438 C 5.101562 16.300781 5 16.300781 5 16.199219 C 5 16 5.300781 16 5.398438 16 C 6 16 6.5 16.699219 6.699219 17 C 7.199219 17.800781 7.800781 18 8.101562 18 C 8.5 18 8.800781 17.898438 9 17.800781 C 9.101562 17.101562 9.398438 16.398438 10 16 C 7.699219 15.5 6 14.199219 6 12 C 6 10.898438 6.5 9.800781 7.199219 9 C 7.101562 8.800781 7 8.300781 7 7.601562 C 7 7.199219 7 6.601562 7.300781 6 C 7.300781 6 8.699219 6 10.101562 7.300781 C 10.601562 7.101562 11.300781 7 12 7 C 12.699219 7 13.398438 7.101562 14 7.300781 C 15.300781 6 16.800781 6 16.800781 6 C 17 6.601562 17 7.199219 17 7.601562 C 17 8.398438 16.898438 8.800781 16.800781 9 C 17.5 9.800781 18 10.800781 18 12 C 18 14.199219 16.300781 15.5 14 16 C 14.601562 16.5 15 17.398438 15 18.300781 L 15 20.898438 C 15 21.199219 15.300781 21.5 15.699219 21.398438 C 19.398438 19.898438 22 16.300781 22 12.101562 C 22 6.101562 16.898438 1.398438 10.898438 2.101562 Z M 10.898438 2.101562 "/>
+</g>
+</svg>
+
+      </a>
+            
+    
+            
+    
+            
+    
+            
+    
+            
+    
+            
+    
+      
+      <a href="https://www.linkedin.com/in/anthony-laiuppa-52a43085" title="linkedin" aria-label="linkedin">
+        <svg xmlns="http://www.w3.org/2000/svg" fill="#000000" viewBox="0 0 30 30" width="32" height="32"><path fill="currentColor" d="M24,4H6C4.895,4,4,4.895,4,6v18c0,1.105,0.895,2,2,2h18c1.105,0,2-0.895,2-2V6C26,4.895,25.105,4,24,4z M10.954,22h-2.95 v-9.492h2.95V22z M9.449,11.151c-0.951,0-1.72-0.771-1.72-1.72c0-0.949,0.77-1.719,1.72-1.719c0.948,0,1.719,0.771,1.719,1.719 C11.168,10.38,10.397,11.151,9.449,11.151z M22.004,22h-2.948v-4.616c0-1.101-0.02-2.517-1.533-2.517 c-1.535,0-1.771,1.199-1.771,2.437V22h-2.948v-9.492h2.83v1.297h0.04c0.394-0.746,1.356-1.533,2.791-1.533 c2.987,0,3.539,1.966,3.539,4.522V22z"/></svg>
+
+      </a>
+            
+    
+            
+    
+            
+    
+            
+    
+            
+    
+            
+    
+            
+    
+            
+    
+            
+    
+            
+    
+            
+    
+            
+    
+      
+      <a href="https://twitter.com/Florida_Mane" title="twitter" aria-label="twitter">
+        <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="32" height="32" viewBox="0 0 32 32" version="1.1">
+<g id="surface676">
+<path fill="currentColor" d="M 28 8.558594 C 27.117188 8.949219 26.167969 9.214844 25.171875 9.332031 C 26.1875 8.722656 26.96875 7.757812 27.335938 6.609375 C 26.386719 7.171875 25.332031 7.582031 24.210938 7.804688 C 23.3125 6.847656 22.03125 6.246094 20.617188 6.246094 C 17.898438 6.246094 15.691406 8.453125 15.691406 11.171875 C 15.691406 11.558594 15.734375 11.933594 15.820312 12.292969 C 11.726562 12.089844 8.097656 10.128906 5.671875 7.148438 C 5.246094 7.875 5.003906 8.722656 5.003906 9.625 C 5.003906 11.332031 5.871094 12.839844 7.195312 13.722656 C 6.386719 13.695312 5.628906 13.476562 4.964844 13.105469 C 4.964844 13.128906 4.964844 13.148438 4.964844 13.167969 C 4.964844 15.554688 6.660156 17.546875 8.914062 17.996094 C 8.5 18.109375 8.066406 18.171875 7.617188 18.171875 C 7.300781 18.171875 6.988281 18.140625 6.691406 18.082031 C 7.316406 20.039062 9.136719 21.460938 11.289062 21.503906 C 9.605469 22.824219 7.480469 23.609375 5.175781 23.609375 C 4.777344 23.609375 4.386719 23.585938 4 23.539062 C 6.179688 24.9375 8.765625 25.753906 11.546875 25.753906 C 20.605469 25.753906 25.558594 18.25 25.558594 11.742188 C 25.558594 11.53125 25.550781 11.316406 25.542969 11.105469 C 26.503906 10.410156 27.339844 9.542969 28 8.558594 Z M 28 8.558594 "/>
+</g>
+</svg>
+
+      </a>
+            
+    
+            
+    
+            
+    
+            
+    
+            
+    
+            
+    
+    
+  
+  
+    
+      <a href="https://anthonylaiuppa.com/posts//index.xml" type="application/rss+xml" title="RSS" aria-label="RSS Feed Link">
+        <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24"><path fill="none" d="M0 0h24v24H0V0z"/><circle fill="currentColor" cx="6.18" cy="17.82" r="2.18"/><path fill="currentColor" d="M5.59 10.23c-.84-.14-1.59.55-1.59 1.4 0 .71.53 1.28 1.23 1.4 2.92.51 5.22 2.82 5.74 5.74.12.7.69 1.23 1.4 1.23.85 0 1.54-.75 1.41-1.59-.68-4.2-3.99-7.51-8.19-8.18zm-.03-5.71C4.73 4.43 4 5.1 4 5.93c0 .73.55 1.33 1.27 1.4 6.01.6 10.79 5.38 11.39 11.39.07.73.67 1.28 1.4 1.28.84 0 1.5-.73 1.42-1.56-.73-7.34-6.57-13.19-13.92-13.92z"/></svg>
+      </a>
+    
+  
+
+  </div>
+</div>
+
+    
+<div id="gtt">
+  <div class="gtt">
+    <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24"><path fill="currentColor" d="M8.12 14.71L12 10.83l3.88 3.88c.39.39 1.02.39 1.41 0 .39-.39.39-1.02 0-1.41L12.7 8.71c-.39-.39-1.02-.39-1.41 0L6.7 13.3c-.39.39-.39 1.02 0 1.41.39.38 1.03.39 1.42 0z"/></svg>
+  </div>
+</div>
+
+    <hr />
+
+    <div class="basicflex">
+        
+            <a href="" class="footer__link" target="_blank" rel="noreferrer"></a>
+        
+            <a href="" class="footer__link" target="_blank" rel="noreferrer"></a>
+        
+    </div>
+
+    <div class="footer__poweredby">
+        
+                
+            <p class="caption">
+                
+                    ©2020, All Rights Reserved
+                
+            </p>
+        
+
+        
+            <p class="caption">Powered by <a href="https://gohugo.io/" target="_blank" rel="noreferrer">Hugo</a> and the <a href="https://github.com/zzossig/hugo-theme-zzo" target="_blank" rel="noreferrer">Zzo theme</a></p>
+        
+        
+    </div> 
+</footer>
+        </div>
+        
+
+
+
+
+
+<div class="wrapper__right hide" data-pad="true" dir="ltr">
+  <script>document.querySelector('.wrapper__right').classList.remove('hide')</script>
+  
+</div>
+
+    </div>
+</body>
+
+</html>

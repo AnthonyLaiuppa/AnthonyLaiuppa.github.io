@@ -1,0 +1,267 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" 
+  xmlns:content="http://purl.org/rss/1.0/modules/content/" 
+  xmlns:dc="http://purl.org/dc/elements/1.1/" 
+  xmlns:atom="http://www.w3.org/2005/Atom" 
+  xmlns:sy="http://purl.org/rss/1.0/modules/syndication/" 
+  xmlns:media="http://search.yahoo.com/mrss/">
+  <channel>
+    <title>security on Laiuppa Blog</title>
+    <link>https://anthonylaiuppa.com/categories/security/</link>
+    <description>Recent content in security on Laiuppa Blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en</language>
+    <copyright>&amp;copy;{year}, All Rights Reserved</copyright>
+    <lastBuildDate>Wed, 11 Jan 2017 06:40:51 +0900</lastBuildDate>
+    
+        <atom:link href="https://anthonylaiuppa.com/categories/security/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    
+
+      
+      <item>
+        <title>Enumerating URL shorteners</title>
+        <link>https://anthonylaiuppa.com/posts/enumerating-url-shorteners/</link>
+        <pubDate>Wed, 11 Jan 2017 06:40:51 +0900</pubDate>
+        
+        <atom:modified>Wed, 11 Jan 2017 06:40:51 +0900</atom:modified>
+        <guid>https://anthonylaiuppa.com/posts/enumerating-url-shorteners/</guid>
+        <description>Intro I was at work when I almost dropped a URL into goo.gl, you know because short URLs are awesome. However I stopped right before I dropped it in because Google was kind enough to tell me that all URLs shortened are public. Then it occured to me that just haphazardly dropping links in is of course an OPSec issue. With billions of shortened URLs in existence is it really though?</description>
+        
+        <dc:creator>Anthony Laiuppa</dc:creator>
+        <media:content url="https://anthonylaiuppa.comimages/posts/enumerating-url-shorteners/oddstuff.PNG" medium="image"><media:title type="html">featured image</media:title></media:content>
+        
+        
+        
+          
+            
+              <category>enumeration</category>
+            
+          
+            
+              <category>python</category>
+            
+          
+            
+              <category>hacking</category>
+            
+          
+            
+              <category>reconnaissance</category>
+            
+          
+            
+              <category>osint</category>
+            
+          
+        
+        
+          
+            
+              <category>security</category>
+            
+          
+        
+        
+          
+            
+          
+        
+      </item>
+      
+      <item>
+        <title>Hiding encrypted blobs</title>
+        <link>https://anthonylaiuppa.com/posts/hiding-encrypted-blobs/</link>
+        <pubDate>Wed, 04 Jan 2017 06:40:51 +0900</pubDate>
+        
+        <atom:modified>Wed, 04 Jan 2017 06:40:51 +0900</atom:modified>
+        <guid>https://anthonylaiuppa.com/posts/hiding-encrypted-blobs/</guid>
+        <description>Intro Recently I was having a little trouble implementing encryption due to chunk size, and then getting proper padding so I figured I would share a simplified example using Python. Bonus steganography included because why not?
+Explanation and Definitions  Encryption: The process of encoding a message so that it can be read only by the sender and the intended recipient. Encryption systems often use two keys, a public key, available to anyone, and a private key that allows only the recipient to decode the message.</description>
+        
+        <dc:creator>Anthony Laiuppa</dc:creator>
+        <media:content url="https://anthonylaiuppa.comimages/posts/hiding-encrypted-blobs/cat.jpg" medium="image"><media:title type="html">featured image</media:title></media:content>
+        
+        
+        
+          
+            
+              <category>python</category>
+            
+          
+            
+              <category>encryption</category>
+            
+          
+            
+              <category>steganography</category>
+            
+          
+        
+        
+          
+            
+              <category>security</category>
+            
+          
+        
+        
+          
+            
+          
+        
+      </item>
+      
+      <item>
+        <title>SANSHHC</title>
+        <link>https://anthonylaiuppa.com/posts/sans-holiday-hacking-challenge/</link>
+        <pubDate>Sun, 25 Dec 2016 06:40:51 +0900</pubDate>
+        
+        <atom:modified>Sun, 25 Dec 2016 06:40:51 +0900</atom:modified>
+        <guid>https://anthonylaiuppa.com/posts/sans-holiday-hacking-challenge/</guid>
+        <description>Intro Continuing with my efforts of becoming better at CTFs I decided to participate in the SANS Holiday Hack Challenge. It is a pretty awesome challenge with a lovely pixelated game accompanying the tasks. It takes place in the North Pole and the gist of it is Santa is missing. The elfs were all kinds of helpful providing articles related to some of the tasks. I learned alot about some neat topics that I had little experience with, such a Android application Reverse Engineering and Password Cracking.</description>
+        
+        <dc:creator>Anthony Laiuppa</dc:creator>
+        <media:content url="https://anthonylaiuppa.comimages/posts/sans-holiday-hacking-challenge/santatweets.png" medium="image"><media:title type="html">featured image</media:title></media:content>
+        
+        
+        
+          
+            
+              <category>ctf</category>
+            
+          
+            
+              <category>hacking</category>
+            
+          
+            
+              <category>android</category>
+            
+          
+            
+              <category>linux</category>
+            
+          
+            
+              <category>python</category>
+            
+          
+            
+              <category>osint</category>
+            
+          
+            
+              <category>password cracking</category>
+            
+          
+            
+              <category>kali</category>
+            
+          
+        
+        
+          
+            
+              <category>security</category>
+            
+          
+        
+        
+          
+            
+          
+        
+      </item>
+      
+      <item>
+        <title>Binary fun</title>
+        <link>https://anthonylaiuppa.com/posts/binary-fun/</link>
+        <pubDate>Mon, 02 May 2016 06:40:51 +0900</pubDate>
+        
+        <atom:modified>Mon, 02 May 2016 06:40:51 +0900</atom:modified>
+        <guid>https://anthonylaiuppa.com/posts/binary-fun/</guid>
+        <description>Binary Fun: With basic binary file analysis A little bit ago I decided CTFs looked like alot of fun and that I want to get involved. At least for me it was a little daunting picking where to start. Some people would start with things they are familiar with but I thought Reverse Engineering sounded cool so I went with that. I got a small binary made by a friend, intended to be similar to a basic reversing challenge, to start with.</description>
+        
+        <dc:creator>Anthony Laiuppa</dc:creator>
+        <media:content url="https://anthonylaiuppa.comimages/posts/binary-fun/binary.jpg" medium="image"><media:title type="html">featured image</media:title></media:content>
+        
+        
+        
+          
+            
+              <category>hacking</category>
+            
+          
+            
+              <category>reverse engineering</category>
+            
+          
+            
+              <category>ctf</category>
+            
+          
+        
+        
+          
+            
+              <category>security</category>
+            
+          
+        
+        
+          
+            
+          
+        
+      </item>
+      
+      <item>
+        <title>Obfuscating python</title>
+        <link>https://anthonylaiuppa.com/posts/obfuscating-python/</link>
+        <pubDate>Thu, 03 Mar 2016 06:40:51 +0900</pubDate>
+        
+        <atom:modified>Thu, 03 Mar 2016 06:40:51 +0900</atom:modified>
+        <guid>https://anthonylaiuppa.com/posts/obfuscating-python/</guid>
+        <description>Intro I got to thinking, you can obfuscate js and vbs when serving up code to people, why not Python? Well to there is that whole whitespace thing and lack of semi-colons, but lets see what we can do.
+ Obfuscation: &amp;ldquo;To make so confused or opaque as to be difficult to perceive or understand&amp;rdquo;
+ In terms of programming one usually doesnt purposefully obfuscate their code as they may wish for others to read it.</description>
+        
+        <dc:creator>Anthony Laiuppa</dc:creator>
+        <media:content url="https://anthonylaiuppa.comimages/posts/obfuscating-python/obfuscated.jpeg" medium="image"><media:title type="html">featured image</media:title></media:content>
+        
+        
+        
+          
+            
+              <category>python</category>
+            
+          
+            
+              <category>hacking</category>
+            
+          
+            
+              <category>obfuscation</category>
+            
+          
+        
+        
+          
+            
+              <category>security</category>
+            
+          
+        
+        
+          
+            
+          
+        
+      </item>
+      
+
+    
+  </channel>
+</rss>

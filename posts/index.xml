@@ -1,0 +1,1031 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" 
+  xmlns:content="http://purl.org/rss/1.0/modules/content/" 
+  xmlns:dc="http://purl.org/dc/elements/1.1/" 
+  xmlns:atom="http://www.w3.org/2005/Atom" 
+  xmlns:sy="http://purl.org/rss/1.0/modules/syndication/" 
+  xmlns:media="http://search.yahoo.com/mrss/">
+  <channel>
+    <title>Posts on Laiuppa Blog</title>
+    <link>https://anthonylaiuppa.com/posts/</link>
+    <description>Recent content in Posts on Laiuppa Blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en</language>
+    <copyright>&amp;copy;{year}, All Rights Reserved</copyright>
+    <lastBuildDate>Fri, 24 Apr 2020 06:40:51 +0900</lastBuildDate>
+    
+        <atom:link href="https://anthonylaiuppa.com/posts/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    
+
+      
+      <item>
+        <title>Effortless API Scraping With Golang</title>
+        <link>https://anthonylaiuppa.com/posts/golang-api-scraping/</link>
+        <pubDate>Fri, 24 Apr 2020 06:40:51 +0900</pubDate>
+        
+        <atom:modified>Fri, 24 Apr 2020 06:40:51 +0900</atom:modified>
+        <guid>https://anthonylaiuppa.com/posts/golang-api-scraping/</guid>
+        <description>Intro The internet is chock full of information, and often times there is a need to aggregate it in order to gain insights through additional analysis. To that end, scraping information from the internet can become somewhat reptitive.
+Here we&amp;rsquo;ll explore a simple approach to automating part of the process of writing the code to retrieve information from the web.
+Overview With the bulk of the internet transitioning to more decoupled models we are seeing more and more API&amp;rsquo;s.</description>
+        
+        <dc:creator>Anthony Laiuppa</dc:creator>
+        <media:content url="https://anthonylaiuppa.comimages/posts/golang-scraping/gopher.png" medium="image"><media:title type="html">featured image</media:title></media:content>
+        
+        
+        
+          
+            
+              <category>programming</category>
+            
+          
+            
+              <category>golang</category>
+            
+          
+            
+              <category>scraping</category>
+            
+          
+            
+              <category>automation</category>
+            
+          
+        
+        
+          
+            
+              <category>programming</category>
+            
+          
+        
+        
+          
+            
+          
+        
+      </item>
+      
+      <item>
+        <title>Stock Market Sentiment Analysis</title>
+        <link>https://anthonylaiuppa.com/posts/market-sentiment/</link>
+        <pubDate>Thu, 05 Mar 2020 06:40:51 +0900</pubDate>
+        
+        <atom:modified>Thu, 05 Mar 2020 06:40:51 +0900</atom:modified>
+        <guid>https://anthonylaiuppa.com/posts/market-sentiment/</guid>
+        <description>Intro In 2019 I had my first opportunity to drive a Tesla Model 3. This cemented in my mind that it was a car years ahead of the automotive industry, and through technical analysis others seem to agree. Despite this I didn&amp;rsquo;t think to buy any stock, shortly after driving the car it shot up from $330 to over $900. This event fostered a deeper interest in finance, eventually resulting in this post.</description>
+        
+        <dc:creator>Anthony Laiuppa</dc:creator>
+        <media:content url="https://anthonylaiuppa.comimages/posts/market-sentiment/sentiment.png" medium="image"><media:title type="html">featured image</media:title></media:content>
+        
+        
+        
+          
+            
+              <category>programming</category>
+            
+          
+            
+              <category>golang</category>
+            
+          
+            
+              <category>nlp</category>
+            
+          
+            
+              <category>ai</category>
+            
+          
+            
+              <category>sentiment analysis</category>
+            
+          
+        
+        
+          
+            
+              <category>programming</category>
+            
+          
+        
+        
+          
+            
+          
+        
+      </item>
+      
+      <item>
+        <title>Maze runner</title>
+        <link>https://anthonylaiuppa.com/posts/maze-runner/</link>
+        <pubDate>Thu, 17 Oct 2019 06:40:51 +0900</pubDate>
+        
+        <atom:modified>Thu, 17 Oct 2019 06:40:51 +0900</atom:modified>
+        <guid>https://anthonylaiuppa.com/posts/maze-runner/</guid>
+        <description>Intro While digging around on a bug bounty I came across a company&amp;rsquo;s subdomain that hosts a maze challenge. Probably for vetting interviewees.
+Overview The instructions were pretty simple, and we get three endpoints to work with.
+ Start - Returns an ~ID~ for the Maze, as well as ~Height~ and ~Width~ Check - Returns a 200 status code if the Maze location(x,y) you sent it is valid Solve - Returns a 200 if you solve the maze  The end of the maze is Height-1, Width-1</description>
+        
+        <dc:creator>Anthony Laiuppa</dc:creator>
+        <media:content url="https://anthonylaiuppa.comimages/posts/maze-runner/mazerunners.jpg" medium="image"><media:title type="html">featured image</media:title></media:content>
+        
+        
+        
+          
+            
+              <category>programming</category>
+            
+          
+            
+              <category>golang</category>
+            
+          
+        
+        
+          
+            
+              <category>programming</category>
+            
+          
+        
+        
+          
+            
+          
+        
+      </item>
+      
+      <item>
+        <title>Terraforming complete AWS-Kubernetes clusers</title>
+        <link>https://anthonylaiuppa.com/posts/one-command/</link>
+        <pubDate>Sun, 27 Jan 2019 06:40:51 +0900</pubDate>
+        
+        <atom:modified>Sun, 27 Jan 2019 06:40:51 +0900</atom:modified>
+        <guid>https://anthonylaiuppa.com/posts/one-command/</guid>
+        <description>Intro While working on getting better with Terraform I noticed there weren&amp;rsquo;t alot of examples of Kubernetes and AWS being provisioned at the same time. I forked the sample code provided by the Terraform project, and modularized it. From there I was able to add in a Kubernetes provider and patch in authentication. This allows us to create and provision Kubernetes architecture in AWS with a single command. To give a service to demonstrate, I&amp;rsquo;ve written a simple API endpoint in Golang and accompanying React front end.</description>
+        
+        <dc:creator>Anthony Laiuppa</dc:creator>
+        <media:content url="https://anthonylaiuppa.comimages/posts/one-command/legowall.jpg" medium="image"><media:title type="html">featured image</media:title></media:content>
+        
+        
+        
+          
+            
+              <category>programming</category>
+            
+          
+            
+              <category>golang</category>
+            
+          
+            
+              <category>scraping</category>
+            
+          
+            
+              <category>automation</category>
+            
+          
+        
+        
+          
+            
+              <category>programming</category>
+            
+          
+        
+        
+          
+            
+          
+        
+      </item>
+      
+      <item>
+        <title>Kringlecon 2018</title>
+        <link>https://anthonylaiuppa.com/posts/kringlecon/</link>
+        <pubDate>Mon, 14 Jan 2019 06:40:51 +0900</pubDate>
+        
+        <atom:modified>Mon, 14 Jan 2019 06:40:51 +0900</atom:modified>
+        <guid>https://anthonylaiuppa.com/posts/kringlecon/</guid>
+        <description>Preamble There are alot of reasons to look forward to the holiday season and the annual SANS Holiday Hacking Challenge is no exception. This year they went with a conference theme, where you sign into a virtual world and attend Kringlecon &amp;ndash; a mythical conference hosted by santa and his crack team of information security elves. SANS makes things very approachable by giving you smaller terminal challenges to solve in exchange for hints regarding the bigger objectives.</description>
+        
+        <dc:creator>Anthony Laiuppa</dc:creator>
+        <media:content url="https://anthonylaiuppa.comimages/posts/kringlecon/flag.png" medium="image"><media:title type="html">featured image</media:title></media:content>
+        
+        
+        
+          
+            
+              <category>ctf</category>
+            
+          
+            
+              <category>hacking</category>
+            
+          
+            
+              <category>python</category>
+            
+          
+            
+              <category>powershell</category>
+            
+          
+            
+              <category>infosec</category>
+            
+          
+            
+              <category>security</category>
+            
+          
+            
+              <category>pcap</category>
+            
+          
+            
+              <category>linux</category>
+            
+          
+            
+              <category>windows</category>
+            
+          
+            
+              <category>reverse engineering</category>
+            
+          
+        
+        
+          
+            
+              <category>hacking</category>
+            
+          
+        
+        
+          
+            
+          
+        
+      </item>
+      
+      <item>
+        <title>More CTF fun!</title>
+        <link>https://anthonylaiuppa.com/posts/more-ctf-fun/</link>
+        <pubDate>Sun, 16 Dec 2018 06:40:51 +0900</pubDate>
+        
+        <atom:modified>Sun, 16 Dec 2018 06:40:51 +0900</atom:modified>
+        <guid>https://anthonylaiuppa.com/posts/more-ctf-fun/</guid>
+        <description>Intro A little bit ago a friend sent me a link to a CTF put on by the Leap Security forum. It seems like there&amp;rsquo;s always a shortage of time so I was only able to get through one challenge, but I wanted to share anyways incase someone out there is wanting to play in CTF&amp;rsquo;s but doesn&amp;rsquo;t feel ready.
+The Challenge So lets dive in, off the bat this challenge is in the reverse category and we&amp;rsquo;re met with the following code alongside the following hint.</description>
+        
+        <dc:creator>Anthony Laiuppa</dc:creator>
+        <media:content url="https://anthonylaiuppa.comimages/posts/more-ctf-fun/flag.png" medium="image"><media:title type="html">featured image</media:title></media:content>
+        
+        
+        
+          
+            
+              <category>hacking</category>
+            
+          
+            
+              <category>infosec</category>
+            
+          
+            
+              <category>python</category>
+            
+          
+            
+              <category>ctf</category>
+            
+          
+        
+        
+          
+            
+              <category>hacking</category>
+            
+          
+        
+        
+          
+            
+          
+        
+      </item>
+      
+      <item>
+        <title>EZCTF, a full stack webapp..</title>
+        <link>https://anthonylaiuppa.com/posts/ezctf-full-stack/</link>
+        <pubDate>Wed, 21 Nov 2018 06:40:51 +0900</pubDate>
+        
+        <atom:modified>Wed, 21 Nov 2018 06:40:51 +0900</atom:modified>
+        <guid>https://anthonylaiuppa.com/posts/ezctf-full-stack/</guid>
+        <description>Intro Ever sit down to learn something and at first the examples are great, but then when it comes to getting advanced &amp;ndash; you&amp;rsquo;re lost wondering what happened inbetween? When learning I always found it easy to get started, but hard to get anywhere meaningful as all the examples felt like this picture
+It was always hard to find comprehensive code examples that covered a wide range of topics, so I figured I would share this project in hopes someone takes away some newfound information or motivation.</description>
+        
+        <dc:creator>Anthony Laiuppa</dc:creator>
+        <media:content url="https://anthonylaiuppa.comimages/posts/ezctf-full-stack/flag.png" medium="image"><media:title type="html">featured image</media:title></media:content>
+        
+        
+        
+          
+            
+              <category>python</category>
+            
+          
+            
+              <category>web</category>
+            
+          
+            
+              <category>ctf</category>
+            
+          
+            
+              <category>hacking</category>
+            
+          
+            
+              <category>security</category>
+            
+          
+            
+              <category>selenium</category>
+            
+          
+        
+        
+          
+            
+              <category>programming</category>
+            
+          
+        
+        
+          
+            
+          
+        
+      </item>
+      
+      <item>
+        <title>GoKu, scaling the kube to the max!</title>
+        <link>https://anthonylaiuppa.com/posts/goku-will-it-scale/</link>
+        <pubDate>Tue, 06 Nov 2018 06:40:51 +0900</pubDate>
+        
+        <atom:modified>Tue, 06 Nov 2018 06:40:51 +0900</atom:modified>
+        <guid>https://anthonylaiuppa.com/posts/goku-will-it-scale/</guid>
+        <description>Intro Previously we virtualized a Kubernetes cluster on our localhost, but that is just simulating the cloud. Why dont we take GoKu to the actual cloud and see how it does? I actually tried to tie this in and scan the same 111 URLs from the last post, but it finished so fast I couldnt believe it. Lets bump things up a notch, what if we want to scan 5000+ sites?</description>
+        
+        <dc:creator>Anthony Laiuppa</dc:creator>
+        <media:content url="https://anthonylaiuppa.comimages/posts/goku-will-it-scale/gophers_scale.jpg" medium="image"><media:title type="html">featured image</media:title></media:content>
+        
+        
+        
+          
+            
+              <category>golang</category>
+            
+          
+            
+              <category>kubernetes</category>
+            
+          
+            
+              <category>gcp</category>
+            
+          
+            
+              <category>containers</category>
+            
+          
+            
+              <category>devops</category>
+            
+          
+            
+              <category>aws</category>
+            
+          
+        
+        
+          
+            
+              <category>devops</category>
+            
+          
+        
+        
+          
+            
+          
+        
+      </item>
+      
+      <item>
+        <title>GoKu distributed computing</title>
+        <link>https://anthonylaiuppa.com/posts/goku-distributed-computing/</link>
+        <pubDate>Sun, 04 Nov 2018 06:40:51 +0900</pubDate>
+        
+        <atom:modified>Sun, 04 Nov 2018 06:40:51 +0900</atom:modified>
+        <guid>https://anthonylaiuppa.com/posts/goku-distributed-computing/</guid>
+        <description>Intro Recently I sat down to learn more about Go and Kubernetes, and figured I would share some distributed computing fun had along the way. Youll notice the map tool from the previous post can be slow when getting statuses, we&amp;rsquo;ll use that as a starting point and refine it.
+Overview Lets go over the core technologies at work here, starting with the most basic definition.
+ Container: a standard unit of software that packages up code and all its dependencies so the application runs quickly and reliably from one computing environment to another.</description>
+        
+        <dc:creator>Anthony Laiuppa</dc:creator>
+        <media:content url="https://anthonylaiuppa.comimages/posts/goku-distributed-computing/gopher.png" medium="image"><media:title type="html">featured image</media:title></media:content>
+        
+        
+        
+          
+            
+              <category>golang</category>
+            
+          
+            
+              <category>minikube</category>
+            
+          
+            
+              <category>kubernetes</category>
+            
+          
+            
+              <category>containers</category>
+            
+          
+            
+              <category>aws</category>
+            
+          
+            
+              <category>gcp</category>
+            
+          
+            
+              <category>virtualization</category>
+            
+          
+            
+              <category>python</category>
+            
+          
+        
+        
+          
+            
+              <category>devops</category>
+            
+          
+        
+        
+          
+            
+          
+        
+      </item>
+      
+      <item>
+        <title>Mapping website attack surfaces</title>
+        <link>https://anthonylaiuppa.com/posts/mapping-website-attack-surface/</link>
+        <pubDate>Tue, 23 Oct 2018 06:40:51 +0900</pubDate>
+        
+        <atom:modified>Tue, 23 Oct 2018 06:40:51 +0900</atom:modified>
+        <guid>https://anthonylaiuppa.com/posts/mapping-website-attack-surface/</guid>
+        <description>2020 Retrospective While migrating my site years later, it&amp;rsquo;s worth mentioning theres alot of wonderful toolchains available now that really nail this. The biggest one being someone put in the work to properly parse the site-maps.
+Intro Trying bug bounties can be fun, you might even walk off like a prospector with gold. Of course similar to sifting through river water looking for gold, youve got sifting through websites looking for things that catch your eye.</description>
+        
+        <dc:creator>Anthony Laiuppa</dc:creator>
+        <media:content url="https://anthonylaiuppa.comimages/posts/mapping-website-attack-surface/map_cover.png" medium="image"><media:title type="html">featured image</media:title></media:content>
+        
+        
+        
+          
+            
+              <category>python</category>
+            
+          
+            
+              <category>bug bounty</category>
+            
+          
+            
+              <category>reconnaissance</category>
+            
+          
+            
+              <category>osint</category>
+            
+          
+            
+              <category>hacking</category>
+            
+          
+        
+        
+          
+            
+              <category>hacking</category>
+            
+          
+        
+        
+          
+            
+          
+        
+      </item>
+      
+      <item>
+        <title>Six years of saved links</title>
+        <link>https://anthonylaiuppa.com/posts/six-years-of-links/</link>
+        <pubDate>Thu, 03 May 2018 06:40:51 +0900</pubDate>
+        
+        <atom:modified>Thu, 03 May 2018 06:40:51 +0900</atom:modified>
+        <guid>https://anthonylaiuppa.com/posts/six-years-of-links/</guid>
+        <description>Intro Over six years of studying, and working in technology Ive acquired over 600+ links. Losing these links to me would feel like the burning down of the Library of Alexandria. I use alot of them as references for programming and information security based work.
+While scraping all these links I saw the word beginner become less frequent as we got closer to the present day, so I even found a fun way to add a visualization to this post.</description>
+        
+        <dc:creator>Anthony Laiuppa</dc:creator>
+        <media:content url="https://anthonylaiuppa.comimages/posts/six-years-of-links/best_word_cloud.png" medium="image"><media:title type="html">featured image</media:title></media:content>
+        
+        
+        
+          
+            
+              <category>programming</category>
+            
+          
+            
+              <category>python</category>
+            
+          
+            
+              <category>hacking</category>
+            
+          
+            
+              <category>security</category>
+            
+          
+        
+        
+          
+            
+              <category>programming</category>
+            
+          
+        
+        
+          
+            
+          
+        
+      </item>
+      
+      <item>
+        <title>Harbormaster</title>
+        <link>https://anthonylaiuppa.com/posts/harbormaster/</link>
+        <pubDate>Wed, 18 Apr 2018 06:40:51 +0900</pubDate>
+        
+        <atom:modified>Wed, 18 Apr 2018 06:40:51 +0900</atom:modified>
+        <guid>https://anthonylaiuppa.com/posts/harbormaster/</guid>
+        <description>2020 Retrospective Migrating my site to a new SSG and wanted to share a thought here. I wrote this two years ago and still use Ansible daily. That said a great Dockerfile or Packer are my go to&amp;rsquo;s now.
+Intro Writing code is fun, but what do you do when you get it working? Cron it on your computer and leave it on? You probably want to deploy it. Traditionally to a server, or maybe even a raspberry pi.</description>
+        
+        <dc:creator>Anthony Laiuppa</dc:creator>
+        <media:content url="https://anthonylaiuppa.comimages/posts/harbormaster/tasks.png" medium="image"><media:title type="html">featured image</media:title></media:content>
+        
+        
+        
+          
+            
+              <category>ansible</category>
+            
+          
+            
+              <category>docker</category>
+            
+          
+            
+              <category>containers</category>
+            
+          
+            
+              <category>python</category>
+            
+          
+        
+        
+          
+            
+              <category>devops</category>
+            
+          
+            
+              <category>programming</category>
+            
+          
+        
+        
+          
+            
+          
+        
+      </item>
+      
+      <item>
+        <title>Breaking into penetration testing</title>
+        <link>https://anthonylaiuppa.com/posts/breaking-into-penetration-testing/</link>
+        <pubDate>Fri, 27 Oct 2017 06:40:51 +0900</pubDate>
+        
+        <atom:modified>Fri, 27 Oct 2017 06:40:51 +0900</atom:modified>
+        <guid>https://anthonylaiuppa.com/posts/breaking-into-penetration-testing/</guid>
+        <description>Intro Recently I decided I wanted to begin preparing for the OSCP, which for those who arent familiar stands Offensive Security Certified Professional. Its a fairly difficult exam with a large scope of material to cover. I decided to start by focusing on the process of Penetration testing. Penetration testing is an important part of the exam, and something that I still havent done an immense amount of. So I decided it was time to spin up a virtual testing range and go at it.</description>
+        
+        <dc:creator>Anthony Laiuppa</dc:creator>
+        <media:content url="https://anthonylaiuppa.comimages/posts/breaking-into-penetration-testing/generateVM.PNG" medium="image"><media:title type="html">featured image</media:title></media:content>
+        
+        
+        
+          
+            
+              <category>hacking</category>
+            
+          
+            
+              <category>kali</category>
+            
+          
+            
+              <category>virtualization</category>
+            
+          
+            
+              <category>nmap</category>
+            
+          
+            
+              <category>metasploit</category>
+            
+          
+            
+              <category>exploitation</category>
+            
+          
+            
+              <category>reconnaissance</category>
+            
+          
+        
+        
+          
+            
+              <category>hacking</category>
+            
+          
+        
+        
+          
+            
+          
+        
+      </item>
+      
+      <item>
+        <title>Making the packtbot</title>
+        <link>https://anthonylaiuppa.com/posts/packt-bot/</link>
+        <pubDate>Mon, 10 Jul 2017 06:40:51 +0900</pubDate>
+        
+        <atom:modified>Mon, 10 Jul 2017 06:40:51 +0900</atom:modified>
+        <guid>https://anthonylaiuppa.com/posts/packt-bot/</guid>
+        <description>Intro Slack is an effective group communication tool that Ive found myself using quite a bit recently. It simplifies communication greatly eliminating the need for multiple apps.
+With Slack Im able to interact with work, side projects, and the programming community with one application.
+Where Packt comes into play, is that for the last couple of weeks Ive had a colleague posting packts deal of the day in one of our slack channels daily.</description>
+        
+        <dc:creator>Anthony Laiuppa</dc:creator>
+        <media:content url="https://anthonylaiuppa.comimages/posts/packt-bot/packtbot.PNG" medium="image"><media:title type="html">featured image</media:title></media:content>
+        
+        
+        
+          
+            
+              <category>python</category>
+            
+          
+            
+              <category>web</category>
+            
+          
+            
+              <category>scraping</category>
+            
+          
+        
+        
+          
+            
+              <category>programming</category>
+            
+          
+        
+        
+          
+            
+          
+        
+      </item>
+      
+      <item>
+        <title>Enumerating URL shorteners</title>
+        <link>https://anthonylaiuppa.com/posts/enumerating-url-shorteners/</link>
+        <pubDate>Wed, 11 Jan 2017 06:40:51 +0900</pubDate>
+        
+        <atom:modified>Wed, 11 Jan 2017 06:40:51 +0900</atom:modified>
+        <guid>https://anthonylaiuppa.com/posts/enumerating-url-shorteners/</guid>
+        <description>Intro I was at work when I almost dropped a URL into goo.gl, you know because short URLs are awesome. However I stopped right before I dropped it in because Google was kind enough to tell me that all URLs shortened are public. Then it occured to me that just haphazardly dropping links in is of course an OPSec issue. With billions of shortened URLs in existence is it really though?</description>
+        
+        <dc:creator>Anthony Laiuppa</dc:creator>
+        <media:content url="https://anthonylaiuppa.comimages/posts/enumerating-url-shorteners/oddstuff.PNG" medium="image"><media:title type="html">featured image</media:title></media:content>
+        
+        
+        
+          
+            
+              <category>enumeration</category>
+            
+          
+            
+              <category>python</category>
+            
+          
+            
+              <category>hacking</category>
+            
+          
+            
+              <category>reconnaissance</category>
+            
+          
+            
+              <category>osint</category>
+            
+          
+        
+        
+          
+            
+              <category>security</category>
+            
+          
+        
+        
+          
+            
+          
+        
+      </item>
+      
+      <item>
+        <title>Hiding encrypted blobs</title>
+        <link>https://anthonylaiuppa.com/posts/hiding-encrypted-blobs/</link>
+        <pubDate>Wed, 04 Jan 2017 06:40:51 +0900</pubDate>
+        
+        <atom:modified>Wed, 04 Jan 2017 06:40:51 +0900</atom:modified>
+        <guid>https://anthonylaiuppa.com/posts/hiding-encrypted-blobs/</guid>
+        <description>Intro Recently I was having a little trouble implementing encryption due to chunk size, and then getting proper padding so I figured I would share a simplified example using Python. Bonus steganography included because why not?
+Explanation and Definitions  Encryption: The process of encoding a message so that it can be read only by the sender and the intended recipient. Encryption systems often use two keys, a public key, available to anyone, and a private key that allows only the recipient to decode the message.</description>
+        
+        <dc:creator>Anthony Laiuppa</dc:creator>
+        <media:content url="https://anthonylaiuppa.comimages/posts/hiding-encrypted-blobs/cat.jpg" medium="image"><media:title type="html">featured image</media:title></media:content>
+        
+        
+        
+          
+            
+              <category>python</category>
+            
+          
+            
+              <category>encryption</category>
+            
+          
+            
+              <category>steganography</category>
+            
+          
+        
+        
+          
+            
+              <category>security</category>
+            
+          
+        
+        
+          
+            
+          
+        
+      </item>
+      
+      <item>
+        <title>SANSHHC</title>
+        <link>https://anthonylaiuppa.com/posts/sans-holiday-hacking-challenge/</link>
+        <pubDate>Sun, 25 Dec 2016 06:40:51 +0900</pubDate>
+        
+        <atom:modified>Sun, 25 Dec 2016 06:40:51 +0900</atom:modified>
+        <guid>https://anthonylaiuppa.com/posts/sans-holiday-hacking-challenge/</guid>
+        <description>Intro Continuing with my efforts of becoming better at CTFs I decided to participate in the SANS Holiday Hack Challenge. It is a pretty awesome challenge with a lovely pixelated game accompanying the tasks. It takes place in the North Pole and the gist of it is Santa is missing. The elfs were all kinds of helpful providing articles related to some of the tasks. I learned alot about some neat topics that I had little experience with, such a Android application Reverse Engineering and Password Cracking.</description>
+        
+        <dc:creator>Anthony Laiuppa</dc:creator>
+        <media:content url="https://anthonylaiuppa.comimages/posts/sans-holiday-hacking-challenge/santatweets.png" medium="image"><media:title type="html">featured image</media:title></media:content>
+        
+        
+        
+          
+            
+              <category>ctf</category>
+            
+          
+            
+              <category>hacking</category>
+            
+          
+            
+              <category>android</category>
+            
+          
+            
+              <category>linux</category>
+            
+          
+            
+              <category>python</category>
+            
+          
+            
+              <category>osint</category>
+            
+          
+            
+              <category>password cracking</category>
+            
+          
+            
+              <category>kali</category>
+            
+          
+        
+        
+          
+            
+              <category>security</category>
+            
+          
+        
+        
+          
+            
+          
+        
+      </item>
+      
+      <item>
+        <title>Binary fun</title>
+        <link>https://anthonylaiuppa.com/posts/binary-fun/</link>
+        <pubDate>Mon, 02 May 2016 06:40:51 +0900</pubDate>
+        
+        <atom:modified>Mon, 02 May 2016 06:40:51 +0900</atom:modified>
+        <guid>https://anthonylaiuppa.com/posts/binary-fun/</guid>
+        <description>Binary Fun: With basic binary file analysis A little bit ago I decided CTFs looked like alot of fun and that I want to get involved. At least for me it was a little daunting picking where to start. Some people would start with things they are familiar with but I thought Reverse Engineering sounded cool so I went with that. I got a small binary made by a friend, intended to be similar to a basic reversing challenge, to start with.</description>
+        
+        <dc:creator>Anthony Laiuppa</dc:creator>
+        <media:content url="https://anthonylaiuppa.comimages/posts/binary-fun/binary.jpg" medium="image"><media:title type="html">featured image</media:title></media:content>
+        
+        
+        
+          
+            
+              <category>hacking</category>
+            
+          
+            
+              <category>reverse engineering</category>
+            
+          
+            
+              <category>ctf</category>
+            
+          
+        
+        
+          
+            
+              <category>security</category>
+            
+          
+        
+        
+          
+            
+          
+        
+      </item>
+      
+      <item>
+        <title>Obfuscating python</title>
+        <link>https://anthonylaiuppa.com/posts/obfuscating-python/</link>
+        <pubDate>Thu, 03 Mar 2016 06:40:51 +0900</pubDate>
+        
+        <atom:modified>Thu, 03 Mar 2016 06:40:51 +0900</atom:modified>
+        <guid>https://anthonylaiuppa.com/posts/obfuscating-python/</guid>
+        <description>Intro I got to thinking, you can obfuscate js and vbs when serving up code to people, why not Python? Well to there is that whole whitespace thing and lack of semi-colons, but lets see what we can do.
+ Obfuscation: &amp;ldquo;To make so confused or opaque as to be difficult to perceive or understand&amp;rdquo;
+ In terms of programming one usually doesnt purposefully obfuscate their code as they may wish for others to read it.</description>
+        
+        <dc:creator>Anthony Laiuppa</dc:creator>
+        <media:content url="https://anthonylaiuppa.comimages/posts/obfuscating-python/obfuscated.jpeg" medium="image"><media:title type="html">featured image</media:title></media:content>
+        
+        
+        
+          
+            
+              <category>python</category>
+            
+          
+            
+              <category>hacking</category>
+            
+          
+            
+              <category>obfuscation</category>
+            
+          
+        
+        
+          
+            
+              <category>security</category>
+            
+          
+        
+        
+          
+            
+          
+        
+      </item>
+      
+      <item>
+        <title>Project Euler</title>
+        <link>https://anthonylaiuppa.com/posts/project-eulers/</link>
+        <pubDate>Thu, 01 Oct 2015 06:40:51 +0900</pubDate>
+        
+        <atom:modified>Thu, 01 Oct 2015 06:40:51 +0900</atom:modified>
+        <guid>https://anthonylaiuppa.com/posts/project-eulers/</guid>
+        <description>Intro This article is where I will put up a few of my Project Eulers Solutions. They arent particularly special but I really enjoyed solving the problems so I thought Id share a few of the problems that I had fun with.
+36 - Double-Base Palindromes At this point I have solved a few of the Eulers problems but I chose this one to share over the similar problem 4 because I felt this one was a little more fun since you have got to convert the number to base 2 from base 10 and also check it.</description>
+        
+        <dc:creator>Anthony Laiuppa</dc:creator>
+        <media:content url="https://anthonylaiuppa.comimages/posts/project-eulers/math.png" medium="image"><media:title type="html">featured image</media:title></media:content>
+        
+        
+        
+          
+            
+              <category>python</category>
+            
+          
+            
+              <category>algorithm</category>
+            
+          
+        
+        
+          
+            
+              <category>programming</category>
+            
+          
+        
+        
+          
+            
+          
+        
+      </item>
+      
+
+    
+  </channel>
+</rss>

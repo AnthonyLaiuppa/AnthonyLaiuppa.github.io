@@ -1,0 +1,143 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" 
+  xmlns:content="http://purl.org/rss/1.0/modules/content/" 
+  xmlns:dc="http://purl.org/dc/elements/1.1/" 
+  xmlns:atom="http://www.w3.org/2005/Atom" 
+  xmlns:sy="http://purl.org/rss/1.0/modules/syndication/" 
+  xmlns:media="http://search.yahoo.com/mrss/">
+  <channel>
+    <title>infosec on Laiuppa Blog</title>
+    <link>https://anthonylaiuppa.com/tags/infosec/</link>
+    <description>Recent content in infosec on Laiuppa Blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en</language>
+    <copyright>&amp;copy;{year}, All Rights Reserved</copyright>
+    <lastBuildDate>Mon, 14 Jan 2019 06:40:51 +0900</lastBuildDate>
+    
+        <atom:link href="https://anthonylaiuppa.com/tags/infosec/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    
+
+      
+      <item>
+        <title>Kringlecon 2018</title>
+        <link>https://anthonylaiuppa.com/posts/kringlecon/</link>
+        <pubDate>Mon, 14 Jan 2019 06:40:51 +0900</pubDate>
+        
+        <atom:modified>Mon, 14 Jan 2019 06:40:51 +0900</atom:modified>
+        <guid>https://anthonylaiuppa.com/posts/kringlecon/</guid>
+        <description>Preamble There are alot of reasons to look forward to the holiday season and the annual SANS Holiday Hacking Challenge is no exception. This year they went with a conference theme, where you sign into a virtual world and attend Kringlecon &amp;ndash; a mythical conference hosted by santa and his crack team of information security elves. SANS makes things very approachable by giving you smaller terminal challenges to solve in exchange for hints regarding the bigger objectives.</description>
+        
+        <dc:creator>Anthony Laiuppa</dc:creator>
+        <media:content url="https://anthonylaiuppa.comimages/posts/kringlecon/flag.png" medium="image"><media:title type="html">featured image</media:title></media:content>
+        
+        
+        
+          
+            
+              <category>ctf</category>
+            
+          
+            
+              <category>hacking</category>
+            
+          
+            
+              <category>python</category>
+            
+          
+            
+              <category>powershell</category>
+            
+          
+            
+              <category>infosec</category>
+            
+          
+            
+              <category>security</category>
+            
+          
+            
+              <category>pcap</category>
+            
+          
+            
+              <category>linux</category>
+            
+          
+            
+              <category>windows</category>
+            
+          
+            
+              <category>reverse engineering</category>
+            
+          
+        
+        
+          
+            
+              <category>hacking</category>
+            
+          
+        
+        
+          
+            
+          
+        
+      </item>
+      
+      <item>
+        <title>More CTF fun!</title>
+        <link>https://anthonylaiuppa.com/posts/more-ctf-fun/</link>
+        <pubDate>Sun, 16 Dec 2018 06:40:51 +0900</pubDate>
+        
+        <atom:modified>Sun, 16 Dec 2018 06:40:51 +0900</atom:modified>
+        <guid>https://anthonylaiuppa.com/posts/more-ctf-fun/</guid>
+        <description>Intro A little bit ago a friend sent me a link to a CTF put on by the Leap Security forum. It seems like there&amp;rsquo;s always a shortage of time so I was only able to get through one challenge, but I wanted to share anyways incase someone out there is wanting to play in CTF&amp;rsquo;s but doesn&amp;rsquo;t feel ready.
+The Challenge So lets dive in, off the bat this challenge is in the reverse category and we&amp;rsquo;re met with the following code alongside the following hint.</description>
+        
+        <dc:creator>Anthony Laiuppa</dc:creator>
+        <media:content url="https://anthonylaiuppa.comimages/posts/more-ctf-fun/flag.png" medium="image"><media:title type="html">featured image</media:title></media:content>
+        
+        
+        
+          
+            
+              <category>hacking</category>
+            
+          
+            
+              <category>infosec</category>
+            
+          
+            
+              <category>python</category>
+            
+          
+            
+              <category>ctf</category>
+            
+          
+        
+        
+          
+            
+              <category>hacking</category>
+            
+          
+        
+        
+          
+            
+          
+        
+      </item>
+      
+
+    
+  </channel>
+</rss>

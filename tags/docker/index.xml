@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" 
+  xmlns:content="http://purl.org/rss/1.0/modules/content/" 
+  xmlns:dc="http://purl.org/dc/elements/1.1/" 
+  xmlns:atom="http://www.w3.org/2005/Atom" 
+  xmlns:sy="http://purl.org/rss/1.0/modules/syndication/" 
+  xmlns:media="http://search.yahoo.com/mrss/">
+  <channel>
+    <title>docker on Laiuppa Blog</title>
+    <link>https://anthonylaiuppa.com/tags/docker/</link>
+    <description>Recent content in docker on Laiuppa Blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en</language>
+    <copyright>&amp;copy;{year}, All Rights Reserved</copyright>
+    <lastBuildDate>Wed, 18 Apr 2018 06:40:51 +0900</lastBuildDate>
+    
+        <atom:link href="https://anthonylaiuppa.com/tags/docker/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    
+
+      
+      <item>
+        <title>Harbormaster</title>
+        <link>https://anthonylaiuppa.com/posts/harbormaster/</link>
+        <pubDate>Wed, 18 Apr 2018 06:40:51 +0900</pubDate>
+        
+        <atom:modified>Wed, 18 Apr 2018 06:40:51 +0900</atom:modified>
+        <guid>https://anthonylaiuppa.com/posts/harbormaster/</guid>
+        <description>2020 Retrospective Migrating my site to a new SSG and wanted to share a thought here. I wrote this two years ago and still use Ansible daily. That said a great Dockerfile or Packer are my go to&amp;rsquo;s now.
+Intro Writing code is fun, but what do you do when you get it working? Cron it on your computer and leave it on? You probably want to deploy it. Traditionally to a server, or maybe even a raspberry pi.</description>
+        
+        <dc:creator>Anthony Laiuppa</dc:creator>
+        <media:content url="https://anthonylaiuppa.comimages/posts/harbormaster/tasks.png" medium="image"><media:title type="html">featured image</media:title></media:content>
+        
+        
+        
+          
+            
+              <category>ansible</category>
+            
+          
+            
+              <category>docker</category>
+            
+          
+            
+              <category>containers</category>
+            
+          
+            
+              <category>python</category>
+            
+          
+        
+        
+          
+            
+              <category>devops</category>
+            
+          
+            
+              <category>programming</category>
+            
+          
+        
+        
+          
+            
+          
+        
+      </item>
+      
+
+    
+  </channel>
+</rss>

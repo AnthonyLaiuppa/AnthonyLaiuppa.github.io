@@ -1,0 +1,328 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" 
+  xmlns:content="http://purl.org/rss/1.0/modules/content/" 
+  xmlns:dc="http://purl.org/dc/elements/1.1/" 
+  xmlns:atom="http://www.w3.org/2005/Atom" 
+  xmlns:sy="http://purl.org/rss/1.0/modules/syndication/" 
+  xmlns:media="http://search.yahoo.com/mrss/">
+  <channel>
+    <title>golang on Laiuppa Blog</title>
+    <link>https://anthonylaiuppa.com/tags/golang/</link>
+    <description>Recent content in golang on Laiuppa Blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en</language>
+    <copyright>&amp;copy;{year}, All Rights Reserved</copyright>
+    <lastBuildDate>Fri, 24 Apr 2020 06:40:51 +0900</lastBuildDate>
+    
+        <atom:link href="https://anthonylaiuppa.com/tags/golang/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    
+
+      
+      <item>
+        <title>Effortless API Scraping With Golang</title>
+        <link>https://anthonylaiuppa.com/posts/golang-api-scraping/</link>
+        <pubDate>Fri, 24 Apr 2020 06:40:51 +0900</pubDate>
+        
+        <atom:modified>Fri, 24 Apr 2020 06:40:51 +0900</atom:modified>
+        <guid>https://anthonylaiuppa.com/posts/golang-api-scraping/</guid>
+        <description>Intro The internet is chock full of information, and often times there is a need to aggregate it in order to gain insights through additional analysis. To that end, scraping information from the internet can become somewhat reptitive.
+Here we&amp;rsquo;ll explore a simple approach to automating part of the process of writing the code to retrieve information from the web.
+Overview With the bulk of the internet transitioning to more decoupled models we are seeing more and more API&amp;rsquo;s.</description>
+        
+        <dc:creator>Anthony Laiuppa</dc:creator>
+        <media:content url="https://anthonylaiuppa.comimages/posts/golang-scraping/gopher.png" medium="image"><media:title type="html">featured image</media:title></media:content>
+        
+        
+        
+          
+            
+              <category>programming</category>
+            
+          
+            
+              <category>golang</category>
+            
+          
+            
+              <category>scraping</category>
+            
+          
+            
+              <category>automation</category>
+            
+          
+        
+        
+          
+            
+              <category>programming</category>
+            
+          
+        
+        
+          
+            
+          
+        
+      </item>
+      
+      <item>
+        <title>Stock Market Sentiment Analysis</title>
+        <link>https://anthonylaiuppa.com/posts/market-sentiment/</link>
+        <pubDate>Thu, 05 Mar 2020 06:40:51 +0900</pubDate>
+        
+        <atom:modified>Thu, 05 Mar 2020 06:40:51 +0900</atom:modified>
+        <guid>https://anthonylaiuppa.com/posts/market-sentiment/</guid>
+        <description>Intro In 2019 I had my first opportunity to drive a Tesla Model 3. This cemented in my mind that it was a car years ahead of the automotive industry, and through technical analysis others seem to agree. Despite this I didn&amp;rsquo;t think to buy any stock, shortly after driving the car it shot up from $330 to over $900. This event fostered a deeper interest in finance, eventually resulting in this post.</description>
+        
+        <dc:creator>Anthony Laiuppa</dc:creator>
+        <media:content url="https://anthonylaiuppa.comimages/posts/market-sentiment/sentiment.png" medium="image"><media:title type="html">featured image</media:title></media:content>
+        
+        
+        
+          
+            
+              <category>programming</category>
+            
+          
+            
+              <category>golang</category>
+            
+          
+            
+              <category>nlp</category>
+            
+          
+            
+              <category>ai</category>
+            
+          
+            
+              <category>sentiment analysis</category>
+            
+          
+        
+        
+          
+            
+              <category>programming</category>
+            
+          
+        
+        
+          
+            
+          
+        
+      </item>
+      
+      <item>
+        <title>Maze runner</title>
+        <link>https://anthonylaiuppa.com/posts/maze-runner/</link>
+        <pubDate>Thu, 17 Oct 2019 06:40:51 +0900</pubDate>
+        
+        <atom:modified>Thu, 17 Oct 2019 06:40:51 +0900</atom:modified>
+        <guid>https://anthonylaiuppa.com/posts/maze-runner/</guid>
+        <description>Intro While digging around on a bug bounty I came across a company&amp;rsquo;s subdomain that hosts a maze challenge. Probably for vetting interviewees.
+Overview The instructions were pretty simple, and we get three endpoints to work with.
+ Start - Returns an ~ID~ for the Maze, as well as ~Height~ and ~Width~ Check - Returns a 200 status code if the Maze location(x,y) you sent it is valid Solve - Returns a 200 if you solve the maze  The end of the maze is Height-1, Width-1</description>
+        
+        <dc:creator>Anthony Laiuppa</dc:creator>
+        <media:content url="https://anthonylaiuppa.comimages/posts/maze-runner/mazerunners.jpg" medium="image"><media:title type="html">featured image</media:title></media:content>
+        
+        
+        
+          
+            
+              <category>programming</category>
+            
+          
+            
+              <category>golang</category>
+            
+          
+        
+        
+          
+            
+              <category>programming</category>
+            
+          
+        
+        
+          
+            
+          
+        
+      </item>
+      
+      <item>
+        <title>Terraforming complete AWS-Kubernetes clusers</title>
+        <link>https://anthonylaiuppa.com/posts/one-command/</link>
+        <pubDate>Sun, 27 Jan 2019 06:40:51 +0900</pubDate>
+        
+        <atom:modified>Sun, 27 Jan 2019 06:40:51 +0900</atom:modified>
+        <guid>https://anthonylaiuppa.com/posts/one-command/</guid>
+        <description>Intro While working on getting better with Terraform I noticed there weren&amp;rsquo;t alot of examples of Kubernetes and AWS being provisioned at the same time. I forked the sample code provided by the Terraform project, and modularized it. From there I was able to add in a Kubernetes provider and patch in authentication. This allows us to create and provision Kubernetes architecture in AWS with a single command. To give a service to demonstrate, I&amp;rsquo;ve written a simple API endpoint in Golang and accompanying React front end.</description>
+        
+        <dc:creator>Anthony Laiuppa</dc:creator>
+        <media:content url="https://anthonylaiuppa.comimages/posts/one-command/legowall.jpg" medium="image"><media:title type="html">featured image</media:title></media:content>
+        
+        
+        
+          
+            
+              <category>programming</category>
+            
+          
+            
+              <category>golang</category>
+            
+          
+            
+              <category>scraping</category>
+            
+          
+            
+              <category>automation</category>
+            
+          
+        
+        
+          
+            
+              <category>programming</category>
+            
+          
+        
+        
+          
+            
+          
+        
+      </item>
+      
+      <item>
+        <title>GoKu, scaling the kube to the max!</title>
+        <link>https://anthonylaiuppa.com/posts/goku-will-it-scale/</link>
+        <pubDate>Tue, 06 Nov 2018 06:40:51 +0900</pubDate>
+        
+        <atom:modified>Tue, 06 Nov 2018 06:40:51 +0900</atom:modified>
+        <guid>https://anthonylaiuppa.com/posts/goku-will-it-scale/</guid>
+        <description>Intro Previously we virtualized a Kubernetes cluster on our localhost, but that is just simulating the cloud. Why dont we take GoKu to the actual cloud and see how it does? I actually tried to tie this in and scan the same 111 URLs from the last post, but it finished so fast I couldnt believe it. Lets bump things up a notch, what if we want to scan 5000+ sites?</description>
+        
+        <dc:creator>Anthony Laiuppa</dc:creator>
+        <media:content url="https://anthonylaiuppa.comimages/posts/goku-will-it-scale/gophers_scale.jpg" medium="image"><media:title type="html">featured image</media:title></media:content>
+        
+        
+        
+          
+            
+              <category>golang</category>
+            
+          
+            
+              <category>kubernetes</category>
+            
+          
+            
+              <category>gcp</category>
+            
+          
+            
+              <category>containers</category>
+            
+          
+            
+              <category>devops</category>
+            
+          
+            
+              <category>aws</category>
+            
+          
+        
+        
+          
+            
+              <category>devops</category>
+            
+          
+        
+        
+          
+            
+          
+        
+      </item>
+      
+      <item>
+        <title>GoKu distributed computing</title>
+        <link>https://anthonylaiuppa.com/posts/goku-distributed-computing/</link>
+        <pubDate>Sun, 04 Nov 2018 06:40:51 +0900</pubDate>
+        
+        <atom:modified>Sun, 04 Nov 2018 06:40:51 +0900</atom:modified>
+        <guid>https://anthonylaiuppa.com/posts/goku-distributed-computing/</guid>
+        <description>Intro Recently I sat down to learn more about Go and Kubernetes, and figured I would share some distributed computing fun had along the way. Youll notice the map tool from the previous post can be slow when getting statuses, we&amp;rsquo;ll use that as a starting point and refine it.
+Overview Lets go over the core technologies at work here, starting with the most basic definition.
+ Container: a standard unit of software that packages up code and all its dependencies so the application runs quickly and reliably from one computing environment to another.</description>
+        
+        <dc:creator>Anthony Laiuppa</dc:creator>
+        <media:content url="https://anthonylaiuppa.comimages/posts/goku-distributed-computing/gopher.png" medium="image"><media:title type="html">featured image</media:title></media:content>
+        
+        
+        
+          
+            
+              <category>golang</category>
+            
+          
+            
+              <category>minikube</category>
+            
+          
+            
+              <category>kubernetes</category>
+            
+          
+            
+              <category>containers</category>
+            
+          
+            
+              <category>aws</category>
+            
+          
+            
+              <category>gcp</category>
+            
+          
+            
+              <category>virtualization</category>
+            
+          
+            
+              <category>python</category>
+            
+          
+        
+        
+          
+            
+              <category>devops</category>
+            
+          
+        
+        
+          
+            
+          
+        
+      </item>
+      
+
+    
+  </channel>
+</rss>
