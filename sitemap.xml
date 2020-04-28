@@ -28,7 +28,32 @@
   </url>
   
   <url>
+    <loc>https://anthonylaiuppa.com/tags/gatsbyjs/</loc>
+    <lastmod>2020-04-24T06:40:51+09:00</lastmod>
+  </url>
+  
+  <url>
     <loc>https://anthonylaiuppa.com/tags/golang/</loc>
+    <lastmod>2020-04-24T06:40:51+09:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://anthonylaiuppa.com/tags/hexo/</loc>
+    <lastmod>2020-04-24T06:40:51+09:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://anthonylaiuppa.com/tags/http/</loc>
+    <lastmod>2020-04-24T06:40:51+09:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://anthonylaiuppa.com/tags/hugo/</loc>
+    <lastmod>2020-04-24T06:40:51+09:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://anthonylaiuppa.com/tags/javascript/</loc>
     <lastmod>2020-04-24T06:40:51+09:00</lastmod>
   </url>
   
@@ -48,12 +73,27 @@
   </url>
   
   <url>
+    <loc>https://anthonylaiuppa.com/tags/react/</loc>
+    <lastmod>2020-04-24T06:40:51+09:00</lastmod>
+  </url>
+  
+  <url>
     <loc>https://anthonylaiuppa.com/tags/scraping/</loc>
     <lastmod>2020-04-24T06:40:51+09:00</lastmod>
   </url>
   
   <url>
     <loc>https://anthonylaiuppa.com/tags/</loc>
+    <lastmod>2020-04-24T06:40:51+09:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://anthonylaiuppa.com/posts/use-a-ssg/</loc>
+    <lastmod>2020-04-24T06:40:51+09:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://anthonylaiuppa.com/categories/web/</loc>
     <lastmod>2020-04-24T06:40:51+09:00</lastmod>
   </url>
   
