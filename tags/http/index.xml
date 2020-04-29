@@ -12,7 +12,7 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
     <copyright>&amp;copy;{year}, All Rights Reserved</copyright>
-    <lastBuildDate>Fri, 24 Apr 2020 06:40:51 +0900</lastBuildDate>
+    <lastBuildDate>Tue, 28 Apr 2020 06:40:51 +0900</lastBuildDate>
     
         <atom:link href="https://anthonylaiuppa.com/tags/http/index.xml" rel="self" type="application/rss+xml" />
     
@@ -23,9 +23,9 @@
       <item>
         <title>Using a Static Site Generator</title>
         <link>https://anthonylaiuppa.com/posts/use-a-ssg/</link>
-        <pubDate>Fri, 24 Apr 2020 06:40:51 +0900</pubDate>
+        <pubDate>Tue, 28 Apr 2020 06:40:51 +0900</pubDate>
         
-        <atom:modified>Fri, 24 Apr 2020 06:40:51 +0900</atom:modified>
+        <atom:modified>Tue, 28 Apr 2020 06:40:51 +0900</atom:modified>
         <guid>https://anthonylaiuppa.com/posts/use-a-ssg/</guid>
         <description>Intro This is the fourth reincarnation of my site.
 My very first site was written in AngularJS, I liked the dynamic feel and the thought of all the pages being served clientside without the need for a backend like WordPress.
