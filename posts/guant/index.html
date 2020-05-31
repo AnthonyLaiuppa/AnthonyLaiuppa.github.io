@@ -1639,14 +1639,11 @@ if (!doNotTrack) {
   <div class="expand__content expand__content--toc">
     <nav id="TableOfContents">
   <ul>
-    <li><a href="#intro">Intro</a>
-      <ul>
-        <li><a href="#considerations">Considerations</a></li>
-        <li><a href="#implementation-of-black-scholes">Implementation of Black-Scholes</a></li>
-        <li><a href="#implementation-of-newton-raphson">Implementation of Newton-Raphson</a></li>
-        <li><a href="#pulling-it-all-together">Pulling it all together</a></li>
-      </ul>
-    </li>
+    <li><a href="#intro">Intro</a></li>
+    <li><a href="#considerations">Considerations</a></li>
+    <li><a href="#implementation-of-black-scholes">Implementation of Black-Scholes</a></li>
+    <li><a href="#implementation-of-newton-raphson">Implementation of Newton-Raphson</a></li>
+    <li><a href="#pulling-it-all-together">Pulling it all together</a></li>
     <li><a href="#conclusion">Conclusion</a></li>
   </ul>
 </nav>
@@ -1659,8 +1656,8 @@ if (!doNotTrack) {
 <blockquote>
 <p>A derivative is a contract between two or more parties whose value is based on an agreed-upon underlying financial asset, index or security.</p>
 </blockquote>
-<p>Sadly I found nothing suitable or simple, so I <a href="https://github.com/AnthonyLaiuppa/guant">implemented my own called guant</a> using the Black-Scholes pricing model and Newton-Raphson model.</p>
-<h3 id="considerations">Considerations</h3>
+<p>Sadly I found nothing suitable or simple, so I implemented my own called <a href="https://github.com/AnthonyLaiuppa/guant">guant</a> using the Black-Scholes pricing model and Newton-Raphson model.</p>
+<h2 id="considerations">Considerations</h2>
 <p>Derivatives come in many forms and thus have many different associated formulas.</p>
 <p>In this case we&rsquo;ll be focusing on Options Contracts, so lets take a look at the related formulas.</p>
 <blockquote>
@@ -1675,7 +1672,7 @@ if (!doNotTrack) {
 <p>The other 3 models take into account both of those factors and more to come up with a higher degree of accuracy when pricing American options.</p>
 <p>After much reading on the topic I came across <a href="https://www.quora.com/If-Bjerksund-Stensland-and-Cox-Ross-Rubinstein-models-are-more-accurate-for-American-options-then-why-are-Black-Scholes-still-the-benchmark">this quant stack exchange article</a> explaining why Black-Scholes is still used as the benchmark, so we&rsquo;ll implement this model.</p>
 <p>Calculating implied volatility has it&rsquo;s own considerations but we&rsquo;ll address that specifically later.</p>
-<h3 id="implementation-of-black-scholes">Implementation of Black-Scholes</h3>
+<h2 id="implementation-of-black-scholes">Implementation of Black-Scholes</h2>
 <p>Between <a href="https://www.investopedia.com/terms/b/blackscholes.asp">Investopedia</a>, <a href="https://en.wikipedia.org/wiki/Black%E2%80%93Scholes_model">Wikipedia</a>, and <a href="https://www.youtube.com/watch?v=pr-u4LCFYEY">Khan Academy</a> it&rsquo;s clear what needs to be done.</p>
 <p>After watching Khan work through the formula we just need to transfer the following into code.</p>
 <p><img src="../../images/posts/guant/black-scholes.svg" alt="Picture Courtesy of Wikipedia" /></p>
@@ -1716,13 +1713,13 @@ if (!doNotTrack) {
 <span class="p">}</span>
 </code></pre></td></tr></table>
 </div>
-</div><h3 id="implementation-of-newton-raphson">Implementation of Newton-Raphson</h3>
+</div><h2 id="implementation-of-newton-raphson">Implementation of Newton-Raphson</h2>
 <p>An important part of pricing options is knowing their Sigma or Implied Volatility(IV). We can calculate IV with the current option and underlying price. This is useful as it will allow us to nice solve for the option at various underlying prices and times. IV is not a constant, it is an approximation and as such liable to change. We can compensate for this by avoiding buying options at higher implied volatilities or too close to events such as earnings.</p>
 <p><img src="../../images/posts/guant/newton.png" alt="Newton-Raphson" /></p>
 <p>With this method we choose a starting value for Sigma and iteratively calculate using the option value and underlying price until it converges. This results in a high degree of accuracy.</p>
 <p>There are more nuanced approaches we can use such as implementing a closed form solution or secant method and then iterating on that to achieve a higher degree of accuracy.</p>
 <p><a href="https://www.youtube.com/watch?v=Jpy3iCsijIU">This youtuber</a> had a pretty solid breakdown of using Newton&rsquo;s Method so in the interest of being simple but effective we&rsquo;ll implement the same way.</p>
-<h3 id="pulling-it-all-together">Pulling it all together</h3>
+<h2 id="pulling-it-all-together">Pulling it all together</h2>
 <p>By combining <code>guant</code> with the <code>go-finance</code> library we can pull options contract values and current stock quotes to calculate options value for a given strike/expiry on a ticker.</p>
 <p>We&rsquo;ll use a Microsft Call Option with a Strike of $190 and an expiry of 2020-06-05.</p>
 <div class="highlight"><div class="chroma">
@@ -2443,14 +2440,11 @@ document.addEventListener('DOMContentLoaded', function () {
   <div class="toc hide" data-dir="ltr" data-folding="true" data-ani="true">
     <nav id="TableOfContents">
   <ul>
-    <li><a href="#intro">Intro</a>
-      <ul>
-        <li><a href="#considerations">Considerations</a></li>
-        <li><a href="#implementation-of-black-scholes">Implementation of Black-Scholes</a></li>
-        <li><a href="#implementation-of-newton-raphson">Implementation of Newton-Raphson</a></li>
-        <li><a href="#pulling-it-all-together">Pulling it all together</a></li>
-      </ul>
-    </li>
+    <li><a href="#intro">Intro</a></li>
+    <li><a href="#considerations">Considerations</a></li>
+    <li><a href="#implementation-of-black-scholes">Implementation of Black-Scholes</a></li>
+    <li><a href="#implementation-of-newton-raphson">Implementation of Newton-Raphson</a></li>
+    <li><a href="#pulling-it-all-together">Pulling it all together</a></li>
     <li><a href="#conclusion">Conclusion</a></li>
   </ul>
 </nav>
