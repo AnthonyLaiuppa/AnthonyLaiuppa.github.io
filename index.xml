@@ -53,7 +53,7 @@
  Sadly I found nothing suitable or simple, so I implemented my own using the Black-Scholes pricing model and Newton-Raphson model.</description>
         
         <dc:creator>Anthony Laiuppa</dc:creator>
-        <media:content url="https://anthonylaiuppa.comimages/posts/use-a-ssg/logo.png" medium="image"><media:title type="html">featured image</media:title></media:content>
+        <media:content url="https://anthonylaiuppa.comimages/posts/guant/gopherdata.svg" medium="image"><media:title type="html">featured image</media:title></media:content>
         
         
         
