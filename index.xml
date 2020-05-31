@@ -50,7 +50,7 @@
         <guid>https://anthonylaiuppa.com/posts/guant/</guid>
         <description>Intro Wanting to streamline and automate actions relating to derivatives trading I sought out to find a calculator library I could wrap an API around to calculate various outcomes.
  A derivative is a contract between two or more parties whose value is based on an agreed-upon underlying financial asset, index or security.
- Sadly I found nothing suitable or simple, so I implemented my own using the Black-Scholes pricing model and Newton-Raphson model.</description>
+ Sadly I found nothing suitable or simple, so I implemented my own called guant using the Black-Scholes pricing model and Newton-Raphson model.</description>
         
         <dc:creator>Anthony Laiuppa</dc:creator>
         <media:content url="https://anthonylaiuppa.comimages/posts/guant/gopherdata.svg" medium="image"><media:title type="html">featured image</media:title></media:content>
