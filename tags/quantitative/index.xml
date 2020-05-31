@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" 
+  xmlns:content="http://purl.org/rss/1.0/modules/content/" 
+  xmlns:dc="http://purl.org/dc/elements/1.1/" 
+  xmlns:atom="http://www.w3.org/2005/Atom" 
+  xmlns:sy="http://purl.org/rss/1.0/modules/syndication/" 
+  xmlns:media="http://search.yahoo.com/mrss/">
+  <channel>
+    <title>quantitative on Laiuppa Blog</title>
+    <link>https://anthonylaiuppa.com/tags/quantitative/</link>
+    <description>Recent content in quantitative on Laiuppa Blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en</language>
+    <copyright>&amp;copy;{year}, All Rights Reserved</copyright>
+    <lastBuildDate>Sat, 30 May 2020 06:40:51 +0900</lastBuildDate>
+    
+        <atom:link href="https://anthonylaiuppa.com/tags/quantitative/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    
+
+      
+      <item>
+        <title>Calculating the value of derivatives using guant</title>
+        <link>https://anthonylaiuppa.com/posts/guant/</link>
+        <pubDate>Sat, 30 May 2020 06:40:51 +0900</pubDate>
+        
+        <atom:modified>Sat, 30 May 2020 06:40:51 +0900</atom:modified>
+        <guid>https://anthonylaiuppa.com/posts/guant/</guid>
+        <description>Intro Wanting to streamline and automate actions relating to derivatives trading I sought out to find a calculator library I could wrap an API around to calculate various outcomes.
+ A derivative is a contract between two or more parties whose value is based on an agreed-upon underlying financial asset, index or security.
+ Sadly I found nothing suitable or simple, so I implemented my own using the Black-Scholes pricing model and Newton-Raphson model.</description>
+        
+        <dc:creator>Anthony Laiuppa</dc:creator>
+        <media:content url="https://anthonylaiuppa.comimages/posts/use-a-ssg/logo.png" medium="image"><media:title type="html">featured image</media:title></media:content>
+        
+        
+        
+          
+            
+              <category>golang</category>
+            
+          
+            
+              <category>quantitative</category>
+            
+          
+            
+              <category>finance</category>
+            
+          
+            
+              <category>black-scholes</category>
+            
+          
+            
+              <category>stock</category>
+            
+          
+            
+              <category>options</category>
+            
+          
+        
+        
+          
+            
+              <category>web</category>
+            
+          
+        
+        
+          
+            
+          
+        
+      </item>
+      
+
+    
+  </channel>
+</rss>

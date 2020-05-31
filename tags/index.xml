@@ -12,7 +12,7 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
     <copyright>&amp;copy;{year}, All Rights Reserved</copyright>
-    <lastBuildDate>Tue, 28 Apr 2020 06:40:51 +0900</lastBuildDate>
+    <lastBuildDate>Sat, 30 May 2020 06:40:51 +0900</lastBuildDate>
     
         <atom:link href="https://anthonylaiuppa.com/tags/index.xml" rel="self" type="application/rss+xml" />
     
@@ -21,12 +21,30 @@
 
       
       <item>
-        <title>gatsbyjs</title>
-        <link>https://anthonylaiuppa.com/tags/gatsbyjs/</link>
-        <pubDate>Tue, 28 Apr 2020 06:40:51 +0900</pubDate>
+        <title>black-scholes</title>
+        <link>https://anthonylaiuppa.com/tags/black-scholes/</link>
+        <pubDate>Sat, 30 May 2020 06:40:51 +0900</pubDate>
         
         
-        <guid>https://anthonylaiuppa.com/tags/gatsbyjs/</guid>
+        <guid>https://anthonylaiuppa.com/tags/black-scholes/</guid>
+        <description></description>
+        
+        <dc:creator>Anthony Laiuppa</dc:creator>
+        
+        
+        
+        
+        
+        
+      </item>
+      
+      <item>
+        <title>finance</title>
+        <link>https://anthonylaiuppa.com/tags/finance/</link>
+        <pubDate>Sat, 30 May 2020 06:40:51 +0900</pubDate>
+        
+        
+        <guid>https://anthonylaiuppa.com/tags/finance/</guid>
         <description></description>
         
         <dc:creator>Anthony Laiuppa</dc:creator>
@@ -41,10 +59,82 @@
       <item>
         <title>golang</title>
         <link>https://anthonylaiuppa.com/tags/golang/</link>
-        <pubDate>Tue, 28 Apr 2020 06:40:51 +0900</pubDate>
+        <pubDate>Sat, 30 May 2020 06:40:51 +0900</pubDate>
         
         
         <guid>https://anthonylaiuppa.com/tags/golang/</guid>
+        <description></description>
+        
+        <dc:creator>Anthony Laiuppa</dc:creator>
+        
+        
+        
+        
+        
+        
+      </item>
+      
+      <item>
+        <title>options</title>
+        <link>https://anthonylaiuppa.com/tags/options/</link>
+        <pubDate>Sat, 30 May 2020 06:40:51 +0900</pubDate>
+        
+        
+        <guid>https://anthonylaiuppa.com/tags/options/</guid>
+        <description></description>
+        
+        <dc:creator>Anthony Laiuppa</dc:creator>
+        
+        
+        
+        
+        
+        
+      </item>
+      
+      <item>
+        <title>quantitative</title>
+        <link>https://anthonylaiuppa.com/tags/quantitative/</link>
+        <pubDate>Sat, 30 May 2020 06:40:51 +0900</pubDate>
+        
+        
+        <guid>https://anthonylaiuppa.com/tags/quantitative/</guid>
+        <description></description>
+        
+        <dc:creator>Anthony Laiuppa</dc:creator>
+        
+        
+        
+        
+        
+        
+      </item>
+      
+      <item>
+        <title>stock</title>
+        <link>https://anthonylaiuppa.com/tags/stock/</link>
+        <pubDate>Sat, 30 May 2020 06:40:51 +0900</pubDate>
+        
+        
+        <guid>https://anthonylaiuppa.com/tags/stock/</guid>
+        <description></description>
+        
+        <dc:creator>Anthony Laiuppa</dc:creator>
+        
+        
+        
+        
+        
+        
+      </item>
+      
+      <item>
+        <title>gatsbyjs</title>
+        <link>https://anthonylaiuppa.com/tags/gatsbyjs/</link>
+        <pubDate>Tue, 28 Apr 2020 06:40:51 +0900</pubDate>
+        
+        
+        <guid>https://anthonylaiuppa.com/tags/gatsbyjs/</guid>
         <description></description>
         
         <dc:creator>Anthony Laiuppa</dc:creator>
