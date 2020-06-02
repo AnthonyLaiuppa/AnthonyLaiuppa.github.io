@@ -1675,7 +1675,7 @@ if (!doNotTrack) {
 <h2 id="implementation-of-black-scholes">Implementation of Black-Scholes</h2>
 <p>Between <a href="https://www.investopedia.com/terms/b/blackscholes.asp">Investopedia</a>, <a href="https://en.wikipedia.org/wiki/Black%E2%80%93Scholes_model">Wikipedia</a>, and <a href="https://www.youtube.com/watch?v=pr-u4LCFYEY">Khan Academy</a> it&rsquo;s clear what needs to be done.</p>
 <p>After watching Khan work through the formula we just need to transfer the following into code.</p>
-<p><img src="../../images/posts/guant/black-scholes.svg" alt="Picture Courtesy of Wikipedia" /></p>
+<p><img src="../../images/posts/guant/black-scholes.png" alt="Picture Courtesy of Wikipedia" /></p>
 <p>The core of our implementation comes out to these few functions alongside some other helpers for certain values such as time.</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
@@ -1841,6 +1841,7 @@ if (!doNotTrack) {
 <p><img src="../../images/posts/guant/robinhood.png" alt="Robinhood" /></p>
 <p>We&rsquo;ll notice that our IV is incredibly close to Robinhoods IV, along with the value of the Call option.</p>
 <p>It&rsquo;s worth noting that these formulas yield approximations, the ultimate value of the contract is determined by the market. Hence the difference between the <code>Bid</code> and <code>Ask</code> prices.</p>
+<p>Of course theres always ways to improve the results, one such easy addition may be making the time <a href="https://www.macroption.com/black-scholes-time-to-expiration/">input more granular</a>.</p>
 <p>This has been a fun journey into the world of Quantitative finance and learning about some of the underlying mechanisms in derivatives.</p>
 <p><strong>Disclaimer for anyone who decides to use this, it is not guranteed at all to be reliable or accurate.</strong></p>
 
