@@ -12,13 +12,103 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
     <copyright>&amp;copy;{year}, All Rights Reserved</copyright>
-    <lastBuildDate>Sat, 30 May 2020 06:40:51 +0900</lastBuildDate>
+    <lastBuildDate>Mon, 13 Jul 2020 06:40:51 +0900</lastBuildDate>
     
         <atom:link href="https://anthonylaiuppa.com/tags/index.xml" rel="self" type="application/rss+xml" />
     
     
     
 
+      
+      <item>
+        <title>crypto</title>
+        <link>https://anthonylaiuppa.com/tags/crypto/</link>
+        <pubDate>Mon, 13 Jul 2020 06:40:51 +0900</pubDate>
+        
+        
+        <guid>https://anthonylaiuppa.com/tags/crypto/</guid>
+        <description></description>
+        
+        <dc:creator>Anthony Laiuppa</dc:creator>
+        
+        
+        
+        
+        
+        
+      </item>
+      
+      <item>
+        <title>ctf</title>
+        <link>https://anthonylaiuppa.com/tags/ctf/</link>
+        <pubDate>Mon, 13 Jul 2020 06:40:51 +0900</pubDate>
+        
+        
+        <guid>https://anthonylaiuppa.com/tags/ctf/</guid>
+        <description></description>
+        
+        <dc:creator>Anthony Laiuppa</dc:creator>
+        
+        
+        
+        
+        
+        
+      </item>
+      
+      <item>
+        <title>hacking</title>
+        <link>https://anthonylaiuppa.com/tags/hacking/</link>
+        <pubDate>Mon, 13 Jul 2020 06:40:51 +0900</pubDate>
+        
+        
+        <guid>https://anthonylaiuppa.com/tags/hacking/</guid>
+        <description></description>
+        
+        <dc:creator>Anthony Laiuppa</dc:creator>
+        
+        
+        
+        
+        
+        
+      </item>
+      
+      <item>
+        <title>infosec</title>
+        <link>https://anthonylaiuppa.com/tags/infosec/</link>
+        <pubDate>Mon, 13 Jul 2020 06:40:51 +0900</pubDate>
+        
+        
+        <guid>https://anthonylaiuppa.com/tags/infosec/</guid>
+        <description></description>
+        
+        <dc:creator>Anthony Laiuppa</dc:creator>
+        
+        
+        
+        
+        
+        
+      </item>
+      
+      <item>
+        <title>web</title>
+        <link>https://anthonylaiuppa.com/tags/web/</link>
+        <pubDate>Mon, 13 Jul 2020 06:40:51 +0900</pubDate>
+        
+        
+        <guid>https://anthonylaiuppa.com/tags/web/</guid>
+        <description></description>
+        
+        <dc:creator>Anthony Laiuppa</dc:creator>
+        
+        
+        
+        
+        
+        
+      </item>
       
       <item>
         <title>black-scholes</title>
@@ -345,60 +435,6 @@
       </item>
       
       <item>
-        <title>ctf</title>
-        <link>https://anthonylaiuppa.com/tags/ctf/</link>
-        <pubDate>Mon, 14 Jan 2019 06:40:51 +0900</pubDate>
-        
-        
-        <guid>https://anthonylaiuppa.com/tags/ctf/</guid>
-        <description></description>
-        
-        <dc:creator>Anthony Laiuppa</dc:creator>
-        
-        
-        
-        
-        
-        
-      </item>
-      
-      <item>
-        <title>hacking</title>
-        <link>https://anthonylaiuppa.com/tags/hacking/</link>
-        <pubDate>Mon, 14 Jan 2019 06:40:51 +0900</pubDate>
-        
-        
-        <guid>https://anthonylaiuppa.com/tags/hacking/</guid>
-        <description></description>
-        
-        <dc:creator>Anthony Laiuppa</dc:creator>
-        
-        
-        
-        
-        
-        
-      </item>
-      
-      <item>
-        <title>infosec</title>
-        <link>https://anthonylaiuppa.com/tags/infosec/</link>
-        <pubDate>Mon, 14 Jan 2019 06:40:51 +0900</pubDate>
-        
-        
-        <guid>https://anthonylaiuppa.com/tags/infosec/</guid>
-        <description></description>
-        
-        <dc:creator>Anthony Laiuppa</dc:creator>
-        
-        
-        
-        
-        
-        
-      </item>
-      
-      <item>
         <title>linux</title>
         <link>https://anthonylaiuppa.com/tags/linux/</link>
         <pubDate>Mon, 14 Jan 2019 06:40:51 +0900</pubDate>
@@ -531,24 +567,6 @@
         
         
         <guid>https://anthonylaiuppa.com/tags/selenium/</guid>
-        <description></description>
-        
-        <dc:creator>Anthony Laiuppa</dc:creator>
-        
-        
-        
-        
-        
-        
-      </item>
-      
-      <item>
-        <title>web</title>
-        <link>https://anthonylaiuppa.com/tags/web/</link>
-        <pubDate>Wed, 21 Nov 2018 06:40:51 +0900</pubDate>
-        
-        
-        <guid>https://anthonylaiuppa.com/tags/web/</guid>
         <description></description>
         
         <dc:creator>Anthony Laiuppa</dc:creator>
